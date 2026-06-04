@@ -1,5 +1,6 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.XR;
 
@@ -13,17 +14,33 @@ public class PlayerController : MonoBehaviour
 
     private float speed = 10f;
     private CharacterController controller;
+    
 
 
     private void Awake()
     {
         controller = GetComponent<CharacterController>();
+        OnEnable();
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         
+    }
+
+    private void OnEnable()
+    {
+        moveAction.action.Enable();
+        lightAttackAction.action.Enable();
+        heavyAttackAction.action.Enable();
+    }
+
+    private void OnDisable()
+    {
+        moveAction.action.Disable();
+        lightAttackAction.action.Disable();
+        heavyAttackAction.action.Disable();
     }
 
     // Update is called once per frame
@@ -38,8 +55,10 @@ public class PlayerController : MonoBehaviour
 
         controller.Move(movement * speed * Time.deltaTime);
 
-       // Debug.Log("vInput: " + vInput);
-       // Debug.Log("HInput: " + hInput);
+        if (movement.magnitude != 0f)
+        {
+            transform.forward = movement;
+        }
     }
 
 
