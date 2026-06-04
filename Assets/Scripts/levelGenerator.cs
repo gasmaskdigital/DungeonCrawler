@@ -17,8 +17,8 @@ public class levelGenerator : MonoBehaviour
     [SerializeField] gameController controller;
 
     [SerializeField] GameObject floor;
-    [SerializeField] Direction direction;
-    [SerializeField] Vector2Int spawnPosInGrid;
+    [SerializeField] public Direction direction;
+    [SerializeField] public Vector2Int spawnPosInGrid;
 
     [SerializeField] float RNG; // A Random Number
     [SerializeField] float spawnRate; //Chances of a new tile being made
@@ -35,7 +35,8 @@ public class levelGenerator : MonoBehaviour
         levelWidth = controller.levelWidth;
         levelHieght = controller.levelHieght;
 
-        fourRate = 0.8f;
+        spawnRate = 0.9f;
+        fourRate = 0.2f;
 
         //gameController.levelGrid.levelGrid[spawnPosInGrid.y, spawnPosInGrid.x] = gameObject.transform.parent.gameObject;
 
@@ -50,7 +51,7 @@ public class levelGenerator : MonoBehaviour
 
         if (RNG <= spawnRate && gameController.levelGrid.levelGrid[spawnPosInGrid.y, spawnPosInGrid.x] == null)
         {
-            floor = controller.fourWay[0].GameObject(); // UnityEngine.Random.Range(0, controller.fourWay.Length)
+            floor = controller.fourWay[UnityEngine.Random.Range(0, controller.fourWay.Length)].GameObject(); // 
             switch (direction)
             {
                 case Direction.NORTH:
