@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -16,16 +17,12 @@ public class levelGenerator : MonoBehaviour
 {
     [SerializeField] gameController controller;
 
-    [SerializeField] GameObject floor;
+    [SerializeField] GameObject nextLevelTile;
     [SerializeField] public Direction direction;
     [SerializeField] public Vector2Int spawnPosInGrid;
 
-    [SerializeField] float RNG; // A Random Number
-    [SerializeField] float spawnRate; //Chances of a new tile being made
-    [SerializeField] float fourRate; //1 - the Chances of the new tile being a 4-way intersection
-
     [SerializeField] int levelWidth;
-    [SerializeField] int levelHieght;
+    [SerializeField] int levelHeight;
 
     // Start is called before the first frame update
     void Start()
@@ -33,46 +30,34 @@ public class levelGenerator : MonoBehaviour
         controller = GameObject.FindGameObjectWithTag("GameController").GetComponent<gameController>();
         
         levelWidth = controller.levelWidth;
-        levelHieght = controller.levelHieght;
+        levelHeight = controller.levelHeight;
 
-        spawnRate = 0.9f;
-        fourRate = 0.2f;
-
-        //gameController.levelGrid.levelGrid[spawnPosInGrid.y, spawnPosInGrid.x] = gameObject.transform.parent.gameObject;
-
-        if (spawnPosInGrid.x >= 0 && spawnPosInGrid.x < levelWidth &&
-            spawnPosInGrid.y >= 0 && spawnPosInGrid.y < levelHieght) spawnNextTile();
+        if (spawnPosInGrid.x >= 0 && spawnPosInGrid.x < levelWidth && spawnPosInGrid.y >= 0 && spawnPosInGrid.y < levelHeight
+            && gameController.levelGrid.levelGrid[spawnPosInGrid.y, spawnPosInGrid.x] == null) spawnNextTile();
     }
 
     public void spawnNextTile()
     {
-        RNG = UnityEngine.Random.value;
-        //Debug.Log(direction + ": " + RNG);
+        GameObject[] validTiles = findValidTiles(direction, spawnPosInGrid.x, spawnPosInGrid.y);
+        //Debug.Log(validTiles.Length);
+        nextLevelTile = validTiles[UnityEngine.Random.Range(0, validTiles.Length)].GameObject();
 
-        if (RNG <= spawnRate && gameController.levelGrid.levelGrid[spawnPosInGrid.y, spawnPosInGrid.x] == null)
+        switch (direction)
         {
-            floor = controller.fourWay[UnityEngine.Random.Range(0, controller.fourWay.Length)].GameObject(); // 
-            switch (direction)
-            {
-                case Direction.NORTH:
-                    if (UnityEngine.Random.value < fourRate) floor = controller.northToSouth[UnityEngine.Random.Range(0, controller.northToSouth.Length)].GameObject();
-                    gameController.levelGrid.levelGrid[spawnPosInGrid.y, spawnPosInGrid.x] = Instantiate(floor, gameObject.transform.position + Vector3.forward * 5, Quaternion.identity, gameObject.transform);
-                    break;
-                case Direction.EAST:
-                    if (UnityEngine.Random.value < fourRate) floor = controller.eastToWest[UnityEngine.Random.Range(0, controller.eastToWest.Length)].GameObject();
-                    gameController.levelGrid.levelGrid[spawnPosInGrid.y, spawnPosInGrid.x] = Instantiate(floor, gameObject.transform.position + Vector3.right * 5, Quaternion.identity, gameObject.transform);
-                    break;
-                case Direction.SOUTH:
-                    if (UnityEngine.Random.value < fourRate) floor = controller.southToNorth[UnityEngine.Random.Range(0, controller.southToNorth.Length)].GameObject();
-                    gameController.levelGrid.levelGrid[spawnPosInGrid.y, spawnPosInGrid.x] = Instantiate(floor, gameObject.transform.position + Vector3.back * 5, Quaternion.identity, gameObject.transform);
-                    break;
-                case Direction.WEST:
-                    if (UnityEngine.Random.value < fourRate) floor = controller.westToEast[UnityEngine.Random.Range(0, controller.westToEast.Length)].GameObject();
-                    gameController.levelGrid.levelGrid[spawnPosInGrid.y, spawnPosInGrid.x] = Instantiate(floor, gameObject.transform.position + Vector3.left * 5, Quaternion.identity, gameObject.transform);
-                    break;
-            }
-            updateNextTileSpawnPos();
+            case Direction.NORTH:
+                gameController.levelGrid.levelGrid[spawnPosInGrid.y, spawnPosInGrid.x] = Instantiate(nextLevelTile, gameObject.transform.position + Vector3.forward * 5, Quaternion.identity, gameObject.transform);
+                break;
+            case Direction.EAST:
+                gameController.levelGrid.levelGrid[spawnPosInGrid.y, spawnPosInGrid.x] = Instantiate(nextLevelTile, gameObject.transform.position + Vector3.right * 5, Quaternion.identity, gameObject.transform);
+                break;
+            case Direction.SOUTH:
+                gameController.levelGrid.levelGrid[spawnPosInGrid.y, spawnPosInGrid.x] = Instantiate(nextLevelTile, gameObject.transform.position + Vector3.back * 5, Quaternion.identity, gameObject.transform);
+                break;
+            case Direction.WEST:
+                gameController.levelGrid.levelGrid[spawnPosInGrid.y, spawnPosInGrid.x] = Instantiate(nextLevelTile, gameObject.transform.position + Vector3.left * 5, Quaternion.identity, gameObject.transform);
+                break;
         }
+        updateNextTileSpawnPos();
     }
 
     public void updateNextTileSpawnPos() 
@@ -89,6 +74,69 @@ public class levelGenerator : MonoBehaviour
                 case Direction.WEST: { lG.spawnPosInGrid = spawnPosInGrid + Vector2Int.left; break; }
             }
         }
+    }
+
+    public GameObject[] findValidTiles(Direction dir, int x, int y) 
+    {
+        List<GameObject> validTiles = new();
+
+        switch (dir)
+        {
+            case Direction.NORTH:
+                validTiles.AddRange(controller.southEntrance);
+                break;
+            case Direction.EAST:
+                validTiles.AddRange(controller.westEntrance);
+                break;
+            case Direction.SOUTH:
+                validTiles.AddRange(controller.northEntrance);
+                break;
+            case Direction.WEST:
+                validTiles.AddRange(controller.eastEntrance); 
+                break;
+        }
+
+        GameObject[] entrances = new GameObject[validTiles.Count()];
+        validTiles.CopyTo(entrances);
+
+        if (x == 0) 
+        {
+            validTiles = Intersection(validTiles.ToArray(), controller.westBlocked);        
+        }
+        else if (x == levelWidth - 1)
+        {
+            validTiles = Intersection(validTiles.ToArray(), controller.eastBlocked);        
+        }
+
+        if (y == 0)
+        {
+            validTiles = Intersection(validTiles.ToArray(), controller.southBlocked);
+        }
+        else if (y == levelHeight - 1)
+        {
+            validTiles = Intersection(validTiles.ToArray(), controller.northBlocked);        
+        }
+
+        return validTiles.ToArray();
+    }
+
+    public List<GameObject> Intersection(UnityEngine.Object[] A, UnityEngine.Object[] B) 
+    {
+        List<GameObject> output = new();
+
+        foreach (GameObject a in A) 
+        {
+            foreach (GameObject b in B) 
+            {
+                if (a.name == b.name && !output.Contains(a))
+                {
+                    output.Add(a);
+                    break;
+                }
+            }
+        }
+
+        return output;
     }
 
     // Update is called once per frame

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class gameController : MonoBehaviour
@@ -8,26 +9,33 @@ public class gameController : MonoBehaviour
     [SerializeField] GameObject startingMapTile;
     [SerializeField] GameObject levelGenerator;
 
-    public Object[] fourWay;
-    public Object[] eastToWest;
-    public Object[] westToEast;
-    public Object[] northToSouth;
-    public Object[] southToNorth;
+    public Object[] eastEntrance;
+    public Object[] westEntrance;
+    public Object[] northEntrance;
+    public Object[] southEntrance;
+    public Object[] eastBlocked;
+    public Object[] westBlocked;
+    public Object[] northBlocked;
+    public Object[] southBlocked;
 
     public int levelWidth;
-    public int levelHieght;
+    public int levelHeight;
 
     // Start is called before the first frame update
     void Start()
     {
-        fourWay = Resources.LoadAll("4-Way");
-        eastToWest = Resources.LoadAll("EastToWest");
-        westToEast = Resources.LoadAll("WestToEast");
-        northToSouth = Resources.LoadAll("NorthToSouth");
-        southToNorth = Resources.LoadAll("SouthToNorth");
+        eastEntrance = Resources.LoadAll("EastEntrance");
+        westEntrance = Resources.LoadAll("WestEntrance");
+        northEntrance = Resources.LoadAll("NorthEntrance");
+        southEntrance = Resources.LoadAll("SouthEntrance");
 
-        levelGrid.levelGrid = new GameObject[levelHieght, levelWidth];
-        Vector2Int centre = new Vector2Int(Mathf.CeilToInt(levelWidth / 2f) - 1, Mathf.CeilToInt(levelHieght / 2f) - 1);
+        eastBlocked = Resources.LoadAll("EastBlocked");
+        westBlocked = Resources.LoadAll("WestBlocked");
+        northBlocked = Resources.LoadAll("NorthBlocked");
+        southBlocked = Resources.LoadAll("SouthBlocked");
+
+        levelGrid.levelGrid = new GameObject[levelHeight, levelWidth];
+        Vector2Int centre = new Vector2Int(Mathf.CeilToInt(levelWidth / 2f) - 1, Mathf.CeilToInt(levelHeight / 2f) - 1);
         levelGrid.levelGrid[centre.y, centre.x] = Instantiate(startingMapTile,levelGenerator.transform);
 
         levelGenerator[] children = levelGrid.levelGrid[centre.y, centre.x].GetComponentsInChildren<levelGenerator>();
@@ -51,7 +59,7 @@ public class gameController : MonoBehaviour
         {
             for (int i = 0; i < levelWidth; i++) 
             {
-                for (int j = 0; j < levelHieght; j++)
+                for (int j = 0; j < levelHeight; j++)
                 {
                     if (levelGrid.levelGrid[j, i] != null) Debug.Log("( " + i + ", " + j + "):" + levelGrid.levelGrid[j, i].name);
                     else Debug.Log("(" + i + ", " + j + " ):" + "Empty");
