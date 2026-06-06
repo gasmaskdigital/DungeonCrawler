@@ -97,16 +97,12 @@ public class PlayerController : MonoBehaviour
 
         cameraPivotPoint.Rotate(Vector3.up * mouseX);
 
-
         if (movement.magnitude > 0.1f)
         {
-            Quaternion targetRotation = Quaternion.LookRotation(movement);
-            transform.rotation = Quaternion.Slerp(
-    transform.rotation,
-    targetRotation,
-    10f * Time.deltaTime
-);
+            playerVisual.forward = cameraForward;
         }
+        
+        
     }
 
     private void FixedUpdate()
