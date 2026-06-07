@@ -270,8 +270,8 @@ MonoBehaviour:
       Radius: 2
       Height: 5
     Center:
-      Radius: 4
-      Height: 2.25
+      Radius: 6
+      Height: 4
     Bottom:
       Radius: 2.5
       Height: 0.1
@@ -358,8 +358,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 232969741}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.25340134, y: 0.00000005682715, z: -0.000000014885935, w: 0.9673613}
-  m_LocalPosition: {x: 0, y: 2.25, z: -4}
+  m_LocalRotation: {x: 0.28978416, y: 0.000000040338392, z: -0.000000012213483, w: 0.95709205}
+  m_LocalPosition: {x: 0, y: 4, z: -6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -495,6 +495,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1087447258442381983, guid: 35a62140321f4064da5d2693afb1944e, type: 3}
+      propertyPath: playerAnimator
+      value: 
+      objectReference: {fileID: 1861754039}
+    - target: {fileID: 1087447258442381983, guid: 35a62140321f4064da5d2693afb1944e, type: 3}
       propertyPath: cameraTransform
       value: 
       objectReference: {fileID: 232969747}
@@ -544,6 +548,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4051598479090421858, guid: 35a62140321f4064da5d2693afb1944e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6795608382444680056, guid: 35a62140321f4064da5d2693afb1944e, type: 3}
+      propertyPath: m_ApplyRootMotion
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -715,13 +723,18 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1819647423}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.25340134, y: 0.00000005682715, z: -0.000000014885935, w: 0.9673613}
-  m_LocalPosition: {x: 0, y: 2.25, z: -4}
+  m_LocalRotation: {x: 0.2897842, y: 0.000000040338392, z: -0.0000000122134844, w: 0.95709205}
+  m_LocalPosition: {x: 0, y: 4, z: -6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1861754039 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 6795608382444680056, guid: 35a62140321f4064da5d2693afb1944e, type: 3}
+  m_PrefabInstance: {fileID: 1742379195}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1976485252
 GameObject:
   m_ObjectHideFlags: 0

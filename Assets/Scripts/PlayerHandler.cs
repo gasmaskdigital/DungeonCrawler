@@ -14,7 +14,8 @@ public class PlayerHandler : MonoBehaviour
 
     [Header("Movement Settings")]
     private float walkSpeed = 6f;
-    private float turningSpeed = 5f;
+    private float currentSpeed;
+    private float turningSpeed = 100f;
     private float gravityForce = 9.8f;
 
     private float verticalVelocity;
@@ -30,6 +31,8 @@ public class PlayerHandler : MonoBehaviour
     {
         InputMagangement();
         Movement();
+
+        playerAnimator.SetFloat("Speed", currentSpeed, 0, Time.deltaTime);
     }
 
     private void InputMagangement()
@@ -48,6 +51,8 @@ public class PlayerHandler : MonoBehaviour
         move *= walkSpeed;
 
         controller.Move(move * Time.deltaTime);
+
+        currentSpeed = controller.velocity.magnitude;
     }
 
     private void Movement()
