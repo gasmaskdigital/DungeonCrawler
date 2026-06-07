@@ -33,6 +33,18 @@ public class PlayerHandler : MonoBehaviour
         Movement();
 
         playerAnimator.SetFloat("Speed", currentSpeed, 0, Time.deltaTime);
+
+        // Light Attack
+        if (Input.GetMouseButtonDown(0))
+        {
+            playerAnimator.SetTrigger("Light Attack");
+        }
+
+        // Heavy Attack
+        if (Input.GetMouseButtonDown(1))
+        {
+            playerAnimator.SetTrigger("Heavy Attack");
+        }
     }
 
     private void InputMagangement()
