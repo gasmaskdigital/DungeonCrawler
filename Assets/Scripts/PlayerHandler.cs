@@ -22,7 +22,7 @@ public class PlayerHandler : MonoBehaviour
     private float verticalVelocity;
 
     [Header("Attack Parameters")]    
-    private float lightAttackRadius = 0.5f;
+    private float lightAttackRadius = 1f;
     private float heavyAttackRadius = 2f;
     private float maxDistance = 1f;
     public LayerMask enemyMask;
@@ -86,7 +86,7 @@ public class PlayerHandler : MonoBehaviour
     {
         if(Mathf.Abs(turnInput) > 0 || Mathf.Abs(moveInput) > 0)
         {
-            Vector3 currentLookDirection = controller.velocity.normalized; ;
+            Vector3 currentLookDirection = controller.velocity.normalized; 
             currentLookDirection.y = 0;
 
             currentLookDirection.Normalize();
