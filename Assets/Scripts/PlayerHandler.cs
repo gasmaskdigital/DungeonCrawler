@@ -1,5 +1,7 @@
 using Unity.Mathematics;
+using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEngine.UI.Image;
 
 public class PlayerHandler : MonoBehaviour
 {
@@ -17,8 +19,15 @@ public class PlayerHandler : MonoBehaviour
     private float currentSpeed;
     private float turningSpeed = 100f;
     private float gravityForce = 9.8f;
-
     private float verticalVelocity;
+
+    [Header("Attack Parameters")]    
+    private float lightAttackRadius = 0.5f;
+    private float heavyAttackRadius = 2f;
+    private float maxDistance = 1f;
+    public LayerMask enemyMask;
+    
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -100,5 +109,27 @@ public class PlayerHandler : MonoBehaviour
         }
         return verticalVelocity;
     }
+
+    public void HeavyAttack()
+    {
+        Debug.Log("heavy attack");
+    }
+
+    public void LightAttack()
+    {
+        Debug.Log("Light Attack");
+
+        Vector3 origin = transform.position + Vector3.up * 1.5f;
+        Vector3 direction = transform.forward;
+        RaycastHit hit;
+
+       if(Physics.SphereCast(origin, lightAttackRadius, direction, out hit, maxDistance, enemyMask))
+        {
+            Debug.Log(hit.collider.name);
+            Destroy(hit.collider.gameObject);
+        }
+    }
+
+    
 
 }
