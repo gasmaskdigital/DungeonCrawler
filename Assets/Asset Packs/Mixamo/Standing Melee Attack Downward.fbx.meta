@@ -55,10 +55,24 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
+      - time: 0.0177085
+        functionName: CanMoveToggle
+        data: 
+        objectReferenceParameter: {fileID: 1389836861790355665, guid: 35a62140321f4064da5d2693afb1944e, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       - time: 0.3044412
         functionName: LightAttack
         data: 
         objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.9832206
+        functionName: CanMoveToggle
+        data: 
+        objectReferenceParameter: {fileID: 1389836861790355665, guid: 35a62140321f4064da5d2693afb1944e, type: 3}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0

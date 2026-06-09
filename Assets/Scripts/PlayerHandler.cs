@@ -20,6 +20,7 @@ public class PlayerHandler : MonoBehaviour
     private float turningSpeed = 100f;
     private float gravityForce = 9.8f;
     private float verticalVelocity;
+    private bool canMove = true;
 
     [Header("Attack Parameters")]    
     private float lightAttackRadius = 1f;
@@ -78,8 +79,12 @@ public class PlayerHandler : MonoBehaviour
 
     private void Movement()
     {
-        GroundMovement();
-        Turn();
+        if (canMove)
+        {
+            GroundMovement();
+            Turn();
+        }
+       
     }
 
     private void Turn()
@@ -88,6 +93,8 @@ public class PlayerHandler : MonoBehaviour
         {
             Vector3 currentLookDirection = controller.velocity.normalized; 
             currentLookDirection.y = 0;
+
+            if (currentLookDirection.sqrMagnitude < 0.001f) return;
 
             currentLookDirection.Normalize();
 
@@ -130,6 +137,17 @@ public class PlayerHandler : MonoBehaviour
         }
     }
 
+    public void CanMoveToggle()
+    {
+        if (canMove)
+        {
+            canMove = false;
+        }
+        else
+        {
+            canMove = true;
+        }
+    }
     
 
 }

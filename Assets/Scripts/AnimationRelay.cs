@@ -19,4 +19,9 @@ public class AnimationRelay : MonoBehaviour
     {
         playerHandler.LightAttack();
     } 
+
+    public void CanMoveToggle()
+    {
+        playerHandler.CanMoveToggle();
+    }
 }
