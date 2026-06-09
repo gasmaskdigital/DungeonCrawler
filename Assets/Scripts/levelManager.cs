@@ -3,11 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class gameController : MonoBehaviour
+public struct LevelMap
 {
-    public static LevelGrid levelGrid;
+    public GameObject[,] tileGrid;
+}
+
+public class levelManager: MonoBehaviour
+{
+    public static LevelMap levelMap;
     [SerializeField] GameObject startingMapTile;
-    [SerializeField] GameObject levelGenerator;
+    [SerializeField] GameObject tileGenerator;
 
     public Object[] eastEntrance;
     public Object[] westEntrance;
@@ -34,13 +39,13 @@ public class gameController : MonoBehaviour
         northBlocked = Resources.LoadAll("NorthBlocked");
         southBlocked = Resources.LoadAll("SouthBlocked");
 
-        levelGrid.levelGrid = new GameObject[levelHeight, levelWidth];
+        levelMap.tileGrid = new GameObject[levelHeight, levelWidth];
         Vector2Int centre = new Vector2Int(Mathf.CeilToInt(levelWidth / 2f) - 1, Mathf.CeilToInt(levelHeight / 2f) - 1);
-        levelGrid.levelGrid[centre.y, centre.x] = Instantiate(startingMapTile,levelGenerator.transform);
+        levelMap.tileGrid[centre.y, centre.x] = Instantiate(startingMapTile,tileGenerator.transform);
 
-        levelGenerator[] children = levelGrid.levelGrid[centre.y, centre.x].GetComponentsInChildren<levelGenerator>();
+        tileGenerator[] children = levelMap.tileGrid[centre.y, centre.x].GetComponentsInChildren<tileGenerator>();
 
-        foreach (levelGenerator lG in children)
+        foreach (tileGenerator lG in children)
         {
             switch (lG.direction)
             {
@@ -61,7 +66,7 @@ public class gameController : MonoBehaviour
             {
                 for (int j = 0; j < levelHeight; j++)
                 {
-                    if (levelGrid.levelGrid[j, i] != null) Debug.Log("( " + i + ", " + j + "):" + levelGrid.levelGrid[j, i].name);
+                    if (levelMap.tileGrid[j, i] != null) Debug.Log("( " + i + ", " + j + "):" + levelMap.tileGrid[j, i].name);
                     else Debug.Log("(" + i + ", " + j + " ):" + "Empty");
                 }
             }
