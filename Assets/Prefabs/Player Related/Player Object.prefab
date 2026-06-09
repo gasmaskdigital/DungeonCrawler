@@ -404,7 +404,7 @@ CharacterController:
   m_Radius: 0.5
   m_SlopeLimit: 45
   m_StepOffset: 0.3
-  m_SkinWidth: 0.08
+  m_SkinWidth: 0.02
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 1, z: 0}
 --- !u!114 &1087447258442381983
@@ -423,7 +423,7 @@ MonoBehaviour:
   playerAnimator: {fileID: 6795608382444680056}
   enemyMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
 --- !u!1 &1436226438089443718
 GameObject:
   m_ObjectHideFlags: 0

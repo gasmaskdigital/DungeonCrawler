@@ -24,7 +24,7 @@ public class PlayerHandler : MonoBehaviour
 
     [Header("Attack Parameters")]    
     private float lightAttackRadius = 1f;
-    private float heavyAttackRadius = 2f;
+    private float heavyAttackRadius = 2.5f;
     private float maxDistance = 1f;
     public LayerMask enemyMask;
     
@@ -120,21 +120,32 @@ public class PlayerHandler : MonoBehaviour
     public void HeavyAttack()
     {
         Debug.Log("heavy attack");
+
+        Collider[] colliders = Physics.OverlapSphere(transform.position, heavyAttackRadius, enemyMask);
+        foreach(Collider c in colliders)
+        {
+            if (c.gameObject.CompareTag("Enemy"))
+            {
+                Destroy(c.gameObject);
+            }
+        }
     }
 
     public void LightAttack()
     {
         Debug.Log("Light Attack");
 
-        Vector3 origin = transform.position + Vector3.up * 1.5f;
-        Vector3 direction = transform.forward;
-        RaycastHit hit;
+        Vector3 origin = transform.position + Vector3.up * 1.5f + transform.forward * 1.25f; ;
 
-       if(Physics.SphereCast(origin, lightAttackRadius, direction, out hit, maxDistance, enemyMask))
+        Collider[] colliders = Physics.OverlapSphere(origin, lightAttackRadius, enemyMask);
+        foreach (Collider c in colliders)
         {
-            Debug.Log(hit.collider.name);
-            Destroy(hit.collider.gameObject);
+            if (c.gameObject.CompareTag("Enemy"))
+            {
+                Destroy(c.gameObject);
+            }
         }
+
     }
 
     public void CanMoveToggle()
@@ -148,6 +159,10 @@ public class PlayerHandler : MonoBehaviour
             canMove = true;
         }
     }
-    
 
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position + Vector3.up * 1.5f, heavyAttackRadius);
+    }
 }
