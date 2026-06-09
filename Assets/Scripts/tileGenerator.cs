@@ -18,6 +18,15 @@ public class tileGenerator : MonoBehaviour
     [SerializeField] int levelWidth;
     [SerializeField] int levelHeight;
 
+    [SerializeField] public bool hasSpawned;
+
+
+    private void Awake()
+    {
+        hasSpawned = false;
+        levelManager.tileGenerators.Add(this);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,7 +36,23 @@ public class tileGenerator : MonoBehaviour
         levelHeight = controller.levelHeight;
 
         if (spawnPosInGrid.x >= 0 && spawnPosInGrid.x < levelWidth && spawnPosInGrid.y >= 0 && spawnPosInGrid.y < levelHeight
-            && levelManager.levelMap.tileGrid[spawnPosInGrid.y, spawnPosInGrid.x] == null) spawnNextTile();
+            && levelManager.levelMap.tileGrid[spawnPosInGrid.y, spawnPosInGrid.x].tile == null) spawnNextTile();
+
+        hasSpawned = true;
+
+        bool levelGenComplete = true;
+        foreach (tileGenerator tg in levelManager.tileGenerators)
+        {
+            //Debug.Log(levelManager.tileGenerators.Count());
+            if (!tg.hasSpawned)
+            {
+                levelGenComplete = false;
+                break;
+            }
+        }
+        //Debug.Log(levelGenComplete);
+        if (levelGenComplete) StartCoroutine(controller.GetComponent<levelManager>().spawnStaircase());
+
     }
 
     public void spawnNextTile()
@@ -39,24 +64,34 @@ public class tileGenerator : MonoBehaviour
         switch (direction)
         {
             case Direction.NORTH:
-                levelManager.levelMap.tileGrid[spawnPosInGrid.y, spawnPosInGrid.x] = Instantiate(nextLevelTile, gameObject.transform.position + Vector3.forward * 5, Quaternion.identity, gameObject.transform);
+                controller.assignTileToLevelGrid(
+                    Instantiate(nextLevelTile, gameObject.transform.position + Vector3.forward * 5, Quaternion.identity, gameObject.transform),
+                        spawnPosInGrid.x, spawnPosInGrid.y);
                 break;
             case Direction.EAST:
-                levelManager.levelMap.tileGrid[spawnPosInGrid.y, spawnPosInGrid.x] = Instantiate(nextLevelTile, gameObject.transform.position + Vector3.right * 5, Quaternion.identity, gameObject.transform);
+                controller.assignTileToLevelGrid(
+                    Instantiate(nextLevelTile, gameObject.transform.position + Vector3.right * 5, Quaternion.identity, gameObject.transform),
+                        spawnPosInGrid.x, spawnPosInGrid.y);
                 break;
             case Direction.SOUTH:
-                levelManager.levelMap.tileGrid[spawnPosInGrid.y, spawnPosInGrid.x] = Instantiate(nextLevelTile, gameObject.transform.position + Vector3.back * 5, Quaternion.identity, gameObject.transform);
+                controller.assignTileToLevelGrid(
+                    Instantiate(nextLevelTile, gameObject.transform.position + Vector3.back * 5, Quaternion.identity, gameObject.transform),
+                        spawnPosInGrid.x, spawnPosInGrid.y);
                 break;
             case Direction.WEST:
-                levelManager.levelMap.tileGrid[spawnPosInGrid.y, spawnPosInGrid.x] = Instantiate(nextLevelTile, gameObject.transform.position + Vector3.left * 5, Quaternion.identity, gameObject.transform);
+                controller.assignTileToLevelGrid(
+                    Instantiate(nextLevelTile, gameObject.transform.position + Vector3.left * 5, Quaternion.identity, gameObject.transform),
+                        spawnPosInGrid.x, spawnPosInGrid.y);
                 break;
         }
         updateNextTileSpawnPos();
+
+        
     }
 
     public void updateNextTileSpawnPos() 
     {
-        tileGenerator[] children = levelManager.levelMap.tileGrid[spawnPosInGrid.y, spawnPosInGrid.x].GetComponentsInChildren<tileGenerator>();
+        tileGenerator[] children = levelManager.levelMap.tileGrid[spawnPosInGrid.y, spawnPosInGrid.x].tile.GetComponentsInChildren<tileGenerator>();
 
         foreach (tileGenerator lG in children) 
         {
@@ -89,9 +124,6 @@ public class tileGenerator : MonoBehaviour
                 validTiles.AddRange(controller.eastEntrance); 
                 break;
         }
-
-        GameObject[] entrances = new GameObject[validTiles.Count()];
-        validTiles.CopyTo(entrances);
 
         if (x == 0) 
         {

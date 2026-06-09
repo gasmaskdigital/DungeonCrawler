@@ -2,18 +2,35 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public struct levelTile 
+{
+    public GameObject tile;
+    public int xPos;
+    public int yPos;
+}
 
 public struct LevelMap
 {
-    public GameObject[,] tileGrid;
+    public levelTile[,] tileGrid;
+    public levelTile staircaseTile;
 }
 
 public class levelManager: MonoBehaviour
 {
     public static LevelMap levelMap;
     [SerializeField] GameObject startingMapTile;
-    [SerializeField] GameObject tileGenerator;
+    [SerializeField] GameObject startingTileGenerator;
+    [SerializeField] public static List<tileGenerator> tileGenerators;
+    [SerializeField] GameObject staircase;
 
+    [Header("Parameters")]
+    public int levelWidth;
+    public int levelHeight;
+    [SerializeField] public static int currentLevel;
+
+    [Header("Tiles")]
     public Object[] eastEntrance;
     public Object[] westEntrance;
     public Object[] northEntrance;
@@ -23,12 +40,13 @@ public class levelManager: MonoBehaviour
     public Object[] northBlocked;
     public Object[] southBlocked;
 
-    public int levelWidth;
-    public int levelHeight;
+    
 
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log(currentLevel);
+
         eastEntrance = Resources.LoadAll("EastEntrance");
         westEntrance = Resources.LoadAll("WestEntrance");
         northEntrance = Resources.LoadAll("NorthEntrance");
@@ -39,11 +57,13 @@ public class levelManager: MonoBehaviour
         northBlocked = Resources.LoadAll("NorthBlocked");
         southBlocked = Resources.LoadAll("SouthBlocked");
 
-        levelMap.tileGrid = new GameObject[levelHeight, levelWidth];
+        tileGenerators = new();
+        levelMap.tileGrid = new levelTile[levelHeight, levelWidth];
         Vector2Int centre = new Vector2Int(Mathf.CeilToInt(levelWidth / 2f) - 1, Mathf.CeilToInt(levelHeight / 2f) - 1);
-        levelMap.tileGrid[centre.y, centre.x] = Instantiate(startingMapTile,tileGenerator.transform);
 
-        tileGenerator[] children = levelMap.tileGrid[centre.y, centre.x].GetComponentsInChildren<tileGenerator>();
+        assignTileToLevelGrid(Instantiate(startingMapTile, startingTileGenerator.transform), centre.x, centre.y);
+        
+        tileGenerator[] children = levelMap.tileGrid[centre.y, centre.x].tile.GetComponentsInChildren<tileGenerator>();
 
         foreach (tileGenerator lG in children)
         {
@@ -55,7 +75,10 @@ public class levelManager: MonoBehaviour
                 case Direction.WEST: { lG.spawnPosInGrid = centre + Vector2Int.left; break; }
             }
         }
+
+        //StartCoroutine(spawnStaircase());
     }
+
 
     // Update is called once per frame
     void Update()
@@ -66,10 +89,44 @@ public class levelManager: MonoBehaviour
             {
                 for (int j = 0; j < levelHeight; j++)
                 {
-                    if (levelMap.tileGrid[j, i] != null) Debug.Log("( " + i + ", " + j + "):" + levelMap.tileGrid[j, i].name);
+                    if (levelMap.tileGrid[j, i].tile != null) Debug.Log("( " + i + ", " + j + "):" + levelMap.tileGrid[j, i].tile.name);
                     else Debug.Log("(" + i + ", " + j + " ):" + "Empty");
                 }
             }
         }
+    }
+
+    public IEnumerator spawnStaircase() 
+    {
+        //Debug.Log("Finding Staircase posistion...");
+        yield return new WaitForEndOfFrame();
+        levelMap.staircaseTile = findRandomValidTile();
+        Instantiate(staircase, levelMap.staircaseTile.tile.transform);
+        yield return null;
+    }
+
+    public void assignTileToLevelGrid(GameObject tile, int x, int y) 
+    {
+        levelMap.tileGrid[y, x].tile = tile;
+        levelMap.tileGrid[y, x].xPos = x;
+        levelMap.tileGrid[y, x].yPos = y;
+    }
+
+    public levelTile findRandomValidTile() 
+    {
+        List<levelTile> tiles = new List<levelTile>();
+        foreach (levelTile tile in levelMap.tileGrid) 
+        {
+            if (tile.tile != null) tiles.Add(tile);
+        }
+
+        return tiles[Random.Range(0, tiles.Count)];
+    }
+
+    public static void increaseLevel() 
+    {
+        currentLevel++;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        //Debug.Log(currentLevel);
     }
 }

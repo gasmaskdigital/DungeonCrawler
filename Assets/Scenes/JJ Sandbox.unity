@@ -568,7 +568,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingMapTile: {fileID: 7751338541504152008, guid: d47e921837196bd4c8389cb085aded65, type: 3}
-  levelGenerator: {fileID: 636942354}
+  startingTileGenerator: {fileID: 636942354}
+  staircase: {fileID: 1075293540915351914, guid: c3bd5e7dd11540a4a91cbfdf06292140, type: 3}
+  levelWidth: 15
+  levelHeight: 15
   eastEntrance: []
   westEntrance: []
   northEntrance: []
@@ -577,8 +580,6 @@ MonoBehaviour:
   westBlocked: []
   northBlocked: []
   southBlocked: []
-  levelWidth: 15
-  levelHeight: 15
 --- !u!4 &136469602
 Transform:
   m_ObjectHideFlags: 0
@@ -1468,7 +1469,7 @@ GameObject:
   m_Component:
   - component: {fileID: 636942355}
   m_Layer: 0
-  m_Name: levelGenerator
+  m_Name: mapLayout
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
