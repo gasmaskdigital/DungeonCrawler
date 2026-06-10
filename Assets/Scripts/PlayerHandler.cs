@@ -31,6 +31,7 @@ public class PlayerHandler : MonoBehaviour
     private float maxDistance = 1f;
     public LayerMask enemyMask;
     public bool canBeDamaged = true;
+    public bool canAttack = true;
     
 
 
@@ -172,33 +173,38 @@ public class PlayerHandler : MonoBehaviour
 
     public void HeavyAttack()
     {
-        Debug.Log("heavy attack");
-
-        Collider[] colliders = Physics.OverlapSphere(transform.position, heavyAttackRadius, enemyMask);
-        foreach(Collider c in colliders)
+        if (canAttack)
         {
-            if (c.gameObject.CompareTag("Enemy"))
+            Debug.Log("heavy attack");
+
+            Collider[] colliders = Physics.OverlapSphere(transform.position, heavyAttackRadius, enemyMask);
+            foreach (Collider c in colliders)
             {
-                Destroy(c.gameObject);
+                if (c.gameObject.CompareTag("Enemy"))
+                {
+                    Destroy(c.gameObject);
+                }
             }
         }
     }
 
     public void LightAttack()
     {
-        Debug.Log("Light Attack");
-
-        Vector3 origin = transform.position + Vector3.up * 1.5f + transform.forward * 1.25f; ;
-
-        Collider[] colliders = Physics.OverlapSphere(origin, lightAttackRadius, enemyMask);
-        foreach (Collider c in colliders)
+        if (canAttack)
         {
-            if (c.gameObject.CompareTag("Enemy"))
+            Debug.Log("Light Attack");
+
+            Vector3 origin = transform.position + Vector3.up * 1.5f + transform.forward * 1.25f; ;
+
+            Collider[] colliders = Physics.OverlapSphere(origin, lightAttackRadius, enemyMask);
+            foreach (Collider c in colliders)
             {
-                Destroy(c.gameObject);
+                if (c.gameObject.CompareTag("Enemy"))
+                {
+                    Destroy(c.gameObject);
+                }
             }
         }
-
     }
 
     public void CanMoveToggle()
@@ -206,10 +212,12 @@ public class PlayerHandler : MonoBehaviour
         if (canMove)
         {
             canMove = false;
+            
         }
         else
         {
             canMove = true;
+            
         }
     }
 
@@ -241,10 +249,12 @@ public class PlayerHandler : MonoBehaviour
         if (canBeDamaged)
         {
             canBeDamaged = false;
+            canAttack = false;
         }
         else
         {
             canBeDamaged = true;
+            canAttack = true;
         }
     }
 }
