@@ -53,7 +53,7 @@ public class tileGenerator : MonoBehaviour
             }
         }
         //Debug.Log(levelGenComplete);
-        if (levelGenComplete) StartCoroutine(controller.GetComponent<levelManager>().spawnStaircase());
+        if (levelGenComplete) controller.GetComponent<levelManager>().finaliseLevelGeneration();
 
     }
 

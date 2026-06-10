@@ -14,7 +14,9 @@ public struct levelTile
 public struct LevelMap
 {
     public levelTile[,] tileGrid;
+    public int tileCount;
     public levelTile staircaseTile;
+    public List<levelTile> enemySpawnerTiles;
 }
 
 public class levelManager: MonoBehaviour
@@ -24,11 +26,13 @@ public class levelManager: MonoBehaviour
     [SerializeField] GameObject startingTileGenerator;
     [SerializeField] public static List<tileGenerator> tileGenerators;
     [SerializeField] GameObject staircase;
+    [SerializeField] GameObject enemySpawner;
 
     [Header("Parameters")]
     public int levelWidth;
     public int levelHeight;
     public float gridSize;
+    [SerializeField] float spawnerPercentage;
     [SerializeField] public static int currentLevel;
 
     [Header("Tiles")]
@@ -60,6 +64,7 @@ public class levelManager: MonoBehaviour
 
         tileGenerators = new();
         levelMap.tileGrid = new levelTile[levelHeight, levelWidth];
+        levelMap.enemySpawnerTiles = new();
         Vector2Int centre = new Vector2Int(Mathf.CeilToInt(levelWidth / 2f) - 1, Mathf.CeilToInt(levelHeight / 2f) - 1);
 
         assignTileToLevelGrid(Instantiate(startingMapTile, startingTileGenerator.transform), centre.x, centre.y);
@@ -77,7 +82,6 @@ public class levelManager: MonoBehaviour
             }
         }
 
-        //StartCoroutine(spawnStaircase());
     }
 
 
@@ -97,13 +101,41 @@ public class levelManager: MonoBehaviour
         }
     }
 
-    public IEnumerator spawnStaircase() 
+    public void finaliseLevelGeneration() 
+    {
+        countValidTiles();
+        spawnStaircase();
+        int enemySpawnerCount = Mathf.FloorToInt(levelMap.tileCount * spawnerPercentage);
+        for( int i = 0; i < enemySpawnerCount; i++) createEnemySpawner();
+    }
+
+    public void spawnStaircase() 
     {
         //Debug.Log("Finding Staircase posistion...");
-        yield return new WaitForEndOfFrame();
         levelMap.staircaseTile = findRandomValidTile();
         Instantiate(staircase, levelMap.staircaseTile.tile.transform);
-        yield return null;
+    }
+
+    public void createEnemySpawner()
+    {
+        List<levelTile> validTiles = new();
+
+        foreach (levelTile tile in findValidTiles()) if(!levelMap.enemySpawnerTiles.Contains(tile) && tile.tile != levelMap.staircaseTile.tile) validTiles.Add(tile);
+
+        if(validTiles.Count>0) Instantiate(enemySpawner, validTiles[Random.Range(0,validTiles.Count())].tile.transform);
+
+        /*levelTile testTile = findRandomValidTile();
+        if(testTile.tile == levelMap.staircaseTile.tile && !levelMap.enemySpawnerTiles.Contains(testTile)) 
+        {
+            levelMap.enemySpawnerTiles.Add(testTile);
+            Instantiate(enemySpawner, testTile.tile.transform);
+        }
+        else if (levelMap.enemySpawnerTiles.Count < levelMap.tileCount - 1) createEnemySpawner();*/
+    }
+
+    public void countValidTiles() 
+    {
+        levelMap.tileCount = findValidTiles().Count();
     }
 
     public void assignTileToLevelGrid(GameObject tile, int x, int y) 
@@ -115,13 +147,18 @@ public class levelManager: MonoBehaviour
 
     public levelTile findRandomValidTile() 
     {
-        List<levelTile> tiles = new List<levelTile>();
-        foreach (levelTile tile in levelMap.tileGrid) 
-        {
-            if (tile.tile != null) tiles.Add(tile);
-        }
+        List<levelTile> validTiles = findValidTiles();
+        return validTiles[Random.Range(0, validTiles.Count)];
+    }
 
-        return tiles[Random.Range(0, tiles.Count)];
+    public List<levelTile> findValidTiles()
+    {
+        List<levelTile> validTiles = new List<levelTile>();
+        foreach (levelTile tile in levelMap.tileGrid)
+        {
+            if (tile.tile != null) validTiles.Add(tile);
+        }
+        return validTiles;
     }
 
     public static void increaseLevel() 

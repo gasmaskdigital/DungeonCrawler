@@ -151,9 +151,11 @@ MonoBehaviour:
   startingMapTile: {fileID: 7751338541504152008, guid: d47e921837196bd4c8389cb085aded65, type: 3}
   startingTileGenerator: {fileID: 636942354}
   staircase: {fileID: 1075293540915351914, guid: c3bd5e7dd11540a4a91cbfdf06292140, type: 3}
+  enemySpawner: {fileID: 1237843681088241054, guid: 1ef20a163b000e74fba1cae4ffccc57d, type: 3}
   levelWidth: 15
   levelHeight: 15
   gridSize: 7.5
+  spawnerPercentage: 0.1
   eastEntrance: []
   westEntrance: []
   northEntrance: []
