@@ -1,3 +1,4 @@
+using System.Collections;
 using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -21,12 +22,15 @@ public class PlayerHandler : MonoBehaviour
     private float gravityForce = 9.8f;
     private float verticalVelocity;
     private bool canMove = true;
+    private float dodgeSpeed = 25f;
+    private float dashTime = 1.4f;
 
     [Header("Attack Parameters")]    
     private float lightAttackRadius = 1f;
     private float heavyAttackRadius = 2.5f;
     private float maxDistance = 1f;
     public LayerMask enemyMask;
+    public bool canBeDamaged = true;
     
 
 
@@ -54,6 +58,55 @@ public class PlayerHandler : MonoBehaviour
         if (Input.GetMouseButtonDown(1))
         {
             playerAnimator.SetTrigger("Heavy Attack");
+        }
+
+        // pick up item logic
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            // sphere cast to pick up item
+        }
+        
+        //pause button
+        if (Input.GetKeyDown(KeyCode.CapsLock))
+        {
+            // pauses time and brings up ui screen
+            // swap to esc when it come time to build
+        }
+
+        // open inventory screen
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            // opens inventory screen - toggles the screen
+        }
+
+        // dodge input
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            playerAnimator.SetTrigger("Dodge");
+        }
+
+        // health potion
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+
+        }
+        
+        // speed potion
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+
+        }
+
+        // damage potion
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+
+        }
+
+        // defence potion
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+
         }
     }
 
@@ -164,5 +217,34 @@ public class PlayerHandler : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position + Vector3.up * 1.5f, heavyAttackRadius);
+    }
+
+    public void Dodge()
+    {
+        StartCoroutine(Dash());
+    }
+
+    IEnumerator Dash()
+    {
+        float startTime = Time.time;
+
+        while (Time.time <startTime + dashTime)
+        {
+            controller.Move(transform.forward * dodgeSpeed * Time.deltaTime);
+
+            yield return null;
+        }
+    }
+
+    public void ToggleCanBeDamaged()
+    {
+        if (canBeDamaged)
+        {
+            canBeDamaged = false;
+        }
+        else
+        {
+            canBeDamaged = true;
+        }
     }
 }

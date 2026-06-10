@@ -24,4 +24,9 @@ public class AnimationRelay : MonoBehaviour
     {
         playerHandler.CanMoveToggle();
     }
+
+    public void Invincibilty()
+    {
+        playerHandler.ToggleCanBeDamaged();
+    }
 }
