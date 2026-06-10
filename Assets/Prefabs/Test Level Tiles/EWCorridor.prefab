@@ -29,8 +29,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 939859176905638804}
   - {fileID: 169277054577607685}
@@ -183,7 +183,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 84596046e1cc0ee44ab5df29c88294c7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -336,6 +336,8 @@ MonoBehaviour:
   spawnPosInGrid: {x: 0, y: 0}
   levelWidth: 5
   levelHeight: 0
+  gridSize: 0
+  hasSpawned: 0
 --- !u!1 &8031305065143992643
 GameObject:
   m_ObjectHideFlags: 0
@@ -445,6 +447,8 @@ MonoBehaviour:
   spawnPosInGrid: {x: 0, y: 0}
   levelWidth: 5
   levelHeight: 0
+  gridSize: 0
+  hasSpawned: 0
 --- !u!1 &8986324950862101382
 GameObject:
   m_ObjectHideFlags: 0
@@ -512,7 +516,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 84596046e1cc0ee44ab5df29c88294c7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

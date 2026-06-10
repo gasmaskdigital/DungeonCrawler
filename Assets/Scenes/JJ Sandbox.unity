@@ -572,6 +572,7 @@ MonoBehaviour:
   staircase: {fileID: 1075293540915351914, guid: c3bd5e7dd11540a4a91cbfdf06292140, type: 3}
   levelWidth: 15
   levelHeight: 15
+  gridSize: 7.5
   eastEntrance: []
   westEntrance: []
   northEntrance: []

@@ -28,6 +28,7 @@ public class levelManager: MonoBehaviour
     [Header("Parameters")]
     public int levelWidth;
     public int levelHeight;
+    public float gridSize;
     [SerializeField] public static int currentLevel;
 
     [Header("Tiles")]

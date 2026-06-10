@@ -17,6 +17,7 @@ public class tileGenerator : MonoBehaviour
 
     [SerializeField] int levelWidth;
     [SerializeField] int levelHeight;
+    [SerializeField] float gridSize;
 
     [SerializeField] public bool hasSpawned;
 
@@ -34,6 +35,7 @@ public class tileGenerator : MonoBehaviour
         
         levelWidth = controller.levelWidth;
         levelHeight = controller.levelHeight;
+        gridSize = controller.gridSize;
 
         if (spawnPosInGrid.x >= 0 && spawnPosInGrid.x < levelWidth && spawnPosInGrid.y >= 0 && spawnPosInGrid.y < levelHeight
             && levelManager.levelMap.tileGrid[spawnPosInGrid.y, spawnPosInGrid.x].tile == null) spawnNextTile();
@@ -65,22 +67,22 @@ public class tileGenerator : MonoBehaviour
         {
             case Direction.NORTH:
                 controller.assignTileToLevelGrid(
-                    Instantiate(nextLevelTile, gameObject.transform.position + Vector3.forward * 5, Quaternion.identity, gameObject.transform),
+                    Instantiate(nextLevelTile, gameObject.transform.position + Vector3.forward * gridSize, Quaternion.identity, gameObject.transform.parent.parent),
                         spawnPosInGrid.x, spawnPosInGrid.y);
                 break;
             case Direction.EAST:
                 controller.assignTileToLevelGrid(
-                    Instantiate(nextLevelTile, gameObject.transform.position + Vector3.right * 5, Quaternion.identity, gameObject.transform),
+                    Instantiate(nextLevelTile, gameObject.transform.position + Vector3.right * gridSize, Quaternion.identity, gameObject.transform.parent.parent),
                         spawnPosInGrid.x, spawnPosInGrid.y);
                 break;
             case Direction.SOUTH:
                 controller.assignTileToLevelGrid(
-                    Instantiate(nextLevelTile, gameObject.transform.position + Vector3.back * 5, Quaternion.identity, gameObject.transform),
+                    Instantiate(nextLevelTile, gameObject.transform.position + Vector3.back * gridSize, Quaternion.identity, gameObject.transform.parent.parent),
                         spawnPosInGrid.x, spawnPosInGrid.y);
                 break;
             case Direction.WEST:
                 controller.assignTileToLevelGrid(
-                    Instantiate(nextLevelTile, gameObject.transform.position + Vector3.left * 5, Quaternion.identity, gameObject.transform),
+                    Instantiate(nextLevelTile, gameObject.transform.position + Vector3.left * gridSize, Quaternion.identity, gameObject.transform.parent.parent),
                         spawnPosInGrid.x, spawnPosInGrid.y);
                 break;
         }
