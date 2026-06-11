@@ -179,7 +179,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-HEAD
 --- !u!1 &314340725
 GameObject:
   m_ObjectHideFlags: 0
@@ -350,8 +349,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineHardLockToTarget
   Damping: 0
-
- 
 --- !u!1 &636942354
 GameObject:
   m_ObjectHideFlags: 0
@@ -765,11 +762,8 @@ MonoBehaviour:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-<<<<<<< HEAD
   - {fileID: 1773633959}
   - {fileID: 314340727}
-=======
->>>>>>> JW-PLayer-Stats
   - {fileID: 1747454227}
   - {fileID: 136469602}
   - {fileID: 636942355}
