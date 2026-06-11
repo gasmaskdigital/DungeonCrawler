@@ -155,7 +155,7 @@ MonoBehaviour:
   levelWidth: 15
   levelHeight: 15
   gridSize: 7.5
-  spawnerPercentage: 1
+  spawnerPercentage: 0.1
   eastEntrance: []
   westEntrance: []
   northEntrance: []
