@@ -155,7 +155,7 @@ MonoBehaviour:
   levelWidth: 15
   levelHeight: 15
   gridSize: 7.5
-  spawnerPercentage: 0.1
+  spawnerPercentage: 1
   eastEntrance: []
   westEntrance: []
   northEntrance: []
@@ -225,7 +225,7 @@ MonoBehaviour:
   Lens:
     FieldOfView: 90
     OrthographicSize: 10
-    NearClipPlane: -20
+    NearClipPlane: -50
     FarClipPlane: 5000
     Dutch: 0
     ModeOverride: 1
@@ -401,7 +401,7 @@ MonoBehaviour:
   m_LayerMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_UseGeometry: 0
+  m_UseGeometry: 1
   m_DefaultArea: 0
   m_GenerateLinks: 0
   m_IgnoreNavMeshAgent: 1
@@ -666,7 +666,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: -20
+  near clip plane: -50
   far clip plane: 5000
   field of view: 90
   orthographic: 1

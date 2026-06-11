@@ -127,7 +127,12 @@ public class levelManager: MonoBehaviour
         foreach (levelTile tile in findValidTiles()) if(!levelMap.enemySpawnerTiles.Contains(tile) &&
                 tile.tile != levelMap.staircaseTile.tile && tile.tile != levelMap.centreTile.tile) validTiles.Add(tile);
 
-        if(validTiles.Count>0) Instantiate(enemySpawner, validTiles[Random.Range(0,validTiles.Count())].tile.transform);
+        if (validTiles.Count > 0)
+        {
+            int index = Random.Range(0, validTiles.Count());
+            levelMap.enemySpawnerTiles.Add(validTiles[index]);
+            Instantiate(enemySpawner, validTiles[index].tile.transform);
+        }
     }
 
     public void countValidTiles() 

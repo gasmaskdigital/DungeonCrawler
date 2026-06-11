@@ -24,6 +24,6 @@ public class enemySpawnerScript : MonoBehaviour
     {
         Vector3 offset = Random.onUnitSphere;
         Vector3 spawnPos = gameObject.transform.position + (new Vector3(offset.x,Mathf.Abs(offset.y), offset.z).normalized * spawnRadius);
-        Instantiate(enemy, spawnPos, Quaternion.identity);
+        Instantiate(enemy, spawnPos, Quaternion.identity).GetComponent<DummyAI>();
     }
 }
