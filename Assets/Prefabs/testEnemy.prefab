@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 6581497500727808335}
   - component: {fileID: 3194500037332410698}
   - component: {fileID: 3638751964465726536}
+  - component: {fileID: 4132734550023384802}
+  - component: {fileID: 6914820855247057099}
   m_Layer: 6
   m_Name: testEnemy
   m_TagString: Enemy
@@ -141,3 +143,40 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &4132734550023384802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8343856464943676981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb8fa4e292f592743ba1d78cb375d45f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DummyAI
+  agent: {fileID: 0}
+  range: 3
+  centrePoint: {fileID: 7391449897905074009}
+--- !u!195 &6914820855247057099
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8343856464943676981}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0.2
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 1
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4

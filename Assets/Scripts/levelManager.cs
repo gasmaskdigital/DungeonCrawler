@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.AI.Navigation;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -16,6 +17,7 @@ public struct LevelMap
     public levelTile[,] tileGrid;
     public int tileCount;
     public levelTile staircaseTile;
+    public levelTile centreTile;
     public List<levelTile> enemySpawnerTiles;
 }
 
@@ -68,8 +70,9 @@ public class levelManager: MonoBehaviour
         Vector2Int centre = new Vector2Int(Mathf.CeilToInt(levelWidth / 2f) - 1, Mathf.CeilToInt(levelHeight / 2f) - 1);
 
         assignTileToLevelGrid(Instantiate(startingMapTile, startingTileGenerator.transform), centre.x, centre.y);
-        
-        tileGenerator[] children = levelMap.tileGrid[centre.y, centre.x].tile.GetComponentsInChildren<tileGenerator>();
+        levelMap.centreTile = levelMap.tileGrid[centre.y, centre.x];
+
+        tileGenerator[] children = levelMap.centreTile.tile.GetComponentsInChildren<tileGenerator>();
 
         foreach (tileGenerator lG in children)
         {
@@ -105,6 +108,7 @@ public class levelManager: MonoBehaviour
     {
         countValidTiles();
         spawnStaircase();
+        startingTileGenerator.GetComponent<NavMeshSurface>().BuildNavMesh();
         int enemySpawnerCount = Mathf.FloorToInt(levelMap.tileCount * spawnerPercentage);
         for( int i = 0; i < enemySpawnerCount; i++) createEnemySpawner();
     }
@@ -120,17 +124,10 @@ public class levelManager: MonoBehaviour
     {
         List<levelTile> validTiles = new();
 
-        foreach (levelTile tile in findValidTiles()) if(!levelMap.enemySpawnerTiles.Contains(tile) && tile.tile != levelMap.staircaseTile.tile) validTiles.Add(tile);
+        foreach (levelTile tile in findValidTiles()) if(!levelMap.enemySpawnerTiles.Contains(tile) &&
+                tile.tile != levelMap.staircaseTile.tile && tile.tile != levelMap.centreTile.tile) validTiles.Add(tile);
 
         if(validTiles.Count>0) Instantiate(enemySpawner, validTiles[Random.Range(0,validTiles.Count())].tile.transform);
-
-        /*levelTile testTile = findRandomValidTile();
-        if(testTile.tile == levelMap.staircaseTile.tile && !levelMap.enemySpawnerTiles.Contains(testTile)) 
-        {
-            levelMap.enemySpawnerTiles.Add(testTile);
-            Instantiate(enemySpawner, testTile.tile.transform);
-        }
-        else if (levelMap.enemySpawnerTiles.Count < levelMap.tileCount - 1) createEnemySpawner();*/
     }
 
     public void countValidTiles() 
