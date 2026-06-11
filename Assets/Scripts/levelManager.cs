@@ -1,0 +1,170 @@
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public struct levelTile 
+{
+    public GameObject tile;
+    public int xPos;
+    public int yPos;
+}
+
+public struct LevelMap
+{
+    public levelTile[,] tileGrid;
+    public int tileCount;
+    public levelTile staircaseTile;
+    public List<levelTile> enemySpawnerTiles;
+}
+
+public class levelManager: MonoBehaviour
+{
+    public static LevelMap levelMap;
+    [SerializeField] GameObject startingMapTile;
+    [SerializeField] GameObject startingTileGenerator;
+    [SerializeField] public static List<tileGenerator> tileGenerators;
+    [SerializeField] GameObject staircase;
+    [SerializeField] GameObject enemySpawner;
+
+    [Header("Parameters")]
+    public int levelWidth;
+    public int levelHeight;
+    public float gridSize;
+    [SerializeField] float spawnerPercentage;
+    [SerializeField] public static int currentLevel;
+
+    [Header("Tiles")]
+    public Object[] eastEntrance;
+    public Object[] westEntrance;
+    public Object[] northEntrance;
+    public Object[] southEntrance;
+    public Object[] eastBlocked;
+    public Object[] westBlocked;
+    public Object[] northBlocked;
+    public Object[] southBlocked;
+
+    
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        Debug.Log(currentLevel);
+
+        eastEntrance = Resources.LoadAll("EastEntrance");
+        westEntrance = Resources.LoadAll("WestEntrance");
+        northEntrance = Resources.LoadAll("NorthEntrance");
+        southEntrance = Resources.LoadAll("SouthEntrance");
+
+        eastBlocked = Resources.LoadAll("EastBlocked");
+        westBlocked = Resources.LoadAll("WestBlocked");
+        northBlocked = Resources.LoadAll("NorthBlocked");
+        southBlocked = Resources.LoadAll("SouthBlocked");
+
+        tileGenerators = new();
+        levelMap.tileGrid = new levelTile[levelHeight, levelWidth];
+        levelMap.enemySpawnerTiles = new();
+        Vector2Int centre = new Vector2Int(Mathf.CeilToInt(levelWidth / 2f) - 1, Mathf.CeilToInt(levelHeight / 2f) - 1);
+
+        assignTileToLevelGrid(Instantiate(startingMapTile, startingTileGenerator.transform), centre.x, centre.y);
+        
+        tileGenerator[] children = levelMap.tileGrid[centre.y, centre.x].tile.GetComponentsInChildren<tileGenerator>();
+
+        foreach (tileGenerator lG in children)
+        {
+            switch (lG.direction)
+            {
+                case Direction.NORTH: { lG.spawnPosInGrid = centre + Vector2Int.up; break; }
+                case Direction.EAST: { lG.spawnPosInGrid = centre + Vector2Int.right; break; }
+                case Direction.SOUTH: { lG.spawnPosInGrid = centre + Vector2Int.down; break; }
+                case Direction.WEST: { lG.spawnPosInGrid = centre + Vector2Int.left; break; }
+            }
+        }
+
+    }
+
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Return)) 
+        {
+            for (int i = 0; i < levelWidth; i++) 
+            {
+                for (int j = 0; j < levelHeight; j++)
+                {
+                    if (levelMap.tileGrid[j, i].tile != null) Debug.Log("( " + i + ", " + j + "):" + levelMap.tileGrid[j, i].tile.name);
+                    else Debug.Log("(" + i + ", " + j + " ):" + "Empty");
+                }
+            }
+        }
+    }
+
+    public void finaliseLevelGeneration() 
+    {
+        countValidTiles();
+        spawnStaircase();
+        int enemySpawnerCount = Mathf.FloorToInt(levelMap.tileCount * spawnerPercentage);
+        for( int i = 0; i < enemySpawnerCount; i++) createEnemySpawner();
+    }
+
+    public void spawnStaircase() 
+    {
+        //Debug.Log("Finding Staircase posistion...");
+        levelMap.staircaseTile = findRandomValidTile();
+        Instantiate(staircase, levelMap.staircaseTile.tile.transform);
+    }
+
+    public void createEnemySpawner()
+    {
+        List<levelTile> validTiles = new();
+
+        foreach (levelTile tile in findValidTiles()) if(!levelMap.enemySpawnerTiles.Contains(tile) && tile.tile != levelMap.staircaseTile.tile) validTiles.Add(tile);
+
+        if(validTiles.Count>0) Instantiate(enemySpawner, validTiles[Random.Range(0,validTiles.Count())].tile.transform);
+
+        /*levelTile testTile = findRandomValidTile();
+        if(testTile.tile == levelMap.staircaseTile.tile && !levelMap.enemySpawnerTiles.Contains(testTile)) 
+        {
+            levelMap.enemySpawnerTiles.Add(testTile);
+            Instantiate(enemySpawner, testTile.tile.transform);
+        }
+        else if (levelMap.enemySpawnerTiles.Count < levelMap.tileCount - 1) createEnemySpawner();*/
+    }
+
+    public void countValidTiles() 
+    {
+        levelMap.tileCount = findValidTiles().Count();
+    }
+
+    public void assignTileToLevelGrid(GameObject tile, int x, int y) 
+    {
+        levelMap.tileGrid[y, x].tile = tile;
+        levelMap.tileGrid[y, x].xPos = x;
+        levelMap.tileGrid[y, x].yPos = y;
+    }
+
+    public levelTile findRandomValidTile() 
+    {
+        List<levelTile> validTiles = findValidTiles();
+        return validTiles[Random.Range(0, validTiles.Count)];
+    }
+
+    public List<levelTile> findValidTiles()
+    {
+        List<levelTile> validTiles = new List<levelTile>();
+        foreach (levelTile tile in levelMap.tileGrid)
+        {
+            if (tile.tile != null) validTiles.Add(tile);
+        }
+        return validTiles;
+    }
+
+    public static void increaseLevel() 
+    {
+        currentLevel++;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        //Debug.Log(currentLevel);
+    }
+}
