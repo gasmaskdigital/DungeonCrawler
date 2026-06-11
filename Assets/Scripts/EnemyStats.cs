@@ -7,6 +7,7 @@ public class EnemyStats : MonoBehaviour
     public int currentHealth;
     public int defence;
     public int xpReward;
+    public float moveSpeed;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
