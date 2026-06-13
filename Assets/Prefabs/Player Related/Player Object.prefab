@@ -359,6 +359,7 @@ GameObject:
   - component: {fileID: 4051598479090421858}
   - component: {fileID: 857974094513799803}
   - component: {fileID: 1087447258442381983}
+  - component: {fileID: 3978373986141358953}
   m_Layer: 3
   m_Name: Player Object
   m_TagString: Player
@@ -424,6 +425,29 @@ MonoBehaviour:
   enemyMask:
     serializedVersion: 2
     m_Bits: 64
+  canBeDamaged: 1
+  canAttack: 1
+--- !u!114 &3978373986141358953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1389836861790355665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebd9b030155573a4396bdae1f6fae98b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  healthStat: 1
+  strengthStat: 1
+  dexterityStat: 1
+  magicStat: 1
+  enduranceStat: 1
+  playerLevel: 1
+  currentXP: 0
+  requiredXP: 150
+  earntXP: 0
 --- !u!1 &1436226438089443718
 GameObject:
   m_ObjectHideFlags: 0

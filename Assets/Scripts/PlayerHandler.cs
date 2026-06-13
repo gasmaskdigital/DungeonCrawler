@@ -14,6 +14,7 @@ public class PlayerHandler : MonoBehaviour
     private CharacterController controller;
     [SerializeField] Transform cameraTransform;
     public Animator playerAnimator;
+    private SphereCollider detectionSphere;
 
     [Header("Movement Settings")]
     private float walkSpeed = 6f;
@@ -39,6 +40,8 @@ public class PlayerHandler : MonoBehaviour
     void Start()
     {
         controller = GetComponent<CharacterController>();
+        detectionSphere = GetComponent<SphereCollider>();
+
     }
 
     // Update is called once per frame
@@ -255,6 +258,19 @@ public class PlayerHandler : MonoBehaviour
         {
             canBeDamaged = true;
             canAttack = true;
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Enemy"))
+        {
+            AINavigation enemy = other.GetComponent<AINavigation>();
+
+            if(enemy != null)
+            {
+                enemy.ChasePlayer();
+            }
         }
     }
 }
