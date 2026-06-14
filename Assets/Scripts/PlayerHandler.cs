@@ -202,7 +202,8 @@ public class PlayerHandler : MonoBehaviour
             Collider[] colliders = Physics.OverlapSphere(origin, lightAttackRadius, enemyMask);
             foreach (Collider c in colliders)
             {
-                if (c.gameObject.CompareTag("Enemy"))
+                EnemyStats enemy = c.GetComponentInParent<EnemyStats>();
+                if (enemy != null)
                 {
                     Destroy(c.gameObject);
                 }
