@@ -2,17 +2,22 @@ using UnityEngine;
 
 public class EnemyAnimationRelay : MonoBehaviour
 {
-
+    private AINavigation aiNavigation;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        aiNavigation = GetComponentInParent<AINavigation>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void HeavyAttack()
     {
-        
+        aiNavigation.CheckEnemyNameForAttack();
     }
+
+    public void CanMoveToggle()
+    {
+        aiNavigation.CanMoveToggle();
+    }
+    
 }

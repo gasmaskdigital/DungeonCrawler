@@ -360,6 +360,7 @@ GameObject:
   - component: {fileID: 857974094513799803}
   - component: {fileID: 1087447258442381983}
   - component: {fileID: 3978373986141358953}
+  - component: {fileID: 667795102598984419}
   m_Layer: 3
   m_Name: Player Object
   m_TagString: Player
@@ -448,6 +449,27 @@ MonoBehaviour:
   currentXP: 0
   requiredXP: 150
   earntXP: 0
+--- !u!135 &667795102598984419
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1389836861790355665}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 10
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &1436226438089443718
 GameObject:
   m_ObjectHideFlags: 0

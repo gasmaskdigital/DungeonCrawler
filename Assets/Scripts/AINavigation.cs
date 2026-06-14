@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -9,8 +10,11 @@ public class AINavigation : MonoBehaviour
     [SerializeField] PlayerHandler playerHandler;    
     private bool playerInAttackRange = false;
     public bool playerSpotted = false;
-    private float roamRange = 20f;
+    private float roamRange = 40f;
     private float currentspeed;
+    private bool canMove = true;
+    private string enemyName;
+    public LayerMask playerMask;
 
     private Vector3 roamDestination;
 
@@ -22,14 +26,21 @@ public class AINavigation : MonoBehaviour
         enemyStats = GetComponent<EnemyStats>();
         
         navMeshAgent.speed = enemyStats.moveSpeed;
+        enemyName = enemyStats.enemyName;
+
+        Roaming();
         
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(navMeshAgent.remainingDistance < navMeshAgent.stoppingDistance)
+        currentspeed = navMeshAgent.velocity.magnitude;
+        enemyAnimator.SetFloat("Speed", currentspeed, 0, Time.deltaTime);
+
+        if (canMove)
         {
+
             if (playerSpotted)
             {
                 navMeshAgent.destination = playerHandler.transform.position;
@@ -38,11 +49,12 @@ public class AINavigation : MonoBehaviour
                     AttackPlayer();
                 }
             }
-
-            Roaming();
+            else if(navMeshAgent.remainingDistance < navMeshAgent.stoppingDistance)
+            {
+                Roaming();
+            }
+                                   
         }
-        currentspeed = navMeshAgent.velocity.magnitude;
-        enemyAnimator.SetFloat("Speed", currentspeed, 0, Time.deltaTime);
     }
 
    void Roaming()
@@ -61,8 +73,58 @@ public class AINavigation : MonoBehaviour
         Debug.Log("Chasing Player");
     }
 
+    public void CanMoveToggle()
+    {
+        Debug.Log("Enemy Can Move Toggle");
+
+        if (canMove)
+        {
+            
+            canMove = false;
+            navMeshAgent.isStopped = true;
+        }
+        else
+        {
+            canMove = true;
+            navMeshAgent.isStopped = false;
+        }
+    }
+
+
     void AttackPlayer()
     {
+        enemyAnimator.SetTrigger("Heavy Attack");
+        canMove = false;
+    }
 
+    public void CheckEnemyNameForAttack()
+    {
+        // checking what enemy name to apply the correct attack logic. Called from animation relay
+
+        switch(enemyName)
+        {
+            case "Vampire":
+                VampireAttack();
+                break;
+
+
+        }
+    }
+
+    void VampireAttack()
+    {
+        Debug.Log("Vampire Attack");
+
+        Vector3 origin = transform.position + Vector3.up * 1.5f + transform.forward * 1.25f;
+
+        Collider[] colliders = Physics.OverlapSphere(origin, enemyStats.enemyAttackRadius, playerMask);
+        foreach(Collider c in colliders)
+        {
+            if (c.gameObject.CompareTag("Player"))
+            {
+                Destroy(c.gameObject);
+                Roaming();
+            }
+        }
     }
 }

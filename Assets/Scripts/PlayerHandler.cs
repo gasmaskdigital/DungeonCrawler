@@ -23,7 +23,7 @@ public class PlayerHandler : MonoBehaviour
     private float gravityForce = 9.8f;
     private float verticalVelocity;
     private bool canMove = true;
-    private float dodgeSpeed = 25f;
+    private float dodgeSpeed = 50f;
     private float dashTime = 1.4f;
 
     [Header("Attack Parameters")]    
@@ -197,7 +197,7 @@ public class PlayerHandler : MonoBehaviour
         {
             Debug.Log("Light Attack");
 
-            Vector3 origin = transform.position + Vector3.up * 1.5f + transform.forward * 1.25f; ;
+            Vector3 origin = transform.position + Vector3.up * 1.5f + transform.forward * 1.25f; 
 
             Collider[] colliders = Physics.OverlapSphere(origin, lightAttackRadius, enemyMask);
             foreach (Collider c in colliders)
@@ -242,6 +242,7 @@ public class PlayerHandler : MonoBehaviour
         while (Time.time <startTime + dashTime)
         {
             controller.Move(transform.forward * dodgeSpeed * Time.deltaTime);
+            Debug.Log("Dodgeing");
 
             yield return null;
         }

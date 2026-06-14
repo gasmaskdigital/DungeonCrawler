@@ -1,11 +1,23 @@
 fileFormatVersion: 2
 guid: 48c40f250cf71ae4596f990fecdf6cad
+AssetOrigin:
+  serializedVersion: 1
+  productId: 248405
+  packageName: Free Low Poly Fantasy RPG Weapons
+  packageVersion: 2.0
+  assetPath: Assets/PurePoly/Free Fantasy RPG Weapons/Meshes/PP_Theme_10_Dagger_002.fbx
+  uploadId: 788740
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PP_Standard_Material
+    second: {fileID: 2100000, guid: 13a31eef442776d408843e8c7b2ac946, type: 2}
   materials:
-    materialImportMode: 0
+    materialImportMode: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -108,10 +120,3 @@ ModelImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 248405
-  packageName: Free Low Poly Fantasy RPG Weapons
-  packageVersion: 2.0
-  assetPath: Assets/PurePoly/Free Fantasy RPG Weapons/Meshes/PP_Theme_10_Dagger_002.fbx
-  uploadId: 788740

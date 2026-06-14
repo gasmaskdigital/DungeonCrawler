@@ -9,6 +9,8 @@ public class EnemyStats : MonoBehaviour
     public int xpReward;
     public float moveSpeed;
     public float attackRange;
+    public string enemyName;
+    public float enemyAttackRadius;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
