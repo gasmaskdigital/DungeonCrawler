@@ -15,6 +15,7 @@ public class AINavigation : MonoBehaviour
     private bool canMove = true;
     private string enemyName;
     public LayerMask playerMask;
+    private bool isAttacking = false;
 
     private Vector3 roamDestination;
 
@@ -44,7 +45,7 @@ public class AINavigation : MonoBehaviour
             if (playerSpotted)
             {
                 navMeshAgent.destination = playerHandler.transform.position;
-                if(navMeshAgent.remainingDistance < navMeshAgent.stoppingDistance)
+                if(navMeshAgent.remainingDistance < navMeshAgent.stoppingDistance && !isAttacking)
                 {
                     AttackPlayer();
                 }
@@ -88,6 +89,7 @@ public class AINavigation : MonoBehaviour
         {
             canMove = true;
             navMeshAgent.isStopped = false;
+            isAttacking = false;
         }
     }
 
@@ -95,7 +97,7 @@ public class AINavigation : MonoBehaviour
     void AttackPlayer()
     {
         enemyAnimator.SetTrigger("Heavy Attack");
-        canMove = false;
+        isAttacking = true;
     }
 
     public void CheckEnemyNameForAttack()
@@ -116,9 +118,9 @@ public class AINavigation : MonoBehaviour
     {
         Debug.Log("Vampire Attack");
 
-        Vector3 origin = transform.position + Vector3.up * 1.5f + transform.forward * 1.25f;
+        Vector3 origin = transform.position + Vector3.up * 1.5f + transform.forward * 0.75f;
 
-        Collider[] colliders = Physics.OverlapSphere(origin, enemyStats.enemyAttackRadius, playerMask);
+        Collider[] colliders = Physics.OverlapSphere(origin, enemyStats.enemyAttackRadius, playerMask, QueryTriggerInteraction.Ignore);
         foreach(Collider c in colliders)
         {
             if (c.gameObject.CompareTag("Player"))
@@ -127,5 +129,12 @@ public class AINavigation : MonoBehaviour
                 Roaming();
             }
         }
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Vector3 origin = transform.position + Vector3.up * 1.5f + transform.forward * 0.75f;
+        Gizmos.DrawWireSphere(origin, enemyStats != null ? enemyStats.enemyAttackRadius : 0.5f);
     }
 }

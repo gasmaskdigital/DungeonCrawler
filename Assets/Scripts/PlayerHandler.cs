@@ -224,10 +224,11 @@ public class PlayerHandler : MonoBehaviour
         }
     }
 
-    void OnDrawGizmos()
+    void OnDrawGizmosSelected()
     {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position + Vector3.up * 1.5f, heavyAttackRadius);
+        Gizmos.color = Color.blue;
+        Vector3 origin = transform.position + Vector3.up * 1.0f + transform.forward * 0.75f;
+        Gizmos.DrawWireSphere(origin, lightAttackRadius);
     }
 
     public void Dodge()
