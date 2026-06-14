@@ -82,6 +82,7 @@ public class AINavigation : MonoBehaviour
             
             canMove = false;
             navMeshAgent.isStopped = true;
+            navMeshAgent.velocity = Vector3.zero;
         }
         else
         {

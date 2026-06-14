@@ -24,7 +24,7 @@ public class PlayerHandler : MonoBehaviour
     private float verticalVelocity;
     private bool canMove = true;
     private float dodgeSpeed = 50f;
-    private float dashTime = 1.4f;
+    private float dashTime = 2f;
 
     [Header("Attack Parameters")]    
     private float lightAttackRadius = 1f;
