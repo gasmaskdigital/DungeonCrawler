@@ -27,7 +27,7 @@ public class PlayerHandler : MonoBehaviour
     private float dashTime = 2f;
 
     [Header("Attack Parameters")]    
-    private float lightAttackRadius = 1f;
+    private float lightAttackRadius = 1.5f;
     private float heavyAttackRadius = 2.5f;
     private float maxDistance = 1f;
     public LayerMask enemyMask;
@@ -51,6 +51,7 @@ public class PlayerHandler : MonoBehaviour
         Movement();
 
         playerAnimator.SetFloat("Speed", currentSpeed, 0, Time.deltaTime);
+        Debug.Log("Can Attacl: " + canAttack);
 
         // Light Attack
         if (Input.GetMouseButtonDown(0))
@@ -197,15 +198,16 @@ public class PlayerHandler : MonoBehaviour
         {
             Debug.Log("Light Attack");
 
-            Vector3 origin = transform.position + Vector3.up * 1.5f + transform.forward * 1.25f; 
+            Vector3 origin = transform.position + Vector3.up * 1f + transform.forward * 0.75f; 
 
             Collider[] colliders = Physics.OverlapSphere(origin, lightAttackRadius, enemyMask);
+            Debug.Log("Overlap");
             foreach (Collider c in colliders)
-            {
-                EnemyStats enemy = c.GetComponentInParent<EnemyStats>();
-                if (enemy != null)
+            {                
+                if (c.gameObject.CompareTag("Enemy"))
                 {
                     Destroy(c.gameObject);
+                    Debug.Log("hit and destroy");
                 }
             }
         }
@@ -228,7 +230,7 @@ public class PlayerHandler : MonoBehaviour
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.blue;
-        Vector3 origin = transform.position + Vector3.up * 1.0f + transform.forward * 0.75f;
+        Vector3 origin = transform.position + Vector3.up * 1f + transform.forward * 0.75f;
         Gizmos.DrawWireSphere(origin, lightAttackRadius);
     }
 
