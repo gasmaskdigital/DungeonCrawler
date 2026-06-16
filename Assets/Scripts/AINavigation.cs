@@ -40,24 +40,26 @@ public class AINavigation : MonoBehaviour
         {
             currentspeed = navMeshAgent.velocity.magnitude;
             enemyAnimator.SetFloat("Speed", currentspeed, 0, Time.deltaTime);
-        }
 
-        if (canMove)
-        {
 
-            if (playerSpotted)
+
+            if (canMove)
             {
-                navMeshAgent.destination = playerHandler.transform.position;
-                if(navMeshAgent.remainingDistance < navMeshAgent.stoppingDistance && !isAttacking)
+
+                if (playerSpotted)
                 {
-                    AttackPlayer();
+                    navMeshAgent.destination = playerHandler.transform.position;
+                    if (navMeshAgent.remainingDistance < navMeshAgent.stoppingDistance && !isAttacking)
+                    {
+                        AttackPlayer();
+                    }
                 }
+                else if (navMeshAgent.remainingDistance < navMeshAgent.stoppingDistance)
+                {
+                    Roaming();
+                }
+
             }
-            else if(navMeshAgent.remainingDistance < navMeshAgent.stoppingDistance)
-            {
-                Roaming();
-            }
-                                   
         }
     }
 
@@ -90,9 +92,12 @@ public class AINavigation : MonoBehaviour
         }
         else
         {
-            canMove = true;
-            navMeshAgent.isStopped = false;
-            isAttacking = false;
+            if (navMeshAgent.enabled && navMeshAgent.isOnNavMesh)
+            {
+                canMove = true;
+                navMeshAgent.isStopped = false;
+                isAttacking = false;
+            }
         }
     }
 

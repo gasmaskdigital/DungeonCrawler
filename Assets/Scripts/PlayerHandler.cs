@@ -189,7 +189,16 @@ public class PlayerHandler : MonoBehaviour
             {
                 if (c.gameObject.CompareTag("Enemy"))
                 {
-                    Destroy(c.gameObject);
+                    AINavigation aINavigation = c.GetComponent<AINavigation>();
+                    aINavigation.canMove = false;
+                    NavMeshAgent enemyNav = c.GetComponent<NavMeshAgent>();
+                    enemyNav.enabled = false;
+                    Rigidbody enemyRB = c.GetComponent<Rigidbody>();
+                    enemyRB.isKinematic = false;
+                    Vector3 knockbackDirection = (c.transform.position - transform.position).normalized;
+                    knockbackDirection.y += 0.5f;
+                    enemyRB.AddForce(knockbackDirection * (knockbackForce * 2f), ForceMode.Impulse);
+                    StartCoroutine(ActiveNavAgent(aINavigation, enemyNav, enemyRB, knockbackDelay));
                 }
             }
         }
@@ -209,19 +218,18 @@ public class PlayerHandler : MonoBehaviour
             {                
                 if (c.gameObject.CompareTag("Enemy"))
                 {
-                    //   Destroy(c.gameObject);
+                    //   KnockBack
                     AINavigation aINavigation = c.GetComponent<AINavigation>();
                     aINavigation.canMove = false;
                     NavMeshAgent enemyNav = c.GetComponent<NavMeshAgent>();
                     enemyNav.enabled = false;
                     Rigidbody enemyRB = c.GetComponent<Rigidbody>();
-                    enemyRB.isKinematic = true;
-                    enemyRB.AddForce(-c.transform.position * knockbackForce, ForceMode.Impulse);
+                    enemyRB.isKinematic = false;
+                    Vector3 knockbackDirection = (c.transform.position - transform.position).normalized;
+                    knockbackDirection.y += 0.5f;
+                    enemyRB.AddForce(knockbackDirection * knockbackForce, ForceMode.Impulse);
                     StartCoroutine(ActiveNavAgent(aINavigation,enemyNav, enemyRB,knockbackDelay));
-                    if(enemyNav != null)
-                    {
-                        Debug.Log("enemynav got");
-                    }
+                    
                 }
             }
         }
@@ -231,8 +239,9 @@ public class PlayerHandler : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         aINavigation.canMove = true;
-        enemyRB.isKinematic = false;
+        enemyRB.isKinematic = true;
         enemyNav.enabled = true;
+        enemyNav.Warp(cameraTransform.transform.position);
     }
 
     public void CanMoveToggle()
