@@ -2,6 +2,7 @@ using System.Collections;
 using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
 using static UnityEngine.UI.Image;
 
 public class PlayerHandler : MonoBehaviour
@@ -33,6 +34,8 @@ public class PlayerHandler : MonoBehaviour
     public LayerMask enemyMask;
     public bool canBeDamaged = true;
     public bool canAttack = true;
+    public float knockbackForce = 10000f;
+    private float knockbackDelay = 0.3f;
     
 
 
@@ -51,7 +54,7 @@ public class PlayerHandler : MonoBehaviour
         Movement();
 
         playerAnimator.SetFloat("Speed", currentSpeed, 0, Time.deltaTime);
-        Debug.Log("Can Attacl: " + canAttack);
+        
 
         // Light Attack
         if (Input.GetMouseButtonDown(0))
@@ -206,11 +209,30 @@ public class PlayerHandler : MonoBehaviour
             {                
                 if (c.gameObject.CompareTag("Enemy"))
                 {
-                    Destroy(c.gameObject);
-                    Debug.Log("hit and destroy");
+                    //   Destroy(c.gameObject);
+                    AINavigation aINavigation = c.GetComponent<AINavigation>();
+                    aINavigation.canMove = false;
+                    NavMeshAgent enemyNav = c.GetComponent<NavMeshAgent>();
+                    enemyNav.enabled = false;
+                    Rigidbody enemyRB = c.GetComponent<Rigidbody>();
+                    enemyRB.isKinematic = true;
+                    enemyRB.AddForce(-c.transform.position * knockbackForce, ForceMode.Impulse);
+                    StartCoroutine(ActiveNavAgent(aINavigation,enemyNav, enemyRB,knockbackDelay));
+                    if(enemyNav != null)
+                    {
+                        Debug.Log("enemynav got");
+                    }
                 }
             }
         }
+    }
+
+    IEnumerator ActiveNavAgent(AINavigation aINavigation,NavMeshAgent enemyNav, Rigidbody enemyRB,float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        aINavigation.canMove = true;
+        enemyRB.isKinematic = false;
+        enemyNav.enabled = true;
     }
 
     public void CanMoveToggle()

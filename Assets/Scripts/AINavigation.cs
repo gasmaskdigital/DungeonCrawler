@@ -12,7 +12,7 @@ public class AINavigation : MonoBehaviour
     public bool playerSpotted = false;
     private float roamRange = 40f;
     private float currentspeed;
-    private bool canMove = true;
+    public bool canMove = true;
     private string enemyName;
     public LayerMask playerMask;
     private bool isAttacking = false;
@@ -36,8 +36,11 @@ public class AINavigation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        currentspeed = navMeshAgent.velocity.magnitude;
-        enemyAnimator.SetFloat("Speed", currentspeed, 0, Time.deltaTime);
+        if (navMeshAgent.enabled && navMeshAgent.isOnNavMesh)
+        {
+            currentspeed = navMeshAgent.velocity.magnitude;
+            enemyAnimator.SetFloat("Speed", currentspeed, 0, Time.deltaTime);
+        }
 
         if (canMove)
         {
