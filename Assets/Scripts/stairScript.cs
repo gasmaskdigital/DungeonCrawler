@@ -19,6 +19,7 @@ public class stairScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        levelManager.increaseLevel();
+        if(other.gameObject.CompareTag("Player")) levelManager.increaseLevel();
+
     }
 }
