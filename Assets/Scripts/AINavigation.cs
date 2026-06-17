@@ -29,6 +29,8 @@ public class AINavigation : MonoBehaviour
         navMeshAgent.speed = enemyStats.moveSpeed;
         enemyName = enemyStats.enemyName;
 
+        playerHandler = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHandler>();
+
         Roaming();
         
     }

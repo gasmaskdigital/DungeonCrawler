@@ -76,9 +76,43 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16d32a616eb58f340abf5be753a0d823, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::enemySpawnerScript
-  enemy: {fileID: 8343856464943676981, guid: b38ce2fa4f993c04da78d45714855f77, type: 3}
+  enemy: {fileID: 4315232680571345892, guid: f87aaf2da5b1050418b14ac50fd331d5, type: 3}
   spawnRadius: 5
-  spawnAmount: 3
+  minSpawnAmount: 1
+  maxSpawnAmount: 5
+  spawnCurveDist:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.000034597062
+      value: -0.000040467712
+      inSlope: -0.008204537
+      outSlope: -0.008204537
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.037963007
+    - serializedVersion: 3
+      time: 0.5000061
+      value: 0.99999726
+      inSlope: 0.0073208353
+      outSlope: 0.0073208353
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.016462484
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1.0000305
+      value: 0
+      inSlope: -0.15055746
+      outSlope: -0.15055746
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.30473965
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &3048241579537833460
 GameObject:
   m_ObjectHideFlags: 0

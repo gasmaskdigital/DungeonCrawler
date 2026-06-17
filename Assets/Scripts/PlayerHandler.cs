@@ -51,7 +51,7 @@ public class PlayerHandler : MonoBehaviour
         Movement();
 
         playerAnimator.SetFloat("Speed", currentSpeed, 0, Time.deltaTime);
-        Debug.Log("Can Attacl: " + canAttack);
+        //Debug.Log("Can Attack: " + canAttack);
 
         // Light Attack
         if (Input.GetMouseButtonDown(0))
