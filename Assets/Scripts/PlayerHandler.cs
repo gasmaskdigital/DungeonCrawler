@@ -189,16 +189,7 @@ public class PlayerHandler : MonoBehaviour
             {
                 if (c.gameObject.CompareTag("Enemy"))
                 {
-                    AINavigation aINavigation = c.GetComponent<AINavigation>();
-                    aINavigation.canMove = false;
-                    NavMeshAgent enemyNav = c.GetComponent<NavMeshAgent>();
-                    enemyNav.enabled = false;
-                    Rigidbody enemyRB = c.GetComponent<Rigidbody>();
-                    enemyRB.isKinematic = false;
-                    Vector3 knockbackDirection = (c.transform.position - transform.position).normalized;
-                    knockbackDirection.y += 0.5f;
-                    enemyRB.AddForce(knockbackDirection * (knockbackForce * 2f), ForceMode.Impulse);
-                    StartCoroutine(ActiveNavAgent(aINavigation, enemyNav, enemyRB, knockbackDelay));
+                    Destroy(c);
                 }
             }
         }
@@ -218,31 +209,13 @@ public class PlayerHandler : MonoBehaviour
             {                
                 if (c.gameObject.CompareTag("Enemy"))
                 {
-                    //   KnockBack
-                    AINavigation aINavigation = c.GetComponent<AINavigation>();
-                    aINavigation.canMove = false;
-                    NavMeshAgent enemyNav = c.GetComponent<NavMeshAgent>();
-                    enemyNav.enabled = false;
-                    Rigidbody enemyRB = c.GetComponent<Rigidbody>();
-                    enemyRB.isKinematic = false;
-                    Vector3 knockbackDirection = (c.transform.position - transform.position).normalized;
-                    knockbackDirection.y += 0.5f;
-                    enemyRB.AddForce(knockbackDirection * knockbackForce, ForceMode.Impulse);
-                    StartCoroutine(ActiveNavAgent(aINavigation,enemyNav, enemyRB,knockbackDelay));
-                    
+                    Destroy(c);
                 }
             }
         }
     }
 
-    IEnumerator ActiveNavAgent(AINavigation aINavigation,NavMeshAgent enemyNav, Rigidbody enemyRB,float delay)
-    {
-        yield return new WaitForSeconds(delay);
-        aINavigation.canMove = true;
-        enemyRB.isKinematic = true;
-        enemyNav.enabled = true;
-        enemyNav.Warp(cameraTransform.transform.position);
-    }
+   
 
     public void CanMoveToggle()
     {
