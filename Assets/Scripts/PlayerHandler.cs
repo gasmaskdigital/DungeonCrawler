@@ -2,6 +2,7 @@ using System.Collections;
 using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
 using static UnityEngine.UI.Image;
 
 public class PlayerHandler : MonoBehaviour
@@ -33,6 +34,8 @@ public class PlayerHandler : MonoBehaviour
     public LayerMask enemyMask;
     public bool canBeDamaged = true;
     public bool canAttack = true;
+    public float knockbackForce = 10000f;
+    private float knockbackDelay = 0.3f;
     
 
 
@@ -51,7 +54,7 @@ public class PlayerHandler : MonoBehaviour
         Movement();
 
         playerAnimator.SetFloat("Speed", currentSpeed, 0, Time.deltaTime);
-        //Debug.Log("Can Attack: " + canAttack);
+        
 
         // Light Attack
         if (Input.GetMouseButtonDown(0))
@@ -186,7 +189,7 @@ public class PlayerHandler : MonoBehaviour
             {
                 if (c.gameObject.CompareTag("Enemy"))
                 {
-                    Destroy(c.gameObject);
+                    Destroy(c);
                 }
             }
         }
@@ -206,12 +209,13 @@ public class PlayerHandler : MonoBehaviour
             {                
                 if (c.gameObject.CompareTag("Enemy"))
                 {
-                    Destroy(c.gameObject);
-                    Debug.Log("hit and destroy");
+                    Destroy(c);
                 }
             }
         }
     }
+
+   
 
     public void CanMoveToggle()
     {
