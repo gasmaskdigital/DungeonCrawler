@@ -19,6 +19,7 @@ public struct LevelMap
     public levelTile staircaseTile;
     public levelTile centreTile;
     public List<levelTile> enemySpawnerTiles;
+    public List<levelTile> chestTiles;
 }
 
 public class levelManager: MonoBehaviour
@@ -29,12 +30,14 @@ public class levelManager: MonoBehaviour
     [SerializeField] public static List<tileGenerator> tileGenerators;
     [SerializeField] GameObject staircase;
     [SerializeField] GameObject enemySpawner;
+    [SerializeField] GameObject chest;
 
     [Header("Parameters")]
     public int levelWidth;
     public int levelHeight;
     public float gridSize;
     [SerializeField] float spawnerPercentage;
+    [SerializeField] float lootPercentage;
     [SerializeField] public static int currentLevel;
 
     [Header("Tiles")]
@@ -67,6 +70,7 @@ public class levelManager: MonoBehaviour
         tileGenerators = new();
         levelMap.tileGrid = new levelTile[levelHeight, levelWidth];
         levelMap.enemySpawnerTiles = new();
+        levelMap.chestTiles = new();
         Vector2Int centre = new Vector2Int(Mathf.CeilToInt(levelWidth / 2f) - 1, Mathf.CeilToInt(levelHeight / 2f) - 1);
 
         assignTileToLevelGrid(Instantiate(startingMapTile, startingTileGenerator.transform), centre.x, centre.y);
@@ -110,7 +114,9 @@ public class levelManager: MonoBehaviour
         spawnStaircase();
         startingTileGenerator.GetComponent<NavMeshSurface>().BuildNavMesh();
         int enemySpawnerCount = Mathf.FloorToInt(levelMap.tileCount * spawnerPercentage);
+        int chestCount = Mathf.FloorToInt(levelMap.tileCount * lootPercentage);
         for( int i = 0; i < enemySpawnerCount; i++) createEnemySpawner();
+        for( int i = 0; i < chestCount; i++) createChest();
     }
 
     public void spawnStaircase() 
@@ -132,6 +138,22 @@ public class levelManager: MonoBehaviour
             int index = Random.Range(0, validTiles.Count());
             levelMap.enemySpawnerTiles.Add(validTiles[index]);
             Instantiate(enemySpawner, validTiles[index].tile.transform);
+        }
+    }
+
+    public void createChest()
+    {
+
+        List<levelTile> validTiles = new();
+
+        foreach (levelTile tile in findValidTiles()) if (!levelMap.enemySpawnerTiles.Contains(tile) &&
+                tile.tile != levelMap.staircaseTile.tile && tile.tile != levelMap.centreTile.tile && !levelMap.chestTiles.Contains(tile)) validTiles.Add(tile);
+
+        if (validTiles.Count > 0)
+        {
+            int index = Random.Range(0, validTiles.Count());
+            levelMap.chestTiles.Add(validTiles[index]);
+            Instantiate(chest, validTiles[index].tile.transform);
         }
     }
 

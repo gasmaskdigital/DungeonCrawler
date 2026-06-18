@@ -152,10 +152,12 @@ MonoBehaviour:
   startingTileGenerator: {fileID: 636942354}
   staircase: {fileID: 1075293540915351914, guid: c3bd5e7dd11540a4a91cbfdf06292140, type: 3}
   enemySpawner: {fileID: 1237843681088241054, guid: 1ef20a163b000e74fba1cae4ffccc57d, type: 3}
+  chest: {fileID: 3733415787367257747, guid: ad9c6f1136e48e749b9617527bdf4d32, type: 3}
   levelWidth: 15
   levelHeight: 15
   gridSize: 7.5
   spawnerPercentage: 0.1
+  lootPercentage: 0.1
   eastEntrance: []
   westEntrance: []
   northEntrance: []
