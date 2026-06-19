@@ -35,6 +35,7 @@ public struct Weapon
     public int attackValue;    
     public int statBoostValue;
     public StatBoostType statBoost;
+    public Mesh weaponModel;
 }
 
 public enum ArmourSlot
@@ -49,4 +50,5 @@ public struct Armour
     public int StatBoostValue;
     public ArmourSlot armourSlot;
     public StatBoostType statBoost;
+    
 }
