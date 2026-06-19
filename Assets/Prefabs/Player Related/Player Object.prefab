@@ -360,6 +360,7 @@ GameObject:
   - component: {fileID: 857974094513799803}
   - component: {fileID: 1087447258442381983}
   - component: {fileID: 3978373986141358953}
+  - component: {fileID: 7266534710127501}
   - component: {fileID: 667795102598984419}
   m_Layer: 3
   m_Name: Player Object
@@ -428,6 +429,7 @@ MonoBehaviour:
     m_Bits: 64
   canBeDamaged: 1
   canAttack: 1
+  knockbackForce: 100
 --- !u!114 &3978373986141358953
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -449,6 +451,19 @@ MonoBehaviour:
   currentXP: 0
   requiredXP: 150
   earntXP: 0
+  currentDefenceTotal: 0
+--- !u!114 &7266534710127501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1389836861790355665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9cee515c37a2a6459aeb5ab73496d2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AttackHandler
 --- !u!135 &667795102598984419
 SphereCollider:
   m_ObjectHideFlags: 0

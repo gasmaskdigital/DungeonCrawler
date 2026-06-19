@@ -30,12 +30,13 @@ public class PlayerHandler : MonoBehaviour
     [Header("Attack Parameters")]    
     private float lightAttackRadius = 1.5f;
     private float heavyAttackRadius = 2.5f;
-    private float maxDistance = 1f;
     public LayerMask enemyMask;
     public bool canBeDamaged = true;
     public bool canAttack = true;
     public float knockbackForce = 10000f;
     private float knockbackDelay = 0.3f;
+    private AttackHandler attackHandler;
+
     
 
 
@@ -44,6 +45,7 @@ public class PlayerHandler : MonoBehaviour
     {
         controller = GetComponent<CharacterController>();
         detectionSphere = GetComponent<SphereCollider>();
+        attackHandler = GetComponent<AttackHandler>();
 
     }
 
@@ -60,12 +62,14 @@ public class PlayerHandler : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             playerAnimator.SetTrigger("Light Attack");
+            attackHandler.attackType = AttackType.LightAttack;
         }
 
         // Heavy Attack
         if (Input.GetMouseButtonDown(1))
         {
             playerAnimator.SetTrigger("Heavy Attack");
+            attackHandler.attackType = AttackType.HeavyAttack;
         }
 
         // pick up item logic

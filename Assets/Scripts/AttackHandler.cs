@@ -2,8 +2,16 @@ using UnityEngine;
 
 public class AttackHandler : MonoBehaviour
 {
+    [Header("References")]
     private PlayerStats playerStats;
     private EnemyStats enemyStats;
+
+    [Header("Player Related")]
+    private float tHSLightAttckRadius = 1.5f; // Two Handed Sword Attack Radius
+    private float tHSHeavyAttckRadius = 3f; // Two Handed Sword Attack Radius
+    public LayerMask enemyMask;
+    public AttackType attackType;
+    
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -23,11 +31,60 @@ public class AttackHandler : MonoBehaviour
     {
         
     }
+
+    public void CheckPlayerWeaponType()
+    {
+        switch (playerStats.currentWeapon.weaponType)
+        {
+            case WeaponType.TwoHandedSword:
+                if(attackType == AttackType.LightAttack)
+                {
+                    TwoHandedSwordLightAttack();
+                }
+                else
+                {
+                    TwoHandedSwordHeavyAttack();
+                }
+            break;
+            case WeaponType.Bow:
+
+                break;
+            case WeaponType.FireSpellBook:
+
+                break;
+
+        }
+    }
+
+    private void TwoHandedSwordLightAttack()
+    {
+        Debug.Log("AttackHandler Sword Light Attack");
+
+
+    }
+
+    private void TwoHandedSwordHeavyAttack()
+    {
+
+    }
+
+
 }
+
+
+
+
+
+// Structs and stuffs
 
 public enum StatBoostType
 {
     Strength, Dexterity, Magic
+}
+
+public enum WeaponType
+{
+    TwoHandedSword, Bow, FireSpellBook
 }
 public struct Weapon
 {
@@ -36,11 +93,17 @@ public struct Weapon
     public int statBoostValue;
     public StatBoostType statBoost;
     public Mesh weaponModel;
+    public WeaponType weaponType;
 }
 
 public enum ArmourSlot
 {
     Helmet, UpperBody, Lowerbody
+}
+
+public enum AttackType
+{
+    LightAttack,HeavyAttack
 }
 
 public struct Armour
@@ -50,5 +113,6 @@ public struct Armour
     public int StatBoostValue;
     public ArmourSlot armourSlot;
     public StatBoostType statBoost;
-    
 }
+    
+

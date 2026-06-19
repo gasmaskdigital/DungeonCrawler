@@ -1783,6 +1783,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8873110122754686441}
   - component: {fileID: 4229529332497621389}
+  - component: {fileID: 3403241467357337720}
   - component: {fileID: 3579476930285203684}
   - component: {fileID: 4013916617164326231}
   - component: {fileID: 6575203961780488057}
@@ -1831,6 +1832,18 @@ MonoBehaviour:
   attackRange: 0
   enemyName: Vampire
   enemyAttackRadius: 1
+--- !u!114 &3403241467357337720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4315232680571345892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9cee515c37a2a6459aeb5ab73496d2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AttackHandler
 --- !u!114 &3579476930285203684
 MonoBehaviour:
   m_ObjectHideFlags: 0
