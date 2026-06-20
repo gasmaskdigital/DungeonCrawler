@@ -1,9 +1,11 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class AttackHandler : MonoBehaviour
 {
     [Header("References")]
     private PlayerStats playerStats;
+    private PlayerHandler playerHandler;
     private EnemyStats enemyStats;
 
     [Header("Player Related")]
@@ -19,6 +21,7 @@ public class AttackHandler : MonoBehaviour
         if (gameObject.CompareTag("Player"))
         {
             playerStats = GetComponent<PlayerStats>();
+            playerHandler = GetComponent<PlayerHandler>();
         }
         else if (gameObject.CompareTag("Enemy"))
         {
@@ -59,13 +62,60 @@ public class AttackHandler : MonoBehaviour
     public void TwoHandedSwordLightAttack()
     {
         Debug.Log("AttackHandler Sword Light Attack");
+        
+            Debug.Log("Light Attack");
 
+            Vector3 origin = transform.position + Vector3.up * 1f + transform.forward * 0.75f;
+
+            Collider[] colliders = Physics.OverlapSphere(origin, tHSLightAttckRadius, enemyMask);
+            Debug.Log("Overlap");
+            foreach (Collider c in colliders)
+            {            
+                if (c.gameObject.CompareTag("Enemy"))
+                {
+                EnemyStats cEnemyStats = GetComponent<EnemyStats>();
+
+                int damageDealt = LightAttackDamage(playerStats.currentWeapon.attackValue, playerStats.strengthStat, cEnemyStats.defence);
+
+                cEnemyStats.TakeDamage(damageDealt);
+            }
+            }
+        
 
     }
 
     public void TwoHandedSwordHeavyAttack()
     {
         Debug.Log("AttackHandler Sword Heavy Attack");
+
+        
+            Debug.Log("heavy attack");
+
+            Collider[] colliders = Physics.OverlapSphere(transform.position, tHSHeavyAttckRadius, enemyMask);
+            foreach (Collider c in colliders)
+            {
+                if (c.gameObject.CompareTag("Enemy"))
+                {
+                EnemyStats cEnemyStats = GetComponent<EnemyStats>();
+
+                
+                }
+            }        
+    }
+
+    public int LightAttackDamage(int weaponAttack, int relevantStat, int enemyDefence)
+    {
+        int playerValues = weaponAttack + relevantStat;
+        playerValues = playerValues * playerValues;
+
+        enemyDefence = enemyDefence * enemyDefence;
+
+        int preDamageValue = playerValues / enemyDefence;
+
+        float floatDamageValue = preDamageValue * 1.2f;
+        int playerDamage = (int)floatDamageValue;
+
+        return playerDamage;
     }
 
 

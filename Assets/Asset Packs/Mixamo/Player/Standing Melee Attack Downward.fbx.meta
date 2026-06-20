@@ -17,7 +17,8 @@ ModelImporter:
     removeConstantScaleCurves: 0
     motionNodeName: 
     animationImportErrors: 
-    animationImportWarnings: 
+    animationImportWarnings: Event CanAttackToggle has a time (2.408762) outside
+      the clip's valid range (0.000000..2.266667). It will never be fired
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
@@ -55,14 +56,14 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.07243963
-        functionName: NewEvent
+      - time: 0.0044410923
+        functionName: CanAttackToggle
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.07471885
+      - time: 0.09085718
         functionName: CanMoveToggle
         data: 
         objectReferenceParameter: {instanceID: 0}
@@ -76,8 +77,15 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.8977342
+      - time: 0.78937685
         functionName: CanMoveToggle
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.87594545
+        functionName: CanAttackToggle
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0

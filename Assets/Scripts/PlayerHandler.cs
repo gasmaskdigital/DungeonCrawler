@@ -208,25 +208,7 @@ public class PlayerHandler : MonoBehaviour
         }
     }
 
-    public void LightAttack()
-    {
-        if (canAttack)
-        {
-            Debug.Log("Light Attack");
-
-            Vector3 origin = transform.position + Vector3.up * 1f + transform.forward * 0.75f; 
-
-            Collider[] colliders = Physics.OverlapSphere(origin, lightAttackRadius, enemyMask);
-            Debug.Log("Overlap");
-            foreach (Collider c in colliders)
-            {                
-                if (c.gameObject.CompareTag("Enemy"))
-                {
-                    Destroy(c);
-                }
-            }
-        }
-    }
+    
 
    
 
