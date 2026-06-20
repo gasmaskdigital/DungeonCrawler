@@ -15,7 +15,9 @@ public class PlayerHandler : MonoBehaviour
     private CharacterController controller;
     [SerializeField] Transform cameraTransform;
     public Animator playerAnimator;
+    private AttackHandler attackHandler;
     private SphereCollider detectionSphere;
+    private PlayerStats playerStats;
 
     [Header("Movement Settings")]
     private float walkSpeed = 6f;
@@ -35,7 +37,7 @@ public class PlayerHandler : MonoBehaviour
     public bool canAttack = true;
     public float knockbackForce = 10000f;
     private float knockbackDelay = 0.3f;
-    private AttackHandler attackHandler;
+    
 
     
 
@@ -46,6 +48,7 @@ public class PlayerHandler : MonoBehaviour
         controller = GetComponent<CharacterController>();
         detectionSphere = GetComponent<SphereCollider>();
         attackHandler = GetComponent<AttackHandler>();
+        playerStats = GetComponent<PlayerStats>();
 
     }
 
@@ -61,15 +64,21 @@ public class PlayerHandler : MonoBehaviour
         // Light Attack
         if (Input.GetMouseButtonDown(0))
         {
-            playerAnimator.SetTrigger("Light Attack");
-            attackHandler.attackType = AttackType.LightAttack;
+            if (canAttack)
+            {
+                attackHandler.attackType = AttackType.LightAttack;
+                CheckWeaponForAnimTrigger();
+            }
         }
 
         // Heavy Attack
         if (Input.GetMouseButtonDown(1))
         {
-            playerAnimator.SetTrigger("Heavy Attack");
-            attackHandler.attackType = AttackType.HeavyAttack;
+            if (canAttack)
+            {
+                attackHandler.attackType = AttackType.HeavyAttack;
+                CheckWeaponForAnimTrigger();
+            }
         }
 
         // pick up item logic
@@ -284,6 +293,36 @@ public class PlayerHandler : MonoBehaviour
             {
                 enemy.ChasePlayer();
             }
+        }
+    }
+
+    private void CheckWeaponForAnimTrigger()
+    {
+        switch(playerStats.currentWeapon.weaponType)
+        {
+            case WeaponType.TwoHandedSword:
+                if(attackHandler.attackType == AttackType.LightAttack)
+                {
+                    playerAnimator.SetTrigger("THSLightAttack");
+                }
+                else
+                {
+                    playerAnimator.SetTrigger("THSHeavyAttack");
+                }
+                break;
+                
+        }        
+    }
+
+    public void CanAttackToggle()
+    {
+        if (canAttack)
+        {
+            canAttack = false;
+        }
+        else
+        {
+            canAttack = true;
         }
     }
 }

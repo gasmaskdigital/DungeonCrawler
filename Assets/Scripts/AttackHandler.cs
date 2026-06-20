@@ -56,16 +56,16 @@ public class AttackHandler : MonoBehaviour
         }
     }
 
-    private void TwoHandedSwordLightAttack()
+    public void TwoHandedSwordLightAttack()
     {
         Debug.Log("AttackHandler Sword Light Attack");
 
 
     }
 
-    private void TwoHandedSwordHeavyAttack()
+    public void TwoHandedSwordHeavyAttack()
     {
-
+        Debug.Log("AttackHandler Sword Heavy Attack");
     }
 
 

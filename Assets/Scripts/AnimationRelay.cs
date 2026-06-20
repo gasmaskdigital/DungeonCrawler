@@ -17,10 +17,10 @@ public class AnimationRelay : MonoBehaviour
         playerHandler.HeavyAttack();
     }
 
-    public void LightAttack()
+    public void THSLightAttack()
     {
-        playerHandler.LightAttack();
-    } 
+        attackHandler.TwoHandedSwordLightAttack();
+    }
 
     public void CanMoveToggle()
     {

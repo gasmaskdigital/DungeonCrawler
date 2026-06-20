@@ -13,6 +13,9 @@ public class PlayerStats : MonoBehaviour
     public int currentXP = 0;
     public int requiredXP = 150;
 
+    public int maxHealth = 100;
+    public int currentHealth;
+
     public int earntXP;
     private int randomStat;
 
@@ -30,7 +33,16 @@ public class PlayerStats : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        if(healthStat < 1)
+        {
+            currentHealth = maxHealth;
+        }
+        else
+        {
+            maxHealth = maxHealth * (healthStat * 5);
+            currentHealth = maxHealth;
+        }
+        
     }
 
     // Update is called once per frame
