@@ -1,3 +1,5 @@
+
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
@@ -13,6 +15,18 @@ public class PlayerStats : MonoBehaviour
 
     public int earntXP;
     private int randomStat;
+
+    [Header("Equipment Variables")]
+    public Weapon currentWeapon;
+    public Armour currentHelmet;
+    public Armour currentUpperBody;
+    public Armour currentLowerBody;
+    
+
+    public int currentDefenceTotal;
+
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -61,4 +75,17 @@ public class PlayerStats : MonoBehaviour
         requiredXP = requiredXP + 125;
         playerLevel++;
     }
+
+    public int CalculateTotalDefence()
+    {
+        int totalDefence = currentHelmet.armourDefence + currentUpperBody.armourDefence + currentLowerBody.armourDefence;
+        return totalDefence;
+    }
+
+    public void UpdateEquipment()
+    {
+        currentDefenceTotal = CalculateTotalDefence();
+    }
+
+    
 }

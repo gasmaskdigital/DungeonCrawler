@@ -25,7 +25,7 @@ public class AttackHandler : MonoBehaviour
     }
 }
 
-public enum statBoostType
+public enum StatBoostType
 {
     Strength, Dexterity, Magic
 }
@@ -34,16 +34,21 @@ public struct Weapon
     public string weaponName;
     public int attackValue;    
     public int statBoostValue;
+    public StatBoostType statBoost;
+    public Mesh weaponModel;
 }
 
-public enum armourSlot
+public enum ArmourSlot
 {
     Helmet, UpperBody, Lowerbody
 }
 
-public struct armour
+public struct Armour
 {
     public string armourName;
     public int armourDefence;
     public int StatBoostValue;
+    public ArmourSlot armourSlot;
+    public StatBoostType statBoost;
+    
 }
