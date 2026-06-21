@@ -37,8 +37,12 @@ public class PlayerHandler : MonoBehaviour
     public bool canAttack = true;
     public float knockbackForce = 10000f;
     private float knockbackDelay = 0.3f;
-    
 
+    [Header("Current Equipment")]
+    [SerializeField] string curWeapon;
+    [SerializeField] string curHelm;
+    [SerializeField] string curUB;
+    [SerializeField] string curLB;
     
 
 
@@ -50,6 +54,17 @@ public class PlayerHandler : MonoBehaviour
         attackHandler = GetComponent<AttackHandler>();
         playerStats = GetComponent<PlayerStats>();
 
+    }
+
+    private void LateUpdate()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            curWeapon = playerStats.currentWeapon.weaponName;
+            curLB = playerStats.currentLowerBody.armourName;
+            curUB = playerStats.currentUpperBody.armourName;
+            curHelm = playerStats.currentHelmet.armourName;
+        }
     }
 
     // Update is called once per frame

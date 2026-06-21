@@ -9,6 +9,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -4978104183705362587, guid: 4528d740d646b43438166107f7f960c8, type: 3}
+      propertyPath: lootName
+      value: Spear
+      objectReference: {fileID: 0}
+    - target: {fileID: -4978104183705362587, guid: 4528d740d646b43438166107f7f960c8, type: 3}
       propertyPath: attackValue
       value: 2
       objectReference: {fileID: 0}

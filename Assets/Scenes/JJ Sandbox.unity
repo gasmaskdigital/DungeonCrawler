@@ -158,7 +158,7 @@ MonoBehaviour:
   levelHeight: 15
   gridSize: 7.5
   spawnerPercentage: 0
-  lootPercentage: 0.1
+  lootPercentage: 1
   eastEntrance: []
   westEntrance: []
   northEntrance: []

@@ -147,10 +147,8 @@ public enum StatBoostType
     Strength, Dexterity, Magic
 }
 
-public enum WeaponType
-{
-    TwoHandedSword, Bow, FireSpellBook
-}
+public enum WeaponType { TwoHandedSword, Bow, FireSpellBook }
+
 public struct Weapon
 {
     public string weaponName;
@@ -159,6 +157,16 @@ public struct Weapon
     public StatBoostType statBoost;
     public Mesh weaponModel;
     public WeaponType weaponType;
+
+    public Weapon(string weaponName, int attackValue, int statBoostValue, StatBoostType statBoost, Mesh weaponModel, WeaponType weaponType) 
+    {
+        this.weaponName = weaponName;
+        this.attackValue = attackValue;
+        this.statBoostValue = statBoostValue;
+        this.statBoost = statBoost;
+        this.weaponModel = weaponModel;
+        this.weaponType = weaponType;
+    }
 }
 
 public enum ArmourSlot
@@ -178,6 +186,15 @@ public struct Armour
     public int StatBoostValue;
     public ArmourSlot armourSlot;
     public StatBoostType statBoost;
+
+    public Armour(string armourName, int armourDefence, int StatBoostValue, ArmourSlot armourSlot, StatBoostType statBoost) 
+    {
+        this.armourName = armourName;
+        this.armourDefence = armourDefence;
+        this.StatBoostValue = StatBoostValue;
+        this.armourSlot = armourSlot;
+        this.statBoost = statBoost;
+    }
 }
     
 

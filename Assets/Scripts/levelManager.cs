@@ -135,9 +135,9 @@ public class levelManager: MonoBehaviour
 
         if (validTiles.Count > 0)
         {
-            int index = Random.Range(0, validTiles.Count());
-            levelMap.enemySpawnerTiles.Add(validTiles[index]);
-            Instantiate(enemySpawner, validTiles[index].tile.transform);
+            levelTile levelTile = validTiles[Random.Range(0, validTiles.Count())];
+            levelMap.enemySpawnerTiles.Add(levelTile);
+            Instantiate(enemySpawner, levelTile.tile.transform);
         }
     }
 
@@ -151,9 +151,9 @@ public class levelManager: MonoBehaviour
 
         if (validTiles.Count > 0)
         {
-            int index = Random.Range(0, validTiles.Count());
-            levelMap.chestTiles.Add(validTiles[index]);
-            Instantiate(chest, validTiles[index].tile.transform);
+            levelTile levelTile = validTiles[Random.Range(0, validTiles.Count())];
+            levelMap.chestTiles.Add(levelTile);
+            Instantiate(chest, levelTile.tile.transform);
         }
     }
 
