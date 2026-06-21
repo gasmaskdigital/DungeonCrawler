@@ -15,9 +15,9 @@ public class PlayerHandler : MonoBehaviour
     private CharacterController controller;
     [SerializeField] Transform cameraTransform;
     public Animator playerAnimator;
+    private AttackHandler attackHandler;
     private SphereCollider detectionSphere;
-    public Weapon curWeapon;
-    [SerializeField] string weaponName;
+    private PlayerStats playerStats;
 
     [Header("Movement Settings")]
     private float walkSpeed = 6f;
@@ -32,12 +32,13 @@ public class PlayerHandler : MonoBehaviour
     [Header("Attack Parameters")]    
     private float lightAttackRadius = 1.5f;
     private float heavyAttackRadius = 2.5f;
-    private float maxDistance = 1f;
     public LayerMask enemyMask;
     public bool canBeDamaged = true;
     public bool canAttack = true;
     public float knockbackForce = 10000f;
     private float knockbackDelay = 0.3f;
+    
+
     
 
 
@@ -46,8 +47,9 @@ public class PlayerHandler : MonoBehaviour
     {
         controller = GetComponent<CharacterController>();
         detectionSphere = GetComponent<SphereCollider>();
+        attackHandler = GetComponent<AttackHandler>();
+        playerStats = GetComponent<PlayerStats>();
 
-        curWeapon = new Weapon("Unarmed",0,0,StatBoostType.Strength, null);
     }
 
     // Update is called once per frame
@@ -56,28 +58,33 @@ public class PlayerHandler : MonoBehaviour
         InputMagangement();
         Movement();
 
-        weaponName = curWeapon.weaponName;
-
         playerAnimator.SetFloat("Speed", currentSpeed, 0, Time.deltaTime);
         
 
         // Light Attack
         if (Input.GetMouseButtonDown(0))
         {
-            playerAnimator.SetTrigger("Light Attack");
+            if (canAttack)
+            {
+                attackHandler.attackType = AttackType.LightAttack;
+                CheckWeaponForAnimTrigger();
+            }
         }
 
         // Heavy Attack
         if (Input.GetMouseButtonDown(1))
         {
-            playerAnimator.SetTrigger("Heavy Attack");
+            if (canAttack)
+            {
+                attackHandler.attackType = AttackType.HeavyAttack;
+                CheckWeaponForAnimTrigger();
+            }
         }
 
         // pick up item logic
         if (Input.GetKeyDown(KeyCode.E))
         {
             // sphere cast to pick up item
-            Debug.Log(curWeapon.weaponName);
         }
         
         //pause button
@@ -201,25 +208,7 @@ public class PlayerHandler : MonoBehaviour
         }
     }
 
-    public void LightAttack()
-    {
-        if (canAttack)
-        {
-            Debug.Log("Light Attack");
-
-            Vector3 origin = transform.position + Vector3.up * 1f + transform.forward * 0.75f; 
-
-            Collider[] colliders = Physics.OverlapSphere(origin, lightAttackRadius, enemyMask);
-            Debug.Log("Overlap");
-            foreach (Collider c in colliders)
-            {                
-                if (c.gameObject.CompareTag("Enemy"))
-                {
-                    Destroy(c);
-                }
-            }
-        }
-    }
+    
 
    
 
@@ -286,6 +275,36 @@ public class PlayerHandler : MonoBehaviour
             {
                 enemy.ChasePlayer();
             }
+        }
+    }
+
+    private void CheckWeaponForAnimTrigger()
+    {
+        switch(playerStats.currentWeapon.weaponType)
+        {
+            case WeaponType.TwoHandedSword:
+                if(attackHandler.attackType == AttackType.LightAttack)
+                {
+                    playerAnimator.SetTrigger("THSLightAttack");
+                }
+                else
+                {
+                    playerAnimator.SetTrigger("THSHeavyAttack");
+                }
+                break;
+                
+        }        
+    }
+
+    public void CanAttackToggle()
+    {
+        if (canAttack)
+        {
+            canAttack = false;
+        }
+        else
+        {
+            canAttack = true;
         }
     }
 }

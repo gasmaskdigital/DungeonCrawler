@@ -21,7 +21,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -203655887218126122, guid: 6a280e14390a0a54689c058be999503e, type: 3}
+  m_Motion: {fileID: -203655887218126122, guid: 3ce7e3ad790294448a2792abf69040a7, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -58,7 +58,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: Light Attack
+    m_ConditionEvent: THSLightAttack
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 7307451364006282060}
@@ -83,7 +83,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: Heavy Attack
+    m_ConditionEvent: THSHeavyAttack
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 4216119133796906958}
@@ -157,13 +157,13 @@ AnimatorStateMachine:
     m_Position: {x: 310, y: 110, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 7307451364006282060}
-    m_Position: {x: 320.80002, y: 13.599998, z: 0}
+    m_Position: {x: 30, y: -70, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 4216119133796906958}
-    m_Position: {x: 390, y: -30, z: 0}
+    m_Position: {x: 230, y: -70, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -9215588747540464552}
-    m_Position: {x: 220, y: -80, z: 0}
+    m_Position: {x: 50, y: 70, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions:
   - {fileID: -4736484036333861848}
@@ -186,7 +186,7 @@ BlendTree:
   m_Name: Blend Tree
   m_Childs:
   - serializedVersion: 2
-    m_Motion: {fileID: -203655887218126122, guid: bfde50ef5eb4928479101b78b9dff94d, type: 3}
+    m_Motion: {fileID: -203655887218126122, guid: 3d27a0c2df4bbf044993c1368d2026ad, type: 3}
     m_Threshold: 0
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
@@ -194,7 +194,7 @@ BlendTree:
     m_DirectBlendParameter: Blend
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: -203655887218126122, guid: 452f9021740cabb41893b8517ececedd, type: 3}
+    m_Motion: {fileID: -203655887218126122, guid: d8231aa305926c542a0534a3b515f89e, type: 3}
     m_Threshold: 0.5
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
@@ -202,8 +202,8 @@ BlendTree:
     m_DirectBlendParameter: Blend
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: -203655887218126122, guid: 63076a5b8ee53524d8b50990df46a122, type: 3}
-    m_Threshold: 1
+    m_Motion: {fileID: -203655887218126122, guid: 9d6d44c502b569a43918e64fa0cc8aba, type: 3}
+    m_Threshold: 4
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
     m_CycleOffset: 0
@@ -212,7 +212,7 @@ BlendTree:
   m_BlendParameter: Speed
   m_BlendParameterY: Blend
   m_MinThreshold: 0
-  m_MaxThreshold: 1
+  m_MaxThreshold: 4
   m_UseAutomaticThresholds: 0
   m_NormalizedBlendValues: 0
   m_BlendType: 0
@@ -262,13 +262,13 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
-  - m_Name: Light Attack
+  - m_Name: THSLightAttack
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
-  - m_Name: Heavy Attack
+  - m_Name: THSHeavyAttack
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -300,7 +300,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Heavy Attack
+  m_Name: THSHeavyAttack
   m_Speed: 2
   m_CycleOffset: 0
   m_Transitions:
@@ -314,7 +314,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -203655887218126122, guid: 7dae6517356f7ff4ba2ff622731c8dd2, type: 3}
+  m_Motion: {fileID: -203655887218126122, guid: e32eadef967e26a4cba6e789265c9fe0, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -353,7 +353,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Light Attack
+  m_Name: THSLightAttack
   m_Speed: 3
   m_CycleOffset: 0
   m_Transitions:
@@ -367,7 +367,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -203655887218126122, guid: c2f2b1a74a1893046af970e9c384b3aa, type: 3}
+  m_Motion: {fileID: -203655887218126122, guid: d6d1d118f4c7a4f4497567728b3aaf46, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

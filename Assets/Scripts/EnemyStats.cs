@@ -23,4 +23,9 @@ public class EnemyStats : MonoBehaviour
     {
 
     }
+
+    public void TakeDamage(int damageTaken)
+    {
+
+    }
 }

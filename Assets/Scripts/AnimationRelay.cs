@@ -4,21 +4,25 @@ public class AnimationRelay : MonoBehaviour
 {
     //Refence
     private PlayerHandler playerHandler;
+    private AttackHandler attackHandler;
 
     private void Awake()
     {
         playerHandler = GetComponentInParent<PlayerHandler>();
+        attackHandler = GetComponentInParent<AttackHandler>();
     }
 
-    public void HeavyAttack()
+   public void THSHeavyAttack()
     {
-        playerHandler.HeavyAttack();
+        attackHandler.CheckPlayerWeaponType();
+        Debug.Log("AnimationRelay");
     }
 
-    public void LightAttack()
+    public void THSLightAttack()
     {
-        playerHandler.LightAttack();
-    } 
+        attackHandler.CheckPlayerWeaponType();
+        Debug.Log("Animation Relay");
+    }
 
     public void CanMoveToggle()
     {
@@ -28,5 +32,10 @@ public class AnimationRelay : MonoBehaviour
     public void Invincibilty()
     {
         playerHandler.ToggleCanBeDamaged();
+    }
+
+    public void CanAttackToggle()
+    {
+        playerHandler.CanAttackToggle();
     }
 }
