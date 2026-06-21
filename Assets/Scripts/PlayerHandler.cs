@@ -16,6 +16,8 @@ public class PlayerHandler : MonoBehaviour
     [SerializeField] Transform cameraTransform;
     public Animator playerAnimator;
     private SphereCollider detectionSphere;
+    public Weapon curWeapon;
+    [SerializeField] string weaponName;
 
     [Header("Movement Settings")]
     private float walkSpeed = 6f;
@@ -45,6 +47,7 @@ public class PlayerHandler : MonoBehaviour
         controller = GetComponent<CharacterController>();
         detectionSphere = GetComponent<SphereCollider>();
 
+        curWeapon = new Weapon("Unarmed",0,0,StatBoostType.Strength, null);
     }
 
     // Update is called once per frame
@@ -52,6 +55,8 @@ public class PlayerHandler : MonoBehaviour
     {
         InputMagangement();
         Movement();
+
+        weaponName = curWeapon.weaponName;
 
         playerAnimator.SetFloat("Speed", currentSpeed, 0, Time.deltaTime);
         
@@ -72,6 +77,7 @@ public class PlayerHandler : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             // sphere cast to pick up item
+            Debug.Log(curWeapon.weaponName);
         }
         
         //pause button

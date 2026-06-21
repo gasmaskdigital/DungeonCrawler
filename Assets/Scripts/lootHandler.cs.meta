@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: 1484d3e0de9fdb044850ae6e1f201520
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - spearMesh: {fileID: -6143898996665494940, guid: 3ea12b315dfa3914d96d2432f1a9c444, type: 3}
+  - swordMesh: {fileID: 4634054444666320730, guid: e5d1bfca5fbaea04fa93b6bf98558068, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

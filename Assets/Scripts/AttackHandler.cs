@@ -36,6 +36,15 @@ public struct Weapon
     public int statBoostValue;
     public StatBoostType statBoost;
     public Mesh weaponModel;
+
+    public Weapon(string weaponName, int attackValue, int statBoostValue, StatBoostType statBoost, Mesh weaponModel) 
+    {
+        this.weaponName = weaponName;
+        this.attackValue = attackValue;
+        this.statBoostValue = statBoostValue;
+        this.statBoost = statBoost;
+        this.weaponModel = weaponModel;
+    }
 }
 
 public enum ArmourSlot

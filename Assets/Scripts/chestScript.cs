@@ -15,6 +15,9 @@ public class chestScript : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         isEmpty = false;
+
+        GameObject[] allLoot = Resources.LoadAll<GameObject>("LootObjects");
+        loot = allLoot[Random.Range(0,allLoot.Length)];
     }
 
     // Update is called once per frame
