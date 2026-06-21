@@ -13,6 +13,10 @@ public class PlayerStats : MonoBehaviour
     public int currentXP = 0;
     public int requiredXP = 150;
 
+    public int boostedStrength;
+    public int boostedDexterity;
+    public int boostedMagic;
+
     public int maxHealth = 100;
     public int currentHealth;
 
@@ -94,9 +98,74 @@ public class PlayerStats : MonoBehaviour
         return totalDefence;
     }
 
+    public void UpdateBoostedStats()
+    {
+        ResetBoostedStats();
+
+        switch (currentWeapon.statBoost)
+        {
+            case StatBoostType.Strength:
+                boostedStrength = strengthStat + currentWeapon.statBoostValue;
+                break;
+            case StatBoostType.Dexterity:
+                boostedDexterity = dexterityStat + currentWeapon.statBoostValue;
+                break;
+            case StatBoostType.Magic:
+                boostedMagic = magicStat + currentWeapon.statBoostValue;
+                break;
+        }
+
+        switch (currentHelmet.statBoost)
+        {
+            case StatBoostType.Strength:
+                boostedStrength = strengthStat + currentHelmet.StatBoostValue;
+                break;
+            case StatBoostType.Dexterity:
+                boostedDexterity = dexterityStat + currentHelmet.StatBoostValue;
+                break;
+            case StatBoostType.Magic:
+                boostedMagic = magicStat + currentHelmet.StatBoostValue;
+                break;
+        }
+
+        switch (currentUpperBody.statBoost)
+        {
+            case StatBoostType.Strength:
+                boostedStrength = strengthStat + currentUpperBody.StatBoostValue;
+                break;
+            case StatBoostType.Dexterity:
+                boostedDexterity = dexterityStat + currentUpperBody.StatBoostValue;
+                break;
+            case StatBoostType.Magic:
+                boostedMagic = magicStat + currentUpperBody.StatBoostValue;
+                break;                                
+        }
+
+        switch (currentLowerBody.statBoost)
+        {
+            case StatBoostType.Strength:
+                boostedStrength = strengthStat + currentLowerBody.StatBoostValue;
+                break;
+            case StatBoostType.Dexterity:
+                boostedDexterity = dexterityStat + currentLowerBody.StatBoostValue;
+                break;
+            case StatBoostType.Magic:
+                boostedMagic = magicStat + currentLowerBody.StatBoostValue;
+                break;
+        }
+    }
+
+    private void ResetBoostedStats()
+    {
+        boostedStrength = 0;
+        boostedDexterity = 0;
+        boostedMagic = 0;
+    }
+
     public void UpdateEquipment()
     {
         currentDefenceTotal = CalculateTotalDefence();
+        UpdateBoostedStats();
     }
 
     

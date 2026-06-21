@@ -75,7 +75,7 @@ public class AttackHandler : MonoBehaviour
                 {
                 EnemyStats cEnemyStats = GetComponent<EnemyStats>();
 
-                int damageDealt = LightAttackDamage(playerStats.currentWeapon.attackValue, playerStats.strengthStat, cEnemyStats.defence);
+                int damageDealt = LightAttackDamage(playerStats.currentWeapon.attackValue, playerStats.boostedStrength, cEnemyStats.defence);
 
                 cEnemyStats.TakeDamage(damageDealt);
             }
@@ -104,6 +104,21 @@ public class AttackHandler : MonoBehaviour
     }
 
     public int LightAttackDamage(int weaponAttack, int relevantStat, int enemyDefence)
+    {
+        int playerValues = weaponAttack + relevantStat;
+        playerValues = playerValues * playerValues;
+
+        enemyDefence = enemyDefence * enemyDefence;
+
+        int preDamageValue = playerValues / enemyDefence;
+
+        float floatDamageValue = preDamageValue * 1.2f;
+        int playerDamage = (int)floatDamageValue;
+
+        return playerDamage;
+    }
+
+    public int HeavyAttackDamage(int weaponAttack, int relevantStat, int enemyDefence)
     {
         int playerValues = weaponAttack + relevantStat;
         playerValues = playerValues * playerValues;
