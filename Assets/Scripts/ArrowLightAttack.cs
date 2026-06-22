@@ -4,12 +4,15 @@ public class ArrowLightAttack : MonoBehaviour
 {
     private SphereCollider SphereCollider;
     private float speed = 10f;
+    private GameObject player;
+    private AttackHandler playerAttackHandler;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         SphereCollider = GetComponent<SphereCollider>();
-        
+        player = GameObject.FindGameObjectWithTag("Player");
+        playerAttackHandler = player.GetComponent<AttackHandler>();
 
     }
 
@@ -17,7 +20,7 @@ public class ArrowLightAttack : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
-
+            
         }
 
         if (other.CompareTag("Terrain"))

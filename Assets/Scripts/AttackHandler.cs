@@ -119,6 +119,11 @@ public class AttackHandler : MonoBehaviour
             }        
     }
 
+    public void BowLightAttackImpact()
+    {
+        Debug.Log("Bow Light Attack Impact");
+    }
+
     public int LightAttackDamage(int weaponAttack, int relevantStat, int enemyDefence)
     {
         int playerValues = weaponAttack + relevantStat;
