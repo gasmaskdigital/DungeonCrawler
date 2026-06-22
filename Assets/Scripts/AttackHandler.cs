@@ -22,6 +22,7 @@ public class AttackHandler : MonoBehaviour
         {
             playerStats = GetComponent<PlayerStats>();
             playerHandler = GetComponent<PlayerHandler>();
+            Debug.Log("Player components");
         }
         else if (gameObject.CompareTag("Enemy"))
         {
@@ -50,8 +51,16 @@ public class AttackHandler : MonoBehaviour
                 }
             break;
             case WeaponType.Bow:
+                if(attackType == AttackType.LightAttack)
+                {
 
-                break;
+                }
+                else
+                {
+
+                }
+
+                    break;
             case WeaponType.FireSpellBook:
 
                 break;
@@ -73,7 +82,8 @@ public class AttackHandler : MonoBehaviour
             {            
                 if (c.gameObject.CompareTag("Enemy"))
                 {
-                EnemyStats cEnemyStats = GetComponent<EnemyStats>();
+                EnemyStats cEnemyStats = c.GetComponent<EnemyStats>();
+                Debug.Log(cEnemyStats);
 
                 int damageDealt = LightAttackDamage(playerStats.currentWeapon.attackValue, playerStats.boostedStrength, cEnemyStats.defence);
 
@@ -98,7 +108,7 @@ public class AttackHandler : MonoBehaviour
             {
                 if (c.gameObject.CompareTag("Enemy"))
                 {
-                EnemyStats cEnemyStats = GetComponent<EnemyStats>();
+                EnemyStats cEnemyStats = c.GetComponent<EnemyStats>();
 
                 int damageDealt = HeavyAttackDamage(playerStats.currentWeapon.attackValue, playerStats.boostedStrength, cEnemyStats.defence);
 
@@ -121,6 +131,11 @@ public class AttackHandler : MonoBehaviour
         float floatDamageValue = preDamageValue * 1.2f;
         int playerDamage = (int)floatDamageValue;
 
+        if(playerDamage <= 0)
+        {
+            playerDamage += 1;
+        }
+
         return playerDamage;
     }
 
@@ -135,6 +150,11 @@ public class AttackHandler : MonoBehaviour
 
         float floatDamageValue = preDamageValue * 1.5f;
         int playerDamage = (int)floatDamageValue;
+
+        if (playerDamage <= 0)
+        {
+            playerDamage += 2;
+        }
 
         return playerDamage;
     }
@@ -157,6 +177,8 @@ public enum WeaponType
 {
     TwoHandedSword, Bow, FireSpellBook
 }
+
+[System.Serializable]
 public struct Weapon
 {
     public string weaponName;
@@ -165,6 +187,7 @@ public struct Weapon
     public StatBoostType statBoost;
     public Mesh weaponModel;
     public WeaponType weaponType;
+    
 }
 
 public enum ArmourSlot
@@ -176,6 +199,8 @@ public enum AttackType
 {
     LightAttack,HeavyAttack
 }
+
+
 
 public struct Armour
 {

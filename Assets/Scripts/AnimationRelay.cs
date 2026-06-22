@@ -24,6 +24,13 @@ public class AnimationRelay : MonoBehaviour
         Debug.Log("Animation Relay");
     }
 
+    public void BowAttack()
+    {
+        attackHandler.CheckPlayerWeaponType();
+        Debug.Log("Bow AnimationRelay");
+    }
+
+
     public void CanMoveToggle()
     {
         playerHandler.CanMoveToggle();

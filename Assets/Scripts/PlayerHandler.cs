@@ -292,7 +292,16 @@ public class PlayerHandler : MonoBehaviour
                     playerAnimator.SetTrigger("THSHeavyAttack");
                 }
                 break;
-                
+            case WeaponType.Bow:
+                if (attackHandler.attackType == AttackType.LightAttack)
+                {
+                    playerAnimator.SetTrigger("BowLightAttack");
+                }
+                else
+                {
+                    playerAnimator.SetTrigger("BowHeavyAttack");
+                }
+                break;
         }        
     }
 

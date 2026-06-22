@@ -28,6 +28,7 @@ public class PlayerStats : MonoBehaviour
     public Armour currentHelmet;
     public Armour currentUpperBody;
     public Armour currentLowerBody;
+    public GameObject[] weaponSockets; // 0=THS, 1=Bow, 2=SpellBook
     
 
     public int currentDefenceTotal;
@@ -105,54 +106,58 @@ public class PlayerStats : MonoBehaviour
         switch (currentWeapon.statBoost)
         {
             case StatBoostType.Strength:
-                boostedStrength = strengthStat + currentWeapon.statBoostValue;
+                boostedStrength += currentWeapon.statBoostValue;
                 break;
             case StatBoostType.Dexterity:
-                boostedDexterity = dexterityStat + currentWeapon.statBoostValue;
+                boostedDexterity +=  currentWeapon.statBoostValue;
                 break;
             case StatBoostType.Magic:
-                boostedMagic = magicStat + currentWeapon.statBoostValue;
+                boostedMagic += currentWeapon.statBoostValue;
                 break;
         }
 
         switch (currentHelmet.statBoost)
         {
             case StatBoostType.Strength:
-                boostedStrength = strengthStat + currentHelmet.StatBoostValue;
+                boostedStrength += currentHelmet.StatBoostValue;
                 break;
             case StatBoostType.Dexterity:
-                boostedDexterity = dexterityStat + currentHelmet.StatBoostValue;
+                boostedDexterity += currentHelmet.StatBoostValue;
                 break;
             case StatBoostType.Magic:
-                boostedMagic = magicStat + currentHelmet.StatBoostValue;
+                boostedMagic += currentHelmet.StatBoostValue;
                 break;
         }
 
         switch (currentUpperBody.statBoost)
         {
             case StatBoostType.Strength:
-                boostedStrength = strengthStat + currentUpperBody.StatBoostValue;
+                boostedStrength += currentUpperBody.StatBoostValue;
                 break;
             case StatBoostType.Dexterity:
-                boostedDexterity = dexterityStat + currentUpperBody.StatBoostValue;
+                boostedDexterity += currentUpperBody.StatBoostValue;
                 break;
             case StatBoostType.Magic:
-                boostedMagic = magicStat + currentUpperBody.StatBoostValue;
+                boostedMagic += currentUpperBody.StatBoostValue;
                 break;                                
         }
 
         switch (currentLowerBody.statBoost)
         {
             case StatBoostType.Strength:
-                boostedStrength = strengthStat + currentLowerBody.StatBoostValue;
+                boostedStrength += currentLowerBody.StatBoostValue;
                 break;
             case StatBoostType.Dexterity:
-                boostedDexterity = dexterityStat + currentLowerBody.StatBoostValue;
+                boostedDexterity += currentLowerBody.StatBoostValue;
                 break;
             case StatBoostType.Magic:
-                boostedMagic = magicStat + currentLowerBody.StatBoostValue;
+                boostedMagic += currentLowerBody.StatBoostValue;
                 break;
         }
+
+        boostedStrength += strengthStat;
+        boostedDexterity += dexterityStat;
+        boostedMagic += magicStat;
     }
 
     private void ResetBoostedStats()
@@ -162,10 +167,29 @@ public class PlayerStats : MonoBehaviour
         boostedMagic = 0;
     }
 
+    private void UpdateWeaponSocket()
+    {
+        foreach(GameObject c in weaponSockets)
+        {
+            c.gameObject.SetActive(false);
+        }
+
+        switch (currentWeapon.weaponType)
+        {
+            case WeaponType.TwoHandedSword:
+                weaponSockets[0].SetActive(true);
+                break;
+            case WeaponType.Bow:
+                weaponSockets[1].SetActive(true);
+                break;
+        }
+    }
+
     public void UpdateEquipment()
     {
         currentDefenceTotal = CalculateTotalDefence();
         UpdateBoostedStats();
+        UpdateWeaponSocket();
     }
 
     
