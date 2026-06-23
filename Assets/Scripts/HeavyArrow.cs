@@ -1,21 +1,24 @@
 using UnityEngine;
 
-public class ArrowLightAttack : MonoBehaviour
+public class HeavyArrow : MonoBehaviour
 {
-    private SphereCollider SphereCollider;
-    private float speed = 15f;
+    private SphereCollider sphereCollider;
+    private float speed = 20f;
     private GameObject player;
     private AttackHandler playerAttackHandler;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        SphereCollider = GetComponent<SphereCollider>();
+        sphereCollider = GetComponent<SphereCollider>();
         player = GameObject.FindGameObjectWithTag("Player");
         playerAttackHandler = player.GetComponent<AttackHandler>();
+    }
 
-        
-
+    // Update is called once per frame
+    void Update()
+    {
+        transform.Translate(Vector3.forward * speed * Time.deltaTime);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -23,20 +26,12 @@ public class ArrowLightAttack : MonoBehaviour
         if (other.CompareTag("Enemy"))
         {
             EnemyStats cEnemyStats = other.GetComponent<EnemyStats>();
-            playerAttackHandler.BowLightAttackImpact(cEnemyStats);
-            Destroy(gameObject);
-            
+            playerAttackHandler.BowHeavyAttackImpact(cEnemyStats);
         }
 
         if (other.CompareTag("Terrain"))
         {
             Destroy(gameObject);
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        transform.Translate(Vector3.forward * speed * Time.deltaTime);
     }
 }

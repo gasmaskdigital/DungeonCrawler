@@ -26,8 +26,8 @@ public class PlayerHandler : MonoBehaviour
     private float gravityForce = 9.8f;
     private float verticalVelocity;
     private bool canMove = true;
-    private float dodgeSpeed = 50f;
-    private float dashTime = 2f;
+    private float dodgeSpeed = 10f;
+    private float dashTime = 0.8f;
 
     [Header("Attack Parameters")]    
     private float lightAttackRadius = 1.5f;
@@ -103,7 +103,11 @@ public class PlayerHandler : MonoBehaviour
         // dodge input
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            playerAnimator.SetTrigger("Dodge");
+            if (canMove)
+            {
+                playerAnimator.SetTrigger("Dodge");
+                Dodge();
+            }
         }
 
         // health potion

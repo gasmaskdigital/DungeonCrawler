@@ -1,3 +1,4 @@
+using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -13,6 +14,8 @@ public class AttackHandler : MonoBehaviour
     private float tHSHeavyAttckRadius = 3f; // Two Handed Sword Attack Radius
     public LayerMask enemyMask;
     public AttackType attackType;
+    [SerializeField] GameObject lightArrow;
+    [SerializeField] GameObject heavyArrow;
     
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -53,11 +56,11 @@ public class AttackHandler : MonoBehaviour
             case WeaponType.Bow:
                 if(attackType == AttackType.LightAttack)
                 {
-
+                    SpawnLightArrow();
                 }
                 else
                 {
-
+                    SpawnHeavyArrow();
                 }
 
                     break;
@@ -119,9 +122,43 @@ public class AttackHandler : MonoBehaviour
             }        
     }
 
-    public void BowLightAttackImpact()
+    private void SpawnLightArrow()
+    {
+        Vector3 spawnPoint = transform.position;
+        spawnPoint.y += 1.5f;
+
+        quaternion spawnRotation = transform.rotation;
+        
+
+
+        Instantiate(lightArrow, spawnPoint, spawnRotation);
+    }
+
+    public void BowLightAttackImpact(EnemyStats enemystats)
     {
         Debug.Log("Bow Light Attack Impact");
+
+        int damageDealt = LightAttackDamage(playerStats.currentWeapon.attackValue, playerStats.boostedDexterity, enemystats.defence);
+        enemystats.TakeDamage(damageDealt);
+
+    }
+
+    private void SpawnHeavyArrow()
+    {
+        Vector3 spawnPoint = transform.position;
+        spawnPoint.y += 1.5f;
+
+        quaternion spawnRotation = transform.rotation;
+
+        Instantiate(heavyArrow, spawnPoint, spawnRotation);
+    }
+
+    public void BowHeavyAttackImpact(EnemyStats enemyStats)
+    {
+        Debug.Log("Bow Heavy Attack Impact");
+
+        int damageDealt = HeavyAttackDamage(playerStats.currentWeapon.attackValue, playerStats.boostedDexterity, enemyStats.defence);
+        enemyStats.TakeDamage(damageDealt);
     }
 
     public int LightAttackDamage(int weaponAttack, int relevantStat, int enemyDefence)
