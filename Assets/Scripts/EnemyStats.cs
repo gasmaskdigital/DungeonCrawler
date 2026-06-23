@@ -12,10 +12,13 @@ public class EnemyStats : MonoBehaviour
     public string enemyName;
     public float enemyAttackRadius;
 
+    private Animator enemyAnimator;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         currentHealth = maxHealth;
+        enemyAnimator = GetComponentInChildren<Animator>();
     }
 
     // Update is called once per frame
@@ -27,6 +30,8 @@ public class EnemyStats : MonoBehaviour
     public void TakeDamage(int damageTaken)
     {
         currentHealth = currentHealth - damageTaken;
+
+        enemyAnimator.SetTrigger("DamageReact");
 
         if(currentHealth <= 0)
         {
