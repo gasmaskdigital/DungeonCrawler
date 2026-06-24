@@ -323,6 +323,16 @@ public class PlayerHandler : MonoBehaviour
                     playerAnimator.SetTrigger("BowHeavyAttack");
                 }
                 break;
+            case WeaponType.FireSpellBook:
+                if(attackHandler.attackType == AttackType.LightAttack)
+                {
+                    playerAnimator.SetTrigger("FireLightAttack");
+                }
+                else
+                {
+                    playerAnimator.SetTrigger("FireHeavyAttack");
+                }
+                break;
         }        
     }
 
