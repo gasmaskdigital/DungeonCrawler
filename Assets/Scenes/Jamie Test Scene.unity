@@ -142,9 +142,9 @@ GameObject:
   - component: {fileID: 565570137}
   - component: {fileID: 565570136}
   - component: {fileID: 565570140}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -405,9 +405,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 889499174634663218, guid: 280e40d53dc532046bdc1f1e091ed61e, type: 3}
     - target: {fileID: 1087447258442381983, guid: 35a62140321f4064da5d2693afb1944e, type: 3}
+      propertyPath: bowAiming
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1087447258442381983, guid: 35a62140321f4064da5d2693afb1944e, type: 3}
+      propertyPath: mainCamera
+      value: 
+      objectReference: {fileID: 1819647427}
+    - target: {fileID: 1087447258442381983, guid: 35a62140321f4064da5d2693afb1944e, type: 3}
       propertyPath: cameraTransform
       value: 
       objectReference: {fileID: 232969747}
+    - target: {fileID: 1087447258442381983, guid: 35a62140321f4064da5d2693afb1944e, type: 3}
+      propertyPath: terrainLayer.m_Bits
+      value: 128
+      objectReference: {fileID: 0}
     - target: {fileID: 1389836861790355665, guid: 35a62140321f4064da5d2693afb1944e, type: 3}
       propertyPath: m_Name
       value: Player Object

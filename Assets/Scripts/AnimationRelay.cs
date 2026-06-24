@@ -30,6 +30,12 @@ public class AnimationRelay : MonoBehaviour
         Debug.Log("Bow AnimationRelay");
     }
 
+    public void BowAimingToggle()
+    {
+        playerHandler.BowAimingToggle();
+        Debug.Log("Bow Aiming Toggle");
+    }
+
 
     public void CanMoveToggle()
     {

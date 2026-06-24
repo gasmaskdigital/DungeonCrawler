@@ -638,15 +638,59 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "",
-                    "id": "b765dadc-adeb-4314-a844-e27372efa6de",
-                    "path": "<Mouse>/delta",
+                    "name": "2D Vector",
+                    "id": "7b8422c0-7103-4049-8339-b0925ff75c21",
+                    "path": "2DVector",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Touch",
+                    "groups": "",
+                    "action": "Look",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "fb51aab2-df15-4576-a80c-4b75fbe873ce",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
                     "action": "Look",
                     "isComposite": false,
-                    "isPartOfComposite": false
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "2148af9b-e0a4-498c-a5a9-bad0b043ab0f",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Look",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "0b795876-e684-480a-82eb-a2cd6afb0285",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Look",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "fc329993-5e6c-4dc2-8e86-02a02ed8a155",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Look",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         }
