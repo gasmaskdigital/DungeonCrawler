@@ -9,7 +9,7 @@ public class lootScript : MonoBehaviour
     [SerializeField] public Armour armour;
     [SerializeField] public Weapon weapon;
     public string lootName;
-    public int statValue; // Attack Value or Defence Value for Weapons and Amour respectively
+    public int statValue; // Attack Value or Defence Value for Weapons and Armour respectively
     public int statBoostValue;
     public StatBoostType statBoost;
     public Mesh lootModel;
