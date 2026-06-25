@@ -18,6 +18,8 @@ public class PlayerHandler : MonoBehaviour
     private AttackHandler attackHandler;
     private SphereCollider detectionSphere;
     private PlayerStats playerStats;
+    public UnityEngine.Camera mainCamera;
+    public LayerMask terrainLayer;
 
     [Header("Movement Settings")]
     private float walkSpeed = 6f;
@@ -26,8 +28,9 @@ public class PlayerHandler : MonoBehaviour
     private float gravityForce = 9.8f;
     private float verticalVelocity;
     private bool canMove = true;
-    private float dodgeSpeed = 50f;
-    private float dashTime = 2f;
+    private float dodgeSpeed = 10f;
+    private float dashTime = 0.8f;
+    public bool bowAiming = false;
 
     [Header("Attack Parameters")]    
     private float lightAttackRadius = 1.5f;
@@ -54,6 +57,9 @@ public class PlayerHandler : MonoBehaviour
         attackHandler = GetComponent<AttackHandler>();
         playerStats = GetComponent<PlayerStats>();
 
+        Cursor.lockState = CursorLockMode.Confined;
+
+        
     }
 
     private void LateUpdate()
@@ -72,6 +78,9 @@ public class PlayerHandler : MonoBehaviour
     {
         InputMagangement();
         Movement();
+
+
+        
 
         playerAnimator.SetFloat("Speed", currentSpeed, 0, Time.deltaTime);
         
@@ -118,7 +127,11 @@ public class PlayerHandler : MonoBehaviour
         // dodge input
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            playerAnimator.SetTrigger("Dodge");
+            if (canMove)
+            {
+                playerAnimator.SetTrigger("Dodge");
+                Dodge();
+            }
         }
 
         // health potion
@@ -143,6 +156,14 @@ public class PlayerHandler : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha4))
         {
 
+        }
+    }
+
+    private void LateUpdate()
+    {
+        if (bowAiming)
+        {
+            BowAiming();
         }
     }
 
@@ -307,8 +328,61 @@ public class PlayerHandler : MonoBehaviour
                     playerAnimator.SetTrigger("THSHeavyAttack");
                 }
                 break;
-                
+            case WeaponType.Bow:
+                if (attackHandler.attackType == AttackType.LightAttack)
+                {
+                    playerAnimator.SetTrigger("BowLightAttack");
+                }
+                else
+                {
+                    playerAnimator.SetTrigger("BowHeavyAttack");
+                }
+                break;
+            case WeaponType.FireSpellBook:
+                if(attackHandler.attackType == AttackType.LightAttack)
+                {
+                    playerAnimator.SetTrigger("FireLightAttack");
+                }
+                else
+                {
+                    playerAnimator.SetTrigger("FireHeavyAttack");
+                }
+                break;
         }        
+    }
+
+    public void BowAimingToggle()
+    {
+        if (bowAiming)
+        {
+            bowAiming = false;
+        }
+        else
+        {
+            bowAiming = true;
+        }
+
+        Debug.Log("bowAiming is " + bowAiming);
+    }
+
+    private void BowAiming()
+    {
+        Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+
+        if(Physics.Raycast(ray, out RaycastHit hit, 100f, terrainLayer))
+        {
+            Vector3 targetPos = hit.point;
+
+            Vector3 direction = targetPos - transform.position;
+            direction.y = 0f;
+
+            if(direction != Vector3.zero)
+            {
+                Quaternion lookRotation = Quaternion.LookRotation(direction);
+                transform.rotation = Quaternion.Euler(0f, lookRotation.eulerAngles.y, 0f);
+            }
+        }
+        
     }
 
     public void CanAttackToggle()

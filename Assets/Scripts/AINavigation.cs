@@ -25,6 +25,9 @@ public class AINavigation : MonoBehaviour
         navMeshAgent = GetComponent<NavMeshAgent>();
         enemyAnimator = GetComponentInChildren<Animator>();
         enemyStats = GetComponent<EnemyStats>();
+
+        GameObject player = GameObject.FindWithTag("Player");
+        playerHandler = player.GetComponent<PlayerHandler>();
         
         navMeshAgent.speed = enemyStats.moveSpeed;
         enemyName = enemyStats.enemyName;

@@ -1,3 +1,4 @@
+using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -13,6 +14,8 @@ public class AttackHandler : MonoBehaviour
     private float tHSHeavyAttckRadius = 3f; // Two Handed Sword Attack Radius
     public LayerMask enemyMask;
     public AttackType attackType;
+    [SerializeField] GameObject lightArrow;
+    [SerializeField] GameObject heavyArrow;
     
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -22,6 +25,7 @@ public class AttackHandler : MonoBehaviour
         {
             playerStats = GetComponent<PlayerStats>();
             playerHandler = GetComponent<PlayerHandler>();
+            Debug.Log("Player components");
         }
         else if (gameObject.CompareTag("Enemy"))
         {
@@ -50,8 +54,16 @@ public class AttackHandler : MonoBehaviour
                 }
             break;
             case WeaponType.Bow:
+                if(attackType == AttackType.LightAttack)
+                {
+                    SpawnLightArrow();
+                }
+                else
+                {
+                    SpawnHeavyArrow();
+                }
 
-                break;
+                    break;
             case WeaponType.FireSpellBook:
 
                 break;
@@ -73,11 +85,14 @@ public class AttackHandler : MonoBehaviour
             {            
                 if (c.gameObject.CompareTag("Enemy"))
                 {
-                EnemyStats cEnemyStats = GetComponent<EnemyStats>();
+                EnemyStats cEnemyStats = c.GetComponent<EnemyStats>();
+                Debug.Log(cEnemyStats);
 
                 int damageDealt = LightAttackDamage(playerStats.currentWeapon.attackValue, playerStats.boostedStrength, cEnemyStats.defence);
 
                 cEnemyStats.TakeDamage(damageDealt);
+
+                Debug.Log("Damage Dealt " + damageDealt);
             }
             }
         
@@ -96,11 +111,54 @@ public class AttackHandler : MonoBehaviour
             {
                 if (c.gameObject.CompareTag("Enemy"))
                 {
-                EnemyStats cEnemyStats = GetComponent<EnemyStats>();
+                EnemyStats cEnemyStats = c.GetComponent<EnemyStats>();
 
-                
+                int damageDealt = HeavyAttackDamage(playerStats.currentWeapon.attackValue, playerStats.boostedStrength, cEnemyStats.defence);
+
+                cEnemyStats.TakeDamage(damageDealt);
+
+                Debug.Log("Damage Dealt " + damageDealt);
                 }
             }        
+    }
+
+    private void SpawnLightArrow()
+    {
+        Vector3 spawnPoint = transform.position;
+        spawnPoint.y += 1.5f;
+
+        quaternion spawnRotation = transform.rotation;
+        
+
+
+        Instantiate(lightArrow, spawnPoint, spawnRotation);
+    }
+
+    public void BowLightAttackImpact(EnemyStats enemystats)
+    {
+        Debug.Log("Bow Light Attack Impact");
+
+        int damageDealt = LightAttackDamage(playerStats.currentWeapon.attackValue, playerStats.boostedDexterity, enemystats.defence);
+        enemystats.TakeDamage(damageDealt);
+
+    }
+
+    private void SpawnHeavyArrow()
+    {
+        Vector3 spawnPoint = transform.position;
+        spawnPoint.y += 1.5f;
+
+        quaternion spawnRotation = transform.rotation;
+
+        Instantiate(heavyArrow, spawnPoint, spawnRotation);
+    }
+
+    public void BowHeavyAttackImpact(EnemyStats enemyStats)
+    {
+        Debug.Log("Bow Heavy Attack Impact");
+
+        int damageDealt = HeavyAttackDamage(playerStats.currentWeapon.attackValue, playerStats.boostedDexterity, enemyStats.defence);
+        enemyStats.TakeDamage(damageDealt);
     }
 
     public int LightAttackDamage(int weaponAttack, int relevantStat, int enemyDefence)
@@ -115,6 +173,11 @@ public class AttackHandler : MonoBehaviour
         float floatDamageValue = preDamageValue * 1.2f;
         int playerDamage = (int)floatDamageValue;
 
+        if(playerDamage <= 0)
+        {
+            playerDamage += 1;
+        }
+
         return playerDamage;
     }
 
@@ -127,8 +190,13 @@ public class AttackHandler : MonoBehaviour
 
         int preDamageValue = playerValues / enemyDefence;
 
-        float floatDamageValue = preDamageValue * 1.2f;
+        float floatDamageValue = preDamageValue * 1.5f;
         int playerDamage = (int)floatDamageValue;
+
+        if (playerDamage <= 0)
+        {
+            playerDamage += 2;
+        }
 
         return playerDamage;
     }
@@ -147,8 +215,12 @@ public enum StatBoostType
     Strength, Dexterity, Magic
 }
 
-public enum WeaponType { TwoHandedSword, Bow, FireSpellBook }
+public enum WeaponType
+{
+    TwoHandedSword, Bow, FireSpellBook
+}
 
+[System.Serializable]
 public struct Weapon
 {
     public string weaponName;
@@ -157,16 +229,7 @@ public struct Weapon
     public StatBoostType statBoost;
     public Mesh weaponModel;
     public WeaponType weaponType;
-
-    public Weapon(string weaponName, int attackValue, int statBoostValue, StatBoostType statBoost, Mesh weaponModel, WeaponType weaponType) 
-    {
-        this.weaponName = weaponName;
-        this.attackValue = attackValue;
-        this.statBoostValue = statBoostValue;
-        this.statBoost = statBoost;
-        this.weaponModel = weaponModel;
-        this.weaponType = weaponType;
-    }
+    
 }
 
 public enum ArmourSlot
@@ -179,6 +242,8 @@ public enum AttackType
     LightAttack,HeavyAttack
 }
 
+
+
 public struct Armour
 {
     public string armourName;
@@ -186,15 +251,6 @@ public struct Armour
     public int StatBoostValue;
     public ArmourSlot armourSlot;
     public StatBoostType statBoost;
-
-    public Armour(string armourName, int armourDefence, int StatBoostValue, ArmourSlot armourSlot, StatBoostType statBoost) 
-    {
-        this.armourName = armourName;
-        this.armourDefence = armourDefence;
-        this.StatBoostValue = StatBoostValue;
-        this.armourSlot = armourSlot;
-        this.statBoost = statBoost;
-    }
 }
     
 

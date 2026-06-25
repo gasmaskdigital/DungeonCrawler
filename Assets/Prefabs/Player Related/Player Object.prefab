@@ -102,6 +102,9 @@ MonoBehaviour:
   playerLevel: 1
   currentXP: 0
   requiredXP: 150
+  boostedStrength: 0
+  boostedDexterity: 0
+  boostedMagic: 0
   maxHealth: 100
   currentHealth: 0
   earntXP: 0
@@ -120,7 +123,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AttackHandler
   enemyMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   attackType: 0
 --- !u!135 &667795102598984419
 SphereCollider:
