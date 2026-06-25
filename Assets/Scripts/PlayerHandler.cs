@@ -71,6 +71,11 @@ public class PlayerHandler : MonoBehaviour
             curUB = playerStats.currentUpperBody.armourName;
             curHelm = playerStats.currentHelmet.armourName;
         }
+
+        if (bowAiming)
+        {
+            BowAiming();
+        }
     }
 
     // Update is called once per frame
@@ -156,14 +161,6 @@ public class PlayerHandler : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha4))
         {
 
-        }
-    }
-
-    private void LateUpdate()
-    {
-        if (bowAiming)
-        {
-            BowAiming();
         }
     }
 

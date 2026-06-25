@@ -2,7 +2,7 @@
 using Unity.Cinemachine;
 using UnityEngine;
 
-public class Camera : MonoBehaviour
+public class CameraScript : MonoBehaviour
 {
     private CinemachineOrbitalFollow orbitalFollow;
     public float rotateSpeed = 90f;
