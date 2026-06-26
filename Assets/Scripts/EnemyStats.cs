@@ -14,6 +14,8 @@ public class EnemyStats : MonoBehaviour
 
     private Animator enemyAnimator;
 
+    public GameObject floatingText;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -33,9 +35,20 @@ public class EnemyStats : MonoBehaviour
 
         enemyAnimator.SetTrigger("DamageReact");
 
+        if (floatingText != null)
+        {
+            ShowFloatingText(damageTaken);
+        }
+
         if(currentHealth <= 0)
         {
             Destroy(gameObject);
         }
+    }
+
+    void ShowFloatingText(int damageTaken)
+    {
+       var ft = Instantiate(floatingText, transform.position, Quaternion.identity, transform);
+        ft.GetComponent<TextMesh>().text = damageTaken.ToString();
     }
 }

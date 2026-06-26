@@ -19,6 +19,7 @@ public class AttackHandler : MonoBehaviour
     [SerializeField] GameObject lightFire;
     [SerializeField] GameObject heavyFire;
     
+    
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -191,6 +192,8 @@ public class AttackHandler : MonoBehaviour
     public void FireLightAttackImpact(EnemyStats enemyStats)
     {
         int damageDealt = LightAttackDamage(playerStats.currentWeapon.attackValue, playerStats.boostedMagic, enemyStats.defence);
+
+         
         enemyStats.TakeDamage(damageDealt);
     }
 
@@ -233,6 +236,8 @@ public class AttackHandler : MonoBehaviour
 
         return playerDamage;
     }
+
+   
 
 
 }
