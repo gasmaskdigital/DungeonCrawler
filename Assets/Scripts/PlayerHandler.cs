@@ -266,7 +266,7 @@ public class PlayerHandler : MonoBehaviour
         while (Time.time <startTime + dashTime)
         {
             controller.Move(transform.forward * dodgeSpeed * Time.deltaTime);
-            Debug.Log("Dodgeing");
+            
 
             yield return null;
         }

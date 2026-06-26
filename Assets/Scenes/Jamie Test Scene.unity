@@ -463,6 +463,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 7266534710127501, guid: 35a62140321f4064da5d2693afb1944e, type: 3}
+      propertyPath: lightFire
+      value: 
+      objectReference: {fileID: 7377512060851607530, guid: e0ac51fe5e4dbbd418bdee78ddcbd69d, type: 3}
+    - target: {fileID: 7266534710127501, guid: 35a62140321f4064da5d2693afb1944e, type: 3}
       propertyPath: heavyArrow
       value: 
       objectReference: {fileID: 889499174634663218, guid: 623b8ba83df15c4429096730e705d8aa, type: 3}
@@ -504,7 +508,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3978373986141358953, guid: 35a62140321f4064da5d2693afb1944e, type: 3}
       propertyPath: currentWeapon.weaponType
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3978373986141358953, guid: 35a62140321f4064da5d2693afb1944e, type: 3}
       propertyPath: weaponSockets.Array.size

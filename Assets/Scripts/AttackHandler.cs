@@ -16,6 +16,7 @@ public class AttackHandler : MonoBehaviour
     public AttackType attackType;
     [SerializeField] GameObject lightArrow;
     [SerializeField] GameObject heavyArrow;
+    [SerializeField] GameObject lightFire;
     
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -158,6 +159,21 @@ public class AttackHandler : MonoBehaviour
         Debug.Log("Bow Heavy Attack Impact");
 
         int damageDealt = HeavyAttackDamage(playerStats.currentWeapon.attackValue, playerStats.boostedDexterity, enemyStats.defence);
+        enemyStats.TakeDamage(damageDealt);
+    }
+
+    public void SpawnLightFireball()
+    {
+        Vector3 spawnPoint = transform.position;
+        spawnPoint.y += 1.5f;
+
+        quaternion spawnRotation = transform.rotation;
+        Instantiate(lightFire, spawnPoint, spawnRotation);
+    }
+
+    public void FireLightAttackImpact(EnemyStats enemyStats)
+    {
+        int damageDealt = LightAttackDamage(playerStats.currentWeapon.attackValue, playerStats.boostedMagic, enemyStats.defence);
         enemyStats.TakeDamage(damageDealt);
     }
 
