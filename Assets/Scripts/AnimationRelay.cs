@@ -42,6 +42,12 @@ public class AnimationRelay : MonoBehaviour
         attackHandler.SpawnLightFireball();
     }
 
+    public void FireHeavyAttack()
+    {
+        Debug.Log("Fire Heavy Attack");
+        attackHandler.SpawnHeavyFireWave();
+    }
+
 
     public void CanMoveToggle()
     {

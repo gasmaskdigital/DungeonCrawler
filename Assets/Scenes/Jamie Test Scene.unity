@@ -463,6 +463,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 7266534710127501, guid: 35a62140321f4064da5d2693afb1944e, type: 3}
+      propertyPath: heavyFire
+      value: 
+      objectReference: {fileID: 8275476850476054161, guid: bc9ca3a359914354ab79df9235c9e6e7, type: 3}
+    - target: {fileID: 7266534710127501, guid: 35a62140321f4064da5d2693afb1944e, type: 3}
       propertyPath: lightFire
       value: 
       objectReference: {fileID: 7377512060851607530, guid: e0ac51fe5e4dbbd418bdee78ddcbd69d, type: 3}

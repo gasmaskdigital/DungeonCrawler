@@ -17,6 +17,7 @@ public class AttackHandler : MonoBehaviour
     [SerializeField] GameObject lightArrow;
     [SerializeField] GameObject heavyArrow;
     [SerializeField] GameObject lightFire;
+    [SerializeField] GameObject heavyFire;
     
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -169,6 +170,22 @@ public class AttackHandler : MonoBehaviour
 
         quaternion spawnRotation = transform.rotation;
         Instantiate(lightFire, spawnPoint, spawnRotation);
+    }
+
+    public void SpawnHeavyFireWave()
+    {
+        Vector3 spawnPoint = transform.position;
+        spawnPoint.y += 0.8f;
+
+        quaternion spawnRotation = transform.rotation;
+
+        Instantiate(heavyFire, spawnPoint, spawnRotation);
+    }
+
+    public void FireHeavyImpact(EnemyStats enemyStats)
+    {
+        int damageDealt = HeavyAttackDamage(playerStats.currentWeapon.attackValue, playerStats.boostedDexterity, enemyStats.defence);
+        enemyStats.TakeDamage(damageDealt);
     }
 
     public void FireLightAttackImpact(EnemyStats enemyStats)
