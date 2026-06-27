@@ -13,6 +13,9 @@ public class EnemyStats : MonoBehaviour
     public float enemyAttackRadius;
     public bool canBeDamaged = true;
 
+    private GameObject player;
+    private PlayerStats playerStats;
+
     private Animator enemyAnimator;
 
     public GameObject floatingText;
@@ -22,6 +25,9 @@ public class EnemyStats : MonoBehaviour
     {
         currentHealth = maxHealth;
         enemyAnimator = GetComponentInChildren<Animator>();
+
+        player = GameObject.FindGameObjectWithTag("Player");
+        playerStats = player.GetComponent<PlayerStats>();
     }
 
     // Update is called once per frame
@@ -46,6 +52,7 @@ public class EnemyStats : MonoBehaviour
 
             if (currentHealth <= 0)
             {
+                playerStats.AddToXP(xpReward);
                 Destroy(gameObject);
             }
         }

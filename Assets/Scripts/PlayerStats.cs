@@ -24,6 +24,7 @@ public class PlayerStats : MonoBehaviour
     private int randomStat;
 
     public levelManager levelManager;
+    public PHUIManager pHUIManager;
 
     [Header("Equipment Variables")]
     public static Weapon currentWeapon;
@@ -31,6 +32,8 @@ public class PlayerStats : MonoBehaviour
     public static Armour currentUpperBody;
     public static Armour currentLowerBody;
     public GameObject[] weaponSockets; // 0=THS, 1=Bow, 2=SpellBook
+
+    public Weapon testWeapon; // this is just used to testing 
     
 
     public static int currentDefenceTotal;
@@ -63,7 +66,9 @@ public class PlayerStats : MonoBehaviour
 
     private void Awake()
     {
-        
+        currentWeapon = testWeapon; // for testing purposes remove fo main scene
+        UpdateEquipment(); // for testing purposes
+
     }
 
 
@@ -88,9 +93,9 @@ public class PlayerStats : MonoBehaviour
 
     }
 
-    public void AddToXP()
+    public void AddToXP(int xpReward)
     {
-        currentXP += earntXP;
+        currentXP += xpReward;
         if (currentXP > requiredXP)
         {
             LevelUp();
@@ -99,30 +104,19 @@ public class PlayerStats : MonoBehaviour
 
     public void LevelUp()
     {
-        randomStat = Random.Range(0, 4);
-
-        switch (randomStat)
-        {
-            case 0:
-                healthStat++;
-                break;
-            case 1:
-                strengthStat++;
-                break;
-            case 2:
-                dexterityStat++;
-                break;
-            case 3:
-                magicStat++;
-                break;
-            case 4:
-                enduranceStat++;
-                break;
-        }
-
-        currentXP = 0;
-        requiredXP = requiredXP + 125;
         playerLevel++;
+
+        pHUIManager.EnableLevelUpScreen();
+
+        currentXP -= requiredXP;
+
+        requiredXP = requiredXP + (playerLevel * 24);
+        
+    }
+
+    public void UpdateMaxHealth()
+    {
+        maxHealth = maxHealth + (healthStat * 5);
     }
 
     public int CalculateTotalDefence()
