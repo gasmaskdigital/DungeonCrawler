@@ -4,35 +4,67 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
 {
-    public int healthStat = 1;
-    public int strengthStat = 1;
-    public int dexterityStat = 1;
-    public int magicStat = 1;
-    public int enduranceStat = 1;
-    public int playerLevel = 1;
-    public int currentXP = 0;
-    public int requiredXP = 150;
+    public static int healthStat = 1;
+    public static int strengthStat = 1;
+    public static int dexterityStat = 1;
+    public static int magicStat = 1;
+    public static int enduranceStat = 1;
+    public static int playerLevel = 1;
+    public static int currentXP = 0;
+    public static int requiredXP = 10;
 
-    public int boostedStrength;
-    public int boostedDexterity;
-    public int boostedMagic;
+    public static int boostedStrength;
+    public static int boostedDexterity;
+    public static int boostedMagic;
 
-    public int maxHealth = 100;
-    public int currentHealth;
+    public static int maxHealth = 20;
+    public static int currentHealth;
 
     public int earntXP;
     private int randomStat;
 
+    public levelManager levelManager;
+
     [Header("Equipment Variables")]
-    public Weapon currentWeapon;
-    public Armour currentHelmet;
-    public Armour currentUpperBody;
-    public Armour currentLowerBody;
+    public static Weapon currentWeapon;
+    public static Armour currentHelmet;
+    public static Armour currentUpperBody;
+    public static Armour currentLowerBody;
     public GameObject[] weaponSockets; // 0=THS, 1=Bow, 2=SpellBook
     
 
-    public int currentDefenceTotal;
+    public static int currentDefenceTotal;
 
+    public void ResetStats()
+    {
+        healthStat = 1;
+        strengthStat = 1;
+        dexterityStat = 1;
+        magicStat = 1;
+        enduranceStat = 1;
+        playerLevel = 1;
+        currentXP = 0;
+        requiredXP = 10;
+
+        boostedStrength = 0;
+        boostedDexterity = 0;
+        boostedMagic = 0;
+        maxHealth = 20;
+
+        currentWeapon = new Weapon();
+        currentHelmet = new Armour();
+        currentUpperBody = new Armour();
+        currentLowerBody = new Armour();
+
+        currentDefenceTotal = 0;
+
+
+    }
+
+    private void Awake()
+    {
+        
+    }
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -182,6 +214,9 @@ public class PlayerStats : MonoBehaviour
             case WeaponType.Bow:
                 weaponSockets[1].SetActive(true);
                 break;
+            case WeaponType.FireSpellBook:
+                weaponSockets[2].SetActive(true);
+                break;
         }
     }
 
@@ -191,6 +226,8 @@ public class PlayerStats : MonoBehaviour
         UpdateBoostedStats();
         UpdateWeaponSocket();
     }
+
+    
 
     
 }

@@ -44,7 +44,7 @@ public class AttackHandler : MonoBehaviour
 
     public void CheckPlayerWeaponType()
     {
-        switch (playerStats.currentWeapon.weaponType)
+        switch (PlayerStats.currentWeapon.weaponType)
         {
             case WeaponType.TwoHandedSword:
                 if(attackType == AttackType.LightAttack)
@@ -91,7 +91,7 @@ public class AttackHandler : MonoBehaviour
                 EnemyStats cEnemyStats = c.GetComponent<EnemyStats>();
                 Debug.Log(cEnemyStats);
 
-                int damageDealt = LightAttackDamage(playerStats.currentWeapon.attackValue, playerStats.boostedStrength, cEnemyStats.defence);
+                int damageDealt = LightAttackDamage(PlayerStats.currentWeapon.attackValue, PlayerStats.boostedStrength, cEnemyStats.defence);
 
                 cEnemyStats.TakeDamage(damageDealt);
 
@@ -119,7 +119,7 @@ public class AttackHandler : MonoBehaviour
                 {
                 EnemyStats cEnemyStats = c.GetComponent<EnemyStats>();
 
-                int damageDealt = HeavyAttackDamage(playerStats.currentWeapon.attackValue, playerStats.boostedStrength, cEnemyStats.defence);
+                int damageDealt = HeavyAttackDamage(PlayerStats.currentWeapon.attackValue, PlayerStats.boostedStrength, cEnemyStats.defence);
 
                 cEnemyStats.TakeDamage(damageDealt);
 
@@ -147,7 +147,7 @@ public class AttackHandler : MonoBehaviour
     {
         Debug.Log("Bow Light Attack Impact");
 
-        int damageDealt = LightAttackDamage(playerStats.currentWeapon.attackValue, playerStats.boostedDexterity, enemystats.defence);
+        int damageDealt = LightAttackDamage(PlayerStats.currentWeapon.attackValue, PlayerStats.boostedDexterity, enemystats.defence);
         enemystats.TakeDamage(damageDealt);
 
         cAiNav.GetKnockBack(knockbackForce, transform.position);
@@ -168,7 +168,7 @@ public class AttackHandler : MonoBehaviour
     {
         Debug.Log("Bow Heavy Attack Impact");
 
-        int damageDealt = HeavyAttackDamage(playerStats.currentWeapon.attackValue, playerStats.boostedDexterity, enemyStats.defence);
+        int damageDealt = HeavyAttackDamage(PlayerStats.currentWeapon.attackValue, PlayerStats.boostedDexterity, enemyStats.defence);
         enemyStats.TakeDamage(damageDealt);
         cAINav.GetKnockBack(knockbackForce, transform.position);
     }
@@ -194,14 +194,14 @@ public class AttackHandler : MonoBehaviour
 
     public void FireHeavyImpact(EnemyStats enemyStats, AINavigation cAINav)
     {
-        int damageDealt = HeavyAttackDamage(playerStats.currentWeapon.attackValue, playerStats.boostedDexterity, enemyStats.defence);
+        int damageDealt = HeavyAttackDamage(PlayerStats.currentWeapon.attackValue, PlayerStats.boostedDexterity, enemyStats.defence);
         enemyStats.TakeDamage(damageDealt);
         cAINav.GetKnockBack(knockbackForce, transform.position);
     }
 
     public void FireLightAttackImpact(EnemyStats enemyStats, AINavigation cAINav)
     {
-        int damageDealt = LightAttackDamage(playerStats.currentWeapon.attackValue, playerStats.boostedMagic, enemyStats.defence);
+        int damageDealt = LightAttackDamage(PlayerStats.currentWeapon.attackValue, PlayerStats.boostedMagic, enemyStats.defence);
 
          
         enemyStats.TakeDamage(damageDealt);
