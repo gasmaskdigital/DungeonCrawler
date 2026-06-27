@@ -57,8 +57,9 @@ public class FireLIghtAttackScript : MonoBehaviour
         foreach(Collider c in colliders)
         {
             EnemyStats enemyStats = c.GetComponent<EnemyStats>();
+            AINavigation cAINav = c.GetComponent<AINavigation>();
 
-            playerAttackHandler.FireLightAttackImpact(enemyStats);
+            playerAttackHandler.FireLightAttackImpact(enemyStats, cAINav);
             Destroy(gameObject);
         }
     }

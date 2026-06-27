@@ -28,7 +28,8 @@ public class FireHeavyAttackScript : MonoBehaviour
         if (other.CompareTag("Enemy"))
         {
             EnemyStats enemyStats = other.GetComponent<EnemyStats>();
-            playerAttackHandler.FireHeavyImpact(enemyStats);
+            AINavigation cAINav = other.GetComponent<AINavigation>();
+            playerAttackHandler.FireHeavyImpact(enemyStats, cAINav);
 
         }
 

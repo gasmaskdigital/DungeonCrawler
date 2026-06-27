@@ -1,8 +1,9 @@
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class AINavigation : MonoBehaviour
+public class AINavigation : MonoBehaviour, IKnockbackable
 {
     private NavMeshAgent navMeshAgent;
     private Animator enemyAnimator;
@@ -16,6 +17,10 @@ public class AINavigation : MonoBehaviour
     private string enemyName;
     public LayerMask playerMask;
     private bool isAttacking = false;
+    private float knockDelay = 0.5f;
+    
+
+    private Rigidbody rb;
 
     private Vector3 roamDestination;
 
@@ -25,6 +30,7 @@ public class AINavigation : MonoBehaviour
         navMeshAgent = GetComponent<NavMeshAgent>();
         enemyAnimator = GetComponentInChildren<Animator>();
         enemyStats = GetComponent<EnemyStats>();
+        rb = GetComponent<Rigidbody>();
 
         GameObject player = GameObject.FindWithTag("Player");
         playerHandler = player.GetComponent<PlayerHandler>();
@@ -142,10 +148,50 @@ public class AINavigation : MonoBehaviour
         }
     }
 
+    public void GetKnockBack(float force, Vector3 playerpos)
+    {
+        canMove = false;
+        Vector3 knockbackDirection = (transform.position - playerpos).normalized;
+        StartCoroutine(ApplyKnockBack(force, knockbackDirection));
+    }
+
+    private IEnumerator ApplyKnockBack(float force, Vector3 knockbackDirection)
+    {
+        yield return null;
+        navMeshAgent.enabled = false;
+        rb.useGravity = true;
+        rb.isKinematic = false;
+
+
+        rb.AddForce(knockbackDirection * force, ForceMode.Impulse);
+
+        yield return new WaitForFixedUpdate();
+        yield return new WaitUntil(() => rb.linearVelocity.magnitude < 0.05f);
+        yield return new WaitForSeconds(0.25f);
+
+        rb.linearVelocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
+        rb.useGravity = false;
+        rb.isKinematic = true;
+        navMeshAgent.Warp(transform.position);
+        navMeshAgent.enabled = true;
+
+        yield return null;
+
+        canMove = true;
+    }
+
+   
+
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
         Vector3 origin = transform.position + Vector3.up * 1.5f + transform.forward * 0.75f;
         Gizmos.DrawWireSphere(origin, enemyStats != null ? enemyStats.enemyAttackRadius : 0.5f);
     }
+}
+
+public interface IKnockbackable
+{
+    void GetKnockBack(float force, Vector3 playerPos);
 }

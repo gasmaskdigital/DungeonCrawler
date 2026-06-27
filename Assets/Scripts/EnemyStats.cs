@@ -11,6 +11,7 @@ public class EnemyStats : MonoBehaviour
     public float attackRange;
     public string enemyName;
     public float enemyAttackRadius;
+    public bool canBeDamaged = true;
 
     private Animator enemyAnimator;
 
@@ -31,18 +32,22 @@ public class EnemyStats : MonoBehaviour
 
     public void TakeDamage(int damageTaken)
     {
-        currentHealth = currentHealth - damageTaken;
-
-        enemyAnimator.SetTrigger("DamageReact");
-
-        if (floatingText != null)
+        if (canBeDamaged)
         {
-            ShowFloatingText(damageTaken);
-        }
+            currentHealth = currentHealth - damageTaken;
 
-        if(currentHealth <= 0)
-        {
-            Destroy(gameObject);
+            enemyAnimator.SetTrigger("DamageReact");
+            
+
+            if (floatingText != null)
+            {
+                ShowFloatingText(damageTaken);
+            }
+
+            if (currentHealth <= 0)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 

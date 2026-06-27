@@ -282,9 +282,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 456092313754322090, guid: f87aaf2da5b1050418b14ac50fd331d5, type: 3}
+      propertyPath: m_Height
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 456092313754322090, guid: f87aaf2da5b1050418b14ac50fd331d5, type: 3}
+      propertyPath: m_Center.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4315232680571345892, guid: f87aaf2da5b1050418b14ac50fd331d5, type: 3}
       propertyPath: m_Name
       value: Vampire Parent (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6575203961780488057, guid: f87aaf2da5b1050418b14ac50fd331d5, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8873110122754686441, guid: f87aaf2da5b1050418b14ac50fd331d5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -349,7 +361,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8873110122754686441, guid: f87aaf2da5b1050418b14ac50fd331d5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.00000047683716
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8873110122754686441, guid: f87aaf2da5b1050418b14ac50fd331d5, type: 3}
       propertyPath: m_LocalPosition.z

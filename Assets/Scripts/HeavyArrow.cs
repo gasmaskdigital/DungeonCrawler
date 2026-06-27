@@ -26,7 +26,8 @@ public class HeavyArrow : MonoBehaviour
         if (other.CompareTag("Enemy"))
         {
             EnemyStats cEnemyStats = other.GetComponent<EnemyStats>();
-            playerAttackHandler.BowHeavyAttackImpact(cEnemyStats);
+            AINavigation cAiNav = other.GetComponent<AINavigation>();
+            playerAttackHandler.BowHeavyAttackImpact(cEnemyStats, cAiNav);
         }
 
         if (other.CompareTag("Terrain"))

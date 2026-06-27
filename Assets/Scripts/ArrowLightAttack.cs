@@ -23,7 +23,8 @@ public class ArrowLightAttack : MonoBehaviour
         if (other.CompareTag("Enemy"))
         {
             EnemyStats cEnemyStats = other.GetComponent<EnemyStats>();
-            playerAttackHandler.BowLightAttackImpact(cEnemyStats);
+            AINavigation cAINav = other.GetComponent<AINavigation>();
+            playerAttackHandler.BowLightAttackImpact(cEnemyStats, cAINav);
             Destroy(gameObject);
             
         }
