@@ -14,10 +14,13 @@ public class AINavigation : MonoBehaviour, IKnockbackable
     private float roamRange = 40f;
     private float currentspeed;
     public bool canMove = true;
-    private string enemyName;
+    public string enemyName;
     public LayerMask playerMask;
     private bool isAttacking = false;
     private float knockDelay = 0.5f;
+    private EnemyAttackHandler enemyAttackHandler;
+
+    
     
 
     private Rigidbody rb;
@@ -31,6 +34,7 @@ public class AINavigation : MonoBehaviour, IKnockbackable
         enemyAnimator = GetComponentInChildren<Animator>();
         enemyStats = GetComponent<EnemyStats>();
         rb = GetComponent<Rigidbody>();
+        enemyAttackHandler = GetComponent<EnemyAttackHandler>();
 
         GameObject player = GameObject.FindWithTag("Player");
         playerHandler = player.GetComponent<PlayerHandler>();
@@ -183,12 +187,7 @@ public class AINavigation : MonoBehaviour, IKnockbackable
 
    
 
-    void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-        Vector3 origin = transform.position + Vector3.up * 1.5f + transform.forward * 0.75f;
-        Gizmos.DrawWireSphere(origin, enemyStats != null ? enemyStats.enemyAttackRadius : 0.5f);
-    }
+   
 }
 
 public interface IKnockbackable
