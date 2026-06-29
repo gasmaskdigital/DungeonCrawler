@@ -1902,7 +1902,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4315232680571345892}
   serializedVersion: 5
-  m_Mass: 50
+  m_Mass: 75
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -1916,7 +1916,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 112
@@ -3466,7 +3466,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1ae8d966f8518fe45a0e69bc3e0a3434, type: 2}
+  - {fileID: 2100000, guid: 9540c482083e7c84b85bd7a4923bc32a, type: 2}
   - {fileID: 2100000, guid: 9540c482083e7c84b85bd7a4923bc32a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
