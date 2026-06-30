@@ -16,6 +16,9 @@ public class AttackHandler : MonoBehaviour
     public AttackType attackType;
     [SerializeField] GameObject lightArrow;
     [SerializeField] GameObject heavyArrow;
+    [SerializeField] GameObject lightFire;
+    [SerializeField] GameObject heavyFire;
+    private float knockbackForce = 250f;
     
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -41,7 +44,7 @@ public class AttackHandler : MonoBehaviour
 
     public void CheckPlayerWeaponType()
     {
-        switch (playerStats.currentWeapon.weaponType)
+        switch (PlayerStats.currentWeapon.weaponType)
         {
             case WeaponType.TwoHandedSword:
                 if(attackType == AttackType.LightAttack)
@@ -88,9 +91,12 @@ public class AttackHandler : MonoBehaviour
                 EnemyStats cEnemyStats = c.GetComponent<EnemyStats>();
                 Debug.Log(cEnemyStats);
 
-                int damageDealt = LightAttackDamage(playerStats.currentWeapon.attackValue, playerStats.boostedStrength, cEnemyStats.defence);
+                int damageDealt = LightAttackDamage(PlayerStats.currentWeapon.attackValue, PlayerStats.boostedStrength, cEnemyStats.defence);
 
                 cEnemyStats.TakeDamage(damageDealt);
+
+                AINavigation cAINav = c.GetComponent<AINavigation>();
+                cAINav.GetKnockBack(knockbackForce, transform.position); 
 
                 Debug.Log("Damage Dealt " + damageDealt);
             }
@@ -113,9 +119,12 @@ public class AttackHandler : MonoBehaviour
                 {
                 EnemyStats cEnemyStats = c.GetComponent<EnemyStats>();
 
-                int damageDealt = HeavyAttackDamage(playerStats.currentWeapon.attackValue, playerStats.boostedStrength, cEnemyStats.defence);
+                int damageDealt = HeavyAttackDamage(PlayerStats.currentWeapon.attackValue, PlayerStats.boostedStrength, cEnemyStats.defence);
 
                 cEnemyStats.TakeDamage(damageDealt);
+
+                AINavigation cAINav = c.GetComponent<AINavigation>();
+                cAINav.GetKnockBack(knockbackForce, transform.position);
 
                 Debug.Log("Damage Dealt " + damageDealt);
                 }
@@ -134,12 +143,14 @@ public class AttackHandler : MonoBehaviour
         Instantiate(lightArrow, spawnPoint, spawnRotation);
     }
 
-    public void BowLightAttackImpact(EnemyStats enemystats)
+    public void BowLightAttackImpact(EnemyStats enemystats, AINavigation cAiNav)
     {
         Debug.Log("Bow Light Attack Impact");
 
-        int damageDealt = LightAttackDamage(playerStats.currentWeapon.attackValue, playerStats.boostedDexterity, enemystats.defence);
+        int damageDealt = LightAttackDamage(PlayerStats.currentWeapon.attackValue, PlayerStats.boostedDexterity, enemystats.defence);
         enemystats.TakeDamage(damageDealt);
+
+        cAiNav.GetKnockBack(knockbackForce, transform.position);
 
     }
 
@@ -153,12 +164,48 @@ public class AttackHandler : MonoBehaviour
         Instantiate(heavyArrow, spawnPoint, spawnRotation);
     }
 
-    public void BowHeavyAttackImpact(EnemyStats enemyStats)
+    public void BowHeavyAttackImpact(EnemyStats enemyStats, AINavigation cAINav)
     {
         Debug.Log("Bow Heavy Attack Impact");
 
-        int damageDealt = HeavyAttackDamage(playerStats.currentWeapon.attackValue, playerStats.boostedDexterity, enemyStats.defence);
+        int damageDealt = HeavyAttackDamage(PlayerStats.currentWeapon.attackValue, PlayerStats.boostedDexterity, enemyStats.defence);
         enemyStats.TakeDamage(damageDealt);
+        cAINav.GetKnockBack(knockbackForce, transform.position);
+    }
+
+    public void SpawnLightFireball()
+    {
+        Vector3 spawnPoint = transform.position;
+        spawnPoint.y += 1.5f;
+
+        quaternion spawnRotation = transform.rotation;
+        Instantiate(lightFire, spawnPoint, spawnRotation);
+    }
+
+    public void SpawnHeavyFireWave()
+    {
+        Vector3 spawnPoint = transform.position;
+        spawnPoint.y += 0.8f;
+
+        quaternion spawnRotation = transform.rotation;
+
+        Instantiate(heavyFire, spawnPoint, spawnRotation);
+    }
+
+    public void FireHeavyImpact(EnemyStats enemyStats, AINavigation cAINav)
+    {
+        int damageDealt = HeavyAttackDamage(PlayerStats.currentWeapon.attackValue, PlayerStats.boostedDexterity, enemyStats.defence);
+        enemyStats.TakeDamage(damageDealt);
+        cAINav.GetKnockBack(knockbackForce, transform.position);
+    }
+
+    public void FireLightAttackImpact(EnemyStats enemyStats, AINavigation cAINav)
+    {
+        int damageDealt = LightAttackDamage(PlayerStats.currentWeapon.attackValue, PlayerStats.boostedMagic, enemyStats.defence);
+
+         
+        enemyStats.TakeDamage(damageDealt);
+        cAINav.GetKnockBack(knockbackForce, transform.position);
     }
 
     public int LightAttackDamage(int weaponAttack, int relevantStat, int enemyDefence)
@@ -200,6 +247,8 @@ public class AttackHandler : MonoBehaviour
 
         return playerDamage;
     }
+
+   
 
 
 }

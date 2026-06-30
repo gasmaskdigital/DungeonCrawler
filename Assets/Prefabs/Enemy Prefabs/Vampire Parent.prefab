@@ -1823,15 +1823,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cb1629d19d21644d9b86f1f9271aa98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyStats
-  attack: 20
-  maxHealth: 50
+  attack: 8
+  maxHealth: 10
   currentHealth: 0
-  defence: 15
+  defence: 6
   xpReward: 23
   moveSpeed: 6
   attackRange: 0
   enemyName: Vampire
   enemyAttackRadius: 1
+  canBeDamaged: 1
+  floatingText: {fileID: 6946133675485113259, guid: fa7675d0934c8ee4ea02ec6d42a44af4, type: 3}
 --- !u!114 &3403241467357337720
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1844,6 +1846,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9cee515c37a2a6459aeb5ab73496d2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AttackHandler
+  enemyMask:
+    serializedVersion: 2
+    m_Bits: 64
+  attackType: 0
+  lightArrow: {fileID: 0}
+  heavyArrow: {fileID: 0}
+  lightFire: {fileID: 0}
+  heavyFire: {fileID: 0}
 --- !u!114 &3579476930285203684
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1909,7 +1919,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 112
   m_CollisionDetection: 1
 --- !u!136 &456092313754322090
 CapsuleCollider:

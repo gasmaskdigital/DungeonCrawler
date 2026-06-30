@@ -11,14 +11,23 @@ public class EnemyStats : MonoBehaviour
     public float attackRange;
     public string enemyName;
     public float enemyAttackRadius;
+    public bool canBeDamaged = true;
+
+    private GameObject player;
+    private PlayerStats playerStats;
 
     private Animator enemyAnimator;
+
+    public GameObject floatingText;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         currentHealth = maxHealth;
         enemyAnimator = GetComponentInChildren<Animator>();
+
+        player = GameObject.FindGameObjectWithTag("Player");
+        playerStats = player.GetComponent<PlayerStats>();
     }
 
     // Update is called once per frame
@@ -29,13 +38,29 @@ public class EnemyStats : MonoBehaviour
 
     public void TakeDamage(int damageTaken)
     {
-        currentHealth = currentHealth - damageTaken;
-
-        enemyAnimator.SetTrigger("DamageReact");
-
-        if(currentHealth <= 0)
+        if (canBeDamaged)
         {
-            Destroy(gameObject);
+            currentHealth = currentHealth - damageTaken;
+
+            enemyAnimator.SetTrigger("DamageReact");
+            
+
+            if (floatingText != null)
+            {
+                ShowFloatingText(damageTaken);
+            }
+
+            if (currentHealth <= 0)
+            {
+                playerStats.AddToXP(xpReward);
+                Destroy(gameObject);
+            }
         }
+    }
+
+    void ShowFloatingText(int damageTaken)
+    {
+       var ft = Instantiate(floatingText, transform.position, Quaternion.identity, transform);
+        ft.GetComponent<TextMesh>().text = damageTaken.ToString();
     }
 }

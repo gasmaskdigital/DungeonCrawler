@@ -278,7 +278,7 @@ public class PlayerHandler : MonoBehaviour
         while (Time.time <startTime + dashTime)
         {
             controller.Move(transform.forward * dodgeSpeed * Time.deltaTime);
-            Debug.Log("Dodgeing");
+            
 
             yield return null;
         }
@@ -313,7 +313,7 @@ public class PlayerHandler : MonoBehaviour
 
     private void CheckWeaponForAnimTrigger()
     {
-        switch(playerStats.currentWeapon.weaponType)
+        switch(PlayerStats.currentWeapon.weaponType)
         {
             case WeaponType.TwoHandedSword:
                 if(attackHandler.attackType == AttackType.LightAttack)
