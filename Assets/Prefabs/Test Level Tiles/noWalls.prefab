@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7056112810145383142}
   - component: {fileID: 6946513921695388092}
   - component: {fileID: 744013491713289290}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CornerSW
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -123,7 +123,7 @@ GameObject:
   - component: {fileID: 2900543131620775642}
   - component: {fileID: 1347386296935834680}
   - component: {fileID: 7682283390476615109}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CornerSE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -234,7 +234,7 @@ GameObject:
   - component: {fileID: 1151795554176120548}
   - component: {fileID: 5370490693587954596}
   - component: {fileID: 4327305669571576167}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CornerNW
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -344,7 +344,7 @@ GameObject:
   - component: {fileID: 9006408537704162620}
   - component: {fileID: 1879227185153615040}
   - component: {fileID: 3011519574355964684}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: levelAttachmentS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -456,7 +456,7 @@ GameObject:
   - component: {fileID: 921514301017084613}
   - component: {fileID: 6795247736144801022}
   - component: {fileID: 8266631511364541415}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CornerNE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -567,7 +567,7 @@ GameObject:
   - component: {fileID: 5878240257582709505}
   - component: {fileID: 8549502908053482646}
   - component: {fileID: 5534670616357070129}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: noWalls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -686,7 +686,7 @@ GameObject:
   - component: {fileID: 8068469357286534115}
   - component: {fileID: 2274560027135069466}
   - component: {fileID: 7349351586367836366}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: levelAttachmentW
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -797,7 +797,7 @@ GameObject:
   - component: {fileID: 796962048530015829}
   - component: {fileID: 8379255587997629963}
   - component: {fileID: 5697865218919351323}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: levelAttachmentN
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -908,7 +908,7 @@ GameObject:
   - component: {fileID: 831583204244304433}
   - component: {fileID: 5039653097130279389}
   - component: {fileID: 5506227381659665931}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: levelAttachmentE
   m_TagString: Untagged
   m_Icon: {fileID: 0}

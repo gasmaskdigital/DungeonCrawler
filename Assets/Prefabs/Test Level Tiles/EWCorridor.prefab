@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5878240257582709505}
   - component: {fileID: 8549502908053482646}
   - component: {fileID: 5534670616357070129}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: EWCorridor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -128,7 +128,7 @@ GameObject:
   - component: {fileID: 7165507295795516481}
   - component: {fileID: 8405999249272588727}
   - component: {fileID: 2879190599740131003}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: WallS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -238,7 +238,7 @@ GameObject:
   - component: {fileID: 169277054577607685}
   - component: {fileID: 7584530218623836568}
   - component: {fileID: 6124477026209184990}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: levelAttachmentE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -349,7 +349,7 @@ GameObject:
   - component: {fileID: 939859176905638804}
   - component: {fileID: 5912604456391894902}
   - component: {fileID: 1520113408695103619}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: levelAttachmentW
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -461,7 +461,7 @@ GameObject:
   - component: {fileID: 40186166707756999}
   - component: {fileID: 7527628160457810384}
   - component: {fileID: 4539632806068837884}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: WallN
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class CameraScript : MonoBehaviour
 {
-    private CinemachineOrbitalFollow orbitalFollow;
+    [SerializeField] private CinemachinePanTilt panTilt;
     public float rotateSpeed = 90f;
 
     void Start()
     {
-        orbitalFollow = GetComponent<CinemachineOrbitalFollow>();
+        //panTilt = GetComponent<CinemachinePanTilt>();
     }
 
     void Update()
@@ -18,6 +18,6 @@ public class CameraScript : MonoBehaviour
         if (Input.GetKey(KeyCode.Q)) direction = -1f;
         if (Input.GetKey(KeyCode.E)) direction = 1f;
 
-        orbitalFollow.HorizontalAxis.Value += direction * rotateSpeed * Time.deltaTime;
+        panTilt.PanAxis.Value += direction * rotateSpeed * Time.deltaTime;
     }
 }
