@@ -13,13 +13,22 @@ public class ArrowLightAttack : MonoBehaviour
         SphereCollider = GetComponent<SphereCollider>();
         player = GameObject.FindGameObjectWithTag("Player");
         playerAttackHandler = player.GetComponent<AttackHandler>();
+    }
 
-        
+    private void OnTriggerStay(Collider other)
+    {
+        Debug.Log("Arrow hitting " + other.gameObject.name);
 
+        if (other.CompareTag("Terrain"))
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("Arrow hit " + other.gameObject.name);
+
         if (other.CompareTag("Enemy"))
         {
             EnemyStats cEnemyStats = other.GetComponent<EnemyStats>();
@@ -29,10 +38,7 @@ public class ArrowLightAttack : MonoBehaviour
             
         }
 
-        if (other.CompareTag("Terrain"))
-        {
-            Destroy(gameObject);
-        }
+        
     }
 
     // Update is called once per frame

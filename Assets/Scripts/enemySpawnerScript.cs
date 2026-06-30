@@ -35,6 +35,6 @@ public class enemySpawnerScript : MonoBehaviour
     {
         float curve = spawnCurveDist.Evaluate(Random.value);
         spawnAmount = Mathf.CeilToInt(Random.Range(minSpawnAmount * curve, maxSpawnAmount * curve));
-        Debug.Log(spawnAmount);
+        //Debug.Log(spawnAmount);
     }
 }

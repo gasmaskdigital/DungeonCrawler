@@ -523,7 +523,7 @@ MonoBehaviour:
     CustomLookAtTarget: 0
   Lens:
     FieldOfView: 90
-    OrthographicSize: 10
+    OrthographicSize: 7.5
     NearClipPlane: -50
     FarClipPlane: 5000
     Dutch: 0
@@ -1195,6 +1195,30 @@ PrefabInstance:
       propertyPath: pHUIManager
       value: 
       objectReference: {fileID: 340316306}
+    - target: {fileID: 3978373986141358953, guid: 35a62140321f4064da5d2693afb1944e, type: 3}
+      propertyPath: testWeapon.statBoost
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3978373986141358953, guid: 35a62140321f4064da5d2693afb1944e, type: 3}
+      propertyPath: testWeapon.weaponName
+      value: Bow
+      objectReference: {fileID: 0}
+    - target: {fileID: 3978373986141358953, guid: 35a62140321f4064da5d2693afb1944e, type: 3}
+      propertyPath: testWeapon.weaponType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3978373986141358953, guid: 35a62140321f4064da5d2693afb1944e, type: 3}
+      propertyPath: testWeapon.attackValue
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3978373986141358953, guid: 35a62140321f4064da5d2693afb1944e, type: 3}
+      propertyPath: testWeapon.weaponModel
+      value: 
+      objectReference: {fileID: 4634054444666320730, guid: e5d1bfca5fbaea04fa93b6bf98558068, type: 3}
+    - target: {fileID: 3978373986141358953, guid: 35a62140321f4064da5d2693afb1944e, type: 3}
+      propertyPath: testWeapon.statBoostValue
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4051598479090421858, guid: 35a62140321f4064da5d2693afb1944e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2203,7 +2227,7 @@ Camera:
   far clip plane: 5000
   field of view: 90
   orthographic: 1
-  orthographic size: 10
+  orthographic size: 7.5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2

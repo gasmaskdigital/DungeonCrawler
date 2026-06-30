@@ -82,6 +82,7 @@ public class lootScript : MonoBehaviour
                 }
             }
             Debug.Log("Equipping: " + lootName);
+            playerStats.UpdateEquipment();
             Destroy(gameObject);
         }
     }

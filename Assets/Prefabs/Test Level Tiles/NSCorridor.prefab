@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2143336575684405608}
   m_Layer: 7
   m_Name: levelAttachmentN
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -125,7 +125,7 @@ GameObject:
   - component: {fileID: 5534670616357070129}
   m_Layer: 7
   m_Name: NSCorridor
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -351,7 +351,7 @@ GameObject:
   - component: {fileID: 7931208885583174987}
   m_Layer: 7
   m_Name: levelAttachmentS
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

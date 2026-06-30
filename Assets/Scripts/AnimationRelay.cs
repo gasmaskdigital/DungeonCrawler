@@ -27,13 +27,13 @@ public class AnimationRelay : MonoBehaviour
     public void BowAttack()
     {
         attackHandler.CheckPlayerWeaponType();
-        Debug.Log("Bow AnimationRelay");
+        //Debug.Log("Bow AnimationRelay");
     }
 
     public void BowAimingToggle()
     {
         playerHandler.BowAimingToggle();
-        Debug.Log("Bow Aiming Toggle");
+        //Debug.Log("Bow Aiming Toggle");
     }
 
     public void FireLightAttack()

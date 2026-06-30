@@ -350,16 +350,9 @@ public class PlayerHandler : MonoBehaviour
 
     public void BowAimingToggle()
     {
-        if (bowAiming)
-        {
-            bowAiming = false;
-        }
-        else
-        {
-            bowAiming = true;
-        }
+        bowAiming = !bowAiming;
 
-        Debug.Log("bowAiming is " + bowAiming);
+        //Debug.Log("bowAiming is " + bowAiming);
     }
 
     private void BowAiming()
