@@ -38,12 +38,12 @@ public class lootScript : MonoBehaviour
             {
                 foreach (GameObject weapon in lootHandler.weapons)
                 {
-                    if (weapon.GetComponent<lootScript>().lootName == playerStats.currentWeapon.weaponName && playerStats.currentWeapon.weaponName != null)
+                    if (weapon.GetComponent<lootScript>().lootName == PlayerStats.currentWeapon.weaponName && PlayerStats.currentWeapon.weaponName != null)
                     {
                         Instantiate(weapon, transform.position, transform.rotation);
                     }
                 }
-                playerStats.currentWeapon = weapon;
+                PlayerStats.currentWeapon = weapon;
             }
             else if (lootType == lootType.Armour) 
             {
@@ -52,32 +52,32 @@ public class lootScript : MonoBehaviour
                     case (ArmourSlot.Helmet):
                         foreach (GameObject armour in lootHandler.armour)
                         {
-                            if (armour.GetComponent<lootScript>().lootName == playerStats.currentHelmet.armourName && playerStats.currentHelmet.armourName != null)
+                            if (armour.GetComponent<lootScript>().lootName == PlayerStats.currentHelmet.armourName && PlayerStats.currentHelmet.armourName != null)
                             {
                                 Instantiate(armour, transform.position, transform.rotation);
                             }
                         }
-                        playerStats.currentHelmet = armour;
+                        PlayerStats.currentHelmet = armour;
                         break;
                     case (ArmourSlot.UpperBody):
                         foreach (GameObject armour in lootHandler.armour)
                         {
-                            if (armour.GetComponent<lootScript>().lootName == playerStats.currentUpperBody.armourName && playerStats.currentUpperBody.armourName != null)
+                            if (armour.GetComponent<lootScript>().lootName == PlayerStats.currentUpperBody.armourName && PlayerStats.currentUpperBody.armourName != null)
                             {
                                 Instantiate(armour, transform.position, transform.rotation);
                             }
                         }
-                        playerStats.currentUpperBody = armour;
+                        PlayerStats.currentUpperBody = armour;
                         break;
                     case (ArmourSlot.Lowerbody):
                         foreach (GameObject armour in lootHandler.armour)
                         {
-                            if (armour.GetComponent<lootScript>().lootName == playerStats.currentLowerBody.armourName && playerStats.currentLowerBody.armourName != null)
+                            if (armour.GetComponent<lootScript>().lootName == PlayerStats.currentLowerBody.armourName && PlayerStats.currentLowerBody.armourName != null)
                             {
                                 Instantiate(armour, transform.position, transform.rotation);
                             }
                         }
-                        playerStats.currentLowerBody = armour;
+                        PlayerStats.currentLowerBody = armour;
                         break;
                 }
             }

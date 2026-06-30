@@ -66,10 +66,10 @@ public class PlayerHandler : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            curWeapon = playerStats.currentWeapon.weaponName;
-            curLB = playerStats.currentLowerBody.armourName;
-            curUB = playerStats.currentUpperBody.armourName;
-            curHelm = playerStats.currentHelmet.armourName;
+            curWeapon = PlayerStats.currentWeapon.weaponName;
+            curLB = PlayerStats.currentLowerBody.armourName;
+            curUB = PlayerStats.currentUpperBody.armourName;
+            curHelm = PlayerStats.currentHelmet.armourName;
         }
 
         if (bowAiming)

@@ -10,11 +10,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -4978104183705362587, guid: 4528d740d646b43438166107f7f960c8, type: 3}
       propertyPath: lootName
-      value: Spear
+      value: Spellbook
+      objectReference: {fileID: 0}
+    - target: {fileID: -4978104183705362587, guid: 4528d740d646b43438166107f7f960c8, type: 3}
+      propertyPath: statBoost
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -4978104183705362587, guid: 4528d740d646b43438166107f7f960c8, type: 3}
       propertyPath: statValue
       value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: -4978104183705362587, guid: 4528d740d646b43438166107f7f960c8, type: 3}
+      propertyPath: weaponType
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -4978104183705362587, guid: 4528d740d646b43438166107f7f960c8, type: 3}
       propertyPath: attackValue
@@ -26,8 +34,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2459961511337339887, guid: 4528d740d646b43438166107f7f960c8, type: 3}
       propertyPath: m_Name
-      value: Spear
+      value: Spellbook
       objectReference: {fileID: 0}
+    - target: {fileID: 3665737166867679176, guid: 4528d740d646b43438166107f7f960c8, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 71529b88994c1a341b22bc57c038674a, type: 2}
+    - target: {fileID: 4318336089599273242, guid: 4528d740d646b43438166107f7f960c8, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 8075858265380700756, guid: b25e5ef2999acf7409ace699c8ac2fa4, type: 3}
     - target: {fileID: 7983447744634579074, guid: 4528d740d646b43438166107f7f960c8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
