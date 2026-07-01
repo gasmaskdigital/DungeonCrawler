@@ -30,7 +30,7 @@ public class chestScript : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.F))
             {
                 canvas.gameObject.SetActive(false);
-                Instantiate(loot, transform.position + Vector3.up * lootOffset, Quaternion.identity);
+                Instantiate(loot, transform.position + Vector3.up * lootOffset, Quaternion.identity).GetComponent<lootScript>().isNewLoot = true;
                 isEmpty = true;
             }
         }

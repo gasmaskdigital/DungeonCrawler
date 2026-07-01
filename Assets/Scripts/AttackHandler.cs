@@ -276,16 +276,14 @@ public struct Weapon
     public int attackValue;    
     public int statBoostValue;
     public StatBoostType statBoost;
-    public Mesh weaponModel;
     public WeaponType weaponType;
 
-    public Weapon(string weaponName, int attackValue, int statBoostValue, StatBoostType statBoost, Mesh weaponModel, WeaponType weaponType)
+    public Weapon(string weaponName, int attackValue, int statBoostValue, StatBoostType statBoost, WeaponType weaponType)
     {
         this.weaponName = weaponName;
         this.attackValue = attackValue;
         this.statBoostValue = statBoostValue;
         this.statBoost = statBoost;
-        this.weaponModel = weaponModel;
         this.weaponType = weaponType;
     }
 }

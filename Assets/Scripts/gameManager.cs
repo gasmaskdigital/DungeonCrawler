@@ -21,8 +21,6 @@ public class gameManager : MonoBehaviour
         updateFloorNumber();
         updatePlayerLevel();
         updateEquipment();
-
-        
     }
 
     // Update is called once per frame
@@ -43,10 +41,10 @@ public class gameManager : MonoBehaviour
 
     public void updateEquipment()
     {
-        txtEquipment.text = "Weapon: " + PlayerStats.currentWeapon.weaponName +
-            "\r\nHelmet: " + PlayerStats.currentHelmet.armourName +
-            "\r\nTorso: " + PlayerStats.currentUpperBody.armourName +
-            "\r\nLegs: " + PlayerStats.currentLowerBody.armourName;
+        txtEquipment.text = "Weapon: " + PlayerStats.currentWeapon.weaponName + " (" + PlayerStats.currentWeapon.attackValue + " / " + PlayerStats.currentWeapon.statBoostValue + ")" +
+            "\r\nHelmet: " + PlayerStats.currentHelmet.armourName + " (" + PlayerStats.currentHelmet.armourDefence + " / " + PlayerStats.currentHelmet.StatBoostValue + ")" +
+            "\r\nTorso: " + PlayerStats.currentUpperBody.armourName + " (" + PlayerStats.currentUpperBody.armourDefence + " / " + PlayerStats.currentUpperBody.StatBoostValue + ")" +
+            "\r\nLegs: " + PlayerStats.currentLowerBody.armourName + " (" + PlayerStats.currentLowerBody.armourDefence + " / " + PlayerStats.currentLowerBody.StatBoostValue + ")";
     }
 
     public void ToggleGameOver() 

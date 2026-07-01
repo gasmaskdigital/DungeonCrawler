@@ -55,7 +55,8 @@ public class levelManager: MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log(currentLevel);
+        //Debug.Log(currentLevel);
+        if (currentLevel == 0) currentLevel++;
 
         eastEntrance = Resources.LoadAll("EastEntrance");
         westEntrance = Resources.LoadAll("WestEntrance");
@@ -66,6 +67,9 @@ public class levelManager: MonoBehaviour
         westBlocked = Resources.LoadAll("WestBlocked");
         northBlocked = Resources.LoadAll("NorthBlocked");
         southBlocked = Resources.LoadAll("SouthBlocked");
+
+        levelHeight = Mathf.Min(30, 5 + currentLevel * 2);
+        levelWidth = Mathf.Min(30, 5 + currentLevel * 2);
 
         tileGenerators = new();
         levelMap.tileGrid = new levelTile[levelHeight, levelWidth];
@@ -180,7 +184,7 @@ public class levelManager: MonoBehaviour
         List<levelTile> validTiles = new List<levelTile>();
         foreach (levelTile tile in levelMap.tileGrid)
         {
-            if (tile.tile != null) validTiles.Add(tile);
+            if (tile.tile != null && tile.tile != levelMap.centreTile.tile) validTiles.Add(tile);
         }
         return validTiles;
     }

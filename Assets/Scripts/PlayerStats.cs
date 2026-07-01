@@ -66,8 +66,14 @@ public class PlayerStats : MonoBehaviour
 
     private void Awake()
     {
-        currentWeapon = testWeapon; // for testing purposes remove fo main scene
-        UpdateEquipment(); // for testing purposes
+        //currentWeapon = testWeapon; // for testing purposes remove fo main scene
+        //UpdateEquipment(); // for testing purposes
+
+        if (levelManager.currentLevel <= 1)
+        {
+            ResetStats();
+            currentHealth = maxHealth;
+        }
 
     }
 
@@ -75,16 +81,7 @@ public class PlayerStats : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        if(healthStat < 1)
-        {
-            currentHealth = maxHealth;
-        }
-        else
-        {
-            maxHealth = maxHealth * (healthStat * 5);
-            currentHealth = maxHealth;
-        }
-        
+       
     }
 
     // Update is called once per frame
