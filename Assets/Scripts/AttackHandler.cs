@@ -28,7 +28,7 @@ public class AttackHandler : MonoBehaviour
         {
             playerStats = GetComponent<PlayerStats>();
             playerHandler = GetComponent<PlayerHandler>();
-            Debug.Log("Player components");
+            //Debug.Log("Player components");
         }
         else if (gameObject.CompareTag("Enemy"))
         {

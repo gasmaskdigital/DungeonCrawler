@@ -6,6 +6,7 @@ public class FireHeavyAttackScript : MonoBehaviour
     private GameObject player;
     private AttackHandler playerAttackHandler;
     private float speed = 12f;
+    Rigidbody myRigidBody;
 
 
 
@@ -15,10 +16,15 @@ public class FireHeavyAttackScript : MonoBehaviour
         boxCollider = GetComponent<BoxCollider>();
         player = GameObject.FindGameObjectWithTag("Player");
         playerAttackHandler = player.GetComponent<AttackHandler>();
+
+        myRigidBody = GetComponent<Rigidbody>();
+
+        myRigidBody.AddForce(transform.forward * speed, ForceMode.Impulse);
     }
 
-    // Update is called once per frame
-    void Update()
+
+        // Update is called once per frame
+        void Update()
     {
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
     }

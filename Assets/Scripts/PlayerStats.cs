@@ -106,6 +106,8 @@ public class PlayerStats : MonoBehaviour
     {
         playerLevel++;
 
+        GameObject.FindGameObjectWithTag("GameController").GetComponent<gameManager>().updatePlayerLevel();
+
         pHUIManager.EnableLevelUpScreen();
 
         currentXP -= requiredXP;

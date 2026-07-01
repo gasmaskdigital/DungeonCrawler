@@ -11,6 +11,7 @@ public class FireLIghtAttackScript : MonoBehaviour
     private float explosionRadius = 0.75f;
     private bool triggered = false;
     public LayerMask enemyMask;
+    Rigidbody myRigidBody;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -19,6 +20,9 @@ public class FireLIghtAttackScript : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         playerAttackHandler = player.GetComponent<AttackHandler>();
 
+        myRigidBody = GetComponent<Rigidbody>();
+
+        myRigidBody.AddForce(transform.forward * speed, ForceMode.Impulse);
     }
 
     // Update is called once per frame
@@ -45,8 +49,12 @@ public class FireLIghtAttackScript : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
-           
             triggered = true;
+        }
+
+        if (other.CompareTag("Terrain"))
+        {
+            Destroy(gameObject);
         }
     }
 

@@ -145,6 +145,7 @@ public class AINavigation : MonoBehaviour, IKnockbackable
             if (c.gameObject.CompareTag("Player"))
             {
                 Destroy(c.gameObject);
+                GameObject.FindGameObjectWithTag("GameController").GetComponent<gameManager>().ToggleGameOver();
                 Roaming();
             }
         }

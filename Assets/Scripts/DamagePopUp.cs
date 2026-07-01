@@ -8,12 +8,12 @@ public class DamagePopUp : MonoBehaviour
     private TextMeshProUGUI damageText;
     private float speed = 2f;
     private float lifeTime = 2f;
-    private CinemachineOrbitalFollow orbitalFollow;
+    private CinemachinePanTilt panTilt;
 
 
     public void Init(int damageDealt)
     {
-        orbitalFollow = FindAnyObjectByType<CinemachineOrbitalFollow>();
+        panTilt = FindAnyObjectByType<CinemachinePanTilt>();
         damageText.text = damageDealt.ToString();
     }
 
@@ -28,7 +28,7 @@ public class DamagePopUp : MonoBehaviour
     {
         float timer =+ Time.deltaTime;
 
-        transform.rotation = orbitalFollow.transform.rotation;
+        transform.rotation = panTilt.transform.rotation;
 
         transform.Translate(Vector3.up * speed * Time.deltaTime);
         if(timer > lifeTime)

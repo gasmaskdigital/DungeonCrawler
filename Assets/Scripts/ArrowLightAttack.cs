@@ -6,6 +6,8 @@ public class ArrowLightAttack : MonoBehaviour
     private float speed = 15f;
     private GameObject player;
     private AttackHandler playerAttackHandler;
+    Rigidbody myRigidBody;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -13,6 +15,12 @@ public class ArrowLightAttack : MonoBehaviour
         SphereCollider = GetComponent<SphereCollider>();
         player = GameObject.FindGameObjectWithTag("Player");
         playerAttackHandler = player.GetComponent<AttackHandler>();
+        
+        myRigidBody = GetComponent<Rigidbody>();
+
+        myRigidBody.AddForce(transform.forward * speed, ForceMode.Impulse);
+        
+        //Destroy(gameObject, 2f);
     }
 
     private void OnTriggerStay(Collider other)
@@ -44,6 +52,6 @@ public class ArrowLightAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.forward * speed * Time.deltaTime);
+        //transform.Translate(Vector3.forward * speed * Time.deltaTime);
     }
 }

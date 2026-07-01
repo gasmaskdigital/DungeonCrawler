@@ -25,7 +25,9 @@ public class chestScript : MonoBehaviour
     {
         if (isPlayerClose && !isEmpty) 
         {
-            if (Input.GetKeyDown(KeyCode.E))
+            canvas.transform.rotation = Camera.main.transform.rotation;
+
+            if (Input.GetKeyDown(KeyCode.F))
             {
                 canvas.gameObject.SetActive(false);
                 Instantiate(loot, transform.position + Vector3.up * lootOffset, Quaternion.identity);

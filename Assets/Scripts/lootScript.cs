@@ -23,7 +23,7 @@ public class lootScript : MonoBehaviour
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
-    {
+    { 
         if(lootType == lootType.Weapon) weapon = new Weapon(lootName, statValue, statBoostValue, statBoost, lootModel, weaponType);
         if(lootType == lootType.Armour) armour = new Armour(lootName, statValue, statBoostValue, armourSlot, statBoost);
         playerStats = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
@@ -32,58 +32,65 @@ public class lootScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isPlayerClose && Input.GetKeyDown(KeyCode.E))
+        if (isPlayerClose)
         {
-            if (lootType == lootType.Weapon)
+
+            canvas.transform.rotation = Camera.main.transform.rotation;
+
+            if (Input.GetKeyDown(KeyCode.F))
             {
-                foreach (GameObject weapon in lootHandler.weapons)
+                if (lootType == lootType.Weapon)
                 {
-                    if (weapon.GetComponent<lootScript>().lootName == PlayerStats.currentWeapon.weaponName && PlayerStats.currentWeapon.weaponName != null)
+                    foreach (GameObject weapon in lootHandler.weapons)
                     {
-                        Instantiate(weapon, transform.position, transform.rotation);
+                        if (weapon.GetComponent<lootScript>().lootName == PlayerStats.currentWeapon.weaponName && PlayerStats.currentWeapon.weaponName != null)
+                        {
+                            Instantiate(weapon, transform.position, transform.rotation);
+                        }
+                    }
+                    PlayerStats.currentWeapon = weapon;
+                }
+                else if (lootType == lootType.Armour)
+                {
+                    switch (armourSlot)
+                    {
+                        case (ArmourSlot.Helmet):
+                            foreach (GameObject armour in lootHandler.armour)
+                            {
+                                if (armour.GetComponent<lootScript>().lootName == PlayerStats.currentHelmet.armourName && PlayerStats.currentHelmet.armourName != null)
+                                {
+                                    Instantiate(armour, transform.position, transform.rotation);
+                                }
+                            }
+                            PlayerStats.currentHelmet = armour;
+                            break;
+                        case (ArmourSlot.UpperBody):
+                            foreach (GameObject armour in lootHandler.armour)
+                            {
+                                if (armour.GetComponent<lootScript>().lootName == PlayerStats.currentUpperBody.armourName && PlayerStats.currentUpperBody.armourName != null)
+                                {
+                                    Instantiate(armour, transform.position, transform.rotation);
+                                }
+                            }
+                            PlayerStats.currentUpperBody = armour;
+                            break;
+                        case (ArmourSlot.Lowerbody):
+                            foreach (GameObject armour in lootHandler.armour)
+                            {
+                                if (armour.GetComponent<lootScript>().lootName == PlayerStats.currentLowerBody.armourName && PlayerStats.currentLowerBody.armourName != null)
+                                {
+                                    Instantiate(armour, transform.position, transform.rotation);
+                                }
+                            }
+                            PlayerStats.currentLowerBody = armour;
+                            break;
                     }
                 }
-                PlayerStats.currentWeapon = weapon;
+                //Debug.Log("Equipping: " + lootName);
+                playerStats.UpdateEquipment();
+                GameObject.FindGameObjectWithTag("GameController").GetComponent<gameManager>().updateEquipment();
+                Destroy(gameObject);
             }
-            else if (lootType == lootType.Armour) 
-            {
-                switch (armourSlot)
-                {
-                    case (ArmourSlot.Helmet):
-                        foreach (GameObject armour in lootHandler.armour)
-                        {
-                            if (armour.GetComponent<lootScript>().lootName == PlayerStats.currentHelmet.armourName && PlayerStats.currentHelmet.armourName != null)
-                            {
-                                Instantiate(armour, transform.position, transform.rotation);
-                            }
-                        }
-                        PlayerStats.currentHelmet = armour;
-                        break;
-                    case (ArmourSlot.UpperBody):
-                        foreach (GameObject armour in lootHandler.armour)
-                        {
-                            if (armour.GetComponent<lootScript>().lootName == PlayerStats.currentUpperBody.armourName && PlayerStats.currentUpperBody.armourName != null)
-                            {
-                                Instantiate(armour, transform.position, transform.rotation);
-                            }
-                        }
-                        PlayerStats.currentUpperBody = armour;
-                        break;
-                    case (ArmourSlot.Lowerbody):
-                        foreach (GameObject armour in lootHandler.armour)
-                        {
-                            if (armour.GetComponent<lootScript>().lootName == PlayerStats.currentLowerBody.armourName && PlayerStats.currentLowerBody.armourName != null)
-                            {
-                                Instantiate(armour, transform.position, transform.rotation);
-                            }
-                        }
-                        PlayerStats.currentLowerBody = armour;
-                        break;
-                }
-            }
-            Debug.Log("Equipping: " + lootName);
-            playerStats.UpdateEquipment();
-            Destroy(gameObject);
         }
     }
 

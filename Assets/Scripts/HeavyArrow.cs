@@ -6,6 +6,7 @@ public class HeavyArrow : MonoBehaviour
     private float speed = 20f;
     private GameObject player;
     private AttackHandler playerAttackHandler;
+    Rigidbody myRigidBody;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -13,6 +14,10 @@ public class HeavyArrow : MonoBehaviour
         sphereCollider = GetComponent<SphereCollider>();
         player = GameObject.FindGameObjectWithTag("Player");
         playerAttackHandler = player.GetComponent<AttackHandler>();
+        
+        myRigidBody = GetComponent<Rigidbody>();
+
+        myRigidBody.AddForce(transform.forward * speed, ForceMode.Impulse);
     }
 
     // Update is called once per frame
