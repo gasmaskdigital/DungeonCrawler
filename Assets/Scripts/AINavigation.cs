@@ -117,7 +117,7 @@ public class AINavigation : MonoBehaviour, IKnockbackable
 
     void AttackPlayer()
     {
-        enemyAnimator.SetTrigger("Heavy Attack");
+        enemyAttackHandler.AttackTypeCheck();
         isAttacking = true;
     }
 

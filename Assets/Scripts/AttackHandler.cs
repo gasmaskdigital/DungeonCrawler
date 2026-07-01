@@ -30,9 +30,13 @@ public class AttackHandler : MonoBehaviour
             playerHandler = GetComponent<PlayerHandler>();
             Debug.Log("Player components");
         }
-        else if (gameObject.CompareTag("Enemy"))
+        
+        if(PlayerStats.currentWeapon.attackValue == 0)
         {
-            enemyStats = GetComponent<EnemyStats>();
+            PlayerStats.currentWeapon.attackValue = 10;
+            PlayerStats.currentLowerBody.armourDefence = 10;
+            PlayerStats.currentLowerBody.armourDefence = 10;
+            PlayerStats.currentHelmet.armourDefence = 10;
         }
     }
 

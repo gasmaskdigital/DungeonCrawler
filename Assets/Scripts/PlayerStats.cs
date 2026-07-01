@@ -90,7 +90,7 @@ public class PlayerStats : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        Debug.Log("Current Health: " + currentHealth);
     }
 
     public void AddToXP(int xpReward)
@@ -221,7 +221,27 @@ public class PlayerStats : MonoBehaviour
         UpdateWeaponSocket();
     }
 
-    
+    public void TakeDamage(int damageDealt)
+    {
+        currentHealth -= damageDealt;
+        if(currentHealth <= 0)
+        {
+            PlayerDeath();
+        }
+    }
+
+    private void PlayerDeath()
+    {
+        Debug.Log("PlayerDeath");
+
+        GameObject[] enemyGameObjects = GameObject.FindGameObjectsWithTag("Enemy"); 
+        foreach(GameObject enemyObject in enemyGameObjects)
+        {
+            enemyObject.GetComponent<AINavigation>().playerSpotted = false;
+        }
+
+        Destroy(gameObject);
+    }
 
     
 }
