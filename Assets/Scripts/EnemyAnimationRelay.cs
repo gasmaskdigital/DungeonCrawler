@@ -18,9 +18,23 @@ public class EnemyAnimationRelay : MonoBehaviour
         enemyAttackHandler.CheckEnemyAttack();
     }
 
-    public void CanMoveToggle()
+    
+
+    public void CanMoveOff()
     {
-        aiNavigation.CanMoveToggle();
+        aiNavigation.CanMoveOff();
+        Debug.Log("Can Move off");
+    }
+
+    public void CanMoveOn()
+    {
+        aiNavigation.CanMoveOn();
+        Debug.Log("Can move on");
+    }
+
+    public void Death()
+    {
+        aiNavigation.DestroyObject();
     }
     
 }

@@ -53,10 +53,12 @@ public class EnemyStats : MonoBehaviour
             if (currentHealth <= 0)
             {
                 playerStats.AddToXP(xpReward);
-                Destroy(gameObject);
+                enemyAnimator.SetTrigger("Death");
             }
         }
     }
+
+    
 
     void ShowFloatingText(int damageTaken)
     {

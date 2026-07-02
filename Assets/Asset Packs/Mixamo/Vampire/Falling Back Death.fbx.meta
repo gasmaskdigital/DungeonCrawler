@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: bb1fdd12d548198428cacb2e9065f28f
+guid: b8dd6c333198d484dac098aa5b3a1b6a
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
@@ -35,7 +35,7 @@ ModelImporter:
       takeName: mixamo.com
       internalID: -203655887218126122
       firstFrame: 0
-      lastFrame: 48
+      lastFrame: 78
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -55,15 +55,15 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.01952725
+      - time: 0
         functionName: CanMoveOff
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.9691676
-        functionName: CanMoveOn
+      - time: 0.97738945
+        functionName: Death
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0

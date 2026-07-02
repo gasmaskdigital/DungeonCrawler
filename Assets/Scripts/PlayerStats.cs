@@ -234,13 +234,18 @@ public class PlayerStats : MonoBehaviour
     {
         Debug.Log("PlayerDeath");
 
-        GameObject[] enemyGameObjects = GameObject.FindGameObjectsWithTag("Enemy"); 
-        foreach(GameObject enemyObject in enemyGameObjects)
+        GameObject[] enemyObjects = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach (GameObject enemyParent in enemyObjects)
         {
-            enemyObject.GetComponent<AINavigation>().playerSpotted = false;
+            if(enemyParent.transform.parent == null)
+            {
+                AINavigation aINavigation = GetComponent<AINavigation>();
+                aINavigation.playerSpotted = false;
+            }
+                      
+           
+            Destroy(gameObject);
         }
-
-        Destroy(gameObject);
     }
 
     
