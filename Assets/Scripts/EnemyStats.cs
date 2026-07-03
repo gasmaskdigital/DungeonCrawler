@@ -65,4 +65,9 @@ public class EnemyStats : MonoBehaviour
        var ft = Instantiate(floatingText, transform.position, Quaternion.identity, transform);
         ft.GetComponent<TextMesh>().text = damageTaken.ToString();
     }
+
+    public void EnemyDeath()
+    {
+        Destroy(gameObject);
+    }
 }

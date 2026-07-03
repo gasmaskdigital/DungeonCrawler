@@ -19,9 +19,9 @@ public class AINavigation : MonoBehaviour, IKnockbackable
     public bool isAttacking = false;
     private float knockDelay = 0.5f;
     private EnemyAttackHandler enemyAttackHandler;
+    public static bool playerAlive = true;
 
-    
-    
+
 
     private Rigidbody rb;
 
@@ -59,7 +59,7 @@ public class AINavigation : MonoBehaviour, IKnockbackable
             if (canMove)
             {
 
-                if (playerSpotted)
+                if (playerSpotted && playerAlive)
                 {
                     navMeshAgent.destination = playerHandler.transform.position;
                     if (navMeshAgent.remainingDistance < navMeshAgent.stoppingDistance && !isAttacking)
@@ -166,7 +166,7 @@ public class AINavigation : MonoBehaviour, IKnockbackable
    public void CanMoveOff()
     {
         canMove = false;
-        if(navMeshAgent.gameObject.activeInHierarchy)
+        if(isAttacking)
         {
             navMeshAgent.isStopped = true;
             navMeshAgent.velocity = Vector3.zero;

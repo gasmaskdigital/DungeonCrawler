@@ -827,6 +827,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4013916617164326231, guid: f87aaf2da5b1050418b14ac50fd331d5, type: 3}
+      propertyPath: m_Radius
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4229529332497621389, guid: f87aaf2da5b1050418b14ac50fd331d5, type: 3}
+      propertyPath: attack
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4315232680571345892, guid: f87aaf2da5b1050418b14ac50fd331d5, type: 3}
       propertyPath: m_Name
       value: Vampire Parent

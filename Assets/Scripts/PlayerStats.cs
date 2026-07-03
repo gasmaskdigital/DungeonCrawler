@@ -34,7 +34,7 @@ public class PlayerStats : MonoBehaviour
     public GameObject[] weaponSockets; // 0=THS, 1=Bow, 2=SpellBook
 
     public Weapon testWeapon; // this is just used to testing 
-    
+
 
     public static int currentDefenceTotal;
 
@@ -75,7 +75,7 @@ public class PlayerStats : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        if(healthStat < 1)
+        if (healthStat < 1)
         {
             currentHealth = maxHealth;
         }
@@ -84,13 +84,13 @@ public class PlayerStats : MonoBehaviour
             maxHealth = maxHealth * (healthStat * 5);
             currentHealth = maxHealth;
         }
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("Current Health: " + currentHealth);
+        
     }
 
     public void AddToXP(int xpReward)
@@ -111,7 +111,7 @@ public class PlayerStats : MonoBehaviour
         currentXP -= requiredXP;
 
         requiredXP = requiredXP + (playerLevel * 24);
-        
+
     }
 
     public void UpdateMaxHealth()
@@ -135,7 +135,7 @@ public class PlayerStats : MonoBehaviour
                 boostedStrength += currentWeapon.statBoostValue;
                 break;
             case StatBoostType.Dexterity:
-                boostedDexterity +=  currentWeapon.statBoostValue;
+                boostedDexterity += currentWeapon.statBoostValue;
                 break;
             case StatBoostType.Magic:
                 boostedMagic += currentWeapon.statBoostValue;
@@ -165,7 +165,7 @@ public class PlayerStats : MonoBehaviour
                 break;
             case StatBoostType.Magic:
                 boostedMagic += currentUpperBody.StatBoostValue;
-                break;                                
+                break;
         }
 
         switch (currentLowerBody.statBoost)
@@ -195,7 +195,7 @@ public class PlayerStats : MonoBehaviour
 
     private void UpdateWeaponSocket()
     {
-        foreach(GameObject c in weaponSockets)
+        foreach (GameObject c in weaponSockets)
         {
             c.gameObject.SetActive(false);
         }
@@ -224,7 +224,7 @@ public class PlayerStats : MonoBehaviour
     public void TakeDamage(int damageDealt)
     {
         currentHealth -= damageDealt;
-        if(currentHealth <= 0)
+        if (currentHealth <= 0)
         {
             PlayerDeath();
         }
@@ -234,19 +234,11 @@ public class PlayerStats : MonoBehaviour
     {
         Debug.Log("PlayerDeath");
 
-        GameObject[] enemyObjects = GameObject.FindGameObjectsWithTag("Enemy");
-        foreach (GameObject enemyParent in enemyObjects)
-        {
-            if(enemyParent.transform.parent == null)
-            {
-                AINavigation aINavigation = GetComponent<AINavigation>();
-                aINavigation.playerSpotted = false;
-            }
-                      
-           
-            Destroy(gameObject);
-        }
-    }
+        AINavigation.playerAlive = false;
 
-    
+
+        Destroy(gameObject);
+
+    }
 }
+    
