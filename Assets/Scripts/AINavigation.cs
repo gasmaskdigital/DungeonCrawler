@@ -166,7 +166,9 @@ public class AINavigation : MonoBehaviour, IKnockbackable
    public void CanMoveOff()
     {
         canMove = false;
-        if(isAttacking)
+
+        if (navMeshAgent.gameObject.activeInHierarchy && navMeshAgent.isOnNavMesh)
+            if (isAttacking)
         {
             navMeshAgent.isStopped = true;
             navMeshAgent.velocity = Vector3.zero;

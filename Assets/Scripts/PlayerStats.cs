@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
 {
+    public PlayerHandler playerHandler;
+
     public static int healthStat = 1;
     public static int strengthStat = 1;
     public static int dexterityStat = 1;
@@ -75,6 +77,8 @@ public class PlayerStats : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        playerHandler = GetComponent<PlayerHandler>();
+
         if (healthStat < 1)
         {
             currentHealth = maxHealth;
@@ -223,6 +227,7 @@ public class PlayerStats : MonoBehaviour
 
     public void TakeDamage(int damageDealt)
     {
+        
         currentHealth -= damageDealt;
         if (currentHealth <= 0)
         {

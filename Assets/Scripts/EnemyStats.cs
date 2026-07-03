@@ -42,19 +42,23 @@ public class EnemyStats : MonoBehaviour
         {
             currentHealth = currentHealth - damageTaken;
 
-            enemyAnimator.SetTrigger("DamageReact");
             
+            if(currentHealth <= 0)
+            {
+                playerStats.AddToXP(xpReward);
+                enemyAnimator.SetTrigger("Death");
+            }
+            else
+            {
+                enemyAnimator.SetTrigger("DamageReact");
+            }
 
             if (floatingText != null)
             {
                 ShowFloatingText(damageTaken);
             }
 
-            if (currentHealth <= 0)
-            {
-                playerStats.AddToXP(xpReward);
-                enemyAnimator.SetTrigger("Death");
-            }
+            
         }
     }
 
