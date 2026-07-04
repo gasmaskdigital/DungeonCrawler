@@ -87,7 +87,7 @@ public class PlayerStats : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("Current Health: " + currentHealth);
+        //Debug.Log("Current Health: " + currentHealth);
     }
 
     public void AddToXP(int xpReward)
