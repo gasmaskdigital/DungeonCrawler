@@ -1783,11 +1783,11 @@ GameObject:
   m_Component:
   - component: {fileID: 8873110122754686441}
   - component: {fileID: 4229529332497621389}
-  - component: {fileID: 3403241467357337720}
   - component: {fileID: 3579476930285203684}
   - component: {fileID: 4013916617164326231}
   - component: {fileID: 6575203961780488057}
   - component: {fileID: 456092313754322090}
+  - component: {fileID: 2122544013552377933}
   m_Layer: 6
   m_Name: Vampire Parent
   m_TagString: Enemy
@@ -1834,26 +1834,6 @@ MonoBehaviour:
   enemyAttackRadius: 1
   canBeDamaged: 1
   floatingText: {fileID: 6946133675485113259, guid: fa7675d0934c8ee4ea02ec6d42a44af4, type: 3}
---- !u!114 &3403241467357337720
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4315232680571345892}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9cee515c37a2a6459aeb5ab73496d2f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AttackHandler
-  enemyMask:
-    serializedVersion: 2
-    m_Bits: 64
-  attackType: 0
-  lightArrow: {fileID: 0}
-  heavyArrow: {fileID: 0}
-  lightFire: {fileID: 0}
-  heavyFire: {fileID: 0}
 --- !u!114 &3579476930285203684
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1869,6 +1849,7 @@ MonoBehaviour:
   playerHandler: {fileID: 0}
   playerSpotted: 0
   canMove: 1
+  enemyName: 
   playerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -1902,7 +1883,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4315232680571345892}
   serializedVersion: 5
-  m_Mass: 50
+  m_Mass: 75
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -1916,7 +1897,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 112
@@ -1944,6 +1925,24 @@ CapsuleCollider:
   m_Height: 2.5
   m_Direction: 1
   m_Center: {x: 0, y: 0.7803334, z: 0}
+--- !u!114 &2122544013552377933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4315232680571345892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5625a903a0cde984bae4f9aff4fb30e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  playerMask:
+    serializedVersion: 2
+    m_Bits: 8
+  enemyAttackType: 0
+  lightAttackRadius: 1
+  heavyAttackRadius: 1.5
 --- !u!1 &4352049103327572733
 GameObject:
   m_ObjectHideFlags: 0
@@ -3466,7 +3465,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1ae8d966f8518fe45a0e69bc3e0a3434, type: 2}
+  - {fileID: 2100000, guid: 9540c482083e7c84b85bd7a4923bc32a, type: 2}
   - {fileID: 2100000, guid: 9540c482083e7c84b85bd7a4923bc32a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0

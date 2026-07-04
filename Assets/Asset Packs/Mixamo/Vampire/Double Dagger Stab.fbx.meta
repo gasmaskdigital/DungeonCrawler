@@ -55,7 +55,7 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.13632865
+      - time: 0.06574042
         functionName: CanMoveToggle
         data: 
         objectReferenceParameter: {instanceID: 0}
@@ -63,7 +63,7 @@ ModelImporter:
         intParameter: 0
         messageOptions: 0
       - time: 0.38423237
-        functionName: HeavyAttack
+        functionName: CheckEnemyAttack
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
