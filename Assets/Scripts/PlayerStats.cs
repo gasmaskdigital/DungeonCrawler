@@ -79,7 +79,9 @@ public class PlayerStats : MonoBehaviour
     {
         playerHandler = GetComponent<PlayerHandler>();
 
-        if (healthStat < 1)
+        if (levelManager.currentLevel <= 1) currentHealth = maxHealth;
+
+        /*if (healthStat < 1)
         {
             currentHealth = maxHealth;
         }
@@ -87,7 +89,7 @@ public class PlayerStats : MonoBehaviour
         {
             maxHealth = maxHealth * (healthStat * 5);
             currentHealth = maxHealth;
-        }
+        }*/
 
     }
 
