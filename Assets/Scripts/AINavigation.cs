@@ -159,7 +159,7 @@ public class AINavigation : MonoBehaviour, IKnockbackable
 
         yield return new WaitForFixedUpdate();
         yield return new WaitUntil(() => rb.linearVelocity.magnitude < 0.05f);
-        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSeconds(1.2f);
 
         rb.linearVelocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
@@ -205,11 +205,13 @@ public class AINavigation : MonoBehaviour, IKnockbackable
 
     public void DisableNavAndCollider()
     {
-        
 
-        
-        navMeshAgent.isStopped = true;
-        navMeshAgent.enabled = false;
+        if (navMeshAgent.enabled)
+        {
+
+            navMeshAgent.isStopped = true;
+            navMeshAgent.enabled = false;
+        }
         
 
     }
