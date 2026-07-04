@@ -42,25 +42,36 @@ public class EnemyStats : MonoBehaviour
         {
             currentHealth = currentHealth - damageTaken;
 
-            enemyAnimator.SetTrigger("DamageReact");
             
+            if(currentHealth <= 0)
+            {
+                playerStats.AddToXP(xpReward);
+                enemyAnimator.SetTrigger("Death");
+            }
+            else
+            {
+                enemyAnimator.SetTrigger("DamageReact");
+            }
 
             if (floatingText != null)
             {
                 ShowFloatingText(damageTaken);
             }
 
-            if (currentHealth <= 0)
-            {
-                playerStats.AddToXP(xpReward);
-                Destroy(gameObject);
-            }
+            
         }
     }
+
+    
 
     void ShowFloatingText(int damageTaken)
     {
        var ft = Instantiate(floatingText, transform.position, Quaternion.identity, transform);
         ft.GetComponent<TextMesh>().text = damageTaken.ToString();
+    }
+
+    public void EnemyDeath()
+    {
+        Destroy(gameObject);
     }
 }

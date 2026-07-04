@@ -16,12 +16,12 @@ public class AINavigation : MonoBehaviour, IKnockbackable
     public bool canMove = true;
     public string enemyName;
     public LayerMask playerMask;
-    private bool isAttacking = false;
+    public bool isAttacking = false;
     private float knockDelay = 0.5f;
     private EnemyAttackHandler enemyAttackHandler;
+    public static bool playerAlive = true;
 
-    
-    
+
 
     private Rigidbody rb;
 
@@ -61,7 +61,7 @@ public class AINavigation : MonoBehaviour, IKnockbackable
             if (canMove)
             {
 
-                if (playerSpotted)
+                if (playerSpotted && playerAlive)
                 {
                     navMeshAgent.destination = playerHandler.transform.position;
                     if (navMeshAgent.remainingDistance < navMeshAgent.stoppingDistance && !isAttacking)
@@ -94,29 +94,7 @@ public class AINavigation : MonoBehaviour, IKnockbackable
         Debug.Log("Chasing Player");
     }
 
-    public void CanMoveToggle()
-    {
-        Debug.Log("Enemy Can Move Toggle");
-
-        if (canMove)
-        {
-            
-            canMove = false;
-            navMeshAgent.isStopped = true;
-            navMeshAgent.velocity = Vector3.zero;
-        }
-        else
-        {
-            if (navMeshAgent.enabled && navMeshAgent.isOnNavMesh)
-            {
-                canMove = true;
-                navMeshAgent.isStopped = false;
-                isAttacking = false;
-            }
-        }
-    }
-
-
+  
     void AttackPlayer()
     {
         enemyAttackHandler.AttackTypeCheck();
@@ -188,8 +166,35 @@ public class AINavigation : MonoBehaviour, IKnockbackable
         canMove = true;
     }
 
-   
+   public void CanMoveOff()
+    {
+        canMove = false;
 
+        if (navMeshAgent.gameObject.activeInHierarchy && navMeshAgent.isOnNavMesh)
+            if (isAttacking)
+        {
+            navMeshAgent.isStopped = true;
+            navMeshAgent.velocity = Vector3.zero;
+        }
+        
+    }
+
+    public void CanMoveOn()
+    {
+        canMove = true;
+        navMeshAgent.isStopped = false;
+        isAttacking = false;
+    }
+
+    public void DestroyObject()
+    {
+        Destroy(gameObject);
+    }
+
+    public void ResetTriggeredBool()
+    {
+        playerSpotted = false;
+    }
    
 }
 
