@@ -237,7 +237,7 @@ public class PlayerStats : MonoBehaviour
 
     private void PlayerDeath()
     {
-        Debug.Log("PlayerDeath");
+        
 
         AINavigation.playerAlive = false;
 

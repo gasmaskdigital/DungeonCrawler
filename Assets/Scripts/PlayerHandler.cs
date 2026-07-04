@@ -216,7 +216,7 @@ public class PlayerHandler : MonoBehaviour
     {
         if (canAttack)
         {
-            Debug.Log("heavy attack");
+            
 
             Collider[] colliders = Physics.OverlapSphere(transform.position, heavyAttackRadius, enemyMask);
             foreach (Collider c in colliders)
@@ -347,7 +347,7 @@ public class PlayerHandler : MonoBehaviour
             bowAiming = true;
         }
 
-        Debug.Log("bowAiming is " + bowAiming);
+        
     }
 
     private void BowAiming()
