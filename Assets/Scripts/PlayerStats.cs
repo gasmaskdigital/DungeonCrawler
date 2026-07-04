@@ -75,6 +75,7 @@ public class PlayerStats : MonoBehaviour
             currentHealth = maxHealth;
         }
 
+        UpdateWeaponSocket();
     }
 
 
