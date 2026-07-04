@@ -54,7 +54,7 @@ public class AnimationRelay : MonoBehaviour
         playerHandler.CanMoveToggle();
     }
 
-    public void Invincibilty()
+    public void CanBeDamaged()
     {
         playerHandler.ToggleCanBeDamaged();
     }

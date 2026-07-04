@@ -161,8 +161,8 @@ public class AINavigation : MonoBehaviour, IKnockbackable
         yield return new WaitUntil(() => rb.linearVelocity.magnitude < 0.05f);
         yield return new WaitForSeconds(1.2f);
 
-        rb.linearVelocity = Vector3.zero;
-        rb.angularVelocity = Vector3.zero;
+       // rb.linearVelocity = Vector3.zero;
+      //  rb.angularVelocity = Vector3.zero;
         rb.useGravity = false;
         rb.isKinematic = true;
         navMeshAgent.Warp(transform.position);
