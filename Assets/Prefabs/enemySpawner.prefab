@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7471651901040110889}
-  - component: {fileID: 1072403963620496982}
   - component: {fileID: 9204016925878974200}
   m_Layer: 0
   m_Name: enemySpawner
@@ -34,36 +33,6 @@ Transform:
   - {fileID: 8647147997167853241}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1072403963620496982
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1237843681088241054}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca7de3aefa901374ba29464584a3109a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineDecollider
-  CameraRadius: 0.4
-  Decollision:
-    Enabled: 0
-    ObstacleLayers:
-      serializedVersion: 2
-      m_Bits: 1
-    UseFollowTarget:
-      Enabled: 0
-      YOffset: 0
-    Damping: 0.5
-    SmoothingTime: 0
-  TerrainResolution:
-    Enabled: 1
-    TerrainLayers:
-      serializedVersion: 2
-      m_Bits: 1
-    MaximumRaycast: 10
-    Damping: 0.5
 --- !u!114 &9204016925878974200
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -124,7 +93,6 @@ GameObject:
   - component: {fileID: 8647147997167853241}
   - component: {fileID: 3881247749199089457}
   - component: {fileID: 6813945061298810320}
-  - component: {fileID: 2522758281077637724}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -203,24 +171,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &2522758281077637724
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3048241579537833460}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}

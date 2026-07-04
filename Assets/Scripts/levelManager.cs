@@ -74,6 +74,7 @@ public class levelManager: MonoBehaviour
         tileGenerators = new();
         levelMap.tileGrid = new levelTile[levelHeight, levelWidth];
         levelMap.enemySpawnerTiles = new();
+        spawnerPercentage = Mathf.Min(currentLevel / 20f, 0.4f);
         levelMap.chestTiles = new();
         Vector2Int centre = new Vector2Int(Mathf.CeilToInt(levelWidth / 2f) - 1, Mathf.CeilToInt(levelHeight / 2f) - 1);
 
