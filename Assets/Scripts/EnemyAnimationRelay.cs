@@ -4,12 +4,14 @@ public class EnemyAnimationRelay : MonoBehaviour
 {
     private AINavigation aiNavigation;
     private EnemyAttackHandler enemyAttackHandler;
+    private EnemyStats enemyStats;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         aiNavigation = GetComponentInParent<AINavigation>();
         enemyAttackHandler = GetComponentInParent<EnemyAttackHandler>();
+        enemyStats = GetComponentInParent<EnemyStats>();
 
     }
 
@@ -18,9 +20,23 @@ public class EnemyAnimationRelay : MonoBehaviour
         enemyAttackHandler.CheckEnemyAttack();
     }
 
-    public void CanMoveToggle()
+    
+
+    public void CanMoveOff()
     {
-        aiNavigation.CanMoveToggle();
+        aiNavigation.CanMoveOff();
+        
+    }
+
+    public void CanMoveOn()
+    {
+        aiNavigation.CanMoveOn();
+        
+    }
+
+    public void Death()
+    {
+        enemyStats.EnemyDeath();
     }
     
 }

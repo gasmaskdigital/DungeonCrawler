@@ -13,6 +13,7 @@ public class EnemyAttackHandler : MonoBehaviour
     public float lightAttackRadius;
     public float heavyAttackRadius;
     private Animator enemyAnimator;
+    
 
 
 
@@ -68,6 +69,7 @@ public class EnemyAttackHandler : MonoBehaviour
             if (c.CompareTag("Player"))
             {
                 PlayerStats playerStats = c.GetComponent<PlayerStats>();
+                
 
                 int damageDealt = LightAttackDamage(enemystats.attack, PlayerStats.currentDefenceTotal, PlayerStats.enduranceStat);
                 playerStats.TakeDamage(damageDealt);

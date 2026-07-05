@@ -15,6 +15,7 @@ public class EnemyStats : MonoBehaviour
 
     private GameObject player;
     private PlayerStats playerStats;
+    private AINavigation aINavigation;
 
     private Animator enemyAnimator;
 
@@ -25,6 +26,7 @@ public class EnemyStats : MonoBehaviour
     {
         currentHealth = maxHealth;
         enemyAnimator = GetComponentInChildren<Animator>();
+        aINavigation = GetComponent<AINavigation>();
 
         player = GameObject.FindGameObjectWithTag("Player");
         playerStats = player.GetComponent<PlayerStats>();
@@ -42,25 +44,38 @@ public class EnemyStats : MonoBehaviour
         {
             currentHealth = currentHealth - damageTaken;
 
-            enemyAnimator.SetTrigger("DamageReact");
             
+            if(currentHealth <= 0)
+            {
+                playerStats.AddToXP(xpReward);
+                enemyAnimator.SetTrigger("Death");
+                aINavigation.alive = false;
+                aINavigation.DisableNavAndCollider();
+            }
+            else
+            {
+                enemyAnimator.SetTrigger("DamageReact");
+            }
 
             if (floatingText != null)
             {
                 ShowFloatingText(damageTaken);
             }
 
-            if (currentHealth <= 0)
-            {
-                playerStats.AddToXP(xpReward);
-                Destroy(gameObject);
-            }
+            
         }
     }
+
+    
 
     void ShowFloatingText(int damageTaken)
     {
        var ft = Instantiate(floatingText, transform.position, Quaternion.identity, transform);
         ft.GetComponent<TextMesh>().text = damageTaken.ToString();
+    }
+
+    public void EnemyDeath()
+    {
+        Destroy(gameObject);
     }
 }

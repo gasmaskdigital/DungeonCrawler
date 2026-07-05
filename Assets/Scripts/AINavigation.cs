@@ -16,12 +16,13 @@ public class AINavigation : MonoBehaviour, IKnockbackable
     public bool canMove = true;
     public string enemyName;
     public LayerMask playerMask;
-    private bool isAttacking = false;
+    public bool isAttacking = false;
     private float knockDelay = 0.5f;
     private EnemyAttackHandler enemyAttackHandler;
+    public static bool playerAlive = true;
+    public bool alive = true;
+    private CapsuleCollider capsuleCollider;
 
-    
-    
 
     private Rigidbody rb;
 
@@ -35,6 +36,8 @@ public class AINavigation : MonoBehaviour, IKnockbackable
         enemyStats = GetComponent<EnemyStats>();
         rb = GetComponent<Rigidbody>();
         enemyAttackHandler = GetComponent<EnemyAttackHandler>();
+        capsuleCollider = GetComponent<CapsuleCollider>();
+
 
         GameObject player = GameObject.FindWithTag("Player");
         playerHandler = player.GetComponent<PlayerHandler>();
@@ -51,30 +54,35 @@ public class AINavigation : MonoBehaviour, IKnockbackable
     // Update is called once per frame
     void Update()
     {
-        if (navMeshAgent.enabled && navMeshAgent.isOnNavMesh)
+        if (alive)
         {
-            currentspeed = navMeshAgent.velocity.magnitude;
-            enemyAnimator.SetFloat("Speed", currentspeed, 0, Time.deltaTime);
-
-
-
-            if (canMove)
+            if (navMeshAgent.enabled && navMeshAgent.isOnNavMesh)
             {
+                currentspeed = navMeshAgent.velocity.magnitude;
+                enemyAnimator.SetFloat("Speed", currentspeed, 0, Time.deltaTime);
 
-                if (playerSpotted)
+
+
+                if (canMove)
                 {
-                    navMeshAgent.destination = playerHandler.transform.position;
-                    if (navMeshAgent.remainingDistance < navMeshAgent.stoppingDistance && !isAttacking)
+
+                    if (playerSpotted && playerAlive)
                     {
-                        AttackPlayer();
+                        navMeshAgent.destination = playerHandler.transform.position;
+                        if (navMeshAgent.remainingDistance < navMeshAgent.stoppingDistance && !isAttacking)
+                        {
+                            AttackPlayer();
+                        }
                     }
-                }
-                else if (navMeshAgent.remainingDistance < navMeshAgent.stoppingDistance)
-                {
-                    Roaming();
-                }
+                    else if (navMeshAgent.remainingDistance < navMeshAgent.stoppingDistance)
+                    {
+                        Roaming();
+                    }
 
+                }
             }
+
+            
         }
     }
 
@@ -91,34 +99,14 @@ public class AINavigation : MonoBehaviour, IKnockbackable
     public void ChasePlayer()
     {
         playerSpotted = true;
-        Debug.Log("Chasing Player");
+        
     }
 
-    public void CanMoveToggle()
-    {
-        Debug.Log("Enemy Can Move Toggle");
-
-        if (canMove)
-        {
-            
-            canMove = false;
-            navMeshAgent.isStopped = true;
-            navMeshAgent.velocity = Vector3.zero;
-        }
-        else
-        {
-            if (navMeshAgent.enabled && navMeshAgent.isOnNavMesh)
-            {
-                canMove = true;
-                navMeshAgent.isStopped = false;
-                isAttacking = false;
-            }
-        }
-    }
-
-
+  
     void AttackPlayer()
     {
+        if (!alive)
+            return;
         enemyAttackHandler.AttackTypeCheck();
         isAttacking = true;
     }
@@ -139,7 +127,7 @@ public class AINavigation : MonoBehaviour, IKnockbackable
 
     void VampireAttack()
     {
-        Debug.Log("Vampire Attack");
+        
 
         Vector3 origin = transform.position + Vector3.up * 1.5f + transform.forward * 0.75f;
 
@@ -174,10 +162,10 @@ public class AINavigation : MonoBehaviour, IKnockbackable
 
         yield return new WaitForFixedUpdate();
         yield return new WaitUntil(() => rb.linearVelocity.magnitude < 0.05f);
-        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSeconds(1.2f);
 
-        rb.linearVelocity = Vector3.zero;
-        rb.angularVelocity = Vector3.zero;
+       // rb.linearVelocity = Vector3.zero;
+      //  rb.angularVelocity = Vector3.zero;
         rb.useGravity = false;
         rb.isKinematic = true;
         navMeshAgent.Warp(transform.position);
@@ -188,8 +176,53 @@ public class AINavigation : MonoBehaviour, IKnockbackable
         canMove = true;
     }
 
-   
+   public void CanMoveOff()
+    {
+        canMove = false;
 
+        if (navMeshAgent.gameObject.activeInHierarchy && navMeshAgent.isOnNavMesh)
+        {
+            if (isAttacking)
+            {
+                navMeshAgent.isStopped = true;
+                navMeshAgent.velocity = Vector3.zero;
+            }
+        }
+        
+    }
+
+    public void CanMoveOn()
+    {
+        if (alive)
+        {
+            canMove = true;
+            navMeshAgent.isStopped = false;
+            isAttacking = false;
+        }
+    }
+
+    public void DestroyObject()
+    {
+        Destroy(gameObject);
+    }
+
+    public void DisableNavAndCollider()
+    {
+
+        if (navMeshAgent.enabled)
+        {
+
+            navMeshAgent.isStopped = true;
+            navMeshAgent.enabled = false;
+        }
+        
+
+    }
+
+    public void ResetTriggeredBool()
+    {
+        playerSpotted = false;
+    }
    
 }
 

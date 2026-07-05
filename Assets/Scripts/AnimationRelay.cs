@@ -15,36 +15,34 @@ public class AnimationRelay : MonoBehaviour
    public void THSHeavyAttack()
     {
         attackHandler.CheckPlayerWeaponType();
-        Debug.Log("AnimationRelay");
+        
     }
 
     public void THSLightAttack()
     {
         attackHandler.CheckPlayerWeaponType();
-        Debug.Log("Animation Relay");
+        
     }
 
     public void BowAttack()
     {
         attackHandler.CheckPlayerWeaponType();
-        //Debug.Log("Bow AnimationRelay");
     }
 
     public void BowAimingToggle()
     {
         playerHandler.BowAimingToggle();
-        //Debug.Log("Bow Aiming Toggle");
     }
 
     public void FireLightAttack()
     {
-        Debug.Log("FireLightAttack");
+        
         attackHandler.SpawnLightFireball();
     }
 
     public void FireHeavyAttack()
     {
-        Debug.Log("Fire Heavy Attack");
+        
         attackHandler.SpawnHeavyFireWave();
     }
 
@@ -54,7 +52,7 @@ public class AnimationRelay : MonoBehaviour
         playerHandler.CanMoveToggle();
     }
 
-    public void Invincibilty()
+    public void CanBeDamaged()
     {
         playerHandler.ToggleCanBeDamaged();
     }
