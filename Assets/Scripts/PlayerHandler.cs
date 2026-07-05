@@ -22,7 +22,7 @@ public class PlayerHandler : MonoBehaviour
     public LayerMask terrainLayer;
 
     [Header("Movement Settings")]
-    private float walkSpeed = 6f;
+    private float walkSpeed = 7f;
     private float currentSpeed;
     private float turningSpeed = 5f;
     private float gravityForce = 9.8f;

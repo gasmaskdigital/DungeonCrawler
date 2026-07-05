@@ -68,8 +68,9 @@ public class PlayerStats : MonoBehaviour
 
     private void Awake()
     {
-        //currentWeapon = testWeapon; // for testing purposes remove fo main scene
-        //UpdateEquipment(); // for testing purposes
+        UpdateWeaponSocket();
+        
+        //UpdateEquipment(); 
 
         if (levelManager.currentLevel <= 1)
         {

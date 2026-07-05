@@ -1823,7 +1823,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cb1629d19d21644d9b86f1f9271aa98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyStats
-  attack: 8
+  attack: 4
   maxHealth: 10
   currentHealth: 0
   defence: 6
@@ -1853,6 +1853,8 @@ MonoBehaviour:
   playerMask:
     serializedVersion: 2
     m_Bits: 8
+  isAttacking: 0
+  alive: 1
 --- !u!195 &4013916617164326231
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1862,7 +1864,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 4315232680571345892}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.6
+  m_Radius: 0.8
   m_Speed: 4
   m_Acceleration: 8
   avoidancePriority: 50
@@ -1883,7 +1885,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4315232680571345892}
   serializedVersion: 5
-  m_Mass: 75
+  m_Mass: 80
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -1901,7 +1903,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 112
-  m_CollisionDetection: 1
+  m_CollisionDetection: 2
 --- !u!136 &456092313754322090
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1924,7 +1926,7 @@ CapsuleCollider:
   m_Radius: 0.5
   m_Height: 2.5
   m_Direction: 1
-  m_Center: {x: 0, y: 0.7803334, z: 0}
+  m_Center: {x: 0, y: 1.25, z: 0}
 --- !u!114 &2122544013552377933
 MonoBehaviour:
   m_ObjectHideFlags: 0
