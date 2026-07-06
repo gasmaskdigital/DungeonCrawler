@@ -68,8 +68,14 @@ public class PlayerStats : MonoBehaviour
 
     private void Awake()
     {
-        currentWeapon = testWeapon; // for testing purposes remove fo main scene
-        UpdateEquipment(); // for testing purposes
+        //currentWeapon = testWeapon; // for testing purposes remove fo main scene
+        //UpdateEquipment(); // for testing purposes
+
+        if (levelManager.currentLevel <= 1)
+        {
+            ResetStats();
+            currentHealth = maxHealth;
+        }
 
     }
 
@@ -79,9 +85,7 @@ public class PlayerStats : MonoBehaviour
     {
         playerHandler = GetComponent<PlayerHandler>();
 
-        if (levelManager.currentLevel <= 1) currentHealth = maxHealth;
-
-        /*if (healthStat < 1)
+        if (healthStat < 1)
         {
             currentHealth = maxHealth;
         }
@@ -89,14 +93,13 @@ public class PlayerStats : MonoBehaviour
         {
             maxHealth = maxHealth * (healthStat * 5);
             currentHealth = maxHealth;
-        }*/
+        }
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        
     }
 
     public void AddToXP(int xpReward)
@@ -111,6 +114,8 @@ public class PlayerStats : MonoBehaviour
     public void LevelUp()
     {
         playerLevel++;
+
+        GameObject.FindGameObjectWithTag("GameController").GetComponent<gameManager>().updatePlayerLevel();
 
         pHUIManager.EnableLevelUpScreen();
 
@@ -239,7 +244,7 @@ public class PlayerStats : MonoBehaviour
 
     private void PlayerDeath()
     {
-        Debug.Log("PlayerDeath");
+        
 
         AINavigation.playerAlive = false;
 

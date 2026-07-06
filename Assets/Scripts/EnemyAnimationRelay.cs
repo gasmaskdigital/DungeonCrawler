@@ -25,13 +25,13 @@ public class EnemyAnimationRelay : MonoBehaviour
     public void CanMoveOff()
     {
         aiNavigation.CanMoveOff();
-        Debug.Log("Can Move off");
+        
     }
 
     public void CanMoveOn()
     {
         aiNavigation.CanMoveOn();
-        Debug.Log("Can move on");
+        
     }
 
     public void Death()

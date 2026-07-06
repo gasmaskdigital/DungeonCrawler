@@ -15,6 +15,7 @@ public class EnemyStats : MonoBehaviour
 
     private GameObject player;
     private PlayerStats playerStats;
+    private AINavigation aINavigation;
 
     private Animator enemyAnimator;
 
@@ -25,6 +26,7 @@ public class EnemyStats : MonoBehaviour
     {
         currentHealth = maxHealth;
         enemyAnimator = GetComponentInChildren<Animator>();
+        aINavigation = GetComponent<AINavigation>();
 
         player = GameObject.FindGameObjectWithTag("Player");
         playerStats = player.GetComponent<PlayerStats>();
@@ -47,6 +49,8 @@ public class EnemyStats : MonoBehaviour
             {
                 playerStats.AddToXP(xpReward);
                 enemyAnimator.SetTrigger("Death");
+                aINavigation.alive = false;
+                aINavigation.DisableNavAndCollider();
             }
             else
             {

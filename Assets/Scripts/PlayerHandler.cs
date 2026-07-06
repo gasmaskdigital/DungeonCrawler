@@ -24,13 +24,14 @@ public class PlayerHandler : MonoBehaviour
     [Header("Movement Settings")]
     private float walkSpeed = 6f;
     private float currentSpeed;
-    private float turningSpeed = 100f;
+    private float turningSpeed = 5f;
     private float gravityForce = 9.8f;
     private float verticalVelocity;
     private bool canMove = true;
     private float dodgeSpeed = 10f;
     private float dashTime = 0.8f;
     public bool bowAiming = false;
+    public bool canDodge = true;
 
     [Header("Attack Parameters")]    
     private float lightAttackRadius = 1.5f;
@@ -88,80 +89,82 @@ public class PlayerHandler : MonoBehaviour
         
 
         playerAnimator.SetFloat("Speed", currentSpeed, 0, Time.deltaTime);
+
         
-
-        // Light Attack
-        if (Input.GetMouseButtonDown(0))
-        {
-            if (canAttack)
-            {
-                attackHandler.attackType = AttackType.LightAttack;
-                CheckWeaponForAnimTrigger();
-            }
-        }
-
-        // Heavy Attack
-        if (Input.GetMouseButtonDown(1))
-        {
-            if (canAttack)
-            {
-                attackHandler.attackType = AttackType.HeavyAttack;
-                CheckWeaponForAnimTrigger();
-            }
-        }
-
-        // pick up item logic
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            // sphere cast to pick up item
-        }
         
-        //pause button
-        if (Input.GetKeyDown(KeyCode.CapsLock))
-        {
-            // pauses time and brings up ui screen
-            // swap to esc when it come time to build
-        }
-
-        // open inventory screen
-        if (Input.GetKeyDown(KeyCode.Tab))
-        {
-            // opens inventory screen - toggles the screen
-        }
-
-        // dodge input
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            if (canMove)
+            // Light Attack
+            if (Input.GetMouseButtonDown(0))
             {
-                playerAnimator.SetTrigger("Dodge");
-                Dodge();
+                if (canAttack)
+                {
+                    attackHandler.attackType = AttackType.LightAttack;
+                    CheckWeaponForAnimTrigger();
+                }
             }
-        }
 
-        // health potion
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
+            // Heavy Attack
+            if (Input.GetMouseButtonDown(1))
+            {
+                if (canAttack)
+                {
+                    attackHandler.attackType = AttackType.HeavyAttack;
+                    CheckWeaponForAnimTrigger();
+                }
+            }
 
-        }
+            // pick up item logic
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                // sphere cast to pick up item
+            }
+
+            //pause button
+            if (Input.GetKeyDown(KeyCode.CapsLock))
+            {
+                // pauses time and brings up ui screen
+                // swap to esc when it come time to build
+            }
+
+            // open inventory screen
+            if (Input.GetKeyDown(KeyCode.Tab))
+            {
+                // opens inventory screen - toggles the screen
+            }
+
+            // dodge input
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                if (canMove)
+                {
+                    playerAnimator.SetTrigger("Dodge");
+                    Dodge();
+                }
+            }
+
+            // health potion
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+            {
+
+            }
+
+            // speed potion
+            if (Input.GetKeyDown(KeyCode.Alpha2))
+            {
+
+            }
+
+            // damage potion
+            if (Input.GetKeyDown(KeyCode.Alpha3))
+            {
+
+            }
+
+            // defence potion
+            if (Input.GetKeyDown(KeyCode.Alpha4))
+            {
+
+            }
         
-        // speed potion
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-
-        }
-
-        // damage potion
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-
-        }
-
-        // defence potion
-        if (Input.GetKeyDown(KeyCode.Alpha4))
-        {
-
-        }
     }
 
     private void InputMagangement()
@@ -228,7 +231,7 @@ public class PlayerHandler : MonoBehaviour
     {
         if (canAttack)
         {
-            Debug.Log("heavy attack");
+            
 
             Collider[] colliders = Physics.OverlapSphere(transform.position, heavyAttackRadius, enemyMask);
             foreach (Collider c in colliders)
@@ -352,7 +355,6 @@ public class PlayerHandler : MonoBehaviour
     {
         bowAiming = !bowAiming;
 
-        //Debug.Log("bowAiming is " + bowAiming);
     }
 
     private void BowAiming()
