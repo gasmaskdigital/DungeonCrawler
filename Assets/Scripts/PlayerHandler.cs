@@ -388,4 +388,18 @@ public class PlayerHandler : MonoBehaviour
             canAttack = true;
         }
     }
+
+    public void DamagedTrigger()
+    {
+        playerAnimator.SetTrigger("Damaged");
+    }
+
+    public void DeathTrigger()
+    {
+        playerAnimator.SetTrigger("Death");
+    }
+    public void DeathDestoy()
+    {
+        Destroy(gameObject);
+    }
 }

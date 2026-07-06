@@ -236,6 +236,11 @@ public class PlayerStats : MonoBehaviour
         if (currentHealth <= 0)
         {
             PlayerDeath();
+            playerHandler.DeathTrigger();
+        }
+        else
+        {
+            playerHandler.DamagedTrigger();
         }
     }
 
@@ -244,10 +249,10 @@ public class PlayerStats : MonoBehaviour
         
 
         AINavigation.playerAlive = false;
-
-
-        Destroy(gameObject);
+              
 
     }
+
+    
 }
     

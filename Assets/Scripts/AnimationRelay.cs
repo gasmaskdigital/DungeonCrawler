@@ -61,4 +61,9 @@ public class AnimationRelay : MonoBehaviour
     {
         playerHandler.CanAttackToggle();
     }
+
+    public void Death()
+    {
+        playerHandler.DeathDestoy();
+    }
 }
