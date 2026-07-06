@@ -1453,7 +1453,11 @@ PrefabInstance:
       objectReference: {fileID: 889499174634663218, guid: 280e40d53dc532046bdc1f1e091ed61e, type: 3}
     - target: {fileID: 667795102598984419, guid: 35a62140321f4064da5d2693afb1944e, type: 3}
       propertyPath: m_IncludeLayers.m_Bits
-      value: 0
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 857974094513799803, guid: 35a62140321f4064da5d2693afb1944e, type: 3}
+      propertyPath: m_IncludeLayers.m_Bits
+      value: 64
       objectReference: {fileID: 0}
     - target: {fileID: 1087447258442381983, guid: 35a62140321f4064da5d2693afb1944e, type: 3}
       propertyPath: mainCamera
@@ -1471,6 +1475,10 @@ PrefabInstance:
       propertyPath: pHUIManager
       value: 
       objectReference: {fileID: 340316306}
+    - target: {fileID: 3978373986141358953, guid: 35a62140321f4064da5d2693afb1944e, type: 3}
+      propertyPath: levelManager
+      value: 
+      objectReference: {fileID: 136469601}
     - target: {fileID: 3978373986141358953, guid: 35a62140321f4064da5d2693afb1944e, type: 3}
       propertyPath: testWeapon.statBoost
       value: 0

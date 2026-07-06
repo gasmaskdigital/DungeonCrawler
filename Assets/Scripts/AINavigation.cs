@@ -22,6 +22,7 @@ public class AINavigation : MonoBehaviour, IKnockbackable
     public static bool playerAlive = true;
     public bool alive = true;
     private CapsuleCollider capsuleCollider;
+    public bool canBeDamaged = true;
 
 
     private Rigidbody rb;
@@ -158,6 +159,7 @@ public class AINavigation : MonoBehaviour, IKnockbackable
         navMeshAgent.enabled = false;
         rb.useGravity = true;
         rb.isKinematic = false;
+        canBeDamaged = false;
 
 
         rb.AddForce(knockbackDirection * force, ForceMode.Impulse);
@@ -176,6 +178,7 @@ public class AINavigation : MonoBehaviour, IKnockbackable
         yield return null;
 
         canMove = true;
+        canBeDamaged = true;
     }
 
    public void CanMoveOff()
@@ -197,6 +200,7 @@ public class AINavigation : MonoBehaviour, IKnockbackable
     {
         if (alive)
         {
+            Debug.Log("CanMoveOn");
             canMove = true;
             navMeshAgent.isStopped = false;
             isAttacking = false;

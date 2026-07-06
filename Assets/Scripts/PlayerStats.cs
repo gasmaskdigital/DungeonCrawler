@@ -90,11 +90,7 @@ public class PlayerStats : MonoBehaviour
         {
             currentHealth = maxHealth;
         }
-        else
-        {
-            maxHealth = maxHealth * (healthStat * 5);
-            currentHealth = maxHealth;
-        }
+       
 
     }
 
