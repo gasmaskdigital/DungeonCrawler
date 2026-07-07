@@ -10,6 +10,7 @@ public class gameManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI txtLevel;
     [SerializeField] TextMeshProUGUI txtHealth;
     [SerializeField] TextMeshProUGUI txtEquipment;
+    [SerializeField] TextMeshProUGUI txtStats;
     [SerializeField] PlayerStats playerStats;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -26,6 +27,7 @@ public class gameManager : MonoBehaviour
     void Update()
     {
         txtHealth.text = "Health: " + PlayerStats.currentHealth;
+        updateStatDisplay();
     }
 
     public void updateFloorNumber() 
@@ -44,6 +46,11 @@ public class gameManager : MonoBehaviour
             "\r\nHelmet: " + PlayerStats.currentHelmet.armourName + " (" + PlayerStats.currentHelmet.armourDefence + " / " + PlayerStats.currentHelmet.StatBoostValue + ")" +
             "\r\nTorso: " + PlayerStats.currentUpperBody.armourName + " (" + PlayerStats.currentUpperBody.armourDefence + " / " + PlayerStats.currentUpperBody.StatBoostValue + ")" +
             "\r\nLegs: " + PlayerStats.currentLowerBody.armourName + " (" + PlayerStats.currentLowerBody.armourDefence + " / " + PlayerStats.currentLowerBody.StatBoostValue + ")";
+    }
+
+    public void updateStatDisplay() 
+    {
+        txtStats.text = "Strength: " + PlayerStats.strengthStat.ToString() + "\r\nDexterity: " + PlayerStats.dexterityStat.ToString() + "\r\nMagic: " + PlayerStats.magicStat.ToString();
     }
 
     public void ToggleGameOver() 
