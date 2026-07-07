@@ -79,11 +79,7 @@ public class PlayerStats : MonoBehaviour
     {
         playerHandler = GetComponent<PlayerHandler>();
 
-<<<<<<< Updated upstream
-        if (levelManager.currentLevel <= 1) currentHealth = maxHealth;
-=======
         if(levelManager.currentLevel <= 1) currentHealth = maxHealth;
->>>>>>> Stashed changes
 
         /*if (healthStat < 1)
         {
