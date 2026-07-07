@@ -19,7 +19,7 @@ public class PlayerStats : MonoBehaviour
     public static int boostedDexterity;
     public static int boostedMagic;
 
-    public static int maxHealth = 20;
+    public static int maxHealth = 2000;
     public static int currentHealth;
 
     public int earntXP;
@@ -231,16 +231,18 @@ public class PlayerStats : MonoBehaviour
 
     public void TakeDamage(int damageDealt)
     {
-        
-        currentHealth -= damageDealt;
-        if (currentHealth <= 0)
+        if (playerHandler.canBeDamaged)
         {
-            PlayerDeath();
-            playerHandler.DeathTrigger();
-        }
-        else
-        {
-            playerHandler.DamagedTrigger();
+            currentHealth -= damageDealt;
+            if (currentHealth <= 0)
+            {
+                PlayerDeath();
+                playerHandler.DeathTrigger();
+            }
+            else
+            {
+                playerHandler.DamagedTrigger();
+            }
         }
     }
 

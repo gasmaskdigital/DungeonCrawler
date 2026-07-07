@@ -389,6 +389,23 @@ public class PlayerHandler : MonoBehaviour
         }
     }
 
+    public void DamagedReactOff()
+    {
+        canAttack = false;
+        canBeDamaged = false;
+        canDodge = false;
+        canMove = false;
+        bowAiming = false;
+    }
+
+    public void DamagedReactOn()
+    {
+        canAttack = true;
+        canBeDamaged = true;
+        canDodge = true;
+        canMove = true;
+    }
+
     public void DamagedTrigger()
     {
         playerAnimator.SetTrigger("Damaged");

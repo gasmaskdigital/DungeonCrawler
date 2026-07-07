@@ -413,15 +413,15 @@ AnimatorStateMachine:
     m_Position: {x: -250, y: 10, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions:
+  - {fileID: 271269488081776464}
+  - {fileID: -7810278982091653483}
+  - {fileID: -533109521273159691}
   - {fileID: -4736484036333861848}
   - {fileID: -4426789271731757356}
-  - {fileID: -533109521273159691}
   - {fileID: -6066236317800730270}
   - {fileID: -1772112987208961962}
   - {fileID: -4507097257547491422}
   - {fileID: 4127176735971934608}
-  - {fileID: -7810278982091653483}
-  - {fileID: 271269488081776464}
   m_EntryTransitions: []
   m_StateMachineTransitions: {}
   m_StateMachineBehaviours: []
@@ -770,9 +770,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.25
-  m_TransitionOffset: 0
-  m_ExitTime: 0.8584906
+  m_TransitionDuration: 0.24046016
+  m_TransitionOffset: 0.00083196047
+  m_ExitTime: 0.86659044
   m_HasExitTime: 1
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
@@ -835,7 +835,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Damaged
-  m_Speed: 1
+  m_Speed: 1.5
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 6055396642811645171}

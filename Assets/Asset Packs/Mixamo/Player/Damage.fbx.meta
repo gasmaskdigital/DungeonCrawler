@@ -55,29 +55,15 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.0051398645
-        functionName: CanMoveToggle
+      - time: 0
+        functionName: DamagedReactOff
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.012238907
-        functionName: CanAttackToggle
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.783985
-        functionName: CanAttackToggle
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.7885651
-        functionName: CanMoveToggle
+      - time: 0.8486958
+        functionName: DamagedReactOn
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0

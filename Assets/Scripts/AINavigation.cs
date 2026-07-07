@@ -47,6 +47,7 @@ public class AINavigation : MonoBehaviour, IKnockbackable
         
         navMeshAgent.speed = enemyStats.moveSpeed;
         enemyName = enemyStats.enemyName;
+        navMeshAgent.Warp(transform.position); // 
 
         playerHandler = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHandler>();
 
@@ -87,6 +88,8 @@ public class AINavigation : MonoBehaviour, IKnockbackable
 
             
         }
+        Debug.Log(navMeshAgent.remainingDistance);
+        
     }
 
    void Roaming()
@@ -108,8 +111,10 @@ public class AINavigation : MonoBehaviour, IKnockbackable
   
     void AttackPlayer()
     {
-        if (!alive)
+        if (!alive || isAttacking)
             return;
+
+        
         enemyAttackHandler.AttackTypeCheck();
         isAttacking = true;
     }
@@ -179,6 +184,7 @@ public class AINavigation : MonoBehaviour, IKnockbackable
 
         canMove = true;
         canBeDamaged = true;
+        isAttacking = false;
     }
 
    public void CanMoveOff()
@@ -187,11 +193,11 @@ public class AINavigation : MonoBehaviour, IKnockbackable
 
         if (navMeshAgent.gameObject.activeInHierarchy && navMeshAgent.isOnNavMesh)
         {
-            if (isAttacking)
-            {
+            navMeshAgent.Warp(transform.position);
                 navMeshAgent.isStopped = true;
                 navMeshAgent.velocity = Vector3.zero;
-            }
+
+            
         }
         
     }
@@ -204,6 +210,7 @@ public class AINavigation : MonoBehaviour, IKnockbackable
             canMove = true;
             navMeshAgent.isStopped = false;
             isAttacking = false;
+            navMeshAgent.Warp(transform.position);
         }
     }
 
@@ -229,7 +236,8 @@ public class AINavigation : MonoBehaviour, IKnockbackable
     {
         playerSpotted = false;
     }
-   
+ 
+    
 }
 
 public interface IKnockbackable

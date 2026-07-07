@@ -56,14 +56,7 @@ ModelImporter:
       curves: []
       events:
       - time: 0
-        functionName: CanMoveToggle
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.015686247
-        functionName: CanAttackToggle
+        functionName: DamagedReactOff
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
