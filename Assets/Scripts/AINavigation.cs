@@ -73,7 +73,7 @@ public class AINavigation : MonoBehaviour, IKnockbackable
                     if (playerSpotted && playerAlive)
                     {
                         navMeshAgent.destination = playerHandler.transform.position;
-                        if (navMeshAgent.remainingDistance < navMeshAgent.stoppingDistance && !isAttacking)
+                        if (!navMeshAgent.pathPending && navMeshAgent.remainingDistance < navMeshAgent.stoppingDistance && !isAttacking)
                         {
                             AttackPlayer();
                         }
@@ -88,7 +88,7 @@ public class AINavigation : MonoBehaviour, IKnockbackable
 
             
         }
-        Debug.Log(navMeshAgent.remainingDistance);
+        
         
     }
 
