@@ -24,6 +24,7 @@ public class EnemyAnimationRelay : MonoBehaviour
 
     public void CanMoveOff()
     {
+
         aiNavigation.CanMoveOff();
         
     }

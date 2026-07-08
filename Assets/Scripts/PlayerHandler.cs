@@ -73,11 +73,11 @@ public class PlayerHandler : MonoBehaviour
             curHelm = PlayerStats.currentHelmet.armourName;
         }
 
-        if (bowAiming)
-        {
-            BowAiming();
-        }
+       
+
     }
+
+  
 
     // Update is called once per frame
     void Update()
@@ -85,8 +85,8 @@ public class PlayerHandler : MonoBehaviour
         InputMagangement();
         Movement();
 
-
         
+
 
         playerAnimator.SetFloat("Speed", currentSpeed, 0, Time.deltaTime);
 
@@ -99,6 +99,7 @@ public class PlayerHandler : MonoBehaviour
                 {
                     attackHandler.attackType = AttackType.LightAttack;
                     CheckWeaponForAnimTrigger();
+                AttackBoolsOff();
                 }
             }
 
@@ -109,6 +110,7 @@ public class PlayerHandler : MonoBehaviour
                 {
                     attackHandler.attackType = AttackType.HeavyAttack;
                     CheckWeaponForAnimTrigger();
+                AttackBoolsOff();
                 }
             }
 
@@ -164,7 +166,13 @@ public class PlayerHandler : MonoBehaviour
             {
 
             }
-        
+
+        if (bowAiming)
+        {
+            Debug.Log(bowAiming);
+            BowAiming();
+        }
+
     }
 
     private void InputMagangement()
@@ -402,6 +410,22 @@ public class PlayerHandler : MonoBehaviour
     {
         canAttack = true;
         canBeDamaged = true;
+        canDodge = true;
+        canMove = true;
+    }
+
+    public void AttackBoolsOff()
+    {
+        canAttack = false;
+        bowAiming = true;
+        canDodge = false;
+        canMove = false;
+    }
+
+    public void AttackBoolsOn()
+    {
+        canAttack = true;
+        bowAiming = false;
         canDodge = true;
         canMove = true;
     }

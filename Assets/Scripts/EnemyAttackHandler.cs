@@ -63,7 +63,7 @@ public class EnemyAttackHandler : MonoBehaviour
     {
         Vector3 origin = transform.position + Vector3.up * 1f + transform.forward * 0.75f;
 
-        Collider[] colliders = Physics.OverlapSphere(origin, lightAttackRadius, playerMask);
+        Collider[] colliders = Physics.OverlapSphere(origin, lightAttackRadius, playerMask, QueryTriggerInteraction.Ignore);
         foreach(Collider c in colliders)
         {
             if (c.CompareTag("Player"))
@@ -81,7 +81,7 @@ public class EnemyAttackHandler : MonoBehaviour
     {
         Vector3 origin = transform.position + Vector3.up * 1f + transform.forward * 0.75f;
 
-        Collider[] colliders = Physics.OverlapSphere(origin, heavyAttackRadius, playerMask);
+        Collider[] colliders = Physics.OverlapSphere(origin, heavyAttackRadius, playerMask, QueryTriggerInteraction.Ignore);
         foreach(Collider c in colliders)
         {
             PlayerStats playerStats = c.GetComponent<PlayerStats>();
