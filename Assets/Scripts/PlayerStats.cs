@@ -19,7 +19,7 @@ public class PlayerStats : MonoBehaviour
     public static int boostedDexterity;
     public static int boostedMagic;
 
-    public static int maxHealth = 20;
+    public static int maxHealth = 2000;
     public static int currentHealth;
 
     public int earntXP;
@@ -68,8 +68,15 @@ public class PlayerStats : MonoBehaviour
 
     private void Awake()
     {
-        currentWeapon = testWeapon; // for testing purposes remove fo main scene
-        UpdateEquipment(); // for testing purposes
+        UpdateWeaponSocket();
+        
+        //UpdateEquipment(); 
+
+        if (levelManager.currentLevel <= 1)
+        {
+            ResetStats();
+            currentHealth = maxHealth;
+        }
 
     }
 
@@ -79,24 +86,17 @@ public class PlayerStats : MonoBehaviour
     {
         playerHandler = GetComponent<PlayerHandler>();
 
-        if(levelManager.currentLevel <= 1) currentHealth = maxHealth;
-
-        /*if (healthStat < 1)
+        if (healthStat < 1)
         {
             currentHealth = maxHealth;
         }
-        else
-        {
-            maxHealth = maxHealth * (healthStat * 5);
-            currentHealth = maxHealth;
-        }*/
+       
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        
     }
 
     public void AddToXP(int xpReward)
@@ -111,6 +111,8 @@ public class PlayerStats : MonoBehaviour
     public void LevelUp()
     {
         playerLevel++;
+
+        GameObject.FindGameObjectWithTag("GameController").GetComponent<gameManager>().updatePlayerLevel();
 
         pHUIManager.EnableLevelUpScreen();
 
@@ -229,23 +231,30 @@ public class PlayerStats : MonoBehaviour
 
     public void TakeDamage(int damageDealt)
     {
-        
-        currentHealth -= damageDealt;
-        if (currentHealth <= 0)
+        if (playerHandler.canBeDamaged)
         {
-            PlayerDeath();
+            currentHealth -= damageDealt;
+            if (currentHealth <= 0)
+            {
+                PlayerDeath();
+                playerHandler.DeathTrigger();
+            }
+            else
+            {
+                playerHandler.DamagedTrigger();
+            }
         }
     }
 
     private void PlayerDeath()
     {
-        Debug.Log("PlayerDeath");
+        
 
         AINavigation.playerAlive = false;
-
-
-        Destroy(gameObject);
+              
 
     }
+
+    
 }
     

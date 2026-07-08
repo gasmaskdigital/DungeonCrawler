@@ -22,7 +22,7 @@ public class PlayerHandler : MonoBehaviour
     public LayerMask terrainLayer;
 
     [Header("Movement Settings")]
-    private float walkSpeed = 6f;
+    private float walkSpeed = 7f;
     private float currentSpeed;
     private float turningSpeed = 5f;
     private float gravityForce = 9.8f;
@@ -387,5 +387,36 @@ public class PlayerHandler : MonoBehaviour
         {
             canAttack = true;
         }
+    }
+
+    public void DamagedReactOff()
+    {
+        canAttack = false;
+        canBeDamaged = false;
+        canDodge = false;
+        canMove = false;
+        bowAiming = false;
+    }
+
+    public void DamagedReactOn()
+    {
+        canAttack = true;
+        canBeDamaged = true;
+        canDodge = true;
+        canMove = true;
+    }
+
+    public void DamagedTrigger()
+    {
+        playerAnimator.SetTrigger("Damaged");
+    }
+
+    public void DeathTrigger()
+    {
+        playerAnimator.SetTrigger("Death");
+    }
+    public void DeathDestoy()
+    {
+        Destroy(gameObject);
     }
 }

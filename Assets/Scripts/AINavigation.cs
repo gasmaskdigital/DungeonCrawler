@@ -22,11 +22,14 @@ public class AINavigation : MonoBehaviour, IKnockbackable
     public static bool playerAlive = true;
     public bool alive = true;
     private CapsuleCollider capsuleCollider;
+    public bool canBeDamaged = true;
 
 
     private Rigidbody rb;
 
     private Vector3 roamDestination;
+
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -44,6 +47,7 @@ public class AINavigation : MonoBehaviour, IKnockbackable
         
         navMeshAgent.speed = enemyStats.moveSpeed;
         enemyName = enemyStats.enemyName;
+        navMeshAgent.Warp(transform.position); // 
 
         playerHandler = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHandler>();
 
@@ -69,7 +73,7 @@ public class AINavigation : MonoBehaviour, IKnockbackable
                     if (playerSpotted && playerAlive)
                     {
                         navMeshAgent.destination = playerHandler.transform.position;
-                        if (navMeshAgent.remainingDistance < navMeshAgent.stoppingDistance && !isAttacking)
+                        if (!navMeshAgent.pathPending && navMeshAgent.remainingDistance < navMeshAgent.stoppingDistance && !isAttacking)
                         {
                             AttackPlayer();
                         }
@@ -84,6 +88,8 @@ public class AINavigation : MonoBehaviour, IKnockbackable
 
             
         }
+        
+        
     }
 
    void Roaming()
@@ -105,8 +111,10 @@ public class AINavigation : MonoBehaviour, IKnockbackable
   
     void AttackPlayer()
     {
-        if (!alive)
+        if (!alive || isAttacking)
             return;
+
+        
         enemyAttackHandler.AttackTypeCheck();
         isAttacking = true;
     }
@@ -156,13 +164,14 @@ public class AINavigation : MonoBehaviour, IKnockbackable
         navMeshAgent.enabled = false;
         rb.useGravity = true;
         rb.isKinematic = false;
+        canBeDamaged = false;
 
 
         rb.AddForce(knockbackDirection * force, ForceMode.Impulse);
 
         yield return new WaitForFixedUpdate();
         yield return new WaitUntil(() => rb.linearVelocity.magnitude < 0.05f);
-        yield return new WaitForSeconds(1.2f);
+        yield return new WaitForSeconds(1.25f);
 
        // rb.linearVelocity = Vector3.zero;
       //  rb.angularVelocity = Vector3.zero;
@@ -174,6 +183,8 @@ public class AINavigation : MonoBehaviour, IKnockbackable
         yield return null;
 
         canMove = true;
+        canBeDamaged = true;
+        isAttacking = false;
     }
 
    public void CanMoveOff()
@@ -182,11 +193,11 @@ public class AINavigation : MonoBehaviour, IKnockbackable
 
         if (navMeshAgent.gameObject.activeInHierarchy && navMeshAgent.isOnNavMesh)
         {
-            if (isAttacking)
-            {
+            navMeshAgent.Warp(transform.position);
                 navMeshAgent.isStopped = true;
                 navMeshAgent.velocity = Vector3.zero;
-            }
+
+            
         }
         
     }
@@ -195,9 +206,11 @@ public class AINavigation : MonoBehaviour, IKnockbackable
     {
         if (alive)
         {
+            Debug.Log("CanMoveOn");
             canMove = true;
             navMeshAgent.isStopped = false;
             isAttacking = false;
+            navMeshAgent.Warp(transform.position);
         }
     }
 
@@ -223,7 +236,8 @@ public class AINavigation : MonoBehaviour, IKnockbackable
     {
         playerSpotted = false;
     }
-   
+ 
+    
 }
 
 public interface IKnockbackable

@@ -97,7 +97,7 @@ public class AttackHandler : MonoBehaviour
 
                 AINavigation cAINav = c.GetComponent<AINavigation>();
 
-                if (cAINav.alive)
+                if (cAINav.alive && cAINav.canBeDamaged)
                 {
                     int damageDealt = LightAttackDamage(PlayerStats.currentWeapon.attackValue, PlayerStats.boostedStrength, cEnemyStats.defence);
 
@@ -126,7 +126,7 @@ public class AttackHandler : MonoBehaviour
                 EnemyStats cEnemyStats = c.GetComponent<EnemyStats>();
                 AINavigation cAINav = c.GetComponent<AINavigation>();
 
-                if (cAINav.alive)
+                if (cAINav.alive && cAINav.canBeDamaged)
                 {
                     int damageDealt = HeavyAttackDamage(PlayerStats.currentWeapon.attackValue, PlayerStats.boostedStrength, cEnemyStats.defence);
 
@@ -162,7 +162,7 @@ public class AttackHandler : MonoBehaviour
     {
 
 
-        if (cAiNav.alive)
+        if (cAiNav.alive && cAiNav.canBeDamaged)
         {
             int damageDealt = LightAttackDamage(PlayerStats.currentWeapon.attackValue, PlayerStats.boostedDexterity, enemystats.defence);
             enemystats.TakeDamage(damageDealt);
@@ -186,7 +186,7 @@ public class AttackHandler : MonoBehaviour
     {
 
 
-        if (cAINav.alive)
+        if (cAINav.alive && cAINav.canBeDamaged)
         {
             int damageDealt = HeavyAttackDamage(PlayerStats.currentWeapon.attackValue, PlayerStats.boostedDexterity, enemyStats.defence);
             enemyStats.TakeDamage(damageDealt);
@@ -217,7 +217,7 @@ public class AttackHandler : MonoBehaviour
     {
 
 
-        if (cAINav.alive)
+        if (cAINav.alive && cAINav.canBeDamaged)
         {
             int damageDealt = HeavyAttackDamage(PlayerStats.currentWeapon.attackValue, PlayerStats.boostedDexterity, enemyStats.defence);
             enemyStats.TakeDamage(damageDealt);
@@ -228,7 +228,7 @@ public class AttackHandler : MonoBehaviour
     public void FireLightAttackImpact(EnemyStats enemyStats, AINavigation cAINav)
     {
 
-        if (cAINav.alive)
+        if (cAINav.alive && cAINav.canBeDamaged)
         {
             int damageDealt = LightAttackDamage(PlayerStats.currentWeapon.attackValue, PlayerStats.boostedMagic, enemyStats.defence);
 
