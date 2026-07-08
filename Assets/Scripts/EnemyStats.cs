@@ -16,6 +16,7 @@ public class EnemyStats : MonoBehaviour
     private GameObject player;
     private PlayerStats playerStats;
     private AINavigation aINavigation;
+    private VFXManager vfxManager;
 
     private Animator enemyAnimator;
 
@@ -27,6 +28,7 @@ public class EnemyStats : MonoBehaviour
         currentHealth = maxHealth;
         enemyAnimator = GetComponentInChildren<Animator>();
         aINavigation = GetComponent<AINavigation>();
+        vfxManager = FindAnyObjectByType<VFXManager>();
 
         player = GameObject.FindGameObjectWithTag("Player");
         playerStats = player.GetComponent<PlayerStats>();
@@ -51,10 +53,13 @@ public class EnemyStats : MonoBehaviour
                 enemyAnimator.SetTrigger("Death");
                 aINavigation.alive = false;
                 aINavigation.DisableNavAndCollider();
+                vfxManager.DeathEffect(transform.position);
             }
             else
             {
                 enemyAnimator.SetTrigger("DamageReact");
+                vfxManager.BlodEffect(transform.position);
+                
             }
 
             if (floatingText != null)
