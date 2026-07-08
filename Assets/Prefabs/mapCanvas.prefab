@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3689486367021596882}
   - component: {fileID: 3267950159313836437}
   - component: {fileID: 3101415205328984977}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: mapIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -84,7 +84,7 @@ GameObject:
   - component: {fileID: 5795760703991704652}
   - component: {fileID: 8060785361559761124}
   - component: {fileID: 3699324569605168050}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: mapCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -156,7 +156,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &3699324569605168050
 MonoBehaviour:
   m_ObjectHideFlags: 0
