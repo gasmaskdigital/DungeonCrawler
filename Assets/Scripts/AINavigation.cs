@@ -114,7 +114,10 @@ public class AINavigation : MonoBehaviour, IKnockbackable
         if (!alive || isAttacking)
             return;
 
-        
+        Vector3 direction = playerHandler.transform.position - transform.position;
+        direction.y = 0f;
+        transform.rotation = Quaternion.LookRotation(direction);
+
         enemyAttackHandler.AttackTypeCheck();
         isAttacking = true;
     }
@@ -191,15 +194,18 @@ public class AINavigation : MonoBehaviour, IKnockbackable
     {
         canMove = false;
 
-        if (navMeshAgent.gameObject.activeInHierarchy && navMeshAgent.isOnNavMesh)
-        {
-            navMeshAgent.Warp(transform.position);
-                navMeshAgent.isStopped = true;
-                navMeshAgent.velocity = Vector3.zero;
 
-            
+        Debug.Log("CanMoveOff");
+        if (navMeshAgent.enabled && navMeshAgent.isOnNavMesh)
+        {
+            navMeshAgent.isStopped = true;
+            navMeshAgent.velocity = Vector3.zero;
         }
-        
+        navMeshAgent.Warp(transform.position);
+
+
+
+
     }
 
     public void CanMoveOn()

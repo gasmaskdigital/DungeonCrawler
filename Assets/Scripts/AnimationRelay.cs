@@ -76,4 +76,14 @@ public class AnimationRelay : MonoBehaviour
     {
         playerHandler.DeathDestoy();
     }
+
+    public void AttackBoolsOff()
+    {
+        playerHandler.AttackBoolsOff();       
+    }
+
+    public void AttackBoolsOn()
+    {
+        playerHandler.AttackBoolsOn();
+    }
 }
