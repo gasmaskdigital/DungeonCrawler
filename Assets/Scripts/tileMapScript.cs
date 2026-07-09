@@ -22,6 +22,10 @@ public class tileMapScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject == player) mapIcon.enabled = false;
+        if (other.gameObject == player)
+        {
+            mapIcon.enabled = false;
+            Destroy(gameObject.GetComponent<BoxCollider>());
+        }
     }
 }

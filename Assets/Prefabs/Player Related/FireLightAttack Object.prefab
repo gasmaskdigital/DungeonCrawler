@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4767469000888447969}
   - component: {fileID: 3807776752771497441}
   - component: {fileID: 3842096748874602643}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,7 +101,7 @@ GameObject:
   - component: {fileID: 3853340151863133745}
   - component: {fileID: 3650147108037145788}
   - component: {fileID: -1952683131615476497}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: FireLightAttack Object
   m_TagString: Untagged
   m_Icon: {fileID: 0}

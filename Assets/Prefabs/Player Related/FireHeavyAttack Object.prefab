@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3436490747078746316}
   - component: {fileID: 1929390927935547625}
   - component: {fileID: 3827255499582111542}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,7 +101,7 @@ GameObject:
   - component: {fileID: 7986457943281944858}
   - component: {fileID: 6529120620012778088}
   - component: {fileID: 1826591086291797908}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: FireHeavyAttack Object
   m_TagString: Untagged
   m_Icon: {fileID: 0}
