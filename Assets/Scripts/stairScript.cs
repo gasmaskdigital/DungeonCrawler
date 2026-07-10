@@ -18,10 +18,9 @@ public class stairScript : MonoBehaviour
         
     }
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
-        playerDist = (other.gameObject.transform.position - transform.position).magnitude;
-        if (other.gameObject.CompareTag("Player") && playerDist < playerDistThreshold ) levelManager.increaseLevel();
+        if (other.gameObject.CompareTag("Player") && !other.isTrigger) levelManager.increaseLevel();
 
     }
 }

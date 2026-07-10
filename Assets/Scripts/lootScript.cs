@@ -115,7 +115,7 @@ public class lootScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject == playerStats.gameObject)
+        if (other.gameObject == playerStats.gameObject && !other.isTrigger)
         { 
             isPlayerClose = true; 
             canvas.SetActive(true);
@@ -124,7 +124,7 @@ public class lootScript : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject == playerStats.gameObject)
+        if (other.gameObject == playerStats.gameObject && !other.isTrigger)
         {
             isPlayerClose = false;
             canvas.SetActive(false);

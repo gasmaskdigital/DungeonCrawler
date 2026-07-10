@@ -1842,6 +1842,10 @@ PrefabInstance:
       propertyPath: m_LayerOverridePriority
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 857974094513799803, guid: 35a62140321f4064da5d2693afb1944e, type: 3}
+      propertyPath: m_StepOffset
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1087447258442381983, guid: 35a62140321f4064da5d2693afb1944e, type: 3}
       propertyPath: mainCamera
       value: 

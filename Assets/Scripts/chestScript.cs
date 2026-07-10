@@ -38,13 +38,13 @@ public class chestScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject == player) isPlayerClose = true;
+        if (other.gameObject == player && !other.isTrigger) isPlayerClose = true;
         if(!isEmpty) canvas.gameObject.SetActive(true);
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject == player) isPlayerClose = false;
+        if (other.gameObject == player && !other.isTrigger) isPlayerClose = false;
         canvas.gameObject.SetActive(false);
     }
 }

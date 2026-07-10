@@ -42,14 +42,6 @@ public class PlayerHandler : MonoBehaviour
     public float knockbackForce = 10000f;
     private float knockbackDelay = 0.3f;
 
-    [Header("Current Equipment")]
-    [SerializeField] string curWeapon;
-    [SerializeField] string curHelm;
-    [SerializeField] string curUB;
-    [SerializeField] string curLB;
-    
-
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -59,20 +51,10 @@ public class PlayerHandler : MonoBehaviour
         playerStats = GetComponent<PlayerStats>();
 
         Cursor.lockState = CursorLockMode.Confined;
-
-        
     }
 
     private void LateUpdate()
     {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            curWeapon = PlayerStats.currentWeapon.weaponName;
-            curLB = PlayerStats.currentLowerBody.armourName;
-            curUB = PlayerStats.currentUpperBody.armourName;
-            curHelm = PlayerStats.currentHelmet.armourName;
-        }
-
         if (bowAiming)
         {
             BowAiming();
