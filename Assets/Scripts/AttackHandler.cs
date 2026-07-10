@@ -291,7 +291,7 @@ public class AttackHandler : MonoBehaviour
 
 public enum StatBoostType
 {
-    Strength, Dexterity, Magic
+    Strength, Dexterity, Magic, Endurance, Health
 }
 
 public enum WeaponType

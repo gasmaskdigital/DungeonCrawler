@@ -18,6 +18,8 @@ public class PlayerStats : MonoBehaviour
     public static int boostedStrength;
     public static int boostedDexterity;
     public static int boostedMagic;
+    public static int boostedEndurance;
+    public static int boostedHealth;
 
     public static int maxHealth = 20;
     public static int currentHealth;
@@ -54,6 +56,8 @@ public class PlayerStats : MonoBehaviour
         boostedStrength = 0;
         boostedDexterity = 0;
         boostedMagic = 0;
+        boostedEndurance = 0;
+        boostedHealth = 0;
         maxHealth = 20;
 
         currentWeapon = new Weapon();
@@ -134,71 +138,82 @@ public class PlayerStats : MonoBehaviour
     }
 
     public void UpdateBoostedStats()
-    {
-        ResetBoostedStats();
-
+    { 
         switch (currentWeapon.statBoost)
         {
             case StatBoostType.Strength:
-                boostedStrength += currentWeapon.statBoostValue;
+                boostedStrength = currentWeapon.statBoostValue;
                 break;
             case StatBoostType.Dexterity:
-                boostedDexterity += currentWeapon.statBoostValue;
+                boostedDexterity = currentWeapon.statBoostValue;
                 break;
             case StatBoostType.Magic:
-                boostedMagic += currentWeapon.statBoostValue;
+                boostedMagic = currentWeapon.statBoostValue;
                 break;
         }
 
         switch (currentHelmet.statBoost)
         {
             case StatBoostType.Strength:
-                boostedStrength += currentHelmet.StatBoostValue;
+                boostedStrength = currentHelmet.StatBoostValue;
                 break;
             case StatBoostType.Dexterity:
-                boostedDexterity += currentHelmet.StatBoostValue;
+                boostedDexterity = currentHelmet.StatBoostValue;
                 break;
             case StatBoostType.Magic:
-                boostedMagic += currentHelmet.StatBoostValue;
+                boostedMagic = currentHelmet.StatBoostValue;
+                break;
+            case StatBoostType.Endurance:
+                boostedEndurance = currentHelmet.StatBoostValue;
+                break;
+            case StatBoostType.Health:
+                boostedHealth = currentHelmet.StatBoostValue;
                 break;
         }
 
         switch (currentUpperBody.statBoost)
         {
             case StatBoostType.Strength:
-                boostedStrength += currentUpperBody.StatBoostValue;
+                boostedStrength = currentUpperBody.StatBoostValue;
                 break;
             case StatBoostType.Dexterity:
-                boostedDexterity += currentUpperBody.StatBoostValue;
+                boostedDexterity = currentUpperBody.StatBoostValue;
                 break;
             case StatBoostType.Magic:
-                boostedMagic += currentUpperBody.StatBoostValue;
+                boostedMagic = currentUpperBody.StatBoostValue;
+                break;
+            case StatBoostType.Endurance:
+                boostedEndurance = currentUpperBody.StatBoostValue;
+                break;
+            case StatBoostType.Health:
+                boostedHealth = currentUpperBody.StatBoostValue;
                 break;
         }
 
         switch (currentLowerBody.statBoost)
         {
             case StatBoostType.Strength:
-                boostedStrength += currentLowerBody.StatBoostValue;
+                boostedStrength = currentLowerBody.StatBoostValue;
                 break;
             case StatBoostType.Dexterity:
-                boostedDexterity += currentLowerBody.StatBoostValue;
+                boostedDexterity = currentLowerBody.StatBoostValue;
                 break;
             case StatBoostType.Magic:
-                boostedMagic += currentLowerBody.StatBoostValue;
+                boostedMagic = currentLowerBody.StatBoostValue;
+                break;
+            case StatBoostType.Endurance:
+                boostedEndurance = currentLowerBody.StatBoostValue;
+                break;
+            case StatBoostType.Health:
+                boostedHealth = currentLowerBody.StatBoostValue;
                 break;
         }
 
         boostedStrength += strengthStat;
         boostedDexterity += dexterityStat;
         boostedMagic += magicStat;
-    }
-
-    private void ResetBoostedStats()
-    {
-        boostedStrength = 0;
-        boostedDexterity = 0;
-        boostedMagic = 0;
+        boostedEndurance += enduranceStat;
+        boostedHealth += healthStat;
     }
 
     private void UpdateWeaponSocket()

@@ -34,7 +34,7 @@ public class lootScript : MonoBehaviour
             if (lootType == lootType.Weapon) weapon = new Weapon(lootName, statValue, statBoostValue, statBoost, weaponType);
             if (lootType == lootType.Armour)
             {
-                statBoost = (StatBoostType)Random.Range(0, 3);
+                statBoost = (StatBoostType)Random.Range(0, 5);
                 armour = new Armour(lootName, statValue, statBoostValue, armourSlot, statBoost);
             }
         }
