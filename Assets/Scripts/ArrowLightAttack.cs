@@ -7,6 +7,7 @@ public class ArrowLightAttack : MonoBehaviour
     private GameObject player;
     private AttackHandler playerAttackHandler;
     Rigidbody myRigidBody;
+    private VFXManager vfxManager;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -19,6 +20,8 @@ public class ArrowLightAttack : MonoBehaviour
         myRigidBody = GetComponent<Rigidbody>();
 
         myRigidBody.AddForce(transform.forward * speed, ForceMode.Impulse);
+
+        vfxManager = FindAnyObjectByType<VFXManager>();
         
         //Destroy(gameObject, 2f);
     }
@@ -43,6 +46,11 @@ public class ArrowLightAttack : MonoBehaviour
             AINavigation cAINav = other.GetComponent<AINavigation>();
             playerAttackHandler.BowLightAttackImpact(cEnemyStats, cAINav);
             Destroy(gameObject);
+            
+        }
+
+        if (other.CompareTag("Terrain"))
+        {
             
         }
 

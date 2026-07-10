@@ -86,4 +86,14 @@ public class AnimationRelay : MonoBehaviour
     {
         playerHandler.AttackBoolsOn();
     }
+
+    public void DodgeBoolsOff()
+    {
+        playerHandler.DodgeBoolsOff();
+    }
+
+    public void DodgeBoolsOn()
+    {
+        playerHandler.DodgeBoolOn();        
+    }
 }

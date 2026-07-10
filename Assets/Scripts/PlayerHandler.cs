@@ -433,6 +433,21 @@ public class PlayerHandler : MonoBehaviour
         canMove = true;
     }
 
+    public void DodgeBoolsOff()
+    {
+        canAttack = false;
+        bowAiming = false;
+        canDodge = false;
+        canMove = false;
+    }
+
+    public void DodgeBoolOn()
+    {
+        canAttack = true;
+        canDodge = true;
+        canMove = true;
+    }
+
     public void DamagedTrigger()
     {
         playerAnimator.SetTrigger("Damaged");
