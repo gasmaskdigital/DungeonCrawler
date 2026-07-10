@@ -320,6 +320,10 @@ public class PlayerHandler : MonoBehaviour
                 enemy.ChasePlayer();
             }
         }
+        else if (other.CompareTag("Terrain"))
+        {
+            if (other.gameObject.GetComponent<BoxCollider>()) other.gameObject.GetComponent<BoxCollider>().enabled = true;
+        }
     }
 
     private void CheckWeaponForAnimTrigger()
