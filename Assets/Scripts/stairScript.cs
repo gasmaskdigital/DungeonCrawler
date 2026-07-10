@@ -3,7 +3,8 @@ using UnityEngine;
 public class stairScript : MonoBehaviour
 {
 
-    //BoxCollider trigger;
+    [SerializeField] float playerDist;
+    [SerializeField] float playerDistThreshold;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -19,7 +20,7 @@ public class stairScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.CompareTag("Player")) levelManager.increaseLevel();
+        if (other.gameObject.CompareTag("Player") && !other.isTrigger) levelManager.increaseLevel();
 
     }
 }

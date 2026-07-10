@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4958310248871876647}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Arrow Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 5963663617124240767}
   - component: {fileID: -1255419130548368793}
   - component: {fileID: -8346472899903735450}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: HeavyArrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -138,7 +138,7 @@ GameObject:
   - component: {fileID: 4274395567208525592}
   - component: {fileID: 936308412696289469}
   - component: {fileID: 3105962858608333943}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: PP_Theme_01_Arrow_001
   m_TagString: Untagged
   m_Icon: {fileID: 0}

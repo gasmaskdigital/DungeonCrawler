@@ -42,14 +42,6 @@ public class PlayerHandler : MonoBehaviour
     public float knockbackForce = 10000f;
     private float knockbackDelay = 0.3f;
 
-    [Header("Current Equipment")]
-    [SerializeField] string curWeapon;
-    [SerializeField] string curHelm;
-    [SerializeField] string curUB;
-    [SerializeField] string curLB;
-    
-
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -59,25 +51,15 @@ public class PlayerHandler : MonoBehaviour
         playerStats = GetComponent<PlayerStats>();
 
         Cursor.lockState = CursorLockMode.Confined;
-
-        
     }
 
     private void LateUpdate()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (bowAiming)
         {
-            curWeapon = PlayerStats.currentWeapon.weaponName;
-            curLB = PlayerStats.currentLowerBody.armourName;
-            curUB = PlayerStats.currentUpperBody.armourName;
-            curHelm = PlayerStats.currentHelmet.armourName;
+            BowAiming();
         }
-
-       
-
     }
-
-  
 
     // Update is called once per frame
     void Update()
@@ -85,91 +67,89 @@ public class PlayerHandler : MonoBehaviour
         InputMagangement();
         Movement();
 
-        
+
 
 
         playerAnimator.SetFloat("Speed", currentSpeed, 0, Time.deltaTime);
 
-        
-        
-            // Light Attack
-            if (Input.GetMouseButtonDown(0))
+
+
+        // Light Attack
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (canAttack)
             {
-                if (canAttack)
-                {
-                    attackHandler.attackType = AttackType.LightAttack;
-                    CheckWeaponForAnimTrigger();
-                AttackBoolsOff();
-                }
+                attackHandler.attackType = AttackType.LightAttack;
+                CheckWeaponForAnimTrigger();
             }
+        }
 
-            // Heavy Attack
-            if (Input.GetMouseButtonDown(1))
+        // Heavy Attack
+        if (Input.GetMouseButtonDown(1))
+        {
+            if (canAttack)
             {
-                if (canAttack)
-                {
-                    attackHandler.attackType = AttackType.HeavyAttack;
-                    CheckWeaponForAnimTrigger();
-                AttackBoolsOff();
-                }
+                attackHandler.attackType = AttackType.HeavyAttack;
+                CheckWeaponForAnimTrigger();
             }
+        }
 
-            // pick up item logic
-            if (Input.GetKeyDown(KeyCode.E))
+        // pick up item logic
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            // sphere cast to pick up item
+        }
+
+        //pause button
+        if (Input.GetKeyDown(KeyCode.CapsLock))
+        {
+            // pauses time and brings up ui screen
+            // swap to esc when it come time to build
+        }
+
+        // open inventory screen
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            // opens inventory screen - toggles the screen
+        }
+
+        // dodge input
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (canMove)
             {
-                // sphere cast to pick up item
+                playerAnimator.SetTrigger("Dodge");
+                Dodge();
             }
+        }
 
-            //pause button
-            if (Input.GetKeyDown(KeyCode.CapsLock))
-            {
-                // pauses time and brings up ui screen
-                // swap to esc when it come time to build
-            }
+        // health potion
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
 
-            // open inventory screen
-            if (Input.GetKeyDown(KeyCode.Tab))
-            {
-                // opens inventory screen - toggles the screen
-            }
+        }
 
-            // dodge input
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                if (canMove)
-                {
-                    playerAnimator.SetTrigger("Dodge");
-                    Dodge();
-                }
-            }
+        // speed potion
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
 
-            // health potion
-            if (Input.GetKeyDown(KeyCode.Alpha1))
-            {
+        }
 
-            }
+        // damage potion
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
 
-            // speed potion
-            if (Input.GetKeyDown(KeyCode.Alpha2))
-            {
+        }
 
-            }
+        // defence potion
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
 
-            // damage potion
-            if (Input.GetKeyDown(KeyCode.Alpha3))
-            {
-
-            }
-
-            // defence potion
-            if (Input.GetKeyDown(KeyCode.Alpha4))
-            {
-
-            }
+        }
 
         if (bowAiming)
         {
-            Debug.Log(bowAiming);
+            //Debug.Log(bowAiming);
             BowAiming();
         }
 
@@ -258,7 +238,9 @@ public class PlayerHandler : MonoBehaviour
 
     public void CanMoveToggle()
     {
-        if (canMove)
+        canMove = !canMove;
+
+        /*if (canMove)
         {
             canMove = false;
             
@@ -267,7 +249,7 @@ public class PlayerHandler : MonoBehaviour
         {
             canMove = true;
             
-        }
+        }*/
     }
 
     void OnDrawGizmosSelected()
@@ -311,14 +293,30 @@ public class PlayerHandler : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log(gameObject.name + " collided with: " + other.gameObject.name);
+
         if (other.CompareTag("Enemy"))
         {
             AINavigation enemy = other.GetComponent<AINavigation>();
 
-            if(enemy != null)
+            if (enemy != null)
             {
                 enemy.ChasePlayer();
             }
+        }
+        else if (other.CompareTag("Terrain"))
+        {
+            if(other.gameObject.GetComponent<BoxCollider>()) other.gameObject.GetComponent<BoxCollider>().enabled = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        Debug.Log(gameObject.name + " has disconnected from: " + other.gameObject.name);
+
+        if (other.CompareTag("Terrain"))
+        {
+            if (other.gameObject.GetComponent<BoxCollider>()) other.gameObject.GetComponent<BoxCollider>().enabled = false;
         }
     }
 
@@ -410,22 +408,6 @@ public class PlayerHandler : MonoBehaviour
     {
         canAttack = true;
         canBeDamaged = true;
-        canDodge = true;
-        canMove = true;
-    }
-
-    public void AttackBoolsOff()
-    {
-        canAttack = false;
-        bowAiming = true;
-        canDodge = false;
-        canMove = false;
-    }
-
-    public void AttackBoolsOn()
-    {
-        canAttack = true;
-        bowAiming = false;
         canDodge = true;
         canMove = true;
     }

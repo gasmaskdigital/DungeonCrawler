@@ -31,12 +31,12 @@ public class lootScript : MonoBehaviour
             statValue = Random.Range(levelManager.currentLevel * 2, levelManager.currentLevel * 3 + 1);
             statBoostValue = Random.Range(levelManager.currentLevel, levelManager.currentLevel * 2 + 1);
 
-            if (lootType == lootType.Weapon)
+            if (lootType == lootType.Weapon) weapon = new Weapon(lootName, statValue, statBoostValue, statBoost, weaponType);
+            if (lootType == lootType.Armour)
             {
                 statBoost = (StatBoostType)Random.Range(0, 3);
-                weapon = new Weapon(lootName, statValue, statBoostValue, statBoost, weaponType);
+                armour = new Armour(lootName, statValue, statBoostValue, armourSlot, statBoost);
             }
-            if (lootType == lootType.Armour) armour = new Armour(lootName, statValue, statBoostValue, armourSlot, statBoost);
         }
     }
 
@@ -115,7 +115,7 @@ public class lootScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject == playerStats.gameObject)
+        if (other.gameObject == playerStats.gameObject && !other.isTrigger)
         { 
             isPlayerClose = true; 
             canvas.SetActive(true);
@@ -124,7 +124,7 @@ public class lootScript : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject == playerStats.gameObject)
+        if (other.gameObject == playerStats.gameObject && !other.isTrigger)
         {
             isPlayerClose = false;
             canvas.SetActive(false);
