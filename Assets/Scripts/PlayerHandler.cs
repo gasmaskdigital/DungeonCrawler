@@ -315,13 +315,16 @@ public class PlayerHandler : MonoBehaviour
         {
             AINavigation enemy = other.GetComponent<AINavigation>();
 
-            if(enemy != null)
+            if (enemy != null)
             {
                 enemy.ChasePlayer();
             }
         }
+        else if (other.CompareTag("Terrain"))
+        {
+            if (other.gameObject.GetComponent<BoxCollider>()) other.gameObject.GetComponent<BoxCollider>().enabled = true;
+        }
     }
-
     private void CheckWeaponForAnimTrigger()
     {
         switch(PlayerStats.currentWeapon.weaponType)
