@@ -19,7 +19,7 @@ public class PlayerStats : MonoBehaviour
     public static int boostedDexterity;
     public static int boostedMagic;
 
-    public static int maxHealth = 2000;
+    public static int maxHealth = 20;
     public static int currentHealth;
 
     public int earntXP;

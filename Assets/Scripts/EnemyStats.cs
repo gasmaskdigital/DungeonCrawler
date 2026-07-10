@@ -16,6 +16,9 @@ public class EnemyStats : MonoBehaviour
     private GameObject player;
     private PlayerStats playerStats;
     private AINavigation aINavigation;
+    private VFXManager vfxManager;
+    private levelManager levelManager;
+
 
     private Animator enemyAnimator;
 
@@ -23,19 +26,30 @@ public class EnemyStats : MonoBehaviour
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
-    {
-        currentHealth = maxHealth;
+    {               
         enemyAnimator = GetComponentInChildren<Animator>();
         aINavigation = GetComponent<AINavigation>();
+        vfxManager = FindAnyObjectByType<VFXManager>();
 
         player = GameObject.FindGameObjectWithTag("Player");
         playerStats = player.GetComponent<PlayerStats>();
+        levelManager = FindAnyObjectByType<levelManager>();
+
+        StatScaling();
+        currentHealth = maxHealth;
     }
 
     // Update is called once per frame
     void Update()
     {
 
+    }
+
+    void StatScaling()
+    {
+        maxHealth = levelManager.currentLevel * maxHealth;
+        attack = levelManager.currentLevel * attack;
+        defence = levelManager.currentLevel * defence;
     }
 
     public void TakeDamage(int damageTaken)
@@ -51,10 +65,13 @@ public class EnemyStats : MonoBehaviour
                 enemyAnimator.SetTrigger("Death");
                 aINavigation.alive = false;
                 aINavigation.DisableNavAndCollider();
+                vfxManager.DeathEffect(transform.position);
             }
             else
             {
                 enemyAnimator.SetTrigger("DamageReact");
+                vfxManager.BlodEffect(transform.position);
+                
             }
 
             if (floatingText != null)
