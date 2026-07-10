@@ -13,6 +13,9 @@ public class FireLIghtAttackScript : MonoBehaviour
     public LayerMask enemyMask;
     Rigidbody myRigidBody;
 
+    [SerializeField] GameObject fireballFX;
+    [SerializeField] GameObject explosionFX;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -32,16 +35,7 @@ public class FireLIghtAttackScript : MonoBehaviour
         {
             transform.Translate(Vector3.forward * speed * Time.deltaTime);
         }
-        else
-        {
-            transform.localScale = Vector3.MoveTowards(transform.localScale, tartgetScale, scaleSpeed * Time.deltaTime);
-
-            if(transform.localScale == tartgetScale)
-            {
-                Explode();
-            }
-
-        }
+        
     }
 
 
@@ -50,6 +44,7 @@ public class FireLIghtAttackScript : MonoBehaviour
         if (other.CompareTag("Enemy"))
         {
             triggered = true;
+            Explode();
         }
 
         if (other.CompareTag("Terrain"))
@@ -60,6 +55,9 @@ public class FireLIghtAttackScript : MonoBehaviour
 
     private void Explode()
     {
+        fireballFX.gameObject.SetActive(false);
+        explosionFX.gameObject.SetActive(true);
+
         Collider[] colliders = Physics.OverlapSphere(transform.position, explosionRadius, enemyMask);
 
         foreach(Collider c in colliders)
@@ -68,7 +66,9 @@ public class FireLIghtAttackScript : MonoBehaviour
             AINavigation cAINav = c.GetComponent<AINavigation>();
 
             playerAttackHandler.FireLightAttackImpact(enemyStats, cAINav);
-            Destroy(gameObject);
+            
         }
+        Destroy(gameObject,1.5f);
+
     }
 }

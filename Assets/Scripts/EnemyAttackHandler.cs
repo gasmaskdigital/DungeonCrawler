@@ -111,7 +111,7 @@ public class EnemyAttackHandler : MonoBehaviour
         float damageFloat = (enemyAttack / playerValues) * 1.5f;
         int damageDealt = (int)damageFloat;
 
-        Time.timeScale = 0f;
+        
 
         return damageDealt;
     }
