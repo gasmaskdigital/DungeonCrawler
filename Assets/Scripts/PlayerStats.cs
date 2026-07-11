@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerStats : MonoBehaviour
 {
     public PlayerHandler playerHandler;
+    private VFXManager vfxManager;
 
     public static int healthStat = 1;
     public static int strengthStat = 1;
@@ -85,6 +86,7 @@ public class PlayerStats : MonoBehaviour
     void Start()
     {
         playerHandler = GetComponent<PlayerHandler>();
+        vfxManager = FindAnyObjectByType<VFXManager>();
 
         if (healthStat < 1)
         {
@@ -238,10 +240,13 @@ public class PlayerStats : MonoBehaviour
             {
                 PlayerDeath();
                 playerHandler.DeathTrigger();
+                vfxManager.DeathEffect(transform.position);
             }
             else
             {
                 playerHandler.DamagedTrigger();
+                vfxManager.BlodEffect(transform.position);
+
             }
         }
     }

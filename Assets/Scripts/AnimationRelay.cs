@@ -96,4 +96,14 @@ public class AnimationRelay : MonoBehaviour
     {
         playerHandler.DodgeBoolOn();        
     }
+
+    public void SwordTrailOn()
+    {
+        playerHandler.SwordTrailOn();
+    }
+
+    public void SwordTrailOff()
+    {
+        playerHandler.SwordTrailOff();
+    }
 }

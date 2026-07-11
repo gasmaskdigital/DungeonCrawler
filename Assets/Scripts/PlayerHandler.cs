@@ -3,6 +3,7 @@ using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.VFX;
 using static UnityEngine.UI.Image;
 
 public class PlayerHandler : MonoBehaviour
@@ -20,6 +21,8 @@ public class PlayerHandler : MonoBehaviour
     private PlayerStats playerStats;
     public UnityEngine.Camera mainCamera;
     public LayerMask terrainLayer;
+    private VFXManager vfxManager;
+    [SerializeField] GameObject swordTrail;
 
     [Header("Movement Settings")]
     private float walkSpeed = 7f;
@@ -57,6 +60,7 @@ public class PlayerHandler : MonoBehaviour
         detectionSphere = GetComponent<SphereCollider>();
         attackHandler = GetComponent<AttackHandler>();
         playerStats = GetComponent<PlayerStats>();
+        vfxManager = FindAnyObjectByType<VFXManager>();
 
         Cursor.lockState = CursorLockMode.Confined;
 
@@ -460,5 +464,15 @@ public class PlayerHandler : MonoBehaviour
     public void DeathDestoy()
     {
         Destroy(gameObject);
+    }
+
+    public void SwordTrailOn()
+    {
+        swordTrail.gameObject.SetActive(true);
+    }
+    
+    public void SwordTrailOff()
+    {
+        swordTrail.gameObject.SetActive(false);
     }
 }
