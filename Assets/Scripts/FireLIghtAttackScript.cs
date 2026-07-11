@@ -23,9 +23,9 @@ public class FireLIghtAttackScript : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         playerAttackHandler = player.GetComponent<AttackHandler>();
 
-        myRigidBody = GetComponent<Rigidbody>();
+        // myRigidBody = GetComponent<Rigidbody>();
 
-        myRigidBody.AddForce(transform.forward * speed, ForceMode.Impulse);
+        // myRigidBody.AddForce(transform.forward * speed, ForceMode.Impulse);
     }
 
     // Update is called once per frame
