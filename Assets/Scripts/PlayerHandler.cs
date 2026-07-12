@@ -50,6 +50,9 @@ public class PlayerHandler : MonoBehaviour
     [SerializeField] string curHelm;
     [SerializeField] string curUB;
     [SerializeField] string curLB;
+
+    [Header("Audio Clips")]
+    [SerializeField] AudioClip swordLightSwoosh;
     
 
 
@@ -337,6 +340,7 @@ public class PlayerHandler : MonoBehaviour
                 if(attackHandler.attackType == AttackType.LightAttack)
                 {
                     playerAnimator.SetTrigger("THSLightAttack");
+                    SoundManager.Instance.PlaySound(swordLightSwoosh, transform);
                 }
                 else
                 {

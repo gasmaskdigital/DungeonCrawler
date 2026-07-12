@@ -1,19 +1,33 @@
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class SoundManager : MonoBehaviour
 {
-    [Header("Sounds")]
-    int remove;
+    public static SoundManager Instance;
+    [SerializeField] GameObject soundObjectPrefab;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private void Awake()
     {
-        
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void PlaySound(AudioClip clip, Transform playPos)
     {
-        
+        GameObject soundObject = Instantiate(soundObjectPrefab, playPos.position, Quaternion.identity);
+        AudioSource soundSource = soundObject.GetComponent<AudioSource>();
+
+        soundSource.clip = clip;
+        soundSource.Play();
+
+        Destroy(soundObject, clip.length);
+
     }
+
 }
