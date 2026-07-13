@@ -169,7 +169,7 @@ public class PlayerHandler : MonoBehaviour
 
         if (bowAiming)
         {
-            Debug.Log(bowAiming);
+            //Debug.Log(bowAiming);
             BowAiming();
         }
 
