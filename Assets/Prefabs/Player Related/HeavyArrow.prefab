@@ -101,6 +101,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23f077fa705c7664ab19d5c27da42204, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  heavyArrowImpact: {fileID: 8300000, guid: a8c614aa995392641b6a27e44537f1cb, type: 3}
+  arrowBreak: {fileID: 8300000, guid: 11109265d4221ef46a10169416729c0a, type: 3}
 --- !u!54 &-8346472899903735450
 Rigidbody:
   m_ObjectHideFlags: 0

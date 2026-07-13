@@ -9,6 +9,9 @@ public class ArrowLightAttack : MonoBehaviour
     Rigidbody myRigidBody;
     private VFXManager vfxManager;
 
+    [Header("Sounds")]
+    [SerializeField] AudioClip arrowBreak;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -51,7 +54,8 @@ public class ArrowLightAttack : MonoBehaviour
 
         if (other.CompareTag("Terrain"))
         {
-            
+            SoundManager.Instance.PlaySound(arrowBreak, transform);
+            Destroy(gameObject);
         }
 
         

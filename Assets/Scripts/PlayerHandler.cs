@@ -53,7 +53,8 @@ public class PlayerHandler : MonoBehaviour
 
     [Header("Audio Clips")]
     [SerializeField] AudioClip swordLightSwoosh;
-    
+    [SerializeField] AudioClip dodge;
+
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -147,6 +148,8 @@ public class PlayerHandler : MonoBehaviour
                 {
                     playerAnimator.SetTrigger("Dodge");
                     Dodge();
+                SoundManager.Instance.PlaySound(dodge, transform);
+                
                 }
             }
 
@@ -345,6 +348,7 @@ public class PlayerHandler : MonoBehaviour
                 else
                 {
                     playerAnimator.SetTrigger("THSHeavyAttack");
+                    SoundManager.Instance.PlaySound(swordLightSwoosh, transform);
                 }
                 break;
             case WeaponType.Bow:

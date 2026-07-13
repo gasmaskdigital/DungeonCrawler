@@ -21,6 +21,9 @@ public class lootScript : MonoBehaviour
     [SerializeField] bool isPlayerClose;
     [SerializeField] public bool isNewLoot;
 
+    [Header("Sounds")]
+    [SerializeField] AudioClip equip;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -108,6 +111,7 @@ public class lootScript : MonoBehaviour
                 //Debug.Log("Equipping: " + lootName);
                 playerStats.UpdateEquipment();
                 GameObject.FindGameObjectWithTag("GameController").GetComponent<gameManager>().updateEquipment();
+                SoundManager.Instance.PlaySound(equip, transform);
                 Destroy(gameObject);
             }
         }

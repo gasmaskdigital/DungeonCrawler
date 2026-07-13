@@ -53,18 +53,18 @@ MonoBehaviour:
     attackValue: 0
     statBoostValue: 0
     statBoost: 0
-    weaponModel: {fileID: 0}
     weaponType: 0
   lootName: 
   statValue: 3
   statBoostValue: 3
   statBoost: 0
-  lootModel: {fileID: -6143898996665494940, guid: 3ea12b315dfa3914d96d2432f1a9c444, type: 3}
   weaponType: 0
   armourSlot: 0
   playerStats: {fileID: 0}
   canvas: {fileID: 7525147833548761749}
   isPlayerClose: 0
+  isNewLoot: 0
+  equip: {fileID: 8300000, guid: 702e44d44f362f543a12163f7ff4f518, type: 3}
 --- !u!135 &-8420307134001240742
 SphereCollider:
   m_ObjectHideFlags: 0

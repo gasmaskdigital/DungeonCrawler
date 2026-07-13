@@ -13,7 +13,12 @@ public class EnemyAttackHandler : MonoBehaviour
     public float lightAttackRadius;
     public float heavyAttackRadius;
     private Animator enemyAnimator;
-    
+
+    [Header("Sounds")]
+    [SerializeField] AudioClip vampLightImpact;
+    [SerializeField] AudioClip vampLightSwoosh;
+    [SerializeField] AudioClip vampHeavyImpact;
+
 
 
 
@@ -56,6 +61,7 @@ public class EnemyAttackHandler : MonoBehaviour
         {
             attackType = AttackType.LightAttack;
             enemyAnimator.SetTrigger("LightAttack");
+            SoundManager.Instance.PlaySound(vampLightSwoosh, transform);
         }
     }
 
@@ -73,6 +79,7 @@ public class EnemyAttackHandler : MonoBehaviour
 
                 int damageDealt = LightAttackDamage(enemystats.attack, PlayerStats.currentDefenceTotal, PlayerStats.enduranceStat);
                 playerStats.TakeDamage(damageDealt);
+                SoundManager.Instance.PlaySound(vampLightImpact, transform);
             }
         }
     }
@@ -89,6 +96,7 @@ public class EnemyAttackHandler : MonoBehaviour
             int damageDealt = HeavyAttackDamage(enemystats.attack, PlayerStats.currentDefenceTotal, PlayerStats.enduranceStat);
 
             playerStats.TakeDamage(damageDealt);
+            SoundManager.Instance.PlaySound(vampHeavyImpact, transform);
         }
     }
 

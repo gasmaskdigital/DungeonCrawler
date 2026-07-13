@@ -1835,6 +1835,9 @@ MonoBehaviour:
   enemyAttackRadius: 0.5
   canBeDamaged: 1
   floatingText: {fileID: 6946133675485113259, guid: fa7675d0934c8ee4ea02ec6d42a44af4, type: 3}
+  blood: {fileID: 8300000, guid: c9e3ac85dea8f0243b97207e08b63378, type: 3}
+  vampDeath: {fileID: 8300000, guid: 131d3f3d9b50c4f4a9f143deef904712, type: 3}
+  vampPain: {fileID: 8300000, guid: 1982834d89f2ed24d81aa107618723f1, type: 3}
 --- !u!114 &3579476930285203684
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1947,6 +1950,9 @@ MonoBehaviour:
   enemyAttackType: 0
   lightAttackRadius: 1
   heavyAttackRadius: 1.5
+  vampLightImpact: {fileID: 8300000, guid: 374b053d8aa0578469814307824a3eeb, type: 3}
+  vampLightSwoosh: {fileID: 8300000, guid: faefce326c3c4444f960ba5e166a2d8b, type: 3}
+  vampHeavyImpact: {fileID: 8300000, guid: c2a9fb8a9f2d7824f8fc722cf685a0ae, type: 3}
 --- !u!1 &4352049103327572733
 GameObject:
   m_ObjectHideFlags: 0
