@@ -80,14 +80,13 @@ public class AttackHandler : MonoBehaviour
 
     public void TwoHandedSwordLightAttack()
     {
-        Debug.Log("AttackHandler Sword Light Attack");
-        
-            Debug.Log("Light Attack");
+       
+            
 
             Vector3 origin = transform.position + Vector3.up * 1f + transform.forward * 0.75f;
 
             Collider[] colliders = Physics.OverlapSphere(origin, tHSLightAttckRadius, enemyMask);
-            Debug.Log("Overlap");
+            
             foreach (Collider c in colliders)
             {            
                 if (c.gameObject.CompareTag("Enemy"))

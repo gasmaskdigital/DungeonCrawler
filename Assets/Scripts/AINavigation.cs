@@ -185,6 +185,7 @@ public class AINavigation : MonoBehaviour, IKnockbackable
 
         yield return null;
 
+        Debug.Log("Should be able to move again");
         canMove = true;
         canBeDamaged = true;
         isAttacking = false;

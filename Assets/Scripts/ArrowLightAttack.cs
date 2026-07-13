@@ -25,7 +25,7 @@ public class ArrowLightAttack : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        Debug.Log("Arrow hitting " + other.gameObject.name);
+        
 
         if (other.CompareTag("Terrain"))
         {
