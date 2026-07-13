@@ -1934,6 +1934,9 @@ PrefabInstance:
       addedObject: {fileID: 1398523159}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1389836861790355665, guid: 35a62140321f4064da5d2693afb1944e, type: 3}
+      insertIndex: 5
+      addedObject: {fileID: 1596705669}
+    - targetCorrespondingSourceObject: {fileID: 1389836861790355665, guid: 35a62140321f4064da5d2693afb1944e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1596705664}
   m_SourcePrefab: {fileID: 100100000, guid: 35a62140321f4064da5d2693afb1944e, type: 3}
@@ -3664,6 +3667,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1596705669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 800973779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b8136082c47b884f95b697eecb0ef3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EffectHandler
+  activeEffects: []
 --- !u!1 &1747454225
 GameObject:
   m_ObjectHideFlags: 0

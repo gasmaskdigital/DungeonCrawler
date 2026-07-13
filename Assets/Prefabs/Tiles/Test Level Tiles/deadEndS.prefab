@@ -243,6 +243,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::tileMapScript
   player: {fileID: 0}
   mapIcon: {fileID: 0}
+  triggerCollider: {fileID: 0}
 --- !u!65 &-1954590099544364500
 BoxCollider:
   m_ObjectHideFlags: 0
