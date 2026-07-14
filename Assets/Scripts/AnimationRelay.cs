@@ -111,7 +111,7 @@ public class AnimationRelay : MonoBehaviour
         playerHandler.SwordTrailOff();
     }
 
-    public void Foodstep()
+    public void Footstep()
     {
         SoundManager.Instance.PlaySound(footstep, transform);
     }
