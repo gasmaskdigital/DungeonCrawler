@@ -46,6 +46,16 @@ public class EnemyAttackHandler : MonoBehaviour
                     VampireHeavyAttack();
                 }
                 break;
+            case "Skeleton":
+                if(attackType == AttackType.LightAttack)
+                {
+                    SkeletonLightAttack();
+                }
+                else
+                {
+                    SkeletonHeavyAttack();
+                }
+                break;
         }
     }
 
@@ -61,12 +71,14 @@ public class EnemyAttackHandler : MonoBehaviour
         {
             attackType = AttackType.LightAttack;
             enemyAnimator.SetTrigger("LightAttack");
-            SoundManager.Instance.PlaySound(vampLightSwoosh, transform);
+            
         }
     }
 
     private void VampireLightAttack()
     {
+
+        SoundManager.Instance.PlaySound(vampLightSwoosh, transform);
         Vector3 origin = transform.position + Vector3.up * 1f + transform.forward * 0.75f;
 
         Collider[] colliders = Physics.OverlapSphere(origin, lightAttackRadius, playerMask, QueryTriggerInteraction.Ignore);
@@ -98,6 +110,16 @@ public class EnemyAttackHandler : MonoBehaviour
             playerStats.TakeDamage(damageDealt);
             SoundManager.Instance.PlaySound(vampHeavyImpact, transform);
         }
+    }
+
+    private void SkeletonLightAttack()
+    {
+
+    }
+
+    private void SkeletonHeavyAttack()
+    {
+
     }
 
     private int LightAttackDamage(int enemyAttack, int playerDefence, int playerEndurance)

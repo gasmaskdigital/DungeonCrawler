@@ -185,7 +185,7 @@ public class AINavigation : MonoBehaviour, IKnockbackable
 
         yield return null;
 
-        Debug.Log("Should be able to move again");
+        
         canMove = true;
         canBeDamaged = true;
         isAttacking = false;
@@ -196,7 +196,7 @@ public class AINavigation : MonoBehaviour, IKnockbackable
         canMove = false;
 
 
-        Debug.Log("CanMoveOff");
+        
         if (navMeshAgent.enabled && navMeshAgent.isOnNavMesh)
         {
             navMeshAgent.isStopped = true;
@@ -213,7 +213,7 @@ public class AINavigation : MonoBehaviour, IKnockbackable
     {
         if (alive)
         {
-            Debug.Log("CanMoveOn");
+            
             canMove = true;
             navMeshAgent.isStopped = false;
             isAttacking = false;
