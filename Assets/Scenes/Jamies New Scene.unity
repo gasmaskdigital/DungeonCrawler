@@ -1846,6 +1846,10 @@ PrefabInstance:
       propertyPath: lightArrowImpact
       value: 
       objectReference: {fileID: 8300000, guid: 3732295017dd7e24e8ddafc5482a0a81, type: 3}
+    - target: {fileID: 667795102598984419, guid: 35a62140321f4064da5d2693afb1944e, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 1024
+      objectReference: {fileID: 0}
     - target: {fileID: 1087447258442381983, guid: 35a62140321f4064da5d2693afb1944e, type: 3}
       propertyPath: dodge
       value: 

@@ -194,7 +194,7 @@ public class AINavigation : MonoBehaviour, IKnockbackable
    public void CanMoveOff()
     {
         canMove = false;
-
+        
 
         
         if (navMeshAgent.enabled && navMeshAgent.isOnNavMesh)

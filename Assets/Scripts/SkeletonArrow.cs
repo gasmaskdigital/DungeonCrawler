@@ -5,7 +5,7 @@ using UnityEngine;
 public class SkeletonArrow : MonoBehaviour
 {
     private Rigidbody rb;
-    private float speed = 1f;
+    private float speed = 15f;
     public GameObject owner;
     private EnemyAttackHandler ownerAttackHandler;
 
@@ -13,9 +13,10 @@ public class SkeletonArrow : MonoBehaviour
     void Start()
     {
         ownerAttackHandler = owner.GetComponent<EnemyAttackHandler>();
-        rb = GetComponent<Rigidbody>();
+       
 
-       // rb.AddForce(transform.forward * speed, ForceMode.Impulse);
+        
+        // rb.AddForce(transform.forward * speed, ForceMode.Impulse);
     }
 
     // Update is called once per frame
@@ -26,6 +27,8 @@ public class SkeletonArrow : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("Arrow hit: " + other.name + " Tag: " + other.tag);
+
         if (other.CompareTag("Player"))
         {
             PlayerStats playerStats = other.GetComponent<PlayerStats>();

@@ -116,14 +116,18 @@ public class EnemyAttackHandler : MonoBehaviour
 
     public void SkeletonLightAttack()
     {
+
         Vector3 spawnPoint = transform.position;
         spawnPoint.y += 1.5f;
 
         quaternion spawnRotation = transform.rotation;
+        
 
         GameObject arrow = Instantiate(skeletonLightArrow, spawnPoint, spawnRotation);
         SkeletonArrow arrowScript = arrow.GetComponent<SkeletonArrow>();
         arrowScript.owner = gameObject;
+
+        Debug.Log("Skeleton shoot arrow");
     }
 
     public void SkeletonLightImpact(PlayerStats playerStats)
