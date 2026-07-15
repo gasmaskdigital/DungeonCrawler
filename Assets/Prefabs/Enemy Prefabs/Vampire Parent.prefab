@@ -1836,8 +1836,8 @@ MonoBehaviour:
   canBeDamaged: 1
   floatingText: {fileID: 6946133675485113259, guid: fa7675d0934c8ee4ea02ec6d42a44af4, type: 3}
   blood: {fileID: 8300000, guid: c9e3ac85dea8f0243b97207e08b63378, type: 3}
-  vampDeath: {fileID: 8300000, guid: 131d3f3d9b50c4f4a9f143deef904712, type: 3}
-  vampPain: {fileID: 8300000, guid: 1982834d89f2ed24d81aa107618723f1, type: 3}
+  Death: {fileID: 8300000, guid: 131d3f3d9b50c4f4a9f143deef904712, type: 3}
+  Pain: {fileID: 8300000, guid: 1982834d89f2ed24d81aa107618723f1, type: 3}
 --- !u!114 &3579476930285203684
 MonoBehaviour:
   m_ObjectHideFlags: 0

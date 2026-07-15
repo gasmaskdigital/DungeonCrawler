@@ -42,4 +42,14 @@ public class EnemyAnimationRelay : MonoBehaviour
         enemyStats.EnemyDeath();
     }
     
+    public void SkeletonLightAttack()
+    {
+        enemyAttackHandler.SkeletonLightAttack();
+    }
+
+    public void SkeletonHeavyAttack()
+    {
+        enemyAttackHandler.SkeletonHeavyAttack();
+    }
+
 }

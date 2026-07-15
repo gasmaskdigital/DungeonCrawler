@@ -215,8 +215,12 @@ public class AINavigation : MonoBehaviour, IKnockbackable
         {
             
             canMove = true;
-            navMeshAgent.isStopped = false;
-            isAttacking = false;
+
+            if (navMeshAgent.enabled && navMeshAgent.isOnNavMesh)
+            {
+                navMeshAgent.isStopped = false;
+                isAttacking = false;
+            }
             navMeshAgent.Warp(transform.position);
         }
     }

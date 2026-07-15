@@ -1,3 +1,4 @@
+using Unity.Mathematics;
 using UnityEngine;
 
 public class EnemyAttackHandler : MonoBehaviour
@@ -19,7 +20,8 @@ public class EnemyAttackHandler : MonoBehaviour
     [SerializeField] AudioClip vampLightSwoosh;
     [SerializeField] AudioClip vampHeavyImpact;
 
-
+    [Header("Ranged Prefabs")]
+    [SerializeField] GameObject skeletonLightArrow;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -61,7 +63,7 @@ public class EnemyAttackHandler : MonoBehaviour
 
     public void AttackTypeCheck()
     {
-        attackChance = Random.Range(1, 5);
+        attackChance = UnityEngine.Random.Range(1, 5);
         if(attackChance == 5)
         {
             attackType = AttackType.HeavyAttack;
@@ -112,12 +114,25 @@ public class EnemyAttackHandler : MonoBehaviour
         }
     }
 
-    private void SkeletonLightAttack()
+    public void SkeletonLightAttack()
     {
+        Vector3 spawnPoint = transform.position;
+        spawnPoint.y += 1.5f;
 
+        quaternion spawnRotation = transform.rotation;
+
+        GameObject arrow = Instantiate(skeletonLightArrow, spawnPoint, spawnRotation);
+        SkeletonArrow arrowScript = arrow.GetComponent<SkeletonArrow>();
+        arrowScript.owner = gameObject;
     }
 
-    private void SkeletonHeavyAttack()
+    public void SkeletonLightImpact(PlayerStats playerStats)
+    {
+        int damageDealt = LightAttackDamage(enemystats.attack, PlayerStats.currentDefenceTotal, PlayerStats.enduranceStat);
+        playerStats.TakeDamage(damageDealt);
+    }
+
+    public void SkeletonHeavyAttack()
     {
 
     }
