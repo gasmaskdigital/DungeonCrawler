@@ -235,7 +235,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 936a173be0ace2b4893d66377d3aca65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  loot: {fileID: 2459961511337339887, guid: 4528d740d646b43438166107f7f960c8, type: 3}
+  allLoot: {fileID: 11400000, guid: d89651a283efd544aa15080ea67a529a, type: 2}
+  loot:
+    name: 
+    type: 3
+    prefab: {fileID: 0}
   player: {fileID: 0}
   canvas: {fileID: 598789044008904339}
   isPlayerClose: 0

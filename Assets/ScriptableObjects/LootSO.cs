@@ -1,7 +1,9 @@
 using NUnit.Framework;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
+[Serializable]
 public struct Loot 
 {
     public string name;
@@ -12,5 +14,5 @@ public struct Loot
 [CreateAssetMenu(fileName = "LootSO", menuName = "Scriptable Objects/LootSO")]
 public class LootSO : ScriptableObject
 {
-    List<Loot> lootList;
+    public List<Loot> lootList;
 }

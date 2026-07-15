@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb55cafbf82605d4fa8b9ba1d5dcb504, type: 3}
+  m_Name: WestBlocked
+  m_EditorClassIdentifier: Assembly-CSharp::TilesSO
+  tiles:
+  - name: deadEndN
+    tile: {fileID: 2797985347435305117, guid: 6ae03989509fabb42922ee9d6ee3799f, type: 3}
+    xPos: 0
+    yPos: 0
+  - name: deadEndS
+    tile: {fileID: 2797985347435305117, guid: fe90b4d316726e3439bf2a01b981eaba, type: 3}
+    xPos: 0
+    yPos: 0
+  - name: deadEndW
+    tile: {fileID: 2797985347435305117, guid: 7bc2bb2975a49e5418d72f94d2a95aa5, type: 3}
+    xPos: 0
+    yPos: 0
+  - name: NECorner
+    tile: {fileID: 2797985347435305117, guid: 0985b2407b154634db90149db92b54ec, type: 3}
+    xPos: 0
+    yPos: 0
+  - name: NSCorridor
+    tile: {fileID: 2797985347435305117, guid: b2a0751d7f23f4c46abe2a9e7f66c6c9, type: 3}
+    xPos: 0
+    yPos: 0
+  - name: SECorner
+    tile: {fileID: 2797985347435305117, guid: 6ef9f19fa2c76974d90054ed053b5ae3, type: 3}
+    xPos: 0
+    yPos: 0
+  - name: WJunction
+    tile: {fileID: 2797985347435305117, guid: 009325631599b5d4e892122c2cea7cf1, type: 3}
+    xPos: 0
+    yPos: 0

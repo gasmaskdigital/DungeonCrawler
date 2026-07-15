@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -5,8 +6,10 @@ using Unity.AI.Navigation;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+[Serializable]
 public struct levelTile 
 {
+    public string name;
     public GameObject tile;
     public int xPos;
     public int yPos;
@@ -41,14 +44,14 @@ public class levelManager: MonoBehaviour
     [SerializeField] public static int currentLevel;
 
     [Header("Tiles")]
-    public Object[] eastEntrance;
-    public Object[] westEntrance;
-    public Object[] northEntrance;
-    public Object[] southEntrance;
-    public Object[] eastBlocked;
-    public Object[] westBlocked;
-    public Object[] northBlocked;
-    public Object[] southBlocked;
+    public TilesSO eastEntrance;
+    public TilesSO westEntrance;
+    public TilesSO northEntrance;
+    public TilesSO southEntrance;
+    public TilesSO eastBlocked;
+    public TilesSO westBlocked;
+    public TilesSO northBlocked;
+    public TilesSO southBlocked;
 
     
 
@@ -58,7 +61,7 @@ public class levelManager: MonoBehaviour
         //Debug.Log(currentLevel);
         if (currentLevel == 0) currentLevel++;
 
-        eastEntrance = Resources.LoadAll("Room Tiles/EastEntrance");
+        /*eastEntrance = Resources.LoadAll("Room Tiles/EastEntrance");
         westEntrance = Resources.LoadAll("Room Tiles/WestEntrance");
         northEntrance = Resources.LoadAll("Room Tiles/NorthEntrance");
         southEntrance = Resources.LoadAll("Room Tiles/SouthEntrance");
@@ -66,7 +69,7 @@ public class levelManager: MonoBehaviour
         eastBlocked = Resources.LoadAll("Room Tiles/EastBlocked");
         westBlocked = Resources.LoadAll("Room Tiles/WestBlocked");
         northBlocked = Resources.LoadAll("Room Tiles/NorthBlocked");
-        southBlocked = Resources.LoadAll("Room Tiles/SouthBlocked");
+        southBlocked = Resources.LoadAll("Room Tiles/SouthBlocked");*/
 
         levelHeight = Mathf.Min(30, 5 + (currentLevel - 1) * 2);
         levelWidth = Mathf.Min(30, 5 + (currentLevel - 1) * 2);
@@ -140,7 +143,7 @@ public class levelManager: MonoBehaviour
 
         if (validTiles.Count > 0)
         {
-            levelTile levelTile = validTiles[Random.Range(0, validTiles.Count())];
+            levelTile levelTile = validTiles[UnityEngine.Random.Range(0, validTiles.Count())];
             levelMap.enemySpawnerTiles.Add(levelTile);
             Instantiate(enemySpawner, levelTile.tile.transform);
         }
@@ -156,7 +159,7 @@ public class levelManager: MonoBehaviour
 
         if (validTiles.Count > 0)
         {
-            levelTile levelTile = validTiles[Random.Range(0, validTiles.Count())];
+            levelTile levelTile = validTiles[UnityEngine.Random.Range(0, validTiles.Count())];
             levelMap.chestTiles.Add(levelTile);
             Instantiate(chest, levelTile.tile.transform);
         }
@@ -177,7 +180,7 @@ public class levelManager: MonoBehaviour
     public levelTile findRandomValidTile() 
     {
         List<levelTile> validTiles = findValidTiles();
-        return validTiles[Random.Range(0, validTiles.Count)];
+        return validTiles[UnityEngine.Random.Range(0, validTiles.Count)];
     }
 
     public List<levelTile> findValidTiles()

@@ -1,6 +1,8 @@
+using System;
 using UnityEngine;
 
-public enum lootType { Weapon, Armour, Potion}
+[Serializable]
+public enum lootType { Weapon, Armour, Potion} // Weapon = 0, Armour = 1, Potion = 2 
 
 public class lootScript : MonoBehaviour
 {
@@ -29,13 +31,13 @@ public class lootScript : MonoBehaviour
 
         if (isNewLoot && lootType != lootType.Potion)
         {
-            statValue = 10 + Random.Range(levelManager.currentLevel * 2, levelManager.currentLevel * 3 + 1);
-            statBoostValue = Random.Range(levelManager.currentLevel, levelManager.currentLevel * 2 + 1);
+            statValue = 10 + UnityEngine.Random.Range(levelManager.currentLevel * 2, levelManager.currentLevel * 3 + 1);
+            statBoostValue = UnityEngine.Random.Range(levelManager.currentLevel, levelManager.currentLevel * 2 + 1);
 
             if (lootType == lootType.Weapon) weapon = new Weapon(lootName, statValue, statBoostValue, statBoost, weaponType);
             if (lootType == lootType.Armour)
             {
-                statBoost = (StatBoostType)Random.Range(0, 5);
+                statBoost = (StatBoostType)UnityEngine.Random.Range(0, 5);
                 armour = new Armour(lootName, statValue, statBoostValue, armourSlot, statBoost);
             }
         }

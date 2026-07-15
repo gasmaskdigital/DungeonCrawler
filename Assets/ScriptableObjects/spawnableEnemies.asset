@@ -12,3 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19d008aca0c414c4093b6f6917931f3e, type: 3}
   m_Name: spawnableEnemies
   m_EditorClassIdentifier: Assembly-CSharp::EnemiesSO
+  spawnableEnemies:
+  - name: Vampire
+    prefab: {fileID: 4578603113931944223, guid: acb310b6429d9094c800b59b217a0343, type: 3}

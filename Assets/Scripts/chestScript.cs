@@ -1,9 +1,11 @@
+using NUnit.Framework;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class chestScript : MonoBehaviour
 {
-
-    public GameObject loot; // the contents of the chest
+    [SerializeField] LootSO allLoot;
+    public Loot loot; // the contents of the chest
     [SerializeField] GameObject player;
     [SerializeField] Canvas canvas;
     [SerializeField] bool isPlayerClose;
@@ -16,8 +18,8 @@ public class chestScript : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         isEmpty = false;
 
-        GameObject[] allLoot = Resources.LoadAll<GameObject>("LootObjects");
-        loot = allLoot[Random.Range(0,allLoot.Length)];
+        List<Loot> lootList = allLoot.lootList;
+        loot = lootList[Random.Range(0, lootList.Count)];
     }
 
     // Update is called once per frame
@@ -30,7 +32,7 @@ public class chestScript : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.F))
             {
                 canvas.gameObject.SetActive(false);
-                Instantiate(loot, transform.position + Vector3.up * lootOffset, Quaternion.identity).GetComponent<lootScript>().isNewLoot = true;
+                Instantiate(loot.prefab, transform.position + Vector3.up * lootOffset, Quaternion.identity).GetComponent<lootScript>().isNewLoot = true;
                 isEmpty = true;
             }
         }

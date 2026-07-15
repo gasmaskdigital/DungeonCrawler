@@ -59,9 +59,9 @@ public class tileGenerator : MonoBehaviour
 
     public void spawnNextTile()
     {
-        GameObject[] validTiles = findValidTiles(direction, spawnPosInGrid.x, spawnPosInGrid.y);
+        List<levelTile> validTiles = findValidTiles(direction, spawnPosInGrid.x, spawnPosInGrid.y);
         //Debug.Log(validTiles.Length);
-        nextLevelTile = validTiles[UnityEngine.Random.Range(0, validTiles.Length)].GameObject();
+        nextLevelTile = validTiles[UnityEngine.Random.Range(0, validTiles.Count)].tile;
 
         switch (direction)
         {
@@ -107,56 +107,56 @@ public class tileGenerator : MonoBehaviour
         }
     }
 
-    public GameObject[] findValidTiles(Direction dir, int x, int y) 
+    public List<levelTile> findValidTiles(Direction dir, int x, int y) 
     {
-        List<GameObject> validTiles = new();
+        List<levelTile> validTiles = new();
 
         switch (dir)
         {
             case Direction.NORTH:
-                validTiles.AddRange(controller.southEntrance);
+                validTiles.AddRange(controller.southEntrance.tiles);
                 break;
             case Direction.EAST:
-                validTiles.AddRange(controller.westEntrance);
+                validTiles.AddRange(controller.westEntrance.tiles);
                 break;
             case Direction.SOUTH:
-                validTiles.AddRange(controller.northEntrance);
+                validTiles.AddRange(controller.northEntrance.tiles);
                 break;
             case Direction.WEST:
-                validTiles.AddRange(controller.eastEntrance); 
+                validTiles.AddRange(controller.eastEntrance.tiles); 
                 break;
         }
 
         if (x == 0) 
         {
-            validTiles = Intersection(validTiles.ToArray(), controller.westBlocked);        
+            validTiles = Intersection<levelTile>(validTiles, controller.westBlocked.tiles);        
         }
         else if (x == levelWidth - 1)
         {
-            validTiles = Intersection(validTiles.ToArray(), controller.eastBlocked);        
+            validTiles = Intersection<levelTile>(validTiles, controller.eastBlocked.tiles);        
         }
 
         if (y == 0)
         {
-            validTiles = Intersection(validTiles.ToArray(), controller.southBlocked);
+            validTiles = Intersection<levelTile>(validTiles, controller.southBlocked.tiles);
         }
         else if (y == levelHeight - 1)
         {
-            validTiles = Intersection(validTiles.ToArray(), controller.northBlocked);        
+            validTiles = Intersection<levelTile>(validTiles, controller.northBlocked.tiles);        
         }
 
-        return validTiles.ToArray();
+        return validTiles;
     }
 
-    public List<GameObject> Intersection(UnityEngine.Object[] A, UnityEngine.Object[] B) 
+    public List<T> Intersection<T>(List<T> A, List<T> B) 
     {
-        List<GameObject> output = new();
+        List<T> output = new();
 
-        foreach (GameObject a in A) 
+        foreach (T a in A) 
         {
-            foreach (GameObject b in B) 
+            foreach (T b in B) 
             {
-                if (a.name == b.name && !output.Contains(a))
+                if (a.Equals(b) && !output.Contains(a))
                 {
                     output.Add(a);
                     break;
