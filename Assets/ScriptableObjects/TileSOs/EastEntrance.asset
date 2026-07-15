@@ -34,7 +34,7 @@ MonoBehaviour:
     xPos: 0
     yPos: 0
   - name: SECorner
-    tile: {fileID: 0}
+    tile: {fileID: 2797985347435305117, guid: 6ef9f19fa2c76974d90054ed053b5ae3, type: 3}
     xPos: 0
     yPos: 0
   - name: SJunction

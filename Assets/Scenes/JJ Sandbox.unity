@@ -502,14 +502,14 @@ MonoBehaviour:
   gridSize: 7.5
   spawnerPercentage: 0.05
   lootPercentage: 0.1
-  eastEntrance: []
-  westEntrance: []
-  northEntrance: []
-  southEntrance: []
-  eastBlocked: []
-  westBlocked: []
-  northBlocked: []
-  southBlocked: []
+  eastEntrance: {fileID: 11400000, guid: c49a63d6d223b024dbb6c22010dd0efb, type: 2}
+  westEntrance: {fileID: 11400000, guid: b867b7b15e6e9344a82e0cfa0972b7d8, type: 2}
+  northEntrance: {fileID: 11400000, guid: 874398ff6f6d7b043997627e07fa8119, type: 2}
+  southEntrance: {fileID: 11400000, guid: 5004c4d98734eae4b88ad0122188a1a3, type: 2}
+  eastBlocked: {fileID: 11400000, guid: 37736ea5a8b0b524dbb5cd2334b57b96, type: 2}
+  westBlocked: {fileID: 11400000, guid: 6b2ab743703091e42b8f047dc36158b7, type: 2}
+  northBlocked: {fileID: 11400000, guid: c551e7e833de4d444b2a1dc3fc8612ab, type: 2}
+  southBlocked: {fileID: 11400000, guid: 63fababfcbd18fc448e56813acffc38d, type: 2}
 --- !u!4 &136469602
 Transform:
   m_ObjectHideFlags: 0

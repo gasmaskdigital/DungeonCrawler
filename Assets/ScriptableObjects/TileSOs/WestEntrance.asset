@@ -34,7 +34,7 @@ MonoBehaviour:
     xPos: 0
     yPos: 0
   - name: NWCorner
-    tile: {fileID: 0}
+    tile: {fileID: 2797985347435305117, guid: f42b0276dbb3db84c95aaae5ecf94316, type: 3}
     xPos: 0
     yPos: 0
   - name: SJunction
