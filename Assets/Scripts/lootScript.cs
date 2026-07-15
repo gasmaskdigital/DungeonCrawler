@@ -29,7 +29,7 @@ public class lootScript : MonoBehaviour
 
         if (isNewLoot && lootType != lootType.Potion)
         {
-            statValue = Random.Range(levelManager.currentLevel * 2, levelManager.currentLevel * 3 + 1);
+            statValue = 10 + Random.Range(levelManager.currentLevel * 2, levelManager.currentLevel * 3 + 1);
             statBoostValue = Random.Range(levelManager.currentLevel, levelManager.currentLevel * 2 + 1);
 
             if (lootType == lootType.Weapon) weapon = new Weapon(lootName, statValue, statBoostValue, statBoost, weaponType);

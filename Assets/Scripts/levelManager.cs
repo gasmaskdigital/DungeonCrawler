@@ -58,15 +58,15 @@ public class levelManager: MonoBehaviour
         //Debug.Log(currentLevel);
         if (currentLevel == 0) currentLevel++;
 
-        eastEntrance = Resources.LoadAll("EastEntrance");
-        westEntrance = Resources.LoadAll("WestEntrance");
-        northEntrance = Resources.LoadAll("NorthEntrance");
-        southEntrance = Resources.LoadAll("SouthEntrance");
+        eastEntrance = Resources.LoadAll("Room Tiles/EastEntrance");
+        westEntrance = Resources.LoadAll("Room Tiles/WestEntrance");
+        northEntrance = Resources.LoadAll("Room Tiles/NorthEntrance");
+        southEntrance = Resources.LoadAll("Room Tiles/SouthEntrance");
 
-        eastBlocked = Resources.LoadAll("EastBlocked");
-        westBlocked = Resources.LoadAll("WestBlocked");
-        northBlocked = Resources.LoadAll("NorthBlocked");
-        southBlocked = Resources.LoadAll("SouthBlocked");
+        eastBlocked = Resources.LoadAll("Room Tiles/EastBlocked");
+        westBlocked = Resources.LoadAll("Room Tiles/WestBlocked");
+        northBlocked = Resources.LoadAll("Room Tiles/NorthBlocked");
+        southBlocked = Resources.LoadAll("Room Tiles/SouthBlocked");
 
         levelHeight = Mathf.Min(30, 5 + (currentLevel - 1) * 2);
         levelWidth = Mathf.Min(30, 5 + (currentLevel - 1) * 2);
