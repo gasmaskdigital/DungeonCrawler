@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: -4978104183705362587}
   - component: {fileID: -8420307134001240742}
   m_Layer: 0
-  m_Name: Test Loot
+  m_Name: testLoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -47,19 +47,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2da4e104f70319b499a2b62c9c56a16f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::lootScript
-  lootType: 2
+  lootType: 0
   weapon:
     weaponName: 
     attackValue: 0
     statBoostValue: 0
     statBoost: 0
     weaponType: 0
-  effect:
-    name: Strength
-    intensity: 1
-    duration: 60
-    timeRemaining: 60
-  lootName: StrengthPotion
+  lootName: 
   statValue: 3
   statBoostValue: 3
   statBoost: 0
@@ -69,6 +64,7 @@ MonoBehaviour:
   canvas: {fileID: 7525147833548761749}
   isPlayerClose: 0
   isNewLoot: 0
+  equip: {fileID: 8300000, guid: 702e44d44f362f543a12163f7ff4f518, type: 3}
 --- !u!135 &-8420307134001240742
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -412,10 +408,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.1
+  m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
-  m_Center: {x: 0, y: 0.15, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7525147833548761749
 GameObject:
   m_ObjectHideFlags: 0

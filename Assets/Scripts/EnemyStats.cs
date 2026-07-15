@@ -24,6 +24,11 @@ public class EnemyStats : MonoBehaviour
 
     public GameObject floatingText;
 
+    [Header("Sounds")]
+    [SerializeField] AudioClip blood;
+    [SerializeField] AudioClip Death;
+    [SerializeField] AudioClip Pain;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {               
@@ -66,11 +71,14 @@ public class EnemyStats : MonoBehaviour
                 aINavigation.alive = false;
                 aINavigation.DisableNavAndCollider();
                 vfxManager.DeathEffect(transform.position);
+                SoundManager.Instance.PlaySound(Death, transform);
             }
             else
             {
                 enemyAnimator.SetTrigger("DamageReact");
                 vfxManager.BlodEffect(transform.position);
+                SoundManager.Instance.PlaySound(blood, transform);
+                SoundManager.Instance.PlaySound(Pain, transform);
                 
             }
 

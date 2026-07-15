@@ -1,3 +1,4 @@
+using Unity.Mathematics;
 using UnityEngine;
 
 public class EnemyAttackHandler : MonoBehaviour
@@ -13,8 +14,14 @@ public class EnemyAttackHandler : MonoBehaviour
     public float lightAttackRadius;
     public float heavyAttackRadius;
     private Animator enemyAnimator;
-    
 
+    [Header("Sounds")]
+    [SerializeField] AudioClip vampLightImpact;
+    [SerializeField] AudioClip vampLightSwoosh;
+    [SerializeField] AudioClip vampHeavyImpact;
+
+    [Header("Ranged Prefabs")]
+    [SerializeField] GameObject skeletonLightArrow;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -41,12 +48,22 @@ public class EnemyAttackHandler : MonoBehaviour
                     VampireHeavyAttack();
                 }
                 break;
+            case "Skeleton":
+                if(attackType == AttackType.LightAttack)
+                {
+                    SkeletonLightAttack();
+                }
+                else
+                {
+                    SkeletonHeavyAttack();
+                }
+                break;
         }
     }
 
     public void AttackTypeCheck()
     {
-        attackChance = Random.Range(1, 5);
+        attackChance = UnityEngine.Random.Range(1, 5);
         if(attackChance == 5)
         {
             attackType = AttackType.HeavyAttack;
@@ -56,11 +73,14 @@ public class EnemyAttackHandler : MonoBehaviour
         {
             attackType = AttackType.LightAttack;
             enemyAnimator.SetTrigger("LightAttack");
+            
         }
     }
 
     private void VampireLightAttack()
     {
+
+        SoundManager.Instance.PlaySound(vampLightSwoosh, transform);
         Vector3 origin = transform.position + Vector3.up * 1f + transform.forward * 0.75f;
 
         Collider[] colliders = Physics.OverlapSphere(origin, lightAttackRadius, playerMask, QueryTriggerInteraction.Ignore);
@@ -73,6 +93,7 @@ public class EnemyAttackHandler : MonoBehaviour
 
                 int damageDealt = LightAttackDamage(enemystats.attack, PlayerStats.currentDefenceTotal, PlayerStats.enduranceStat);
                 playerStats.TakeDamage(damageDealt);
+                SoundManager.Instance.PlaySound(vampLightImpact, transform);
             }
         }
     }
@@ -89,7 +110,35 @@ public class EnemyAttackHandler : MonoBehaviour
             int damageDealt = HeavyAttackDamage(enemystats.attack, PlayerStats.currentDefenceTotal, PlayerStats.enduranceStat);
 
             playerStats.TakeDamage(damageDealt);
+            SoundManager.Instance.PlaySound(vampHeavyImpact, transform);
         }
+    }
+
+    public void SkeletonLightAttack()
+    {
+
+        Vector3 spawnPoint = transform.position;
+        spawnPoint.y += 1.5f;
+
+        quaternion spawnRotation = transform.rotation;
+        
+
+        GameObject arrow = Instantiate(skeletonLightArrow, spawnPoint, spawnRotation);
+        SkeletonArrow arrowScript = arrow.GetComponent<SkeletonArrow>();
+        arrowScript.owner = gameObject;
+
+        Debug.Log("Skeleton shoot arrow");
+    }
+
+    public void SkeletonLightImpact(PlayerStats playerStats)
+    {
+        int damageDealt = LightAttackDamage(enemystats.attack, PlayerStats.currentDefenceTotal, PlayerStats.enduranceStat);
+        playerStats.TakeDamage(damageDealt);
+    }
+
+    public void SkeletonHeavyAttack()
+    {
+
     }
 
     private int LightAttackDamage(int enemyAttack, int playerDefence, int playerEndurance)

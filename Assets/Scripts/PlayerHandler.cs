@@ -3,6 +3,7 @@ using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.VFX;
 using static UnityEngine.UI.Image;
 
 public class PlayerHandler : MonoBehaviour
@@ -20,6 +21,8 @@ public class PlayerHandler : MonoBehaviour
     private PlayerStats playerStats;
     public UnityEngine.Camera mainCamera;
     public LayerMask terrainLayer;
+    private VFXManager vfxManager;
+    [SerializeField] GameObject swordTrail;
 
     [Header("Movement Settings")]
     private float walkSpeed = 7f;
@@ -47,7 +50,11 @@ public class PlayerHandler : MonoBehaviour
     [SerializeField] string curHelm;
     [SerializeField] string curUB;
     [SerializeField] string curLB;
-    
+
+    [Header("Audio Clips")]
+    [SerializeField] AudioClip swordLightSwoosh;
+    [SerializeField] AudioClip dodge;
+
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -57,6 +64,7 @@ public class PlayerHandler : MonoBehaviour
         detectionSphere = GetComponent<SphereCollider>();
         attackHandler = GetComponent<AttackHandler>();
         playerStats = GetComponent<PlayerStats>();
+        vfxManager = FindAnyObjectByType<VFXManager>();
 
         Cursor.lockState = CursorLockMode.Confined;
 
@@ -140,6 +148,8 @@ public class PlayerHandler : MonoBehaviour
                 {
                     playerAnimator.SetTrigger("Dodge");
                     Dodge();
+                SoundManager.Instance.PlaySound(dodge, transform);
+                
                 }
             }
 
@@ -334,10 +344,12 @@ public class PlayerHandler : MonoBehaviour
                 if(attackHandler.attackType == AttackType.LightAttack)
                 {
                     playerAnimator.SetTrigger("THSLightAttack");
+                    SoundManager.Instance.PlaySound(swordLightSwoosh, transform);
                 }
                 else
                 {
                     playerAnimator.SetTrigger("THSHeavyAttack");
+                    SoundManager.Instance.PlaySound(swordLightSwoosh, transform);
                 }
                 break;
             case WeaponType.Bow:
@@ -434,6 +446,21 @@ public class PlayerHandler : MonoBehaviour
         canMove = true;
     }
 
+    public void DodgeBoolsOff()
+    {
+        canAttack = false;
+        bowAiming = false;
+        canDodge = false;
+        canMove = false;
+    }
+
+    public void DodgeBoolOn()
+    {
+        canAttack = true;
+        canDodge = true;
+        canMove = true;
+    }
+
     public void DamagedTrigger()
     {
         playerAnimator.SetTrigger("Damaged");
@@ -446,5 +473,15 @@ public class PlayerHandler : MonoBehaviour
     public void DeathDestoy()
     {
         Destroy(gameObject);
+    }
+
+    public void SwordTrailOn()
+    {
+        swordTrail.gameObject.SetActive(true);
+    }
+    
+    public void SwordTrailOff()
+    {
+        swordTrail.gameObject.SetActive(false);
     }
 }

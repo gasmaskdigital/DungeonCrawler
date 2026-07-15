@@ -56,28 +56,14 @@ ModelImporter:
       curves: []
       events:
       - time: 0
-        functionName: CanBeDamaged
+        functionName: DodgeBoolsOff
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.010457479
-        functionName: CanMoveToggle
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.7494656
-        functionName: CanMoveToggle
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.8127461
-        functionName: CanBeDamaged
+      - time: 0.80130726
+        functionName: DodgeBoolsOn
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0

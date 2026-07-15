@@ -10,6 +10,7 @@ public class VFXManager : MonoBehaviour
     [SerializeField] GameObject fireWall;
     [SerializeField] GameObject SwordSwish;
     [SerializeField] GameObject heavySwordSwish;
+    [SerializeField] GameObject arrowBreak;
 
     public void DeathEffect(Vector3 spawnPos)
     {
@@ -23,6 +24,12 @@ public class VFXManager : MonoBehaviour
         spawnPos.y += 1.75f;
         GameObject vfxInstance = Instantiate(blood, spawnPos, Quaternion.identity);
         Destroy(vfxInstance, 1f);
+    }
+
+    public void ArrowBreak(Vector3 spawnPos)
+    {
+        GameObject vfxInstance = Instantiate(arrowBreak, spawnPos, Quaternion.identity);
+        Destroy(vfxInstance, 0.6f);
     }
 
 }

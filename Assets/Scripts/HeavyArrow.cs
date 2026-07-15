@@ -8,6 +8,10 @@ public class HeavyArrow : MonoBehaviour
     private AttackHandler playerAttackHandler;
     Rigidbody myRigidBody;
 
+    [Header("Sounds")]
+    [SerializeField] AudioClip heavyArrowImpact;
+    [SerializeField] AudioClip arrowBreak;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -33,11 +37,13 @@ public class HeavyArrow : MonoBehaviour
             EnemyStats cEnemyStats = other.GetComponent<EnemyStats>();
             AINavigation cAiNav = other.GetComponent<AINavigation>();
             playerAttackHandler.BowHeavyAttackImpact(cEnemyStats, cAiNav);
+            SoundManager.Instance.PlaySound(heavyArrowImpact, transform);
         }
 
         if (other.CompareTag("Terrain"))
         {
             Destroy(gameObject);
+            SoundManager.Instance.PlaySound(arrowBreak, transform);
         }
     }
 }

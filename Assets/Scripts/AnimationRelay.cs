@@ -1,10 +1,14 @@
 using UnityEngine;
 
+
 public class AnimationRelay : MonoBehaviour
 {
     //Refence
     private PlayerHandler playerHandler;
     private AttackHandler attackHandler;
+
+    [Header("Sounds")]
+    [SerializeField] AudioClip footstep;
 
     private void Awake()
     {
@@ -85,5 +89,30 @@ public class AnimationRelay : MonoBehaviour
     public void AttackBoolsOn()
     {
         playerHandler.AttackBoolsOn();
+    }
+
+    public void DodgeBoolsOff()
+    {
+        playerHandler.DodgeBoolsOff();
+    }
+
+    public void DodgeBoolsOn()
+    {
+        playerHandler.DodgeBoolOn();        
+    }
+
+    public void SwordTrailOn()
+    {
+        playerHandler.SwordTrailOn();
+    }
+
+    public void SwordTrailOff()
+    {
+        playerHandler.SwordTrailOff();
+    }
+
+    public void Footstep()
+    {
+        SoundManager.Instance.PlaySound(footstep, transform);
     }
 }
