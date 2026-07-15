@@ -1,9 +1,11 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class enemySpawnerScript : MonoBehaviour
 {
 
-    [SerializeField] Object[] enemies;
+    [SerializeField] List<Enemy> enemies;
+    [SerializeField] EnemiesSO allEnemies;
 
     [SerializeField] float spawnRadius;
     [SerializeField] int minSpawnAmount;
@@ -14,7 +16,7 @@ public class enemySpawnerScript : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        enemies = Resources.LoadAll("Enemies");
+        enemies = allEnemies.spawnableEnemies;
 
         int currentLevel = levelManager.currentLevel;
         if (currentLevel == 0) currentLevel++;
@@ -34,9 +36,9 @@ public class enemySpawnerScript : MonoBehaviour
     {
         Vector3 offset = Random.onUnitSphere;
         Vector3 spawnPos = gameObject.transform.position + (new Vector3(offset.x, Mathf.Abs(offset.y), offset.z).normalized * spawnRadius);
-        int index = Random.Range(0, enemies.Length);
-        Debug.Log("enemySpawnerIndex: " + index);
-        GameObject enemy = (GameObject)enemies[index];
+        int index = Random.Range(0, enemies.Count);
+        //Debug.Log("enemySpawnerIndex: " + index);
+        GameObject enemy = enemies[index].prefab;
         Instantiate(enemy, spawnPos, Quaternion.identity).GetComponent<DummyAI>();
     }
 

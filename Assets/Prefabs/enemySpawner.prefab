@@ -45,7 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16d32a616eb58f340abf5be753a0d823, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::enemySpawnerScript
-  enemy: {fileID: 4315232680571345892, guid: f87aaf2da5b1050418b14ac50fd331d5, type: 3}
+  enemies: []
+  allEnemies: {fileID: 11400000, guid: 4b9fe98c51ae3174ea9efcd5ee12a5f9, type: 2}
   spawnRadius: 5
   minSpawnAmount: 1
   maxSpawnAmount: 5
