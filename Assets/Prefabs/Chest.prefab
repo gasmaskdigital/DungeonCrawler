@@ -245,6 +245,7 @@ MonoBehaviour:
   isPlayerClose: 0
   isEmpty: 0
   lootOffset: 1.5
+  openChest: {fileID: 8300000, guid: 23255f2786f2d664d8c0cf7efd1d2728, type: 3}
 --- !u!135 &5011148586066309100
 SphereCollider:
   m_ObjectHideFlags: 0

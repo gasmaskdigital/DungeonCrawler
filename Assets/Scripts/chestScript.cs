@@ -12,6 +12,9 @@ public class chestScript : MonoBehaviour
     [SerializeField] bool isEmpty;
     [SerializeField] float lootOffset; // how far above the chest the loot spawns
 
+    [Header("Sounds")]
+    [SerializeField] AudioClip openChest;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -34,6 +37,8 @@ public class chestScript : MonoBehaviour
                 canvas.gameObject.SetActive(false);
                 Instantiate(loot.prefab, transform.position + Vector3.up * lootOffset, Quaternion.identity).GetComponent<lootScript>().isNewLoot = true;
                 isEmpty = true;
+
+                SoundManager.Instance.PlaySound(openChest, transform);
             }
         }
     }

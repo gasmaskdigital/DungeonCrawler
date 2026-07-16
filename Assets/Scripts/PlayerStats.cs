@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerStats : MonoBehaviour
 {
     public PlayerHandler playerHandler;
+    private VFXManager vfxManager;
 
     public static int healthStat = 1;
     public static int strengthStat = 1;
@@ -41,6 +42,13 @@ public class PlayerStats : MonoBehaviour
 
 
     public static int currentDefenceTotal;
+
+    [Header("Sounds")]
+    [SerializeField] AudioClip blood;
+    [SerializeField] AudioClip playerPain;
+    [SerializeField] AudioClip playerDeath;
+
+
 
     public void ResetStats()
     {
@@ -89,6 +97,7 @@ public class PlayerStats : MonoBehaviour
     void Start()
     {
         playerHandler = GetComponent<PlayerHandler>();
+        vfxManager = FindAnyObjectByType<VFXManager>();
 
         if (healthStat < 1)
         {
@@ -253,10 +262,16 @@ public class PlayerStats : MonoBehaviour
             {
                 PlayerDeath();
                 playerHandler.DeathTrigger();
+                vfxManager.DeathEffect(transform.position);
+                SoundManager.Instance.PlaySound(playerDeath, transform);
             }
             else
             {
                 playerHandler.DamagedTrigger();
+                vfxManager.BlodEffect(transform.position);
+                SoundManager.Instance.PlaySound(blood, transform);
+                SoundManager.Instance.PlaySound(playerPain, transform);
+
             }
         }
     }

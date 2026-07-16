@@ -7,6 +7,10 @@ public class ArrowLightAttack : MonoBehaviour
     private GameObject player;
     private AttackHandler playerAttackHandler;
     Rigidbody myRigidBody;
+    private VFXManager vfxManager;
+
+    [Header("Sounds")]
+    [SerializeField] AudioClip arrowBreak;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -19,6 +23,8 @@ public class ArrowLightAttack : MonoBehaviour
         myRigidBody = GetComponent<Rigidbody>();
 
         myRigidBody.AddForce(transform.forward * speed, ForceMode.Impulse);
+
+        vfxManager = FindAnyObjectByType<VFXManager>();
         
         //Destroy(gameObject, 2f);
     }
@@ -44,6 +50,12 @@ public class ArrowLightAttack : MonoBehaviour
             playerAttackHandler.BowLightAttackImpact(cEnemyStats, cAINav);
             Destroy(gameObject);
             
+        }
+
+        if (other.CompareTag("Terrain"))
+        {
+            SoundManager.Instance.PlaySound(arrowBreak, transform);
+            Destroy(gameObject);
         }
 
         
