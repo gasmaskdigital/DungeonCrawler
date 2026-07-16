@@ -14,4 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemiesSO
   spawnableEnemies:
   - name: Vampire
-    prefab: {fileID: 4578603113931944223, guid: acb310b6429d9094c800b59b217a0343, type: 3}
+    prefab: {fileID: 4315232680571345892, guid: f87aaf2da5b1050418b14ac50fd331d5, type: 3}
+  - name: Skeleton
+    prefab: {fileID: 4378454936511400984, guid: b8e64003f094e874e9a2e0789198a541, type: 3}

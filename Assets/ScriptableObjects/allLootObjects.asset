@@ -15,25 +15,25 @@ MonoBehaviour:
   lootList:
   - name: Sword
     type: 0
-    prefab: {fileID: 6094470551727074466, guid: 462d4c85f87a054498474656987ddce2, type: 3}
+    prefab: {fileID: 6094470551727074466, guid: b234d8158eccc4944ba01d55ca9a6bea, type: 3}
   - name: Spellbook
     type: 0
-    prefab: {fileID: 6094470551727074466, guid: 5398bb9c1dab99043832f9c3093799ec, type: 3}
+    prefab: {fileID: 6094470551727074466, guid: d9f16b5dfc158bc41a8e517923adf555, type: 3}
   - name: Bow
     type: 0
-    prefab: {fileID: 6094470551727074466, guid: c5bcd4ee9a38a2a40be2960acd6434c6, type: 3}
+    prefab: {fileID: 6094470551727074466, guid: 1169f9ee9732b4848ba77c8ae496f9e2, type: 3}
   - name: Helmet
     type: 1
-    prefab: {fileID: 7933952920136172553, guid: 6fa92db5d0ebb3d43987b909011a0f57, type: 3}
+    prefab: {fileID: 7933952920136172553, guid: 9a5da05df6a3a7e488f14c72be48a395, type: 3}
   - name: Boots
     type: 1
-    prefab: {fileID: 7933952920136172553, guid: 28d663ab2637ca54f8e93522352755b0, type: 3}
+    prefab: {fileID: 7933952920136172553, guid: 97b7535578f72c048bb11721f9ff787c, type: 3}
   - name: Chestplate
     type: 1
-    prefab: {fileID: 7933952920136172553, guid: 1e9b51b5d4d64c648813ae28dc60d32b, type: 3}
+    prefab: {fileID: 7933952920136172553, guid: cdb85e3d60db28f41a02242073541688, type: 3}
   - name: HealthPotion
     type: 2
-    prefab: {fileID: 6093041139753806892, guid: cb9dedb610d728b448ca1bcaaad2189a, type: 3}
-  - name: HealthPotion
+    prefab: {fileID: 6093041139753806892, guid: 06a1a924f2572274097f0a903a1afb82, type: 3}
+  - name: StrengthPotion
     type: 2
-    prefab: {fileID: 6093041139753806892, guid: cb9dedb610d728b448ca1bcaaad2189a, type: 3}
+    prefab: {fileID: 6093041139753806892, guid: 347371dc57dfa4446bbaf9524203de10, type: 3}

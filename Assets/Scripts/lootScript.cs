@@ -20,6 +20,7 @@ public class lootScript : MonoBehaviour
 
     [Header("References")]
     [SerializeField] PlayerStats playerStats;
+    [SerializeField] LootSO allLoot;
     [SerializeField] GameObject canvas;
     [SerializeField] bool isPlayerClose;
     [SerializeField] public bool isNewLoot;
@@ -77,11 +78,11 @@ public class lootScript : MonoBehaviour
 
     private void pickupWeapon()
     {
-        foreach (GameObject weapon in lootHandler.weapons)
+        foreach (Loot weapon in allLoot.lootList)
         {
-            if (weapon.GetComponent<lootScript>().lootName == PlayerStats.currentWeapon.weaponName && PlayerStats.currentWeapon.weaponName != null)
+            if (weapon.name == PlayerStats.currentWeapon.weaponName && PlayerStats.currentWeapon.weaponName != null)
             {
-                GameObject newWeapon = Instantiate(weapon, transform.position, transform.rotation);
+                GameObject newWeapon = Instantiate(weapon.prefab, transform.position, transform.rotation);
                 newWeapon.GetComponent<lootScript>().weapon = PlayerStats.currentWeapon;
                 break;
             }
@@ -94,11 +95,11 @@ public class lootScript : MonoBehaviour
         switch (armourSlot)
         {
             case (ArmourSlot.Helmet):
-                foreach (GameObject armour in lootHandler.armour)
+                foreach (Loot armour in allLoot.lootList)
                 {
-                    if (armour.GetComponent<lootScript>().lootName == PlayerStats.currentHelmet.armourName && PlayerStats.currentHelmet.armourName != null)
+                    if (armour.name == PlayerStats.currentHelmet.armourName && PlayerStats.currentHelmet.armourName != null)
                     {
-                        GameObject newHelmet = Instantiate(armour, transform.position, transform.rotation);
+                        GameObject newHelmet = Instantiate(armour.prefab, transform.position, transform.rotation);
                         newHelmet.GetComponent<lootScript>().armour = PlayerStats.currentHelmet;
                         break;
                     }
@@ -107,11 +108,11 @@ public class lootScript : MonoBehaviour
                 break;
 
             case (ArmourSlot.UpperBody):
-                foreach (GameObject armour in lootHandler.armour)
+                foreach (Loot armour in allLoot.lootList)
                 {
-                    if (armour.GetComponent<lootScript>().lootName == PlayerStats.currentUpperBody.armourName && PlayerStats.currentUpperBody.armourName != null)
+                    if (armour.name == PlayerStats.currentUpperBody.armourName && PlayerStats.currentUpperBody.armourName != null)
                     {
-                        GameObject newUpperBody = Instantiate(armour, transform.position, transform.rotation);
+                        GameObject newUpperBody = Instantiate(armour.prefab, transform.position, transform.rotation);
                         newUpperBody.GetComponent<lootScript>().armour = PlayerStats.currentUpperBody;
                         break;
                     }
@@ -120,11 +121,11 @@ public class lootScript : MonoBehaviour
                 break;
 
             case (ArmourSlot.Lowerbody):
-                foreach (GameObject armour in lootHandler.armour)
+                foreach (Loot armour in allLoot.lootList)
                 {
-                    if (armour.GetComponent<lootScript>().lootName == PlayerStats.currentLowerBody.armourName && PlayerStats.currentLowerBody.armourName != null)
+                    if (armour.name == PlayerStats.currentLowerBody.armourName && PlayerStats.currentLowerBody.armourName != null)
                     {
-                        GameObject newLowerBody = Instantiate(armour, transform.position, transform.rotation);
+                        GameObject newLowerBody = Instantiate(armour.prefab, transform.position, transform.rotation);
                         newLowerBody.GetComponent<lootScript>().armour = PlayerStats.currentLowerBody;
                         break;
                     }
