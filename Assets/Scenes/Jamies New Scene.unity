@@ -1834,6 +1834,10 @@ PrefabInstance:
       propertyPath: pHUIManager
       value: 
       objectReference: {fileID: 340316306}
+    - target: {fileID: 3978373986141358953, guid: 35a62140321f4064da5d2693afb1944e, type: 3}
+      propertyPath: floatingText
+      value: 
+      objectReference: {fileID: 6946133675485113259, guid: fa7675d0934c8ee4ea02ec6d42a44af4, type: 3}
     - target: {fileID: 4051598479090421858, guid: 35a62140321f4064da5d2693afb1944e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

@@ -30,6 +30,7 @@ public class PlayerStats : MonoBehaviour
 
     public levelManager levelManager;
     public PHUIManager pHUIManager;
+    public GameObject floatingText;
 
     [Header("Equipment Variables")]
     public static Weapon currentWeapon;
@@ -273,6 +274,11 @@ public class PlayerStats : MonoBehaviour
                 SoundManager.Instance.PlaySound(playerPain, transform);
 
             }
+
+            if (floatingText != null)
+            {
+                ShowFloatingText(damageDealt);
+            }
         }
     }
 
@@ -285,6 +291,12 @@ public class PlayerStats : MonoBehaviour
 
     }
 
-    
+    void ShowFloatingText(int damageTaken)
+    {
+        var ft = Instantiate(floatingText, transform.position, Quaternion.identity, transform);
+        ft.GetComponent<TextMesh>().text = damageTaken.ToString();
+    }
+
+
 }
     
