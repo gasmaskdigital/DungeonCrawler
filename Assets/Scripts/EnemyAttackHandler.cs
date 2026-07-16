@@ -22,6 +22,7 @@ public class EnemyAttackHandler : MonoBehaviour
 
     [Header("Ranged Prefabs")]
     [SerializeField] GameObject skeletonLightArrow;
+    [SerializeField] GameObject skeletonBomb;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -64,7 +65,7 @@ public class EnemyAttackHandler : MonoBehaviour
     public void AttackTypeCheck()
     {
         attackChance = UnityEngine.Random.Range(1, 5);
-        if(attackChance == 5)
+        if(attackChance >= 1)
         {
             attackType = AttackType.HeavyAttack;
             enemyAnimator.SetTrigger("HeavyAttack");
@@ -138,7 +139,23 @@ public class EnemyAttackHandler : MonoBehaviour
 
     public void SkeletonHeavyAttack()
     {
+        Vector3 spawnPoint = transform.position;
+        spawnPoint.y += 1.5f;
 
+        quaternion spawnRotation = transform.rotation;
+
+        GameObject bomb = Instantiate(skeletonBomb, spawnPoint, spawnRotation);
+        SkeletonBomb bombScript = bomb.GetComponent<SkeletonBomb>();
+        bombScript.owner = gameObject;
+
+        Debug.Log("Skeleton Throw Bomb");
+
+    }
+
+    public void SkeletonBombExplosion(PlayerStats playerstats)
+    {
+        int damageDealt = HeavyAttackDamage(enemystats.attack, PlayerStats.currentDefenceTotal, PlayerStats.enduranceStat);
+        playerstats.TakeDamage(damageDealt);
     }
 
     private int LightAttackDamage(int enemyAttack, int playerDefence, int playerEndurance)

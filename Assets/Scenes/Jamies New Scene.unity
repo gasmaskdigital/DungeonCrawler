@@ -1818,42 +1818,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 7266534710127501, guid: 35a62140321f4064da5d2693afb1944e, type: 3}
-      propertyPath: fireWall
-      value: 
-      objectReference: {fileID: 8300000, guid: 0e131c6d7b1a8e7448fcab0b06cfc06e, type: 3}
-    - target: {fileID: 7266534710127501, guid: 35a62140321f4064da5d2693afb1944e, type: 3}
-      propertyPath: swordClash
-      value: 
-      objectReference: {fileID: 8300000, guid: 64489b78323b0854a8fe04ca7be89d0e, type: 3}
-    - target: {fileID: 7266534710127501, guid: 35a62140321f4064da5d2693afb1944e, type: 3}
-      propertyPath: fireLightSpawn
-      value: 
-      objectReference: {fileID: 8300000, guid: c45755a279d7d1348b071772bef15635, type: 3}
-    - target: {fileID: 7266534710127501, guid: 35a62140321f4064da5d2693afb1944e, type: 3}
-      propertyPath: fireLightImpact
-      value: 
-      objectReference: {fileID: 8300000, guid: 286b5f7468610f94ca6414765ef2c24e, type: 3}
-    - target: {fileID: 7266534710127501, guid: 35a62140321f4064da5d2693afb1944e, type: 3}
-      propertyPath: heavyArrowSpawn
-      value: 
-      objectReference: {fileID: 8300000, guid: a9a1fae0835ed47499f63d47a13f371e, type: 3}
-    - target: {fileID: 7266534710127501, guid: 35a62140321f4064da5d2693afb1944e, type: 3}
-      propertyPath: lightArrowSpawn
-      value: 
-      objectReference: {fileID: 8300000, guid: 8f18022f7b122b34da1500edd0303fb6, type: 3}
-    - target: {fileID: 7266534710127501, guid: 35a62140321f4064da5d2693afb1944e, type: 3}
-      propertyPath: lightArrowImpact
-      value: 
-      objectReference: {fileID: 8300000, guid: 3732295017dd7e24e8ddafc5482a0a81, type: 3}
-    - target: {fileID: 667795102598984419, guid: 35a62140321f4064da5d2693afb1944e, type: 3}
-      propertyPath: m_ExcludeLayers.m_Bits
-      value: 1024
-      objectReference: {fileID: 0}
-    - target: {fileID: 1087447258442381983, guid: 35a62140321f4064da5d2693afb1944e, type: 3}
-      propertyPath: dodge
-      value: 
-      objectReference: {fileID: 8300000, guid: f0741f1844211734da3fdf9db8b699a6, type: 3}
     - target: {fileID: 1087447258442381983, guid: 35a62140321f4064da5d2693afb1944e, type: 3}
       propertyPath: mainCamera
       value: 
@@ -1862,34 +1826,14 @@ PrefabInstance:
       propertyPath: cameraTransform
       value: 
       objectReference: {fileID: 1773633959}
-    - target: {fileID: 1087447258442381983, guid: 35a62140321f4064da5d2693afb1944e, type: 3}
-      propertyPath: swordLightSwoosh
-      value: 
-      objectReference: {fileID: 8300000, guid: 24b95859240ed1f4d9682bde205ba54d, type: 3}
     - target: {fileID: 1389836861790355665, guid: 35a62140321f4064da5d2693afb1944e, type: 3}
       propertyPath: m_Name
       value: Player Object
       objectReference: {fileID: 0}
-    - target: {fileID: 3452931268795855906, guid: 35a62140321f4064da5d2693afb1944e, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3978373986141358953, guid: 35a62140321f4064da5d2693afb1944e, type: 3}
-      propertyPath: blood
-      value: 
-      objectReference: {fileID: 8300000, guid: c9e3ac85dea8f0243b97207e08b63378, type: 3}
-    - target: {fileID: 3978373986141358953, guid: 35a62140321f4064da5d2693afb1944e, type: 3}
-      propertyPath: playerPain
-      value: 
-      objectReference: {fileID: 8300000, guid: 6c8250edeb2c55140bb727055977ce51, type: 3}
     - target: {fileID: 3978373986141358953, guid: 35a62140321f4064da5d2693afb1944e, type: 3}
       propertyPath: pHUIManager
       value: 
       objectReference: {fileID: 340316306}
-    - target: {fileID: 3978373986141358953, guid: 35a62140321f4064da5d2693afb1944e, type: 3}
-      propertyPath: playerDeath
-      value: 
-      objectReference: {fileID: 8300000, guid: 7f75594a7df07424a818b71a573c0dc3, type: 3}
     - target: {fileID: 4051598479090421858, guid: 35a62140321f4064da5d2693afb1944e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1934,10 +1878,6 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1157042430}
-    - target: {fileID: 8847445810791897577, guid: 35a62140321f4064da5d2693afb1944e, type: 3}
-      propertyPath: footstep
-      value: 
-      objectReference: {fileID: 8300000, guid: 4c1257b98ac34dc4fa7185643d9a1ad4, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

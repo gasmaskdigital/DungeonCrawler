@@ -1606,6 +1606,7 @@ MonoBehaviour:
   vampLightSwoosh: {fileID: 8300000, guid: faefce326c3c4444f960ba5e166a2d8b, type: 3}
   vampHeavyImpact: {fileID: 8300000, guid: c2a9fb8a9f2d7824f8fc722cf685a0ae, type: 3}
   skeletonLightArrow: {fileID: 889499174634663218, guid: 27ebabb496742d848bcdba06ac6f3403, type: 3}
+  skeletonBomb: {fileID: 2566973206107512778, guid: 1a7bbf63218f0b8479ccf90b664427ae, type: 3}
 --- !u!195 &6399923869382906051
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1615,7 +1616,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 4378454936511400984}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 0.8
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
