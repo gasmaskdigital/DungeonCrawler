@@ -28,7 +28,7 @@ public class SkeletonArrow : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Arrow hit: " + other.name + " Tag: " + other.tag);
+        
 
         if (other.CompareTag("Player"))
         {

@@ -19,6 +19,8 @@ public class EnemyAttackHandler : MonoBehaviour
     [SerializeField] AudioClip vampLightImpact;
     [SerializeField] AudioClip vampLightSwoosh;
     [SerializeField] AudioClip vampHeavyImpact;
+    [SerializeField] AudioClip skeletonBowShoot;
+    [SerializeField] AudioClip skeletonThrow;
 
     [Header("Ranged Prefabs")]
     [SerializeField] GameObject skeletonLightArrow;
@@ -128,7 +130,7 @@ public class EnemyAttackHandler : MonoBehaviour
         SkeletonArrow arrowScript = arrow.GetComponent<SkeletonArrow>();
         arrowScript.owner = gameObject;
 
-        Debug.Log("Skeleton shoot arrow");
+        SoundManager.Instance.PlaySound(skeletonBowShoot, transform);
     }
 
     public void SkeletonLightImpact(PlayerStats playerStats)
@@ -148,7 +150,7 @@ public class EnemyAttackHandler : MonoBehaviour
         SkeletonBomb bombScript = bomb.GetComponent<SkeletonBomb>();
         bombScript.owner = gameObject;
 
-        Debug.Log("Skeleton Throw Bomb");
+        SoundManager.Instance.PlaySound(skeletonThrow, transform);
 
     }
 
