@@ -22,7 +22,7 @@ public class PlayerStats : MonoBehaviour
     public static int boostedEndurance;
     public static int boostedHealth;
 
-    public static int maxHealth = 20;
+    public static int maxHealth = 50;
     public static int currentHealth;
 
     public int earntXP;
