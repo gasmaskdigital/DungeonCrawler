@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 5963663617124240767}
   - component: {fileID: -2351585391434131331}
   - component: {fileID: -6345342642715383144}
+  - component: {fileID: 414809465545116534}
   m_Layer: 10
   m_Name: EnemyLightArrow
   m_TagString: Untagged
@@ -80,7 +81,7 @@ SphereCollider:
     m_Bits: 136
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
@@ -220,6 +221,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   owner: {fileID: 0}
+--- !u!54 &414809465545116534
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 889499174634663218}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &3466193586369312162
 GameObject:
   m_ObjectHideFlags: 0
