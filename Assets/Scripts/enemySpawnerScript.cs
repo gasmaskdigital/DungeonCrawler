@@ -4,8 +4,8 @@ using UnityEngine;
 public class enemySpawnerScript : MonoBehaviour
 {
 
-    [SerializeField] List<Enemy> enemies;
-    [SerializeField] EnemiesSO allEnemies;
+    [SerializeField] public List<Enemy> enemies;
+    [SerializeField] public EnemiesSO allEnemies;
 
     [SerializeField] float spawnRadius;
     [SerializeField] int minSpawnAmount;
@@ -22,8 +22,8 @@ public class enemySpawnerScript : MonoBehaviour
         if (currentLevel == 0) currentLevel++;
         minSpawnAmount = currentLevel;
         maxSpawnAmount = currentLevel * 2;
-        setSpawnAmount();
-        for (int i = 0; i < spawnAmount; i++) spawnEnemy();
+        //setSpawnAmount();
+        //for (int i = 0; i < spawnAmount; i++) spawnEnemy();
     }
 
     // Update is called once per frame
@@ -32,7 +32,7 @@ public class enemySpawnerScript : MonoBehaviour
         
     }
 
-    void spawnEnemy() 
+    public void spawnEnemy() 
     {
         Vector3 offset = Random.onUnitSphere;
         Vector3 spawnPos = gameObject.transform.position + (new Vector3(offset.x, Mathf.Abs(offset.y), offset.z).normalized * spawnRadius);

@@ -25,10 +25,10 @@ MonoBehaviour:
   - name: Helmet
     type: 1
     prefab: {fileID: 7933952920136172553, guid: 9a5da05df6a3a7e488f14c72be48a395, type: 3}
-  - name: Boots
+  - name: LowerBody
     type: 1
     prefab: {fileID: 7933952920136172553, guid: 97b7535578f72c048bb11721f9ff787c, type: 3}
-  - name: Chestplate
+  - name: UpperChest
     type: 1
     prefab: {fileID: 7933952920136172553, guid: cdb85e3d60db28f41a02242073541688, type: 3}
   - name: HealthPotion

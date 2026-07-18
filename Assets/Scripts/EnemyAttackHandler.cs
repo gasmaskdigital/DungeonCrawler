@@ -89,6 +89,7 @@ public class EnemyAttackHandler : MonoBehaviour
         Collider[] colliders = Physics.OverlapSphere(origin, lightAttackRadius, playerMask, QueryTriggerInteraction.Ignore);
         foreach(Collider c in colliders)
         {
+            Debug.Log(c.gameObject.name);
             if (c.CompareTag("Player"))
             {
                 PlayerStats playerStats = c.GetComponent<PlayerStats>();

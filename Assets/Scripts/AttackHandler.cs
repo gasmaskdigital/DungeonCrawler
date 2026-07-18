@@ -47,7 +47,7 @@ public class AttackHandler : MonoBehaviour
         {
             PlayerStats.currentWeapon.attackValue = 10;
             PlayerStats.currentLowerBody.armourDefence = 10;
-            PlayerStats.currentLowerBody.armourDefence = 10;
+            PlayerStats.currentUpperBody.armourDefence = 10;
             PlayerStats.currentHelmet.armourDefence = 10;
         }
     }

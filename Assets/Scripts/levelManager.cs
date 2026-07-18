@@ -3,8 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Unity.AI.Navigation;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Random = UnityEngine.Random;
 
 [Serializable]
 public struct levelTile 
@@ -125,6 +127,25 @@ public class levelManager: MonoBehaviour
         int chestCount = Mathf.FloorToInt(levelMap.tileCount * lootPercentage);
         for( int i = 0; i < enemySpawnerCount; i++) createEnemySpawner();
         for( int i = 0; i < chestCount; i++) createChest();
+
+        spawnEnemies(enemySpawnerCount);
+    }
+
+    void spawnEnemies(int enemySpawnerCount) 
+    {
+
+        GameObject[] enemySpawners = GameObject.FindGameObjectsWithTag("enemySpawner");
+        int numEnemies = Random.Range(currentLevel * 2, currentLevel * 4 + 1);
+        if (enemySpawners.Length > 0)
+        {
+            for (int i = 0; i < numEnemies; i++)
+            {
+                int index = Random.Range(0, enemySpawnerCount);
+                enemySpawnerScript spawner = enemySpawners[index].GetComponent<enemySpawnerScript>();
+                spawner.enemies = spawner.allEnemies.spawnableEnemies;
+                spawner.spawnEnemy();
+            }
+        }
     }
 
     public void spawnStaircase() 
