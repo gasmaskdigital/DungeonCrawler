@@ -246,6 +246,8 @@ MonoBehaviour:
   curHelm: 
   curUB: 
   curLB: 
+  swordLightSwoosh: {fileID: 8300000, guid: 24b95859240ed1f4d9682bde205ba54d, type: 3}
+  dodge: {fileID: 8300000, guid: f0741f1844211734da3fdf9db8b699a6, type: 3}
 --- !u!114 &3978373986141358953
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -272,6 +274,9 @@ MonoBehaviour:
     statBoostValue: 5
     statBoost: 2
     weaponType: 2
+  blood: {fileID: 8300000, guid: c9e3ac85dea8f0243b97207e08b63378, type: 3}
+  playerPain: {fileID: 8300000, guid: 6c8250edeb2c55140bb727055977ce51, type: 3}
+  playerDeath: {fileID: 8300000, guid: 7f75594a7df07424a818b71a573c0dc3, type: 3}
 --- !u!114 &7266534710127501
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -292,6 +297,13 @@ MonoBehaviour:
   heavyArrow: {fileID: 889499174634663218, guid: 623b8ba83df15c4429096730e705d8aa, type: 3}
   lightFire: {fileID: 7377512060851607530, guid: e0ac51fe5e4dbbd418bdee78ddcbd69d, type: 3}
   heavyFire: {fileID: 8275476850476054161, guid: bc9ca3a359914354ab79df9235c9e6e7, type: 3}
+  swordClash: {fileID: 8300000, guid: 64489b78323b0854a8fe04ca7be89d0e, type: 3}
+  heavyArrowSpawn: {fileID: 8300000, guid: a9a1fae0835ed47499f63d47a13f371e, type: 3}
+  lightArrowSpawn: {fileID: 8300000, guid: 8f18022f7b122b34da1500edd0303fb6, type: 3}
+  lightArrowImpact: {fileID: 8300000, guid: 3732295017dd7e24e8ddafc5482a0a81, type: 3}
+  fireLightSpawn: {fileID: 8300000, guid: c45755a279d7d1348b071772bef15635, type: 3}
+  fireLightImpact: {fileID: 8300000, guid: 286b5f7468610f94ca6414765ef2c24e, type: 3}
+  fireWall: {fileID: 8300000, guid: 0e131c6d7b1a8e7448fcab0b06cfc06e, type: 3}
 --- !u!135 &667795102598984419
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -305,7 +317,7 @@ SphereCollider:
     m_Bits: 192
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1024
   m_LayerOverridePriority: 10
   m_IsTrigger: 1
   m_ProvidesContacts: 0
@@ -749,6 +761,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbc3903cd3005f5459333bc09d85a5d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AnimationRelay
+  footstep: {fileID: 8300000, guid: 4c1257b98ac34dc4fa7185643d9a1ad4, type: 3}
 --- !u!4 &6691538336515888544 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1852576806548013000, guid: 5bb0161bdb07f424099862b8623cc7a9, type: 3}
@@ -768,7 +781,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8133399767090564659, guid: fa7576413fbf339459d948aa3d3ebbe5, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8904869160435963017, guid: fa7576413fbf339459d948aa3d3ebbe5, type: 3}
       propertyPath: m_LocalPosition.x

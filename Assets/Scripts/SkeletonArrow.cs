@@ -8,6 +8,7 @@ public class SkeletonArrow : MonoBehaviour
     private float speed = 15f;
     public GameObject owner;
     private EnemyAttackHandler ownerAttackHandler;
+    
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -27,7 +28,7 @@ public class SkeletonArrow : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Arrow hit: " + other.name + " Tag: " + other.tag);
+        
 
         if (other.CompareTag("Player"))
         {

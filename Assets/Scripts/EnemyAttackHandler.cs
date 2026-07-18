@@ -19,9 +19,12 @@ public class EnemyAttackHandler : MonoBehaviour
     [SerializeField] AudioClip vampLightImpact;
     [SerializeField] AudioClip vampLightSwoosh;
     [SerializeField] AudioClip vampHeavyImpact;
+    [SerializeField] AudioClip skeletonBowShoot;
+    [SerializeField] AudioClip skeletonThrow;
 
     [Header("Ranged Prefabs")]
     [SerializeField] GameObject skeletonLightArrow;
+    [SerializeField] GameObject skeletonBomb;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -64,7 +67,7 @@ public class EnemyAttackHandler : MonoBehaviour
     public void AttackTypeCheck()
     {
         attackChance = UnityEngine.Random.Range(1, 5);
-        if(attackChance == 5)
+        if(attackChance >= 4 )
         {
             attackType = AttackType.HeavyAttack;
             enemyAnimator.SetTrigger("HeavyAttack");
@@ -127,7 +130,7 @@ public class EnemyAttackHandler : MonoBehaviour
         SkeletonArrow arrowScript = arrow.GetComponent<SkeletonArrow>();
         arrowScript.owner = gameObject;
 
-        Debug.Log("Skeleton shoot arrow");
+        SoundManager.Instance.PlaySound(skeletonBowShoot, transform);
     }
 
     public void SkeletonLightImpact(PlayerStats playerStats)
@@ -138,7 +141,23 @@ public class EnemyAttackHandler : MonoBehaviour
 
     public void SkeletonHeavyAttack()
     {
+        Vector3 spawnPoint = transform.position;
+        spawnPoint.y += 1.5f;
 
+        quaternion spawnRotation = transform.rotation;
+
+        GameObject bomb = Instantiate(skeletonBomb, spawnPoint, spawnRotation);
+        SkeletonBomb bombScript = bomb.GetComponent<SkeletonBomb>();
+        bombScript.owner = gameObject;
+
+        SoundManager.Instance.PlaySound(skeletonThrow, transform);
+
+    }
+
+    public void SkeletonBombExplosion(PlayerStats playerstats)
+    {
+        int damageDealt = HeavyAttackDamage(enemystats.attack, PlayerStats.currentDefenceTotal, PlayerStats.enduranceStat);
+        playerstats.TakeDamage(damageDealt);
     }
 
     private int LightAttackDamage(int enemyAttack, int playerDefence, int playerEndurance)
