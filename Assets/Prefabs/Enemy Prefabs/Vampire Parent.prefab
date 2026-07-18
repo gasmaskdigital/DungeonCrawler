@@ -1824,8 +1824,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cb1629d19d21644d9b86f1f9271aa98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyStats
-  attack: 4
-  maxHealth: 10
+  attack: 6
+  maxHealth: 18
   currentHealth: 0
   defence: 6
   xpReward: 6
@@ -1953,6 +1953,10 @@ MonoBehaviour:
   vampLightImpact: {fileID: 8300000, guid: 374b053d8aa0578469814307824a3eeb, type: 3}
   vampLightSwoosh: {fileID: 8300000, guid: faefce326c3c4444f960ba5e166a2d8b, type: 3}
   vampHeavyImpact: {fileID: 8300000, guid: c2a9fb8a9f2d7824f8fc722cf685a0ae, type: 3}
+  skeletonBowShoot: {fileID: 0}
+  skeletonThrow: {fileID: 0}
+  skeletonLightArrow: {fileID: 0}
+  skeletonBomb: {fileID: 0}
 --- !u!1 &4352049103327572733
 GameObject:
   m_ObjectHideFlags: 0

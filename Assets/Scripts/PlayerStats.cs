@@ -67,7 +67,7 @@ public class PlayerStats : MonoBehaviour
         boostedMagic = 0;
         boostedEndurance = 0;
         boostedHealth = 0;
-        maxHealth = 20;
+        maxHealth = 50;
 
         currentWeapon = new Weapon();
         currentHelmet = new Armour();
