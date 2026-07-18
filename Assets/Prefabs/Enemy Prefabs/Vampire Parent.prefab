@@ -1827,7 +1827,7 @@ MonoBehaviour:
   attack: 6
   maxHealth: 18
   currentHealth: 0
-  defence: 6
+  defence: 4
   xpReward: 6
   moveSpeed: 6
   attackRange: 0
