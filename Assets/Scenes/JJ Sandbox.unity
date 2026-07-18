@@ -1920,6 +1920,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 667795102598984419, guid: 35a62140321f4064da5d2693afb1944e, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 1024
+      objectReference: {fileID: 0}
+    - target: {fileID: 667795102598984419, guid: 35a62140321f4064da5d2693afb1944e, type: 3}
       propertyPath: m_IncludeLayers.m_Bits
       value: 192
       objectReference: {fileID: 0}
