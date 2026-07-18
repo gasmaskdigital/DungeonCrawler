@@ -125,7 +125,8 @@ public class PlayerStats : MonoBehaviour
     public void LevelUp()
     {
         playerLevel++;
-
+        maxHealth += 4;
+        currentHealth += 4;
         GameObject.FindGameObjectWithTag("GameController").GetComponent<gameManager>().updatePlayerLevel();
 
         pHUIManager.EnableLevelUpScreen();

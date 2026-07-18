@@ -162,26 +162,22 @@ public class EnemyAttackHandler : MonoBehaviour
 
     private int LightAttackDamage(int enemyAttack, int playerDefence, int playerEndurance)
     {
-        enemyAttack = enemyAttack * enemyAttack;
-        int playervalues = playerDefence + playerEndurance;
-        playervalues = playervalues * playervalues;
-        float damageFloat;
-        damageFloat = (enemyAttack / playervalues) * 1.2f;
-       int damageDealt = (int)damageFloat;
-            return damageDealt;
+        int enemyValues = enemyAttack * 100;
+        int playerValues = 100 + playerDefence + playerEndurance;
+        int preDamageValue = enemyValues / playerValues;
+        int damageDealt = damageDealt = Mathf.CeilToInt(preDamageValue * 1.2f);
+        return damageDealt;
+                
     }
 
-    private int HeavyAttackDamage(int enemyAttack, int PlayerDefence, int PlayerEndurance)
+    private int HeavyAttackDamage(int enemyAttack, int playerDefence, int playerEndurance)
     {
-        enemyAttack = enemyAttack * enemyAttack;
-        int playerValues = PlayerDefence + PlayerEndurance;
-        playerValues = playerValues * playerValues;
-        float damageFloat = (enemyAttack / playerValues) * 1.5f;
-        int damageDealt = (int)damageFloat;
-
-        
-
+        int enemyValues = enemyAttack * 100;
+        int playerValues = 100 + playerDefence + playerEndurance;
+        int preDamageValue = enemyValues / playerValues;
+        int damageDealt = damageDealt = Mathf.CeilToInt(preDamageValue * 1.5f);
         return damageDealt;
+        
     }
    
 }
