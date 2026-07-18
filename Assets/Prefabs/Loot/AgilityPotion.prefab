@@ -66,7 +66,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: fad63b2b6567822418305cdeb737d1a8, type: 2}
+  - {fileID: 2100000, guid: c79855c6f54ed954293d041acc3120a8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -99,7 +99,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -4978104183705362587, guid: 4528d740d646b43438166107f7f960c8, type: 3}
       propertyPath: lootName
-      value: HealthPotion
+      value: AgilityPotion
       objectReference: {fileID: 0}
     - target: {fileID: -4978104183705362587, guid: 4528d740d646b43438166107f7f960c8, type: 3}
       propertyPath: lootType
@@ -107,23 +107,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -4978104183705362587, guid: 4528d740d646b43438166107f7f960c8, type: 3}
       propertyPath: effect.name
-      value: Health
+      value: Agility
       objectReference: {fileID: 0}
     - target: {fileID: -4978104183705362587, guid: 4528d740d646b43438166107f7f960c8, type: 3}
       propertyPath: effect.duration
-      value: 0
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: -4978104183705362587, guid: 4528d740d646b43438166107f7f960c8, type: 3}
       propertyPath: effect.intensity
-      value: 10
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -4978104183705362587, guid: 4528d740d646b43438166107f7f960c8, type: 3}
       propertyPath: effect.timeRemaining
-      value: 0
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 2459961511337339887, guid: 4528d740d646b43438166107f7f960c8, type: 3}
       propertyPath: m_Name
-      value: HealthPotion
+      value: AgilityPotion
       objectReference: {fileID: 0}
     - target: {fileID: 3665737166867679176, guid: 4528d740d646b43438166107f7f960c8, type: 3}
       propertyPath: m_MeshLodSelectionBias

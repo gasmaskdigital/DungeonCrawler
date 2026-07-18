@@ -45,6 +45,11 @@ public class lootScript : MonoBehaviour
                 armour = new Armour(lootName, statValue, statBoostValue, armourSlot, statBoost);
             }
         }
+        else if (lootType == lootType.Potion) 
+        {
+            effect.intensity = Mathf.CeilToInt(levelManager.currentLevel / 4f);
+            if (effect.duration <= 0) effect.intensity *= 10;
+        }
     }
 
 
@@ -140,7 +145,23 @@ public class lootScript : MonoBehaviour
 
     private void pickupPotion() 
     {
-        if (effect.duration > 0) playerStats.gameObject.GetComponent<EffectHandler>().addEffect(effect);
+        if (effect.duration > 0)
+        {
+            EffectHandler playerEffectHandler = playerStats.gameObject.GetComponent<EffectHandler>();
+            bool hasEffect = false;
+            StatusEffect _ = new();
+            
+            foreach (StatusEffect e in playerEffectHandler.activeEffects) 
+            {
+                if (e.name == effect.name) { 
+                    hasEffect = true;
+                    _ = e;
+                    break; }
+            }
+            if (hasEffect) _ = effect;
+            else playerStats.gameObject.GetComponent<EffectHandler>().addEffect(effect);
+        }
+
         else instantPotionEffect();
     }
 

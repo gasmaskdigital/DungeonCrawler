@@ -31,10 +31,12 @@ public struct StatusEffect
 public class EffectHandler : MonoBehaviour
 {
     [SerializeField] public List<StatusEffect> activeEffects;
+    private static List<StatusEffect> playerEffects;
 
     private void Start()
     {
-        activeEffects = new();
+        if (gameObject.CompareTag("Player") && playerEffects != null) activeEffects = playerEffects;
+        else activeEffects = new();
     }
     private void Update()
     {
@@ -67,5 +69,10 @@ public class EffectHandler : MonoBehaviour
     {
         target.Clear();
         foreach (var item in source) target.Add(item);
+    }
+
+    private void OnDestroy()
+    {
+        if(gameObject.CompareTag("Player")) playerEffects = activeEffects;
     }
 }

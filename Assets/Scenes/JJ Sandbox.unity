@@ -1880,6 +1880,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: 0e131c6d7b1a8e7448fcab0b06cfc06e, type: 3}
     - target: {fileID: 7266534710127501, guid: 35a62140321f4064da5d2693afb1944e, type: 3}
+      propertyPath: allEffects
+      value: 
+      objectReference: {fileID: 11400000, guid: 70adb8433d23eea40abc075454bb212a, type: 2}
+    - target: {fileID: 7266534710127501, guid: 35a62140321f4064da5d2693afb1944e, type: 3}
       propertyPath: heavyArrow
       value: 
       objectReference: {fileID: 889499174634663218, guid: 623b8ba83df15c4429096730e705d8aa, type: 3}

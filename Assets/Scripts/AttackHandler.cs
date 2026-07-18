@@ -92,9 +92,6 @@ public class AttackHandler : MonoBehaviour
 
     public void TwoHandedSwordLightAttack()
     {
-       
-            
-
             Vector3 origin = transform.position + Vector3.up * 1f + transform.forward * 0.75f;
 
             Collider[] colliders = Physics.OverlapSphere(origin, tHSLightAttckRadius, enemyMask);
@@ -112,14 +109,9 @@ public class AttackHandler : MonoBehaviour
                 {
                     int damageDealt = LightAttackDamage(PlayerStats.currentWeapon.attackValue, PlayerStats.boostedStrength, cEnemyStats.defence);
 
-                    if (effectHandler != null) 
-                    {
-                        StatusEffect temp = new();
-                        if (effectHandler.activeEffects.Contains(temp)) ;
-                    }
+                    damageDealt = CheckForEffect(damageDealt, "Strength");
 
                     cEnemyStats.TakeDamage(damageDealt);
-
                     
                     cAINav.GetKnockBack(knockbackForce, transform.position);
 
@@ -149,11 +141,11 @@ public class AttackHandler : MonoBehaviour
                 {
                     int damageDealt = HeavyAttackDamage(PlayerStats.currentWeapon.attackValue, PlayerStats.boostedStrength, cEnemyStats.defence);
 
+                    damageDealt = CheckForEffect(damageDealt, "Strength");
+
                     cEnemyStats.TakeDamage(damageDealt);
 
-
                     cAINav.GetKnockBack(knockbackForce, transform.position);
-
                     
                     SoundManager.Instance.PlaySound(swordClash, transform);
                 }
@@ -164,6 +156,20 @@ public class AttackHandler : MonoBehaviour
                 
                 }
             }        
+    }
+
+    private int CheckForEffect(int damageDealt, string effect) 
+    {
+        foreach (StatusEffect e in effectHandler.activeEffects)
+        {
+            if (e.name == effect)
+            {
+                damageDealt = Mathf.CeilToInt(damageDealt * (1 + 0.25f * e.intensity));
+                break;
+            }
+        }
+
+        return damageDealt;
     }
 
     private void SpawnLightArrow()
@@ -186,6 +192,7 @@ public class AttackHandler : MonoBehaviour
         if (cAiNav.alive && cAiNav.canBeDamaged)
         {
             int damageDealt = LightAttackDamage(PlayerStats.currentWeapon.attackValue, PlayerStats.boostedDexterity, enemystats.defence);
+            damageDealt = CheckForEffect(damageDealt, "Agility");
             enemystats.TakeDamage(damageDealt);
 
             cAiNav.GetKnockBack(knockbackForce, transform.position);
@@ -212,6 +219,7 @@ public class AttackHandler : MonoBehaviour
         if (cAINav.alive && cAINav.canBeDamaged)
         {
             int damageDealt = HeavyAttackDamage(PlayerStats.currentWeapon.attackValue, PlayerStats.boostedDexterity, enemyStats.defence);
+            damageDealt = CheckForEffect(damageDealt, "Agility");
             enemyStats.TakeDamage(damageDealt);
             cAINav.GetKnockBack(knockbackForce, transform.position);
         }
@@ -245,6 +253,7 @@ public class AttackHandler : MonoBehaviour
         if (cAINav.alive && cAINav.canBeDamaged)
         {
             int damageDealt = HeavyAttackDamage(PlayerStats.currentWeapon.attackValue, PlayerStats.boostedDexterity, enemyStats.defence);
+            damageDealt = CheckForEffect(damageDealt, "Mana");
             enemyStats.TakeDamage(damageDealt);
             cAINav.GetKnockBack(knockbackForce, transform.position);
         }
@@ -256,8 +265,7 @@ public class AttackHandler : MonoBehaviour
         if (cAINav.alive && cAINav.canBeDamaged)
         {
             int damageDealt = LightAttackDamage(PlayerStats.currentWeapon.attackValue, PlayerStats.boostedMagic, enemyStats.defence);
-
-
+            damageDealt = CheckForEffect(damageDealt, "Mana");
             enemyStats.TakeDamage(damageDealt);
             cAINav.GetKnockBack(knockbackForce, transform.position);
             SoundManager.Instance.PlaySound(fireLightImpact, transform);
