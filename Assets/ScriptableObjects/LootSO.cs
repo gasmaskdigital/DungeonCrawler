@@ -7,7 +7,7 @@ using UnityEngine;
 public struct Loot 
 {
     public string name;
-    public lootType type;
+    public LootType type;
     public GameObject prefab;
 }
 

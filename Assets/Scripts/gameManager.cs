@@ -4,10 +4,13 @@ using UnityEngine.SceneManagement;
 
 public class gameManager : MonoBehaviour
 {
+    public static int playerMoney;
+
     [SerializeField] GameObject inGameUI;
     [SerializeField] GameObject pnlGameOver;
     [SerializeField] TextMeshProUGUI txtFloor;
     [SerializeField] TextMeshProUGUI txtLevel;
+    [SerializeField] TextMeshProUGUI txtMoney;
     [SerializeField] TextMeshProUGUI txtHealth;
     [SerializeField] TextMeshProUGUI txtEquipment;
     [SerializeField] TextMeshProUGUI txtStats;
@@ -27,6 +30,7 @@ public class gameManager : MonoBehaviour
     void Update()
     {
         txtHealth.text = "Health: " + PlayerStats.currentHealth;
+        txtMoney.text = "Money: " + playerMoney;
         updateStatDisplay();
     }
 

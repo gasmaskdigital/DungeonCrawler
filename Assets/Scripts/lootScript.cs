@@ -1,13 +1,14 @@
 using System;
 using UnityEngine;
+using UnityEngine.InputSystem.Android.LowLevel;
 
 [Serializable]
-public enum lootType { Weapon, Armour, Potion} // Weapon = 0, Armour = 1, Potion = 2 
+public enum LootType { Weapon, Armour, Potion, Money} // Weapon = 0, Armour = 1, Potion = 2, Money = 3
 
 public class lootScript : MonoBehaviour
 {
     [Header("Loot Parameters")]
-    [SerializeField] public lootType lootType;
+    [SerializeField] public LootType lootType;
     [SerializeField] public Armour armour;
     [SerializeField] public Weapon weapon;
     [SerializeField] public StatusEffect effect;
@@ -30,7 +31,7 @@ public class lootScript : MonoBehaviour
     {
         playerStats = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
 
-        if (isNewLoot && lootType != lootType.Potion)
+        if (isNewLoot && lootType != LootType.Potion)
         {
             int averageValue = 10 + levelManager.currentLevel * 2;
             int averageBoost = levelManager.currentLevel * 2;
@@ -38,20 +39,31 @@ public class lootScript : MonoBehaviour
             statValue = UnityEngine.Random.Range(averageValue - levelManager.currentLevel, averageValue + levelManager.currentLevel + 1);
             statBoostValue = UnityEngine.Random.Range(averageBoost - levelManager.currentLevel, averageBoost + levelManager.currentLevel + 1);
 
-            if (lootType == lootType.Weapon) weapon = new Weapon(lootName, statValue, statBoostValue, statBoost, weaponType);
-            if (lootType == lootType.Armour)
+            if (lootType == LootType.Weapon) weapon = new Weapon(lootName, statValue, statBoostValue, statBoost, weaponType);
+            if (lootType == LootType.Armour)
             {
                 statBoost = (StatBoostType)UnityEngine.Random.Range(0, 5);
                 armour = new Armour(lootName, statValue, statBoostValue, armourSlot, statBoost);
             }
         }
-        else if (lootType == lootType.Potion) 
+        else
         {
-            effect.intensity = Mathf.CeilToInt(levelManager.currentLevel / 4f);
-            if (effect.duration <= 0) effect.intensity *= 10;
+            switch (lootType)
+            {
+                case (LootType.Potion):
+                    {
+                        effect.intensity = Mathf.CeilToInt(levelManager.currentLevel / 4f);
+                        if (effect.duration <= 0) effect.intensity *= 10;
+                        break;
+                    }
+                case (LootType.Money):
+                    {
+                        statValue = UnityEngine.Random.Range(levelManager.currentLevel * 5, levelManager.currentLevel * 10);
+                        break;
+                    }
+            }
         }
     }
-
 
     // Update is called once per frame
     void Update()
@@ -64,14 +76,17 @@ public class lootScript : MonoBehaviour
             {
                 switch (lootType)
                 {
-                    case (lootType.Weapon):
+                    case (LootType.Weapon):
                         pickupWeapon();
                         break;
-                    case (lootType.Armour):
+                    case (LootType.Armour):
                         pickupArmour();
                         break;
-                    case (lootType.Potion):
+                    case (LootType.Potion):
                         pickupPotion();
+                        break;
+                    case (LootType.Money):
+                        gameManager.playerMoney += statValue;
                         break;
                 }
 
