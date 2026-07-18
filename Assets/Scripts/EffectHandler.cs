@@ -30,7 +30,7 @@ public struct StatusEffect
 
 public class EffectHandler : MonoBehaviour
 {
-    [SerializeField] List<StatusEffect> activeEffects;
+    [SerializeField] public List<StatusEffect> activeEffects;
 
     private void Start()
     {

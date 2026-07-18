@@ -403,14 +403,7 @@ public class PlayerHandler : MonoBehaviour
 
     public void CanAttackToggle()
     {
-        if (canAttack)
-        {
-            canAttack = false;
-        }
-        else
-        {
-            canAttack = true;
-        }
+        canAttack = !canAttack;
     }
 
     public void DamagedReactOff()

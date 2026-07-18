@@ -8,6 +8,7 @@ public class AttackHandler : MonoBehaviour
     private PlayerStats playerStats;
     private PlayerHandler playerHandler;
     private EnemyStats enemyStats;
+    private EffectHandler effectHandler;
     
 
     [Header("Player Related")]
@@ -33,6 +34,8 @@ public class AttackHandler : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        if(GetComponent<EffectHandler>() != null) effectHandler = GetComponent<EffectHandler>();
+
         if (gameObject.CompareTag("Player"))
         {
             playerStats = GetComponent<PlayerStats>();
@@ -108,6 +111,12 @@ public class AttackHandler : MonoBehaviour
                 if (cAINav.alive && cAINav.canBeDamaged)
                 {
                     int damageDealt = LightAttackDamage(PlayerStats.currentWeapon.attackValue, PlayerStats.boostedStrength, cEnemyStats.defence);
+
+                    if (effectHandler != null) 
+                    {
+                        StatusEffect temp = new();
+                        if (effectHandler.activeEffects.Contains(temp)) ;
+                    }
 
                     cEnemyStats.TakeDamage(damageDealt);
 
