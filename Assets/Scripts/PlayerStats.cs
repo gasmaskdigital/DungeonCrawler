@@ -104,7 +104,11 @@ public class PlayerStats : MonoBehaviour
         {
             currentHealth = maxHealth;
         }
-       
+
+        Debug.Log("Weapon attack"+ currentWeapon.attackValue);
+        Debug.Log("helmet defence" + currentHelmet.armourDefence);
+        Debug.Log("torso defence" + currentUpperBody.armourDefence);
+        Debug.Log("legs defence" + currentLowerBody.armourDefence);
 
     }
 

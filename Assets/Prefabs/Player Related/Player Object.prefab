@@ -164,8 +164,9 @@ GameObject:
   - component: {fileID: 1087447258442381983}
   - component: {fileID: 3978373986141358953}
   - component: {fileID: 7266534710127501}
+  - component: {fileID: 4858594754745125893}
   - component: {fileID: 667795102598984419}
-  - component: {fileID: 3455253007999131983}
+  - component: {fileID: 4670394438689040475}
   m_Layer: 3
   m_Name: Player Object
   m_TagString: Player
@@ -264,6 +265,7 @@ MonoBehaviour:
   earntXP: 0
   levelManager: {fileID: 0}
   pHUIManager: {fileID: 0}
+  floatingText: {fileID: 6946133675485113259, guid: fa7675d0934c8ee4ea02ec6d42a44af4, type: 3}
   weaponSockets:
   - {fileID: 3000925795785026622}
   - {fileID: 4697432283961893515}
@@ -304,6 +306,19 @@ MonoBehaviour:
   fireLightSpawn: {fileID: 8300000, guid: c45755a279d7d1348b071772bef15635, type: 3}
   fireLightImpact: {fileID: 8300000, guid: 286b5f7468610f94ca6414765ef2c24e, type: 3}
   fireWall: {fileID: 8300000, guid: 0e131c6d7b1a8e7448fcab0b06cfc06e, type: 3}
+--- !u!114 &4858594754745125893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1389836861790355665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b8136082c47b884f95b697eecb0ef3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EffectHandler
+  activeEffects: []
 --- !u!135 &667795102598984419
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -325,7 +340,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 10
   m_Center: {x: 0, y: 1, z: 0}
---- !u!54 &3455253007999131983
+--- !u!54 &4670394438689040475
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
