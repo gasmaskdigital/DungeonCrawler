@@ -275,41 +275,20 @@ public class AttackHandler : MonoBehaviour
     public int LightAttackDamage(int weaponAttack, int relevantStat, int enemyDefence)
     {
         int playerValues = weaponAttack + relevantStat;
-        playerValues = playerValues * playerValues;
+        int preDamageValues = playerValues - enemyDefence;
+        int damageDealt = Mathf.CeilToInt(preDamageValues * 1.2f);
 
-        enemyDefence = enemyDefence * enemyDefence;
-
-        int preDamageValue = playerValues / enemyDefence;
-
-        float floatDamageValue = preDamageValue * 1.2f;
-        int playerDamage = (int)floatDamageValue;
-
-        if(playerDamage <= 0)
-        {
-            playerDamage += 1;
-        }
-
-        return playerDamage;
+        return damageDealt;
+        
     }
 
     public int HeavyAttackDamage(int weaponAttack, int relevantStat, int enemyDefence)
     {
         int playerValues = weaponAttack + relevantStat;
-        playerValues = playerValues * playerValues;
+        int preDamageValues = playerValues - enemyDefence;
+        int damageDealt = Mathf.CeilToInt(preDamageValues * 1.5f);
 
-        enemyDefence = enemyDefence * enemyDefence;
-
-        int preDamageValue = playerValues / enemyDefence;
-
-        float floatDamageValue = preDamageValue * 1.5f;
-        int playerDamage = (int)floatDamageValue;
-
-        if (playerDamage <= 0)
-        {
-            playerDamage += 2;
-        }
-
-        return playerDamage;
+        return damageDealt;
     }
 
    

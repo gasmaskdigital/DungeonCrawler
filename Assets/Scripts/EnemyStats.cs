@@ -52,9 +52,9 @@ public class EnemyStats : MonoBehaviour
 
     void StatScaling()
     {
-        maxHealth = levelManager.currentLevel * maxHealth;
-        attack = levelManager.currentLevel * attack;
-        defence = levelManager.currentLevel * defence;
+        maxHealth += (levelManager.currentLevel * 5);
+        attack += (levelManager.currentLevel * 2);
+        defence += (levelManager.currentLevel * 2);
     }
 
     public void TakeDamage(int damageTaken)

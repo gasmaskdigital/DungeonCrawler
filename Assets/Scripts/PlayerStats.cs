@@ -22,7 +22,7 @@ public class PlayerStats : MonoBehaviour
     public static int boostedEndurance;
     public static int boostedHealth;
 
-    public static int maxHealth = 20;
+    public static int maxHealth = 50;
     public static int currentHealth;
 
     public int earntXP;
@@ -125,7 +125,8 @@ public class PlayerStats : MonoBehaviour
     public void LevelUp()
     {
         playerLevel++;
-
+        maxHealth += 4;
+        currentHealth += 4;
         GameObject.FindGameObjectWithTag("GameController").GetComponent<gameManager>().updatePlayerLevel();
 
         pHUIManager.EnableLevelUpScreen();
