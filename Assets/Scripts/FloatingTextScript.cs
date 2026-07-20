@@ -5,10 +5,13 @@ public class FloatingTextScript : MonoBehaviour
     public float destroyTime = 3f;
     public Vector3 offSet = new Vector3(0, 2, 0);
     public Vector3 randomisedIntensity = new Vector3(0.5f, 0, 0);
+    
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        
+
         Destroy(gameObject, destroyTime);
 
         transform.localPosition += offSet;

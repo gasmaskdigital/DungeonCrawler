@@ -137,7 +137,7 @@ public class PlayerStats : MonoBehaviour
 
         currentXP -= requiredXP;
 
-        requiredXP = requiredXP + (playerLevel * 24);
+        requiredXP = playerLevel * 24;
 
     }
 
@@ -300,6 +300,7 @@ public class PlayerStats : MonoBehaviour
     {
         var ft = Instantiate(floatingText, transform.position, Quaternion.identity, transform);
         ft.GetComponent<TextMesh>().text = damageTaken.ToString();
+        ft.GetComponent<TextMesh>().color = Color.red;
     }
 
 

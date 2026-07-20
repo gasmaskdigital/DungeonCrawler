@@ -68,7 +68,7 @@ public class EnemyAttackHandler : MonoBehaviour
 
     public void AttackTypeCheck()
     {
-        attackChance = UnityEngine.Random.Range(1, 5);
+        attackChance = UnityEngine.Random.Range(1, 6);
         if(attackChance >= 4 )
         {
             attackType = AttackType.HeavyAttack;

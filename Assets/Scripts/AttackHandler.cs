@@ -115,6 +115,7 @@ public class AttackHandler : MonoBehaviour
                     if (CheckForCrit())
                     {
                         damageDealt *= 2;
+                        enemyStats.wasCrit = true;
                     }
 
                     cEnemyStats.TakeDamage(damageDealt);
@@ -151,6 +152,7 @@ public class AttackHandler : MonoBehaviour
                     if (CheckForCrit())
                     {
                         damageDealt *= 2;
+                        enemyStats.wasCrit = true;
                     }
                     cEnemyStats.TakeDamage(damageDealt);
 
@@ -205,6 +207,7 @@ public class AttackHandler : MonoBehaviour
             if (CheckForCrit())
             {
                 damageDealt *= 2;
+                enemystats.wasCrit = true;
             }
             enemystats.TakeDamage(damageDealt);
 
@@ -236,6 +239,7 @@ public class AttackHandler : MonoBehaviour
             if (CheckForCrit())
             {
                 damageDealt *= 2;
+                enemyStats.wasCrit = true;
             }
             enemyStats.TakeDamage(damageDealt);
             cAINav.GetKnockBack(knockbackForce, transform.position);
@@ -274,6 +278,7 @@ public class AttackHandler : MonoBehaviour
             if (CheckForCrit())
             {
                 damageDealt *= 2;
+                enemyStats.wasCrit = true;
             }
             enemyStats.TakeDamage(damageDealt);
             cAINav.GetKnockBack(knockbackForce, transform.position);
@@ -290,6 +295,7 @@ public class AttackHandler : MonoBehaviour
             if (CheckForCrit()) 
             {
                 damageDealt *= 2;
+                enemyStats.wasCrit = true;
             }
             enemyStats.TakeDamage(damageDealt);
             cAINav.GetKnockBack(knockbackForce, transform.position);
