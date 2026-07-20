@@ -174,7 +174,7 @@ public class AINavigation : MonoBehaviour, IKnockbackable
 
         yield return new WaitForFixedUpdate();
         yield return new WaitUntil(() => rb.linearVelocity.magnitude < 0.05f);
-        yield return new WaitForSeconds(1.25f);
+        yield return new WaitForSeconds(0.95f);
 
        // rb.linearVelocity = Vector3.zero;
       //  rb.angularVelocity = Vector3.zero;

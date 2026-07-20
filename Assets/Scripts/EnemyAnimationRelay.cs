@@ -20,28 +20,28 @@ public class EnemyAnimationRelay : MonoBehaviour
         enemyAttackHandler.CheckEnemyAttack();
     }
 
-    
+
 
     public void CanMoveOff()
     {
 
         aiNavigation.CanMoveOff();
-        
+
     }
 
     public void CanMoveOn()
     {
         aiNavigation.CanMoveOn();
-        
+
     }
 
-    
+
 
     public void Death()
     {
         enemyStats.EnemyDeath();
     }
-    
+
     public void SkeletonLightAttack()
     {
         enemyAttackHandler.SkeletonLightAttack();
@@ -51,5 +51,18 @@ public class EnemyAnimationRelay : MonoBehaviour
     {
         enemyAttackHandler.SkeletonHeavyAttack();
     }
+
+    public void TrollLightAttack()
+    {
+        Debug.Log("Troll Light Attack");
+        enemyAttackHandler.TrollLightAttack();
+    }
+
+    public void TrollHeavyAttack()
+    {
+        Debug.Log("Troll HeavyAttack");
+        enemyAttackHandler.TrollHeavyAttack();
+    }
+
 
 }

@@ -12,6 +12,7 @@ public class EnemyStats : MonoBehaviour
     public string enemyName;
     public float enemyAttackRadius;
     public bool canBeDamaged = true;
+    public bool wasCrit = false;
 
     private GameObject player;
     private PlayerStats playerStats;
@@ -55,6 +56,7 @@ public class EnemyStats : MonoBehaviour
         maxHealth += (levelManager.currentLevel * 5);
         attack += (levelManager.currentLevel * 2);
         defence += (levelManager.currentLevel * 2);
+        xpReward += (levelManager.currentLevel * 2);
     }
 
     public void TakeDamage(int damageTaken)
@@ -97,6 +99,16 @@ public class EnemyStats : MonoBehaviour
     {
        var ft = Instantiate(floatingText, transform.position, Quaternion.identity, transform);
         ft.GetComponent<TextMesh>().text = damageTaken.ToString();
+
+        if (wasCrit)
+        {
+            ft.GetComponent<TextMesh>().color = Color.yellow;
+        }
+        else
+        {
+            ft.GetComponent<TextMesh>().color = Color.white;
+        }
+        
     }
 
     public void EnemyDeath()

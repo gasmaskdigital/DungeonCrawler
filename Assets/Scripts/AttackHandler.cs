@@ -1,5 +1,6 @@
 using Unity.Mathematics;
 using Unity.VisualScripting;
+using UnityEditor.Build.Reporting;
 using UnityEngine;
 
 public class AttackHandler : MonoBehaviour
@@ -21,6 +22,7 @@ public class AttackHandler : MonoBehaviour
     [SerializeField] GameObject lightFire;
     [SerializeField] GameObject heavyFire;
     private float knockbackForce = 250f;
+    private bool isCrit = false;
 
     [Header("Sounds")]
     [SerializeField] AudioClip swordClash;
@@ -110,6 +112,11 @@ public class AttackHandler : MonoBehaviour
                     int damageDealt = LightAttackDamage(PlayerStats.currentWeapon.attackValue, PlayerStats.boostedStrength, cEnemyStats.defence);
 
                     damageDealt = CheckForEffect(damageDealt, "Strength");
+                    if (CheckForCrit())
+                    {
+                        damageDealt *= 2;
+                        enemyStats.wasCrit = true;
+                    }
 
                     cEnemyStats.TakeDamage(damageDealt);
                     
@@ -142,7 +149,11 @@ public class AttackHandler : MonoBehaviour
                     int damageDealt = HeavyAttackDamage(PlayerStats.currentWeapon.attackValue, PlayerStats.boostedStrength, cEnemyStats.defence);
 
                     damageDealt = CheckForEffect(damageDealt, "Strength");
-
+                    if (CheckForCrit())
+                    {
+                        damageDealt *= 2;
+                        enemyStats.wasCrit = true;
+                    }
                     cEnemyStats.TakeDamage(damageDealt);
 
                     cAINav.GetKnockBack(knockbackForce, transform.position);
@@ -193,6 +204,11 @@ public class AttackHandler : MonoBehaviour
         {
             int damageDealt = LightAttackDamage(PlayerStats.currentWeapon.attackValue, PlayerStats.boostedDexterity, enemystats.defence);
             damageDealt = CheckForEffect(damageDealt, "Agility");
+            if (CheckForCrit())
+            {
+                damageDealt *= 2;
+                enemystats.wasCrit = true;
+            }
             enemystats.TakeDamage(damageDealt);
 
             cAiNav.GetKnockBack(knockbackForce, transform.position);
@@ -220,6 +236,11 @@ public class AttackHandler : MonoBehaviour
         {
             int damageDealt = HeavyAttackDamage(PlayerStats.currentWeapon.attackValue, PlayerStats.boostedDexterity, enemyStats.defence);
             damageDealt = CheckForEffect(damageDealt, "Agility");
+            if (CheckForCrit())
+            {
+                damageDealt *= 2;
+                enemyStats.wasCrit = true;
+            }
             enemyStats.TakeDamage(damageDealt);
             cAINav.GetKnockBack(knockbackForce, transform.position);
         }
@@ -254,6 +275,11 @@ public class AttackHandler : MonoBehaviour
         {
             int damageDealt = HeavyAttackDamage(PlayerStats.currentWeapon.attackValue, PlayerStats.boostedDexterity, enemyStats.defence);
             damageDealt = CheckForEffect(damageDealt, "Mana");
+            if (CheckForCrit())
+            {
+                damageDealt *= 2;
+                enemyStats.wasCrit = true;
+            }
             enemyStats.TakeDamage(damageDealt);
             cAINav.GetKnockBack(knockbackForce, transform.position);
         }
@@ -266,6 +292,11 @@ public class AttackHandler : MonoBehaviour
         {
             int damageDealt = LightAttackDamage(PlayerStats.currentWeapon.attackValue, PlayerStats.boostedMagic, enemyStats.defence);
             damageDealt = CheckForEffect(damageDealt, "Mana");
+            if (CheckForCrit()) 
+            {
+                damageDealt *= 2;
+                enemyStats.wasCrit = true;
+            }
             enemyStats.TakeDamage(damageDealt);
             cAINav.GetKnockBack(knockbackForce, transform.position);
             SoundManager.Instance.PlaySound(fireLightImpact, transform);
@@ -291,7 +322,14 @@ public class AttackHandler : MonoBehaviour
         return damageDealt;
     }
 
-   
+    private bool CheckForCrit()
+    {
+        int critChance = UnityEngine.Random.Range(1, 21);
+        if (critChance == 20) return true;
+        else return false;
+
+        
+    }
 
 
 }

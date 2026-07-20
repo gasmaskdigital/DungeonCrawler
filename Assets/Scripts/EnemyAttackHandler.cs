@@ -21,6 +21,8 @@ public class EnemyAttackHandler : MonoBehaviour
     [SerializeField] AudioClip vampHeavyImpact;
     [SerializeField] AudioClip skeletonBowShoot;
     [SerializeField] AudioClip skeletonThrow;
+    [SerializeField] AudioClip trollLightAttack;
+    [SerializeField] AudioClip trollHeavyAttack;
 
     [Header("Ranged Prefabs")]
     [SerializeField] GameObject skeletonLightArrow;
@@ -66,7 +68,7 @@ public class EnemyAttackHandler : MonoBehaviour
 
     public void AttackTypeCheck()
     {
-        attackChance = UnityEngine.Random.Range(1, 5);
+        attackChance = UnityEngine.Random.Range(1, 6);
         if(attackChance >= 4 )
         {
             attackType = AttackType.HeavyAttack;
@@ -160,6 +162,44 @@ public class EnemyAttackHandler : MonoBehaviour
         int damageDealt = HeavyAttackDamage(enemystats.attack, PlayerStats.currentDefenceTotal, PlayerStats.enduranceStat);
         playerstats.TakeDamage(damageDealt);
     }
+
+    public void TrollLightAttack()
+    {
+        SoundManager.Instance.PlaySound(trollLightAttack, transform);
+        Vector3 origin = transform.position + Vector3.up * 1f + transform.forward * 0.75f;
+
+        Collider[] colliders = Physics.OverlapSphere(origin, lightAttackRadius, playerMask, QueryTriggerInteraction.Ignore);
+        foreach (Collider c in colliders)
+        {
+            if (c.CompareTag("Player"))
+            {
+                PlayerStats playerStats = c.GetComponent<PlayerStats>();
+
+
+                int damageDealt = LightAttackDamage(enemystats.attack, PlayerStats.currentDefenceTotal, PlayerStats.enduranceStat);
+                playerStats.TakeDamage(damageDealt);
+                
+            }
+        }
+    }
+
+    public void TrollHeavyAttack()
+    {
+        SoundManager.Instance.PlaySound(trollHeavyAttack, transform);
+        Vector3 origin = transform.position + Vector3.up * 1f;
+
+        Collider[] colliders = Physics.OverlapSphere(origin, heavyAttackRadius, playerMask, QueryTriggerInteraction.Ignore);
+        foreach (Collider c in colliders)
+        {
+            PlayerStats playerStats = c.GetComponent<PlayerStats>();
+
+            int damageDealt = HeavyAttackDamage(enemystats.attack, PlayerStats.currentDefenceTotal, PlayerStats.enduranceStat);
+
+            playerStats.TakeDamage(damageDealt);
+            
+        }
+    }
+
 
     private int LightAttackDamage(int enemyAttack, int playerDefence, int playerEndurance)
     {

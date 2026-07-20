@@ -104,7 +104,11 @@ public class PlayerStats : MonoBehaviour
         {
             currentHealth = maxHealth;
         }
-       
+
+        Debug.Log("Weapon attack"+ currentWeapon.attackValue);
+        Debug.Log("helmet defence" + currentHelmet.armourDefence);
+        Debug.Log("torso defence" + currentUpperBody.armourDefence);
+        Debug.Log("legs defence" + currentLowerBody.armourDefence);
 
     }
 
@@ -133,7 +137,7 @@ public class PlayerStats : MonoBehaviour
 
         currentXP -= requiredXP;
 
-        requiredXP = requiredXP + (playerLevel * 24);
+        requiredXP = playerLevel * 24;
 
     }
 
@@ -296,6 +300,7 @@ public class PlayerStats : MonoBehaviour
     {
         var ft = Instantiate(floatingText, transform.position, Quaternion.identity, transform);
         ft.GetComponent<TextMesh>().text = damageTaken.ToString();
+        ft.GetComponent<TextMesh>().color = Color.red;
     }
 
 
