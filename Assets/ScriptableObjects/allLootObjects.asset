@@ -22,6 +22,9 @@ MonoBehaviour:
   - name: Bow
     type: 0
     prefab: {fileID: 6094470551727074466, guid: 1169f9ee9732b4848ba77c8ae496f9e2, type: 3}
+  - name: Axe
+    type: 0
+    prefab: {fileID: 8047764633477264512, guid: a250c778e48c73742ae531b8c9a9bd17, type: 3}
   - name: Helmet
     type: 1
     prefab: {fileID: 7933952920136172553, guid: 9a5da05df6a3a7e488f14c72be48a395, type: 3}
