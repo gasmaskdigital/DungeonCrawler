@@ -23,6 +23,7 @@ public class PlayerHandler : MonoBehaviour
     public LayerMask terrainLayer;
     private VFXManager vfxManager;
     [SerializeField] GameObject swordTrail;
+    [SerializeField] GameObject axeTrail;
 
     [Header("Movement Settings")]
     private float walkSpeed = 7f;
@@ -372,6 +373,17 @@ public class PlayerHandler : MonoBehaviour
                     playerAnimator.SetTrigger("FireHeavyAttack");
                 }
                 break;
+            case WeaponType.Axe:
+                if (attackHandler.attackType == AttackType.LightAttack)
+                {
+                    playerAnimator.SetTrigger("AxeLightAttack");
+                }
+                else
+                {
+                    playerAnimator.SetTrigger("AxeHeavyAttack");
+                }
+                break;
+
         }        
     }
 
@@ -476,5 +488,15 @@ public class PlayerHandler : MonoBehaviour
     public void SwordTrailOff()
     {
         swordTrail.gameObject.SetActive(false);
+    }
+
+    public void AxeTrailOn()
+    {
+        axeTrail.gameObject.SetActive(true);
+    }
+
+    public void AxeTrailOff()
+    {
+        axeTrail.gameObject.SetActive(false);
     }
 }

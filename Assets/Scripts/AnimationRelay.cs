@@ -115,4 +115,25 @@ public class AnimationRelay : MonoBehaviour
     {
         SoundManager.Instance.PlaySound(footstep, transform);
     }
+
+    public void AxeLightAttack()
+    {
+        attackHandler.AxeLightAttack();
+    }
+
+    public void AxeHeavyAttack()
+    {
+        attackHandler.AxeHeavyAttack();
+    }
+
+    public void AxeTrailOn()
+    {
+        playerHandler.AxeTrailOn();
+    }
+
+    public void AxeTrailOff()
+    {
+        playerHandler.AxeTrailOn();
+    }
+
 }

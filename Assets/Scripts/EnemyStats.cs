@@ -108,7 +108,8 @@ public class EnemyStats : MonoBehaviour
         {
             ft.GetComponent<TextMesh>().color = Color.white;
         }
-        
+
+        wasCrit = false;
     }
 
     public void EnemyDeath()
