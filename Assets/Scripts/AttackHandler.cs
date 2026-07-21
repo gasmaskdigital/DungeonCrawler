@@ -94,14 +94,14 @@ public class AttackHandler : MonoBehaviour
 
     public void TwoHandedSwordLightAttack()
     {
-            Vector3 origin = transform.position + Vector3.up * 1f + transform.forward * 0.75f;
+        Vector3 origin = transform.position + Vector3.up * 1f + transform.forward * 0.75f;
 
-            Collider[] colliders = Physics.OverlapSphere(origin, tHSLightAttckRadius, enemyMask);
-            
-            foreach (Collider c in colliders)
-            {            
-                if (c.gameObject.CompareTag("Enemy"))
-                {
+        Collider[] colliders = Physics.OverlapSphere(origin, tHSLightAttckRadius, enemyMask);
+
+        foreach (Collider c in colliders)
+        {
+            if (c.gameObject.CompareTag("Enemy"))
+            {
                 EnemyStats cEnemyStats = c.GetComponent<EnemyStats>();
                 Debug.Log(cEnemyStats);
 
@@ -115,21 +115,17 @@ public class AttackHandler : MonoBehaviour
                     if (CheckForCrit())
                     {
                         damageDealt *= 2;
-                        enemyStats.wasCrit = true;
+                        cEnemyStats.wasCrit = true;
                     }
 
                     cEnemyStats.TakeDamage(damageDealt);
-                    
+
                     cAINav.GetKnockBack(knockbackForce, transform.position);
 
                     SoundManager.Instance.PlaySound(swordClash, transform);
                 }
-
-                
             }
-            }
-        
-
+        }
     }
 
     public void TwoHandedSwordHeavyAttack()
@@ -152,7 +148,7 @@ public class AttackHandler : MonoBehaviour
                     if (CheckForCrit())
                     {
                         damageDealt *= 2;
-                        enemyStats.wasCrit = true;
+                        cEnemyStats.wasCrit = true;
                     }
                     cEnemyStats.TakeDamage(damageDealt);
 
