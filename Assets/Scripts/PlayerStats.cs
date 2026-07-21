@@ -37,7 +37,7 @@ public class PlayerStats : MonoBehaviour
     public static Armour currentHelmet;
     public static Armour currentUpperBody;
     public static Armour currentLowerBody;
-    public GameObject[] weaponSockets; // 0=THS, 1=Bow, 2=SpellBook
+    public GameObject[] weaponSockets; // 0=THS, 1=Bow, 2=SpellBook 3=Axe
 
     public Weapon testWeapon; // this is just used to testing 
 
@@ -81,6 +81,8 @@ public class PlayerStats : MonoBehaviour
 
     private void Awake()
     {
+        currentWeapon = testWeapon; // used for testing new weapons remove when not needed
+
         UpdateWeaponSocket();
         
         //UpdateEquipment(); 
@@ -90,6 +92,8 @@ public class PlayerStats : MonoBehaviour
             ResetStats();
             currentHealth = maxHealth;
         }
+
+        
 
     }
 
@@ -105,10 +109,7 @@ public class PlayerStats : MonoBehaviour
             currentHealth = maxHealth;
         }
 
-        Debug.Log("Weapon attack"+ currentWeapon.attackValue);
-        Debug.Log("helmet defence" + currentHelmet.armourDefence);
-        Debug.Log("torso defence" + currentUpperBody.armourDefence);
-        Debug.Log("legs defence" + currentLowerBody.armourDefence);
+       
 
     }
 
@@ -248,6 +249,9 @@ public class PlayerStats : MonoBehaviour
                 break;
             case WeaponType.FireSpellBook:
                 weaponSockets[2].SetActive(true);
+                break;
+            case WeaponType.Axe:
+                weaponSockets[3].SetActive(true);
                 break;
         }
     }

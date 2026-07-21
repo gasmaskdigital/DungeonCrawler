@@ -22,7 +22,9 @@ public class AttackHandler : MonoBehaviour
     [SerializeField] GameObject lightFire;
     [SerializeField] GameObject heavyFire;
     private float knockbackForce = 250f;
-    private bool isCrit = false;
+    private float axeLightAttackRadius = 1.25f;
+    private float axeHeavyAttackRadius = 1.75f;
+
 
     [Header("Sounds")]
     [SerializeField] AudioClip swordClash;
@@ -32,6 +34,8 @@ public class AttackHandler : MonoBehaviour
     [SerializeField] AudioClip fireLightSpawn;
     [SerializeField] AudioClip fireLightImpact;
     [SerializeField] AudioClip fireWall;
+    [SerializeField] AudioClip axeLightImpact;
+    [SerializeField] AudioClip axeHeavyImpact;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -42,7 +46,7 @@ public class AttackHandler : MonoBehaviour
         {
             playerStats = GetComponent<PlayerStats>();
             playerHandler = GetComponent<PlayerHandler>();
-            //Debug.Log("Player components");
+            
         }
         
         if(PlayerStats.currentWeapon.attackValue == 0)
@@ -299,6 +303,82 @@ public class AttackHandler : MonoBehaviour
         }
     }
 
+    public void AxeLightAttack()
+    {
+        Vector3 origin = transform.position + Vector3.up * 1f + transform.forward * 0.75f;
+
+        Collider[] colliders = Physics.OverlapSphere(origin, axeLightAttackRadius, enemyMask);
+
+        foreach (Collider c in colliders)
+        {
+            if (c.gameObject.CompareTag("Enemy"))
+            {
+                EnemyStats cEnemyStats = c.GetComponent<EnemyStats>();
+                Debug.Log(cEnemyStats);
+
+                AINavigation cAINav = c.GetComponent<AINavigation>();
+
+                if (cAINav.alive && cAINav.canBeDamaged)
+                {
+                    int damageDealt = LightAttackDamage(PlayerStats.currentWeapon.attackValue, PlayerStats.boostedStrength, cEnemyStats.defence);
+
+                    damageDealt = CheckForEffect(damageDealt, "Strength");
+                    if (CheckForCrit())
+                    {
+                        damageDealt *= 2;
+                        cEnemyStats.wasCrit = true;
+                    }
+
+                    cEnemyStats.TakeDamage(damageDealt);
+
+                    cAINav.GetKnockBack(knockbackForce, transform.position);
+
+                    SoundManager.Instance.PlaySound(axeLightImpact, transform);
+                }
+
+
+            }
+        }
+    }
+
+    public void AxeHeavyAttack()
+    {
+        Vector3 origin = transform.position + Vector3.up * 1f + transform.forward * 1.25f;
+
+        Collider[] colliders = Physics.OverlapSphere(origin, axeHeavyAttackRadius, enemyMask);
+
+        foreach (Collider c in colliders)
+        {
+            if (c.gameObject.CompareTag("Enemy"))
+            {
+                EnemyStats cEnemyStats = c.GetComponent<EnemyStats>();
+                Debug.Log(cEnemyStats);
+
+                AINavigation cAINav = c.GetComponent<AINavigation>();
+
+                if (cAINav.alive && cAINav.canBeDamaged)
+                {
+                    int damageDealt = HeavyAttackDamage(PlayerStats.currentWeapon.attackValue, PlayerStats.boostedStrength, cEnemyStats.defence);
+
+                    damageDealt = CheckForEffect(damageDealt, "Strength");
+                    if (CheckForCrit())
+                    {
+                        damageDealt *= 2;
+                        cEnemyStats.wasCrit = true;
+                    }
+
+                    cEnemyStats.TakeDamage(damageDealt);
+
+                    cAINav.GetKnockBack(knockbackForce, transform.position);
+
+                    SoundManager.Instance.PlaySound(axeHeavyImpact, transform);
+                }
+
+
+            }
+        }
+    }
+
     public int LightAttackDamage(int weaponAttack, int relevantStat, int enemyDefence)
     {
         int playerValues = weaponAttack + relevantStat;
@@ -343,7 +423,7 @@ public enum StatBoostType
 
 public enum WeaponType
 {
-    TwoHandedSword, Bow, FireSpellBook
+    TwoHandedSword, Bow, FireSpellBook, Axe
 }
 
 [System.Serializable]
