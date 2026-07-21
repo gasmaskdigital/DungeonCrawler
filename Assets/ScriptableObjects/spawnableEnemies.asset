@@ -15,7 +15,13 @@ MonoBehaviour:
   spawnableEnemies:
   - name: Vampire
     prefab: {fileID: 4315232680571345892, guid: f87aaf2da5b1050418b14ac50fd331d5, type: 3}
+    minFloor: 0
+    spawnCap: -1
   - name: Skeleton
     prefab: {fileID: 4378454936511400984, guid: b8e64003f094e874e9a2e0789198a541, type: 3}
+    minFloor: 0
+    spawnCap: -1
   - name: Troll
     prefab: {fileID: 976476470913879337, guid: e8b179edc57f0d9478bc75a65b583c26, type: 3}
+    minFloor: 5
+    spawnCap: 1

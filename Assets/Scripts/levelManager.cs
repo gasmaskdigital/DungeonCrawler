@@ -29,6 +29,7 @@ public struct LevelMap
 
 public class levelManager: MonoBehaviour
 {
+    [Header("References")]
     public static LevelMap levelMap;
     [SerializeField] GameObject startingMapTile;
     [SerializeField] GameObject startingTileGenerator;
@@ -36,6 +37,7 @@ public class levelManager: MonoBehaviour
     [SerializeField] GameObject staircase;
     [SerializeField] GameObject enemySpawner;
     [SerializeField] GameObject chest;
+    [SerializeField] public EnemiesSO allEnemies;
 
     [Header("Parameters")]
     public int levelWidth;
@@ -135,17 +137,40 @@ public class levelManager: MonoBehaviour
     {
 
         GameObject[] enemySpawners = GameObject.FindGameObjectsWithTag("enemySpawner");
-        int numEnemies = Random.Range(currentLevel * 2, currentLevel * 4 + 1);
         if (enemySpawners.Length > 0)
         {
-            for (int i = 0; i < numEnemies; i++)
+            int numEnemies = Random.Range(currentLevel * 2, currentLevel * 4 + 1);
+            List<Enemy> enemySpawnList = constructEnemySpawnList(numEnemies);
+            foreach (Enemy enemy in enemySpawnList)
             {
                 int index = Random.Range(0, enemySpawnerCount);
                 enemySpawnerScript spawner = enemySpawners[index].GetComponent<enemySpawnerScript>();
-                spawner.enemies = spawner.allEnemies.spawnableEnemies;
-                spawner.spawnEnemy();
+                //spawner.enemies = spawner.allEnemies.spawnableEnemies;
+                spawner.spawnEnemy(enemy);
             }
         }
+    }
+
+    List<Enemy> constructEnemySpawnList(int numEnemies) 
+    {
+        List<Enemy> enemySpawnList = new List<Enemy>();
+        Debug.Log("Spawning " + numEnemies + " Enemies");
+        while (enemySpawnList.Count < numEnemies)
+        {
+            int index = Random.Range(0, allEnemies.spawnableEnemies.Count);
+            Enemy nextEnemy = allEnemies.spawnableEnemies[index];
+            if (nextEnemy.minFloor <= currentLevel) 
+            {
+                if (nextEnemy.spawnCap != -1)
+                {
+                    int enemyTypeCount = 0;
+                    foreach (Enemy enemy in enemySpawnList) { if (enemy.name == nextEnemy.name) enemyTypeCount++; }
+                    if (enemyTypeCount < nextEnemy.spawnCap) enemySpawnList.Add(nextEnemy);
+                }
+                else enemySpawnList.Add(nextEnemy);
+            }
+        }
+        return enemySpawnList;
     }
 
     public void spawnStaircase() 

@@ -4,9 +4,6 @@ using UnityEngine;
 public class enemySpawnerScript : MonoBehaviour
 {
 
-    [SerializeField] public List<Enemy> enemies;
-    [SerializeField] public EnemiesSO allEnemies;
-
     [SerializeField] float spawnRadius;
     [SerializeField] int minSpawnAmount;
     [SerializeField] int maxSpawnAmount;
@@ -16,7 +13,7 @@ public class enemySpawnerScript : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        enemies = allEnemies.spawnableEnemies;
+        //enemies = allEnemies.spawnableEnemies;
 
         int currentLevel = levelManager.currentLevel;
         if (currentLevel == 0) currentLevel++;
@@ -32,20 +29,13 @@ public class enemySpawnerScript : MonoBehaviour
         
     }
 
-    public void spawnEnemy() 
+    public void spawnEnemy(Enemy enemy) 
     {
         Vector3 offset = Random.onUnitSphere;
         Vector3 spawnPos = gameObject.transform.position + (new Vector3(offset.x, Mathf.Abs(offset.y), offset.z).normalized * spawnRadius);
-        int index = Random.Range(0, enemies.Count);
+        //int index = Random.Range(0, enemies.Count);
         //Debug.Log("enemySpawnerIndex: " + index);
-        GameObject enemy = enemies[index].prefab;
-        Instantiate(enemy, spawnPos, Quaternion.identity).GetComponent<DummyAI>();
-    }
-
-    void setSpawnAmount() 
-    {
-        float curve = spawnCurveDist.Evaluate(Random.value);
-        spawnAmount = Mathf.CeilToInt(Random.Range(minSpawnAmount * curve, maxSpawnAmount * curve));
-        //Debug.Log(spawnAmount);
+        //GameObject enemy = enemies[index].prefab;
+        Instantiate(enemy.prefab, spawnPos, Quaternion.identity).GetComponent<DummyAI>();
     }
 }
