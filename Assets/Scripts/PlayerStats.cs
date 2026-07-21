@@ -81,7 +81,7 @@ public class PlayerStats : MonoBehaviour
 
     private void Awake()
     {
-        currentWeapon = testWeapon; // used for testing new weapons remove when not needed
+       // currentWeapon = testWeapon; // used for testing new weapons remove when not needed
 
         UpdateWeaponSocket();
         
