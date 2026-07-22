@@ -40,3 +40,6 @@ MonoBehaviour:
   - name: Money
     type: 3
     prefab: {fileID: 1064078589619500094, guid: d42d7772a15b23b4690decde3b6e0f3e, type: 3}
+  - name: Axe
+    type: 0
+    prefab: {fileID: 6094470551727074466, guid: a3d75a8017b1d694ba84e20000e595c9, type: 3}

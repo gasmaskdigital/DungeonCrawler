@@ -154,7 +154,7 @@ public class levelManager: MonoBehaviour
     List<Enemy> constructEnemySpawnList(int numEnemies) 
     {
         List<Enemy> enemySpawnList = new List<Enemy>();
-        Debug.Log("Spawning " + numEnemies + " Enemies");
+        //Debug.Log("Spawning " + numEnemies + " Enemies");
         while (enemySpawnList.Count < numEnemies)
         {
             int index = Random.Range(0, allEnemies.spawnableEnemies.Count);
