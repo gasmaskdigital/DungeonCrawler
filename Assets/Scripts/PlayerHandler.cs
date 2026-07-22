@@ -22,8 +22,12 @@ public class PlayerHandler : MonoBehaviour
     public UnityEngine.Camera mainCamera;
     public LayerMask terrainLayer;
     private VFXManager vfxManager;
+
+    [Header("Weapon Trails")]
     [SerializeField] GameObject swordTrail;
     [SerializeField] GameObject axeTrail;
+    [SerializeField] GameObject clawTrailL;
+    [SerializeField] GameObject clawTrailR;
 
     [Header("Movement Settings")]
     private float walkSpeed = 7f;
@@ -508,5 +512,17 @@ public class PlayerHandler : MonoBehaviour
     public void AxeTrailOff()
     {
         axeTrail.gameObject.SetActive(false);
+    }
+
+    public void ClawTrailOn()
+    {
+        clawTrailL.gameObject.SetActive(true);
+        clawTrailR.gameObject.SetActive(true);
+    }
+
+    public void ClawTrailOff()
+    {
+        clawTrailL.gameObject.SetActive(false);
+        clawTrailR.gameObject.SetActive(false);
     }
 }

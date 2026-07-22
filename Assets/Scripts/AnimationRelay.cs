@@ -146,4 +146,14 @@ public class AnimationRelay : MonoBehaviour
         attackHandler.ClawHeavyAttack();
     }
 
+    public void ClawTrailOn()
+    {
+        playerHandler.ClawTrailOn();
+    }
+
+    public void ClawTrailOff()
+    {
+        playerHandler.ClawTrailOff();
+    }
+
 }
