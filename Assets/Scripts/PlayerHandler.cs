@@ -383,6 +383,16 @@ public class PlayerHandler : MonoBehaviour
                     playerAnimator.SetTrigger("AxeHeavyAttack");
                 }
                 break;
+            case WeaponType.Claw:
+                if(attackHandler.attackType == AttackType.LightAttack)
+                {
+                    playerAnimator.SetTrigger("ClawLightAttack");
+                }
+                else
+                {
+                    playerAnimator.SetTrigger("ClawHeavyAttack");
+                }
+                break;
 
         }        
     }

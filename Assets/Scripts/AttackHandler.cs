@@ -36,6 +36,8 @@ public class AttackHandler : MonoBehaviour
     [SerializeField] AudioClip fireWall;
     [SerializeField] AudioClip axeLightImpact;
     [SerializeField] AudioClip axeHeavyImpact;
+    [SerializeField] AudioClip clawLightImpact;
+    [SerializeField] AudioClip clawHeavyImpact;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -379,6 +381,82 @@ public class AttackHandler : MonoBehaviour
         }
     }
 
+    public void ClawLightAttack()
+    {
+        Vector3 origin = transform.position + Vector3.up * 1f + transform.forward * 0.6f;
+
+        Collider[] colliders = Physics.OverlapSphere(origin, 0.85f, enemyMask);
+
+        foreach (Collider c in colliders)
+        {
+            if (c.gameObject.CompareTag("Enemy"))
+            {
+                EnemyStats cEnemyStats = c.GetComponent<EnemyStats>();
+                Debug.Log(cEnemyStats);
+
+                AINavigation cAINav = c.GetComponent<AINavigation>();
+
+                if (cAINav.alive && cAINav.canBeDamaged)
+                {
+                    int damageDealt = LightAttackDamage(PlayerStats.currentWeapon.attackValue, PlayerStats.boostedDexterity, cEnemyStats.defence);
+
+                    damageDealt = CheckForEffect(damageDealt, "Agility");
+                    if (CheckForCrit())
+                    {
+                        damageDealt *= 2;
+                        cEnemyStats.wasCrit = true;
+                    }
+
+                    cEnemyStats.TakeDamage(damageDealt);
+
+                    cAINav.GetKnockBack(knockbackForce, transform.position);
+
+                    SoundManager.Instance.PlaySound(axeLightImpact, transform);
+                }
+
+
+            }
+        }
+    }
+
+    public void ClawHeavyAttack()
+    {
+        Vector3 origin = transform.position + Vector3.up * 1f + transform.forward * 0.8f;
+
+        Collider[] colliders = Physics.OverlapSphere(origin, 1.25f, enemyMask);
+
+        foreach (Collider c in colliders)
+        {
+            if (c.gameObject.CompareTag("Enemy"))
+            {
+                EnemyStats cEnemyStats = c.GetComponent<EnemyStats>();
+                Debug.Log(cEnemyStats);
+
+                AINavigation cAINav = c.GetComponent<AINavigation>();
+
+                if (cAINav.alive && cAINav.canBeDamaged)
+                {
+                    int damageDealt = HeavyAttackDamage(PlayerStats.currentWeapon.attackValue, PlayerStats.boostedStrength, cEnemyStats.defence);
+
+                    damageDealt = CheckForEffect(damageDealt, "Strength");
+                    if (CheckForCrit())
+                    {
+                        damageDealt *= 2;
+                        cEnemyStats.wasCrit = true;
+                    }
+
+                    cEnemyStats.TakeDamage(damageDealt);
+
+                    cAINav.GetKnockBack(knockbackForce, transform.position);
+
+                    SoundManager.Instance.PlaySound(clawHeavyImpact, transform);
+                }
+
+
+            }
+        }
+    }
+
     public int LightAttackDamage(int weaponAttack, int relevantStat, int enemyDefence)
     {
         int playerValues = weaponAttack + relevantStat;
@@ -423,7 +501,7 @@ public enum StatBoostType
 
 public enum WeaponType
 {
-    TwoHandedSword, Bow, FireSpellBook, Axe
+    TwoHandedSword, Bow, FireSpellBook, Axe, Claw
 }
 
 [System.Serializable]
