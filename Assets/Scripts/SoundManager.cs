@@ -24,7 +24,7 @@ public class SoundManager : MonoBehaviour
         AudioSource soundSource = soundObject.GetComponent<AudioSource>();
 
         soundSource.clip = clip;
-        soundSource.pitch = Random.Range(0.1f, 2.5f);
+        soundSource.pitch = Random.Range(0.75f, 1.5f);
         soundSource.Play();
 
         Destroy(soundObject, clip.length);

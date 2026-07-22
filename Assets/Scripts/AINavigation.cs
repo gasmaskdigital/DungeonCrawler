@@ -29,7 +29,7 @@ public class AINavigation : MonoBehaviour, IKnockbackable
 
     private Vector3 roamDestination;
 
-
+    private Coroutine knockbackRoutine;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -156,9 +156,14 @@ public class AINavigation : MonoBehaviour, IKnockbackable
 
     public void GetKnockBack(float force, Vector3 playerpos)
     {
+        if (knockbackRoutine != null)
+        {
+            StopCoroutine(knockbackRoutine);
+        }
+
         canMove = false;
         Vector3 knockbackDirection = (transform.position - playerpos).normalized;
-        StartCoroutine(ApplyKnockBack(force, knockbackDirection));
+       knockbackRoutine = StartCoroutine(ApplyKnockBack(force, knockbackDirection));
     }
 
     private IEnumerator ApplyKnockBack(float force, Vector3 knockbackDirection)
@@ -189,6 +194,8 @@ public class AINavigation : MonoBehaviour, IKnockbackable
         canMove = true;
         canBeDamaged = true;
         isAttacking = false;
+
+        knockbackRoutine = null;
     }
 
    public void CanMoveOff()

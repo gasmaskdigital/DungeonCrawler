@@ -113,7 +113,7 @@ public class AttackHandler : MonoBehaviour
 
                 AINavigation cAINav = c.GetComponent<AINavigation>();
 
-                if (cAINav.alive && cAINav.canBeDamaged)
+                if (cAINav.alive) // && cAINav.canBeDamaged)
                 {
                     int damageDealt = LightAttackDamage(PlayerStats.currentWeapon.attackValue, PlayerStats.boostedStrength, cEnemyStats.defence);
 
@@ -146,7 +146,7 @@ public class AttackHandler : MonoBehaviour
                 EnemyStats cEnemyStats = c.GetComponent<EnemyStats>();
                 AINavigation cAINav = c.GetComponent<AINavigation>();
 
-                if (cAINav.alive && cAINav.canBeDamaged)
+                if (cAINav.alive )//&& cAINav.canBeDamaged)
                 {
                     int damageDealt = HeavyAttackDamage(PlayerStats.currentWeapon.attackValue, PlayerStats.boostedStrength, cEnemyStats.defence);
 
