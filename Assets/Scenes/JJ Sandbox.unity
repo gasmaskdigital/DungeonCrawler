@@ -559,7 +559,7 @@ MonoBehaviour:
   levelHeight: 15
   gridSize: 7.5
   spawnerPercentage: 0.05
-  lootPercentage: 0.1
+  lootPercentage: 0.9
   eastEntrance: {fileID: 11400000, guid: c49a63d6d223b024dbb6c22010dd0efb, type: 2}
   westEntrance: {fileID: 11400000, guid: b867b7b15e6e9344a82e0cfa0972b7d8, type: 2}
   northEntrance: {fileID: 11400000, guid: 874398ff6f6d7b043997627e07fa8119, type: 2}
