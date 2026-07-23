@@ -559,7 +559,7 @@ MonoBehaviour:
   levelHeight: 15
   gridSize: 7.5
   spawnerPercentage: 0.05
-  lootPercentage: 0.9
+  lootPercentage: 0.1
   eastEntrance: {fileID: 11400000, guid: c49a63d6d223b024dbb6c22010dd0efb, type: 2}
   westEntrance: {fileID: 11400000, guid: b867b7b15e6e9344a82e0cfa0972b7d8, type: 2}
   northEntrance: {fileID: 11400000, guid: 874398ff6f6d7b043997627e07fa8119, type: 2}
@@ -1663,6 +1663,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 560402334}
   m_CullTransparentMesh: 1
+--- !u!1 &624618339 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3786836327095971973, guid: 35a62140321f4064da5d2693afb1944e, type: 3}
+  m_PrefabInstance: {fileID: 798607769}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &636942354
 GameObject:
   m_ObjectHideFlags: 0
@@ -2021,6 +2026,14 @@ PrefabInstance:
       propertyPath: axeLightImpact
       value: 
       objectReference: {fileID: 8300000, guid: 6237bada91dd96e4795b739429e4f0c2, type: 3}
+    - target: {fileID: 1087447258442381983, guid: 35a62140321f4064da5d2693afb1944e, type: 3}
+      propertyPath: clawTrailL
+      value: 
+      objectReference: {fileID: 624618339}
+    - target: {fileID: 1087447258442381983, guid: 35a62140321f4064da5d2693afb1944e, type: 3}
+      propertyPath: clawTrailR
+      value: 
+      objectReference: {fileID: 1417588444}
     - target: {fileID: 1087447258442381983, guid: 35a62140321f4064da5d2693afb1944e, type: 3}
       propertyPath: mainCamera
       value: 
@@ -3379,6 +3392,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1408671944}
   m_CullTransparentMesh: 1
+--- !u!1 &1417588444 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1713643243307808297, guid: 35a62140321f4064da5d2693afb1944e, type: 3}
+  m_PrefabInstance: {fileID: 798607769}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1453472732
 GameObject:
   m_ObjectHideFlags: 0

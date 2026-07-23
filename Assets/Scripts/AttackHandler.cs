@@ -202,7 +202,7 @@ public class AttackHandler : MonoBehaviour
     {
 
 
-        if (cAiNav.alive && cAiNav.canBeDamaged)
+        if (cAiNav.alive)
         {
             int damageDealt = LightAttackDamage(PlayerStats.currentWeapon.attackValue, PlayerStats.boostedDexterity, enemystats.defence);
             damageDealt = CheckForEffect(damageDealt, "Agility");
@@ -234,7 +234,7 @@ public class AttackHandler : MonoBehaviour
     {
 
 
-        if (cAINav.alive && cAINav.canBeDamaged)
+        if (cAINav.alive)
         {
             int damageDealt = HeavyAttackDamage(PlayerStats.currentWeapon.attackValue, PlayerStats.boostedDexterity, enemyStats.defence);
             damageDealt = CheckForEffect(damageDealt, "Agility");
@@ -273,7 +273,7 @@ public class AttackHandler : MonoBehaviour
     {
 
 
-        if (cAINav.alive && cAINav.canBeDamaged)
+        if (cAINav.alive)
         {
             int damageDealt = HeavyAttackDamage(PlayerStats.currentWeapon.attackValue, PlayerStats.boostedDexterity, enemyStats.defence);
             damageDealt = CheckForEffect(damageDealt, "Mana");
@@ -290,7 +290,7 @@ public class AttackHandler : MonoBehaviour
     public void FireLightAttackImpact(EnemyStats enemyStats, AINavigation cAINav)
     {
 
-        if (cAINav.alive && cAINav.canBeDamaged)
+        if (cAINav.alive)
         {
             int damageDealt = LightAttackDamage(PlayerStats.currentWeapon.attackValue, PlayerStats.boostedMagic, enemyStats.defence);
             damageDealt = CheckForEffect(damageDealt, "Mana");
@@ -320,7 +320,7 @@ public class AttackHandler : MonoBehaviour
 
                 AINavigation cAINav = c.GetComponent<AINavigation>();
 
-                if (cAINav.alive && cAINav.canBeDamaged)
+                if (cAINav.alive)
                 {
                     int damageDealt = LightAttackDamage(PlayerStats.currentWeapon.attackValue, PlayerStats.boostedStrength, cEnemyStats.defence);
 
@@ -358,7 +358,7 @@ public class AttackHandler : MonoBehaviour
 
                 AINavigation cAINav = c.GetComponent<AINavigation>();
 
-                if (cAINav.alive && cAINav.canBeDamaged)
+                if (cAINav.alive)
                 {
                     int damageDealt = HeavyAttackDamage(PlayerStats.currentWeapon.attackValue, PlayerStats.boostedStrength, cEnemyStats.defence);
 
@@ -396,7 +396,7 @@ public class AttackHandler : MonoBehaviour
 
                 AINavigation cAINav = c.GetComponent<AINavigation>();
 
-                if (cAINav.alive && cAINav.canBeDamaged)
+                if (cAINav.alive)
                 {
                     int damageDealt = LightAttackDamage(PlayerStats.currentWeapon.attackValue, PlayerStats.boostedDexterity, cEnemyStats.defence);
 
@@ -434,11 +434,11 @@ public class AttackHandler : MonoBehaviour
 
                 AINavigation cAINav = c.GetComponent<AINavigation>();
 
-                if (cAINav.alive && cAINav.canBeDamaged)
+                if (cAINav.alive)
                 {
                     int damageDealt = HeavyAttackDamage(PlayerStats.currentWeapon.attackValue, PlayerStats.boostedStrength, cEnemyStats.defence);
 
-                    damageDealt = CheckForEffect(damageDealt, "Strength");
+                    damageDealt = CheckForEffect(damageDealt, "Agility");
                     if (CheckForCrit())
                     {
                         damageDealt *= 2;
