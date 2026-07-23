@@ -37,7 +37,7 @@ public class PlayerStats : MonoBehaviour
     public static Armour currentHelmet;
     public static Armour currentUpperBody;
     public static Armour currentLowerBody;
-    public GameObject[] weaponSockets; // 0=THS, 1=Bow, 2=SpellBook 3=Axe 4+5=Claw Socket
+    public GameObject[] weaponSockets; // 0=THS, 1=Bow, 2=SpellBook 3=Axe 4+5=Claw Socket 6=Ice Staff
 
     public Weapon testWeapon; // this is just used to testing 
 

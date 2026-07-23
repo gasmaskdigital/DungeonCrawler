@@ -397,6 +397,16 @@ public class PlayerHandler : MonoBehaviour
                     playerAnimator.SetTrigger("ClawHeavyAttack");
                 }
                 break;
+            case WeaponType.IceStaff:
+                if(attackHandler.attackType == AttackType.LightAttack)
+                {
+                    playerAnimator.SetTrigger("IceLightAttack");
+                }
+                else
+                {
+                    playerAnimator.SetTrigger("IceHeavyAttack");
+                }
+                break;
 
         }        
     }
