@@ -13,10 +13,6 @@ MonoBehaviour:
   m_Name: NorthEntrance
   m_EditorClassIdentifier: Assembly-CSharp::TilesSO
   tiles:
-  - name: deadEndS
-    tile: {fileID: 2797985347435305117, guid: fe90b4d316726e3439bf2a01b981eaba, type: 3}
-    xPos: 0
-    yPos: 0
   - name: EJunction
     tile: {fileID: 2797985347435305117, guid: 89e6c0715e6f855489723b5600592996, type: 3}
     xPos: 0
@@ -43,5 +39,17 @@ MonoBehaviour:
     yPos: 0
   - name: WJunction
     tile: {fileID: 2797985347435305117, guid: 009325631599b5d4e892122c2cea7cf1, type: 3}
+    xPos: 0
+    yPos: 0
+  - name: Sde_smallroom1
+    tile: {fileID: 5641898359342310611, guid: 17ab11a8c58d2ee498bf896578c88427, type: 3}
+    xPos: 0
+    yPos: 0
+  - name: Sde_smallroom2
+    tile: {fileID: 5641898359342310611, guid: 43019681362198d408c417f6fa856165, type: 3}
+    xPos: 0
+    yPos: 0
+  - name: Sde_smallroom3
+    tile: {fileID: 5641898359342310611, guid: a51405eb2148b844485fb6e836ce2e14, type: 3}
     xPos: 0
     yPos: 0
