@@ -253,6 +253,13 @@ public class PlayerStats : MonoBehaviour
             case WeaponType.Axe:
                 weaponSockets[3].SetActive(true);
                 break;
+            case WeaponType.Claw:
+                weaponSockets[4].SetActive(true);
+                weaponSockets[5].SetActive(true);
+                break;
+            case WeaponType.IceStaff:
+                weaponSockets[6].SetActive(true);
+                break;
         }
     }
 
