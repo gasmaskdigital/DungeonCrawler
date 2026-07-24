@@ -237,6 +237,8 @@ MonoBehaviour:
     m_Bits: 128
   swordTrail: {fileID: 630482053128637294}
   axeTrail: {fileID: 3010780854043994221}
+  clawTrailL: {fileID: 3786836327095971973}
+  clawTrailR: {fileID: 1713643243307808297}
   bowAiming: 0
   canDodge: 1
   enemyMask:
@@ -275,6 +277,7 @@ MonoBehaviour:
   - {fileID: 8780670071247988844}
   - {fileID: 8528244386862633299}
   - {fileID: 4615507539678569212}
+  - {fileID: 8418927643368435331}
   testWeapon:
     weaponName: Starter Weapon
     attackValue: 5
@@ -304,6 +307,8 @@ MonoBehaviour:
   heavyArrow: {fileID: 889499174634663218, guid: 623b8ba83df15c4429096730e705d8aa, type: 3}
   lightFire: {fileID: 7377512060851607530, guid: e0ac51fe5e4dbbd418bdee78ddcbd69d, type: 3}
   heavyFire: {fileID: 8275476850476054161, guid: bc9ca3a359914354ab79df9235c9e6e7, type: 3}
+  iceLight: {fileID: 3576949201509216345, guid: b705e5edc2c3f05478110f74226fddc7, type: 3}
+  iceHeavy: {fileID: 5373855450781834716, guid: 522a158685940d845b1f678ff5083bc2, type: 3}
   swordClash: {fileID: 8300000, guid: 64489b78323b0854a8fe04ca7be89d0e, type: 3}
   heavyArrowSpawn: {fileID: 8300000, guid: a9a1fae0835ed47499f63d47a13f371e, type: 3}
   lightArrowSpawn: {fileID: 8300000, guid: 8f18022f7b122b34da1500edd0303fb6, type: 3}
@@ -315,6 +320,8 @@ MonoBehaviour:
   axeHeavyImpact: {fileID: 8300000, guid: a4580ff02d3ba754d95a6c6ce8272c1d, type: 3}
   clawLightImpact: {fileID: 8300000, guid: 844e6180aba5b7b4d93de74a5201f0a4, type: 3}
   clawHeavyImpact: {fileID: 8300000, guid: 46e8fa94c30bde74b8594efe0182b6b1, type: 3}
+  iceLightSpawn: {fileID: 8300000, guid: b1ad01faa990312479ab37aa2f483325, type: 3}
+  iceHeavySpawn: {fileID: 8300000, guid: 7a9beb24497fb6744a65d86aa2d35935, type: 3}
 --- !u!114 &3236064026199321611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1003,6 +1010,38 @@ Transform:
   - {fileID: 4819426778393513347}
   m_Father: {fileID: 4051598479090421858}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8418927643368435331
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1954004195232360208}
+  m_Layer: 0
+  m_Name: Ice Staff Socket
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1954004195232360208
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8418927643368435331}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 0.402, y: 0.178, z: 0.032}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2588117228884462575}
+  m_Father: {fileID: 6691538336515888544}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!1 &8528244386862633299
 GameObject:
   m_ObjectHideFlags: 0
@@ -1322,6 +1361,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1852576806548013000, guid: 5bb0161bdb07f424099862b8623cc7a9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2061555399835233933}
+    - targetCorrespondingSourceObject: {fileID: 1852576806548013000, guid: 5bb0161bdb07f424099862b8623cc7a9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1954004195232360208}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5bb0161bdb07f424099862b8623cc7a9, type: 3}
       insertIndex: 1
@@ -1702,4 +1744,66 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 3595557804323297469, guid: a289b446aad1c354c849ab51a03a78ab, type: 3}
   m_PrefabInstance: {fileID: 7307151371354693786}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &7689194474146746820
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1954004195232360208}
+    m_Modifications:
+    - target: {fileID: 4761580129063501969, guid: cff5dffe00fae3646b02cf6f01cb6514, type: 3}
+      propertyPath: m_Name
+      value: PP_Theme_07_Scepter_001
+      objectReference: {fileID: 0}
+    - target: {fileID: 5287040466533210667, guid: cff5dffe00fae3646b02cf6f01cb6514, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5287040466533210667, guid: cff5dffe00fae3646b02cf6f01cb6514, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5287040466533210667, guid: cff5dffe00fae3646b02cf6f01cb6514, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5287040466533210667, guid: cff5dffe00fae3646b02cf6f01cb6514, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5287040466533210667, guid: cff5dffe00fae3646b02cf6f01cb6514, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5287040466533210667, guid: cff5dffe00fae3646b02cf6f01cb6514, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5287040466533210667, guid: cff5dffe00fae3646b02cf6f01cb6514, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5287040466533210667, guid: cff5dffe00fae3646b02cf6f01cb6514, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5287040466533210667, guid: cff5dffe00fae3646b02cf6f01cb6514, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5287040466533210667, guid: cff5dffe00fae3646b02cf6f01cb6514, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: cff5dffe00fae3646b02cf6f01cb6514, type: 3}
+--- !u!4 &2588117228884462575 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5287040466533210667, guid: cff5dffe00fae3646b02cf6f01cb6514, type: 3}
+  m_PrefabInstance: {fileID: 7689194474146746820}
   m_PrefabAsset: {fileID: 0}

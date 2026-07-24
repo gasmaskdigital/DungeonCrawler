@@ -21,6 +21,8 @@ public class AttackHandler : MonoBehaviour
     [SerializeField] GameObject heavyArrow;
     [SerializeField] GameObject lightFire;
     [SerializeField] GameObject heavyFire;
+    [SerializeField] GameObject iceLight;
+    [SerializeField] GameObject iceHeavy;
     private float knockbackForce = 250f;
     private float axeLightAttackRadius = 1.25f;
     private float axeHeavyAttackRadius = 1.75f;
@@ -38,6 +40,8 @@ public class AttackHandler : MonoBehaviour
     [SerializeField] AudioClip axeHeavyImpact;
     [SerializeField] AudioClip clawLightImpact;
     [SerializeField] AudioClip clawHeavyImpact;
+    [SerializeField] AudioClip iceLightSpawn;
+    [SerializeField] AudioClip iceHeavySpawn;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -457,6 +461,61 @@ public class AttackHandler : MonoBehaviour
         }
     }
 
+    public void IceLightAttackSpawn()
+    {
+        Vector3 spawnPoint = transform.position;
+        spawnPoint.y += 0.25f;
+        spawnPoint.z += 0.4f;
+
+        quaternion spawnRotation = transform.rotation;
+        Instantiate(iceLight, spawnPoint, spawnRotation);
+        SoundManager.Instance.PlaySound(iceLightSpawn, transform);
+    }
+
+    public void IceLightImpact(EnemyStats enemystats, AINavigation cAiNav)
+    {
+        if (cAiNav.alive)
+        {
+            int damageDealt = LightAttackDamage(PlayerStats.currentWeapon.attackValue, PlayerStats.boostedMagic, enemyStats.defence);
+            damageDealt = CheckForEffect(damageDealt, "Mana");
+            if (CheckForCrit())
+            {
+                damageDealt *= 2;
+                enemyStats.wasCrit = true;
+            }
+            enemyStats.TakeDamage(damageDealt);
+            cAiNav.GetKnockBack(knockbackForce, transform.position);
+            
+        }
+    }
+
+    public void IceHeavyAttackSpawn()
+    {
+        Vector3 spawnPoint = transform.position;
+        spawnPoint.y += 0.1f;
+        spawnPoint.z += 4.5f;
+
+        quaternion spawnRotation = transform.rotation;
+        Instantiate(iceHeavy, spawnPoint, spawnRotation);
+        SoundManager.Instance.PlaySound(iceHeavySpawn, transform);
+    }
+
+    public void IceHeavyImpact(EnemyStats enemystats, AINavigation cAiNav)
+    {
+        if (cAiNav.alive)
+        {
+            int damageDealt = HeavyAttackDamage(PlayerStats.currentWeapon.attackValue, PlayerStats.boostedDexterity, enemyStats.defence);
+            damageDealt = CheckForEffect(damageDealt, "Mana");
+            if (CheckForCrit())
+            {
+                damageDealt *= 2;
+                enemyStats.wasCrit = true;
+            }
+            enemyStats.TakeDamage(damageDealt);
+            cAiNav.GetKnockBack(knockbackForce, transform.position);
+        }
+    }
+
     public int LightAttackDamage(int weaponAttack, int relevantStat, int enemyDefence)
     {
         int playerValues = weaponAttack + relevantStat;
@@ -501,7 +560,7 @@ public enum StatBoostType
 
 public enum WeaponType
 {
-    TwoHandedSword, Bow, FireSpellBook, Axe, Claw
+    TwoHandedSword, Bow, FireSpellBook, Axe, Claw, IceStaff
 }
 
 [System.Serializable]

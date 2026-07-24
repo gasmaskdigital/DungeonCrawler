@@ -133,7 +133,7 @@ public class AnimationRelay : MonoBehaviour
 
     public void AxeTrailOff()
     {
-        playerHandler.AxeTrailOn();
+        playerHandler.AxeTrailOff();
     }
 
     public void ClawLightAttack()
@@ -156,4 +156,13 @@ public class AnimationRelay : MonoBehaviour
         playerHandler.ClawTrailOff();
     }
 
+    public void IceLightAttack()
+    {
+        attackHandler.IceLightAttackSpawn();
+    }
+
+    public void IceHeavyAttack()
+    {
+        attackHandler.IceHeavyAttackSpawn();
+    }
 }

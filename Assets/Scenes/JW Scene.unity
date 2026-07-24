@@ -559,7 +559,7 @@ MonoBehaviour:
   levelHeight: 15
   gridSize: 7.5
   spawnerPercentage: 0.05
-  lootPercentage: 0.9
+  lootPercentage: 0.1
   eastEntrance: {fileID: 11400000, guid: c49a63d6d223b024dbb6c22010dd0efb, type: 2}
   westEntrance: {fileID: 11400000, guid: b867b7b15e6e9344a82e0cfa0972b7d8, type: 2}
   northEntrance: {fileID: 11400000, guid: 874398ff6f6d7b043997627e07fa8119, type: 2}
@@ -2014,14 +2014,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1087447258442381983, guid: 35a62140321f4064da5d2693afb1944e, type: 3}
-      propertyPath: clawTrailL
-      value: 
-      objectReference: {fileID: 798607771}
-    - target: {fileID: 1087447258442381983, guid: 35a62140321f4064da5d2693afb1944e, type: 3}
-      propertyPath: clawTrailR
-      value: 
-      objectReference: {fileID: 798607772}
-    - target: {fileID: 1087447258442381983, guid: 35a62140321f4064da5d2693afb1944e, type: 3}
       propertyPath: mainCamera
       value: 
       objectReference: {fileID: 1773633958}
@@ -2093,16 +2085,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebd9b030155573a4396bdae1f6fae98b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
---- !u!1 &798607771 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3786836327095971973, guid: 35a62140321f4064da5d2693afb1944e, type: 3}
-  m_PrefabInstance: {fileID: 798607769}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &798607772 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1713643243307808297, guid: 35a62140321f4064da5d2693afb1944e, type: 3}
-  m_PrefabInstance: {fileID: 798607769}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &943893596
 GameObject:
   m_ObjectHideFlags: 0
