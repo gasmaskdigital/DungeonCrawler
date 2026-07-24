@@ -22,7 +22,7 @@ MonoBehaviour:
     xPos: 0
     yPos: 0
   - name: deadEndW
-    tile: {fileID: 2797985347435305117, guid: 7bc2bb2975a49e5418d72f94d2a95aa5, type: 3}
+    tile: {fileID: 5641898359342310611, guid: d5ff20f5292ab8144847b217f76ef994, type: 3}
     xPos: 0
     yPos: 0
   - name: EWCorridor

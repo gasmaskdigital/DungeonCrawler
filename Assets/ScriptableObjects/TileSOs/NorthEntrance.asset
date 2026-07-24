@@ -21,14 +21,6 @@ MonoBehaviour:
     tile: {fileID: 2797985347435305117, guid: 0985b2407b154634db90149db92b54ec, type: 3}
     xPos: 0
     yPos: 0
-  - name: noWalls
-    tile: {fileID: 2797985347435305117, guid: 55aa7a8f049125140b0ee2f0f052bd1e, type: 3}
-    xPos: 0
-    yPos: 0
-  - name: NSCorridor
-    tile: {fileID: 2797985347435305117, guid: b2a0751d7f23f4c46abe2a9e7f66c6c9, type: 3}
-    xPos: 0
-    yPos: 0
   - name: NWCorner
     tile: {fileID: 2797985347435305117, guid: f42b0276dbb3db84c95aaae5ecf94316, type: 3}
     xPos: 0
@@ -41,15 +33,15 @@ MonoBehaviour:
     tile: {fileID: 2797985347435305117, guid: 009325631599b5d4e892122c2cea7cf1, type: 3}
     xPos: 0
     yPos: 0
-  - name: Sde_smallroom1
-    tile: {fileID: 5641898359342310611, guid: 17ab11a8c58d2ee498bf896578c88427, type: 3}
+  - name: DeadEndS
+    tile: {fileID: 2797985347435305117, guid: fe90b4d316726e3439bf2a01b981eaba, type: 3}
     xPos: 0
     yPos: 0
-  - name: Sde_smallroom2
-    tile: {fileID: 5641898359342310611, guid: 43019681362198d408c417f6fa856165, type: 3}
+  - name: noWalls
+    tile: {fileID: 2797985347435305117, guid: 55aa7a8f049125140b0ee2f0f052bd1e, type: 3}
     xPos: 0
     yPos: 0
-  - name: Sde_smallroom3
-    tile: {fileID: 5641898359342310611, guid: a51405eb2148b844485fb6e836ce2e14, type: 3}
+  - name: NSCorridor
+    tile: {fileID: 2797985347435305117, guid: b2a0751d7f23f4c46abe2a9e7f66c6c9, type: 3}
     xPos: 0
     yPos: 0

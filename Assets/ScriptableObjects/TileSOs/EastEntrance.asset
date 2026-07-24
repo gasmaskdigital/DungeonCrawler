@@ -17,24 +17,16 @@ MonoBehaviour:
     tile: {fileID: 2797985347435305117, guid: 7bc2bb2975a49e5418d72f94d2a95aa5, type: 3}
     xPos: 0
     yPos: 0
-  - name: EWCorridor
-    tile: {fileID: 2797985347435305117, guid: 015aff2feed62fe41afb92066318e957, type: 3}
-    xPos: 0
-    yPos: 0
   - name: NECorner
     tile: {fileID: 2797985347435305117, guid: 0985b2407b154634db90149db92b54ec, type: 3}
     xPos: 0
     yPos: 0
-  - name: NJunction
-    tile: {fileID: 2797985347435305117, guid: 46e831d775be99d42b286958934a5447, type: 3}
-    xPos: 0
-    yPos: 0
-  - name: noWalls
-    tile: {fileID: 2797985347435305117, guid: 55aa7a8f049125140b0ee2f0f052bd1e, type: 3}
-    xPos: 0
-    yPos: 0
   - name: SECorner
     tile: {fileID: 2797985347435305117, guid: 6ef9f19fa2c76974d90054ed053b5ae3, type: 3}
+    xPos: 0
+    yPos: 0
+  - name: NJunction
+    tile: {fileID: 2797985347435305117, guid: 46e831d775be99d42b286958934a5447, type: 3}
     xPos: 0
     yPos: 0
   - name: SJunction
@@ -43,5 +35,13 @@ MonoBehaviour:
     yPos: 0
   - name: WJunction
     tile: {fileID: 2797985347435305117, guid: 009325631599b5d4e892122c2cea7cf1, type: 3}
+    xPos: 0
+    yPos: 0
+  - name: EWCorridor
+    tile: {fileID: 2797985347435305117, guid: 015aff2feed62fe41afb92066318e957, type: 3}
+    xPos: 0
+    yPos: 0
+  - name: noWalls
+    tile: {fileID: 2797985347435305117, guid: 55aa7a8f049125140b0ee2f0f052bd1e, type: 3}
     xPos: 0
     yPos: 0

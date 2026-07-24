@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb55cafbf82605d4fa8b9ba1d5dcb504, type: 3}
+  m_Name: EastBlockedTest
+  m_EditorClassIdentifier: Assembly-CSharp::TilesSO
+  tiles:
+  - name: DeadEndE
+    tile: {fileID: 5641898359342310611, guid: ddc0059e13a88e74986e12fb4bce95c3, type: 3}
+    xPos: 0
+    yPos: 0
+  - name: DeadEndN
+    tile: {fileID: 5641898359342310611, guid: c43ffd63f44dac44aafff28ee1ea032e, type: 3}
+    xPos: 0
+    yPos: 0
+  - name: DeadEndS
+    tile: {fileID: 5641898359342310611, guid: 15810b1438ec6a642aefc8967a3cc875, type: 3}
+    xPos: 0
+    yPos: 0
+  - name: NSRoom
+    tile: {fileID: 5641898359342310611, guid: 0f5964fe9faeda541811c165eeb52dbc, type: 3}
+    xPos: 0
+    yPos: 0

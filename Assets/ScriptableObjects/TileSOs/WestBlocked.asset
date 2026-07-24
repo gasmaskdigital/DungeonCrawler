@@ -29,15 +29,15 @@ MonoBehaviour:
     tile: {fileID: 2797985347435305117, guid: 0985b2407b154634db90149db92b54ec, type: 3}
     xPos: 0
     yPos: 0
-  - name: NSCorridor
-    tile: {fileID: 2797985347435305117, guid: b2a0751d7f23f4c46abe2a9e7f66c6c9, type: 3}
-    xPos: 0
-    yPos: 0
   - name: SECorner
     tile: {fileID: 2797985347435305117, guid: 6ef9f19fa2c76974d90054ed053b5ae3, type: 3}
     xPos: 0
     yPos: 0
   - name: WJunction
     tile: {fileID: 2797985347435305117, guid: 009325631599b5d4e892122c2cea7cf1, type: 3}
+    xPos: 0
+    yPos: 0
+  - name: NSCorridor
+    tile: {fileID: 2797985347435305117, guid: b2a0751d7f23f4c46abe2a9e7f66c6c9, type: 3}
     xPos: 0
     yPos: 0

@@ -67,7 +67,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 84596046e1cc0ee44ab5df29c88294c7, type: 2}
+  - {fileID: -4279785587125372657, guid: c1a66a8ed1632134b8120f5672f2e07b, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -186,7 +186,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9ed7343403b624e4cb85d9211703d25b, type: 2}
+  - {fileID: 3850002965234648531, guid: c1a66a8ed1632134b8120f5672f2e07b, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -245,6 +245,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::tileMapScript
   player: {fileID: 0}
   mapIcon: {fileID: 0}
+  triggerCollider: {fileID: 0}
 --- !u!65 &5837688684346003401
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -555,7 +556,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 84596046e1cc0ee44ab5df29c88294c7, type: 2}
+  - {fileID: -4279785587125372657, guid: c1a66a8ed1632134b8120f5672f2e07b, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -666,7 +667,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 84596046e1cc0ee44ab5df29c88294c7, type: 2}
+  - {fileID: -4279785587125372657, guid: c1a66a8ed1632134b8120f5672f2e07b, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

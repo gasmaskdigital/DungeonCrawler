@@ -1,0 +1,290 @@
+fileFormatVersion: 2
+guid: 13c0090461d79484e9157528608d0e48
+ModelImporter:
+  serializedVersion: 24200
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Cubemap
+      assembly: UnityEngine.CoreModule
+      name: diffuse_cube
+    second: {fileID: 8900000, guid: bbfd5eda41b3e8042938f11b6746eab5, type: 3}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: candle_trim_01
+    second: {fileID: 2100000, guid: 4c9be1ef61c92f347b58a621ae58edce, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: fabric_trim_01
+    second: {fileID: 2100000, guid: a1150bd06d9355746853aea7bf4dc06a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: floor_trim_01
+    second: {fileID: 2100000, guid: 8090a0f6f41f951459757dc839844f4d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: metal_trim_01
+    second: {fileID: 2100000, guid: 3d4a2f707a479fe418ebbb3eaa934965, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: poterry_trim_01
+    second: {fileID: 2100000, guid: c6f1b0e7069908f42ac684d61504a0ff, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: sack_trim_01
+    second: {fileID: 2100000, guid: 5cd5ad61cf0e760418546ad929600699, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wall_trim_01
+    second: {fileID: 2100000, guid: cf3b78cd99aea4d45ababe47a7df21d4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wood_trim_01
+    second: {fileID: 2100000, guid: 968badad1df0881468bd3b9c21e226ba, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: candle_01_col
+    second: {fileID: 2800000, guid: 78cc5364e0fa67a439f46dc6590af56a, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: candle_01_gls
+    second: {fileID: 2800000, guid: 7dde818eae95f98489b262eefe686b28, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: candle_01_nml
+    second: {fileID: 2800000, guid: be32add3d773e72499d85e8fa743083d, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: fabric_trim_01_col
+    second: {fileID: 2800000, guid: 7611acc5809e8c24886f5c1b65067172, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: fabric_trim_01_gls
+    second: {fileID: 2800000, guid: c168f270ea99bde41972165d98ea55c7, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: fabric_trim_01_nml
+    second: {fileID: 2800000, guid: d6990fb0a21622c4f9901d4927c2061f, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: floor_trim_01_col
+    second: {fileID: 2800000, guid: 581919cc086f7424b921ad3e481f1808, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: floor_trim_01_gls
+    second: {fileID: 2800000, guid: 5907bd3892c5be645be3197d24b4ec6c, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: floor_trim_01_nml
+    second: {fileID: 2800000, guid: 67bcdf2d5fa857744816a52ebfada39c, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ibl_brdf_lut
+    second: {fileID: 2800000, guid: d5057570736727c4293d5233451ce66a, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: metal_trim_01_col
+    second: {fileID: 2800000, guid: 86bc78a6216c9234d818d41a454a5432, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: metal_trim_01_gls
+    second: {fileID: 2800000, guid: 729ff2e1f147f024aa7f178034810bea, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: metal_trim_01_nml
+    second: {fileID: 2800000, guid: de4d5fbdf51a81d41887d7effd130f8e, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: metal_trim_01_spc
+    second: {fileID: 2800000, guid: 26441cf85ee29d84a99da50e3e88ffe6, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: pottery_trim_01_col
+    second: {fileID: 2800000, guid: 40b6778a1ef635240b82376deeae5aaa, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: pottery_trim_01_gls
+    second: {fileID: 2800000, guid: 91d748641f11a4e40920ae08a8d9a639, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: pottery_trim_01_nml
+    second: {fileID: 2800000, guid: 4c142579fe53d2d47847451fb4cae9c3, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: sack_trim_01_col
+    second: {fileID: 2800000, guid: 613f3178608631e4d93cb4a2bbe7ad4b, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: sack_trim_01_gls
+    second: {fileID: 2800000, guid: e3dd5b0b41dfcdf44b5523fe4a0d2884, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: sack_trim_01_nml
+    second: {fileID: 2800000, guid: 947cd16ecb7dd6f49ab05e5bb8aed691, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: wall_trim_01_col
+    second: {fileID: 2800000, guid: 84f35671c7e425e47904e5dd1a03b740, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: wall_trim_01_gls
+    second: {fileID: 2800000, guid: fbcec7372f1f69b49b5fa774f5a21551, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: wall_trim_01_nml
+    second: {fileID: 2800000, guid: 241a1a89f00ee7a4dade4a02ddccdae9, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: wood_prank_01_col
+    second: {fileID: 2800000, guid: c8c42cbb174eeb148ae06b13e9ce4c02, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: wood_prank_01_gls
+    second: {fileID: 2800000, guid: 2598245dca08d4b41b2a044350896685, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: wood_prank_01_nml
+    second: {fileID: 2800000, guid: 5bf63f5a883c1234c8eec14dbcedcc7a, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: wood_prank_01_spc
+    second: {fileID: 2800000, guid: a7a3906295d25f54484eb2c949e0b9fe, type: 3}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    generateMeshLods: 0
+    meshLodGenerationFlags: 0
+    maximumMeshLod: -1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    strictVertexDataChecks: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  importBlendShapeDeformPercent: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TilesSO
   tiles:
   - name: deadEndE
-    tile: {fileID: 2797985347435305117, guid: a8013c54f89dca847ae0aeedcc851d6a, type: 3}
+    tile: {fileID: 5641898359342310611, guid: ddc0059e13a88e74986e12fb4bce95c3, type: 3}
     xPos: 0
     yPos: 0
   - name: DeadEndS
