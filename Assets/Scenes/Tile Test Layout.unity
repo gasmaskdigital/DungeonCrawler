@@ -157,7 +157,7 @@ MonoBehaviour:
   allEnemies: {fileID: 11400000, guid: 4b9fe98c51ae3174ea9efcd5ee12a5f9, type: 2}
   levelWidth: 30
   levelHeight: 30
-  gridSize: 7.5
+  gridSize: 9
   spawnerPercentage: 0
   lootPercentage: 0
   eastEntrance: {fileID: 11400000, guid: 4aba5873e8e68504f990a6aa2ce13ce6, type: 2}

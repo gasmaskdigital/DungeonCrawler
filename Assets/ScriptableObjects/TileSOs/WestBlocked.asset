@@ -14,30 +14,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TilesSO
   tiles:
   - name: deadEndN
-    tile: {fileID: 2797985347435305117, guid: 6ae03989509fabb42922ee9d6ee3799f, type: 3}
+    tile: {fileID: 5641898359342310611, guid: c43ffd63f44dac44aafff28ee1ea032e, type: 3}
     xPos: 0
     yPos: 0
   - name: deadEndS
-    tile: {fileID: 2797985347435305117, guid: fe90b4d316726e3439bf2a01b981eaba, type: 3}
+    tile: {fileID: 5641898359342310611, guid: 15810b1438ec6a642aefc8967a3cc875, type: 3}
     xPos: 0
     yPos: 0
   - name: deadEndW
-    tile: {fileID: 2797985347435305117, guid: 7bc2bb2975a49e5418d72f94d2a95aa5, type: 3}
+    tile: {fileID: 5641898359342310611, guid: d5ff20f5292ab8144847b217f76ef994, type: 3}
     xPos: 0
     yPos: 0
   - name: NECorner
-    tile: {fileID: 2797985347435305117, guid: 0985b2407b154634db90149db92b54ec, type: 3}
+    tile: {fileID: 5641898359342310611, guid: f054a8195ea795e42bc9dcf688e1e56c, type: 3}
     xPos: 0
     yPos: 0
   - name: SECorner
-    tile: {fileID: 2797985347435305117, guid: 6ef9f19fa2c76974d90054ed053b5ae3, type: 3}
+    tile: {fileID: 5641898359342310611, guid: 47558d8cf7c19fb4eb74a22a9dec6a8d, type: 3}
     xPos: 0
     yPos: 0
   - name: WJunction
-    tile: {fileID: 2797985347435305117, guid: 009325631599b5d4e892122c2cea7cf1, type: 3}
+    tile: {fileID: 5641898359342310611, guid: f80f9fa1d5ca9cb42987461409a19d7d, type: 3}
     xPos: 0
     yPos: 0
   - name: NSCorridor
-    tile: {fileID: 2797985347435305117, guid: b2a0751d7f23f4c46abe2a9e7f66c6c9, type: 3}
+    tile: {fileID: 5641898359342310611, guid: fd09d132ab614294e9b9cc618897d29f, type: 3}
     xPos: 0
     yPos: 0

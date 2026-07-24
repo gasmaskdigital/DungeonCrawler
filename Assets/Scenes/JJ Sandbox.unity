@@ -549,7 +549,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75e69e8eaf4f6c24990553ff5e8cb95c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingMapTile: {fileID: 7751338541504152008, guid: d47e921837196bd4c8389cb085aded65, type: 3}
+  startingMapTile: {fileID: 5641898359342310611, guid: 4083801c511a0e641963edfaf23e4c58, type: 3}
   startingTileGenerator: {fileID: 636942354}
   staircase: {fileID: 1075293540915351914, guid: c3bd5e7dd11540a4a91cbfdf06292140, type: 3}
   enemySpawner: {fileID: 1237843681088241054, guid: 1ef20a163b000e74fba1cae4ffccc57d, type: 3}
@@ -557,7 +557,7 @@ MonoBehaviour:
   allEnemies: {fileID: 11400000, guid: 4b9fe98c51ae3174ea9efcd5ee12a5f9, type: 2}
   levelWidth: 15
   levelHeight: 15
-  gridSize: 7.5
+  gridSize: 9
   spawnerPercentage: 0.05
   lootPercentage: 0.1
   eastEntrance: {fileID: 11400000, guid: c49a63d6d223b024dbb6c22010dd0efb, type: 2}

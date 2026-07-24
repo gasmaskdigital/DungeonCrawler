@@ -165,7 +165,6 @@ GameObject:
   - component: {fileID: 3978373986141358953}
   - component: {fileID: 7266534710127501}
   - component: {fileID: 3236064026199321611}
-  - component: {fileID: 4858594754745125893}
   - component: {fileID: 667795102598984419}
   - component: {fileID: 5283045016210622965}
   m_Layer: 3
@@ -323,19 +322,6 @@ MonoBehaviour:
   iceLightSpawn: {fileID: 8300000, guid: b1ad01faa990312479ab37aa2f483325, type: 3}
   iceHeavySpawn: {fileID: 8300000, guid: 7a9beb24497fb6744a65d86aa2d35935, type: 3}
 --- !u!114 &3236064026199321611
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1389836861790355665}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b8136082c47b884f95b697eecb0ef3f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EffectHandler
-  activeEffects: []
---- !u!114 &4858594754745125893
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
