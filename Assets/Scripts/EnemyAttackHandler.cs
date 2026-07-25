@@ -23,6 +23,9 @@ public class EnemyAttackHandler : MonoBehaviour
     [SerializeField] AudioClip skeletonThrow;
     [SerializeField] AudioClip trollLightAttack;
     [SerializeField] AudioClip trollHeavyAttack;
+    [SerializeField] AudioClip spiderLightAttack;
+    [SerializeField] AudioClip spiderHeavyAttack;
+
 
     [Header("Ranged Prefabs")]
     [SerializeField] GameObject skeletonLightArrow;
@@ -197,6 +200,46 @@ public class EnemyAttackHandler : MonoBehaviour
 
             playerStats.TakeDamage(damageDealt);
             
+        }
+    }
+
+    public void SpiderHeavyAttack()
+    {
+        SoundManager.Instance.PlaySound(spiderHeavyAttack, transform);
+        Vector3 origin = transform.position + Vector3.up * 0.40f + transform.forward * 1.3f;
+
+        Collider[] colliders = Physics.OverlapSphere(origin, lightAttackRadius, playerMask, QueryTriggerInteraction.Ignore);
+        foreach (Collider c in colliders)
+        {
+            if (c.CompareTag("Player"))
+            {
+                PlayerStats playerStats = c.GetComponent<PlayerStats>();
+
+
+                int damageDealt = HeavyAttackDamage(enemystats.attack, PlayerStats.currentDefenceTotal, PlayerStats.enduranceStat);
+                playerStats.TakeDamage(damageDealt);
+
+            }
+        }
+    }
+
+    public void SpiderLightAttack()
+    {
+        SoundManager.Instance.PlaySound(spiderLightAttack, transform);
+        Vector3 origin = transform.position + Vector3.up * 0.40f + transform.forward * 1.1f;
+
+        Collider[] colliders = Physics.OverlapSphere(origin, lightAttackRadius, playerMask, QueryTriggerInteraction.Ignore);
+        foreach (Collider c in colliders)
+        {
+            if (c.CompareTag("Player"))
+            {
+                PlayerStats playerStats = c.GetComponent<PlayerStats>();
+
+
+                int damageDealt = LightAttackDamage(enemystats.attack, PlayerStats.currentDefenceTotal, PlayerStats.enduranceStat);
+                playerStats.TakeDamage(damageDealt);
+
+            }
         }
     }
 

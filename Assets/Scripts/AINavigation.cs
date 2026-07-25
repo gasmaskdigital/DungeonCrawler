@@ -76,17 +76,20 @@ public class AINavigation : MonoBehaviour, IKnockbackable
                         if (!navMeshAgent.pathPending && navMeshAgent.remainingDistance < navMeshAgent.stoppingDistance && !isAttacking)
                         {
                             AttackPlayer();
+                            
                         }
+                        //Debug.Log("Chasing Player");
                     }
                     else if (navMeshAgent.remainingDistance < navMeshAgent.stoppingDistance)
                     {
                         Roaming();
+                       // Debug.Log("Roaming");
                     }
 
                 }
             }
 
-            
+            Debug.Log(enemyName + "isAttacking " + isAttacking);
         }
         
         
@@ -112,7 +115,10 @@ public class AINavigation : MonoBehaviour, IKnockbackable
     void AttackPlayer()
     {
         if (!alive || isAttacking)
+        {
+            Debug.Log("Attack player fail alive = " + alive + " isAttacking = " + isAttacking);
             return;
+        }
 
         Vector3 direction = playerHandler.transform.position - transform.position;
         direction.y = 0f;
@@ -222,6 +228,7 @@ public class AINavigation : MonoBehaviour, IKnockbackable
         {
             
             canMove = true;
+            isAttacking = false; //moved this out of iff statement
 
             if (navMeshAgent.enabled && navMeshAgent.isOnNavMesh)
             {

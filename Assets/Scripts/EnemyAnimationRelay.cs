@@ -53,16 +53,23 @@ public class EnemyAnimationRelay : MonoBehaviour
     }
 
     public void TrollLightAttack()
-    {
-        Debug.Log("Troll Light Attack");
+    {        
         enemyAttackHandler.TrollLightAttack();
     }
 
     public void TrollHeavyAttack()
-    {
-        Debug.Log("Troll HeavyAttack");
+    {        
         enemyAttackHandler.TrollHeavyAttack();
     }
 
+    public void SpiderLightAttack()
+    {
+        enemyAttackHandler.SpiderLightAttack();
+    }
+
+    public void SpiderHeavyAttack()
+    {
+        enemyAttackHandler.SpiderHeavyAttack();
+    }
 
 }
