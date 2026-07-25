@@ -150,13 +150,54 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3300108408296064167, guid: 16a951b7f3f29b348a2e8b66eb23e5b0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7924263449672295517}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2797985347435305117, guid: 16a951b7f3f29b348a2e8b66eb23e5b0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7046915458294452978}
+    - targetCorrespondingSourceObject: {fileID: 2797985347435305117, guid: 16a951b7f3f29b348a2e8b66eb23e5b0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4014243472951423756}
   m_SourcePrefab: {fileID: 100100000, guid: 16a951b7f3f29b348a2e8b66eb23e5b0, type: 3}
 --- !u!4 &4995665646077376745 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3300108408296064167, guid: 16a951b7f3f29b348a2e8b66eb23e5b0, type: 3}
   m_PrefabInstance: {fileID: 7536910810033175630}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &5641898359342310611 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2797985347435305117, guid: 16a951b7f3f29b348a2e8b66eb23e5b0, type: 3}
+  m_PrefabInstance: {fileID: 7536910810033175630}
+  m_PrefabAsset: {fileID: 0}
+--- !u!33 &7046915458294452978
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5641898359342310611}
+  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!64 &4014243472951423756
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5641898359342310611}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1001 &7670222673446257590
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -205,6 +246,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: a485f6a4b8d8b3d4b9fd67b6d1871d9d, type: 3}
+      propertyPath: 'm_Materials.Array.data[2]'
+      value: 
+      objectReference: {fileID: 2100000, guid: fefe064f0f8c29143a461ddf139e9b80, type: 2}
     - target: {fileID: 919132149155446097, guid: a485f6a4b8d8b3d4b9fd67b6d1871d9d, type: 3}
       propertyPath: m_Name
       value: sm_room_double_door_01
