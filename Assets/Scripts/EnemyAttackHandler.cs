@@ -221,6 +221,8 @@ public class EnemyAttackHandler : MonoBehaviour
 
             }
         }
+
+        Debug.Log("spider heavy attack");
     }
 
     public void SpiderLightAttack()
@@ -241,6 +243,8 @@ public class EnemyAttackHandler : MonoBehaviour
 
             }
         }
+
+        Debug.Log("spider light attack");
     }
 
 

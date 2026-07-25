@@ -25,3 +25,7 @@ MonoBehaviour:
     prefab: {fileID: 976476470913879337, guid: e8b179edc57f0d9478bc75a65b583c26, type: 3}
     minFloor: 5
     spawnCap: 1
+  - name: Spider
+    prefab: {fileID: 7764565238821835011, guid: ecf7e2f7f25947741bb213db1578697c, type: 3}
+    minFloor: 0
+    spawnCap: -1

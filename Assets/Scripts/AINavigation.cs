@@ -89,7 +89,7 @@ public class AINavigation : MonoBehaviour, IKnockbackable
                 }
             }
 
-            Debug.Log(enemyName + "isAttacking " + isAttacking);
+           // Debug.Log(enemyName + "isAttacking " + isAttacking);
         }
         
         
@@ -114,11 +114,9 @@ public class AINavigation : MonoBehaviour, IKnockbackable
   
     void AttackPlayer()
     {
-        if (!alive || isAttacking)
-        {
-            Debug.Log("Attack player fail alive = " + alive + " isAttacking = " + isAttacking);
+        if (!alive || isAttacking)                   
             return;
-        }
+        
 
         Vector3 direction = playerHandler.transform.position - transform.position;
         direction.y = 0f;
@@ -126,6 +124,7 @@ public class AINavigation : MonoBehaviour, IKnockbackable
 
         enemyAttackHandler.AttackTypeCheck();
         isAttacking = true;
+        Debug.Log("attack player isattacking = " + isAttacking);
     }
 
     public void CheckEnemyNameForAttack()
@@ -217,7 +216,7 @@ public class AINavigation : MonoBehaviour, IKnockbackable
         }
         navMeshAgent.Warp(transform.position);
 
-
+        Debug.Log("can move off");
 
 
     }
@@ -226,7 +225,9 @@ public class AINavigation : MonoBehaviour, IKnockbackable
     {
         if (alive)
         {
-            
+            Debug.Log($"{name}: CanMoveOn called");
+
+
             canMove = true;
             isAttacking = false; //moved this out of iff statement
 
@@ -237,6 +238,7 @@ public class AINavigation : MonoBehaviour, IKnockbackable
             }
             navMeshAgent.Warp(transform.position);
         }
+        Debug.Log("CanMove on is attacking = " + isAttacking);
     }
 
     public void DestroyObject()
