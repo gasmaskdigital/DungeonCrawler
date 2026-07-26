@@ -28,7 +28,9 @@ public class EnemyAttackHandler : MonoBehaviour
     [SerializeField] AudioClip orcLightSpawn;
     [SerializeField] AudioClip orcHeavyAttack;
     [SerializeField] AudioClip orcLightImpact;
-
+    [SerializeField] AudioClip tortLightAttack;
+    [SerializeField] AudioClip tortHeavyAttack;
+    [SerializeField] AudioClip tortHeavyImpact;
 
     [Header("Ranged Prefabs")]
     [SerializeField] GameObject skeletonLightArrow;
@@ -37,6 +39,7 @@ public class EnemyAttackHandler : MonoBehaviour
     [SerializeField] GameObject spiderSummon;
     [SerializeField] GameObject skeletonSummon;
     [SerializeField] GameObject orcSummonVfx;
+    [SerializeField] GameObject tortHeavyObject;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -298,7 +301,48 @@ public class EnemyAttackHandler : MonoBehaviour
 
     }
 
+    public void TortLightAttack()
+    {
 
+        SoundManager.Instance.PlaySound(tortLightAttack, transform);
+        Vector3 origin = transform.position + Vector3.up * 0.40f + transform.forward * 1.1f;
+
+        Collider[] colliders = Physics.OverlapSphere(origin, lightAttackRadius, playerMask, QueryTriggerInteraction.Ignore);
+        foreach (Collider c in colliders)
+        {
+            if (c.CompareTag("Player"))
+            {
+                PlayerStats playerStats = c.GetComponent<PlayerStats>();
+
+
+                int damageDealt = LightAttackDamage(enemystats.attack, PlayerStats.currentDefenceTotal, PlayerStats.enduranceStat);
+                playerStats.TakeDamage(damageDealt);
+
+            }
+        }
+    }
+
+    public void TortHeavyAttack()
+    {
+        Vector3 spawnPoint = transform.position;
+        spawnPoint.y += 2.25f;
+
+        quaternion spawnRotation = transform.rotation;
+
+
+        GameObject tortHeavy = Instantiate(tortHeavyObject, spawnPoint, spawnRotation);
+        OrcLightScript tortHeavyScript = tortHeavy.GetComponent<OrcLightScript>();
+        tortHeavyScript.owner = gameObject;
+
+        SoundManager.Instance.PlaySound(tortHeavyAttack, transform);
+    }
+
+    public void TortHeavyImpact(PlayerStats playerStats)
+    {
+        int damageDealt = HeavyAttackDamage(enemystats.attack, PlayerStats.currentDefenceTotal, PlayerStats.enduranceStat);
+        playerStats.TakeDamage(damageDealt);
+        SoundManager.Instance.PlaySound(tortHeavyImpact, transform);
+    }
 
     private int LightAttackDamage(int enemyAttack, int playerDefence, int playerEndurance)
     {

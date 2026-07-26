@@ -82,4 +82,14 @@ public class EnemyAnimationRelay : MonoBehaviour
         enemyAttackHandler.OrcLightAttack();
     }
 
+    public void TortHeavyAttack()
+    {
+        enemyAttackHandler.TortHeavyAttack();
+    }
+
+    public void TortLightAttack()
+    {
+       enemyAttackHandler.TortLightAttack();
+    }
+
 }
