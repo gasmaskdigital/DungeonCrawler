@@ -41,6 +41,10 @@ MonoBehaviour:
     tile: {fileID: 5641898359342310611, guid: 4083801c511a0e641963edfaf23e4c58, type: 3}
     xPos: 0
     yPos: 0
+  - name: NSRoom
+    tile: {fileID: 5641898359342310611, guid: 0f5964fe9faeda541811c165eeb52dbc, type: 3}
+    xPos: 0
+    yPos: 0
   - name: NSCorridor
     tile: {fileID: 5641898359342310611, guid: fd09d132ab614294e9b9cc618897d29f, type: 3}
     xPos: 0

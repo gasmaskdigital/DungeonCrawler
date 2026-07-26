@@ -41,3 +41,7 @@ MonoBehaviour:
     tile: {fileID: 5641898359342310611, guid: 117e3afa1f29c6d43b1ce43a3b5ce4a4, type: 3}
     xPos: 0
     yPos: 0
+  - name: EWRoom
+    tile: {fileID: 5641898359342310611, guid: 4442980f9f9ba324f90120c7693883ea, type: 3}
+    xPos: 0
+    yPos: 0
