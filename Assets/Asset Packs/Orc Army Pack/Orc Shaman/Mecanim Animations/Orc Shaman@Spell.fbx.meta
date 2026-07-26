@@ -1,5 +1,12 @@
 fileFormatVersion: 2
 guid: 560dade7ea1d64c37b2e4f60a141d7b4
+AssetOrigin:
+  serializedVersion: 1
+  productId: 42080
+  packageName: Low Poly Orc Shaman
+  packageVersion: 1.0
+  assetPath: Assets/Orc Army Pack/Orc Shaman/Mecanim Animations/Orc Shaman@Spell.fbx
+  uploadId: 73475
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable:
@@ -681,7 +688,28 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0
+        functionName: CanMoveOff
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.62691164
+        functionName: OrcLightAttack
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 1
+        functionName: CanMoveOn
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
@@ -764,10 +792,3 @@ ModelImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 42080
-  packageName: Low Poly Orc Shaman
-  packageVersion: 1.0
-  assetPath: Assets/Orc Army Pack/Orc Shaman/Mecanim Animations/Orc Shaman@Spell.fbx
-  uploadId: 73475

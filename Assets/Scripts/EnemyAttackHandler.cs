@@ -25,11 +25,18 @@ public class EnemyAttackHandler : MonoBehaviour
     [SerializeField] AudioClip trollHeavyAttack;
     [SerializeField] AudioClip spiderLightAttack;
     [SerializeField] AudioClip spiderHeavyAttack;
+    [SerializeField] AudioClip orcLightSpawn;
+    [SerializeField] AudioClip orcHeavyAttack;
+    [SerializeField] AudioClip orcLightImpact;
 
 
     [Header("Ranged Prefabs")]
     [SerializeField] GameObject skeletonLightArrow;
     [SerializeField] GameObject skeletonBomb;
+    [SerializeField] GameObject orcLightMagic;
+    [SerializeField] GameObject spiderSummon;
+    [SerializeField] GameObject skeletonSummon;
+    [SerializeField] GameObject orcSummonVfx;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -242,10 +249,55 @@ public class EnemyAttackHandler : MonoBehaviour
                 playerStats.TakeDamage(damageDealt);
 
             }
-        }
-
-        Debug.Log("spider light attack");
+        }        
     }
+
+    public void OrcLightAttack()
+    {
+        Vector3 spawnPoint = transform.position;
+        spawnPoint.y += 1.5f;
+
+        quaternion spawnRotation = transform.rotation;
+
+
+        GameObject orcMagic = Instantiate(orcLightMagic, spawnPoint, spawnRotation);
+        OrcLightScript magicScript = orcMagic.GetComponent<OrcLightScript>();
+        magicScript.owner = gameObject;
+
+        SoundManager.Instance.PlaySound(orcLightSpawn, transform);
+    }
+
+    public void OrcLightImpact(PlayerStats playerStats)
+    {
+        int damageDealt = LightAttackDamage(enemystats.attack, PlayerStats.currentDefenceTotal, PlayerStats.enduranceStat);
+        playerStats.TakeDamage(damageDealt);
+        SoundManager.Instance.PlaySound(orcLightImpact, transform);
+    }
+
+    public void OrcHeavyAttack()
+    {
+        Vector3 spawnPoint = transform.forward * 3f;
+
+        quaternion spawnRotation = transform.rotation;
+
+        int summonIndex = UnityEngine.Random.Range(1, 6);
+
+        if(summonIndex <= 30)
+        {
+            Instantiate(spiderSummon, spawnPoint, spawnRotation);
+            GameObject summonVFX = Instantiate(orcSummonVfx, spawnPoint, spawnRotation);
+            Destroy(summonVFX, 1.5f);
+        }
+        else
+        {
+            Instantiate(skeletonSummon, spawnPoint, spawnRotation);
+            GameObject summonVFX = Instantiate(orcSummonVfx, spawnPoint, spawnRotation);
+            Destroy(summonVFX, 1.5f);
+        }
+        SoundManager.Instance.PlaySound(orcHeavyAttack, transform);
+
+    }
+
 
 
     private int LightAttackDamage(int enemyAttack, int playerDefence, int playerEndurance)
