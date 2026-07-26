@@ -21,7 +21,7 @@ public class PHUIManager : MonoBehaviour
     public void HealthUpgrade()
     {
         PlayerStats.healthStat++;
-        playerStats.UpdateMaxHealth();
+        playerStats.HealthLevelUp();
         levelUpScreen.SetActive(false);
     }
 

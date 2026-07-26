@@ -29,3 +29,7 @@ MonoBehaviour:
     prefab: {fileID: 7982462605936013607, guid: 6bd1627fedb8c044e89f12c4d31972b0, type: 3}
     minFloor: 0
     spawnCap: -1
+  - name: Shaman
+    prefab: {fileID: 6581982275169933887, guid: 83ecab1acd9e9ba4198754e5a0102339, type: 3}
+    minFloor: 3
+    spawnCap: -1
