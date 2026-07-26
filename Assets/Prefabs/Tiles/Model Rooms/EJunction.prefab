@@ -188,6 +188,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8755121785210709133, guid: 16a951b7f3f29b348a2e8b66eb23e5b0, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -1919997070772338303, guid: 7cbe7dc8486ace345b0c6e87360dd22c, type: 3}
     - target: {fileID: 9006408537704162620, guid: 16a951b7f3f29b348a2e8b66eb23e5b0, type: 3}
       propertyPath: m_LocalPosition.z
       value: -6

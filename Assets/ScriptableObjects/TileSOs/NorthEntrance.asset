@@ -49,3 +49,7 @@ MonoBehaviour:
     tile: {fileID: 5641898359342310611, guid: 0f5964fe9faeda541811c165eeb52dbc, type: 3}
     xPos: 0
     yPos: 0
+  - name: roomEndS
+    tile: {fileID: 5641898359342310611, guid: 117bfdc382ef97a4a91a512f83b9816a, type: 3}
+    xPos: 0
+    yPos: 0

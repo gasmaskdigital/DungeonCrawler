@@ -176,7 +176,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 8600000, guid: 5ff03ab24e4c8fc4cadab5abea3f1130, type: 2}
+  m_Texture: {fileID: 8400000, guid: 3b58b3e905f5f454aa69d73387eb7b4c, type: 2}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -2410,7 +2410,7 @@ Camera:
   m_GameObject: {fileID: 1157042427}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 4
+  m_ClearFlags: 2
   m_BackGroundColor: {r: 0.11309963, g: 0.11133855, b: 0.16981131, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
@@ -2442,7 +2442,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 384
   m_RenderingPath: -1
-  m_TargetTexture: {fileID: 8600000, guid: 5ff03ab24e4c8fc4cadab5abea3f1130, type: 2}
+  m_TargetTexture: {fileID: 8400000, guid: 3b58b3e905f5f454aa69d73387eb7b4c, type: 2}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
