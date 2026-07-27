@@ -2299,9 +2299,9 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.6
-  m_Height: 2
+  m_Height: 3
   m_Direction: 1
-  m_Center: {x: 0, y: 1, z: 0}
+  m_Center: {x: 0, y: 1.5, z: 0}
 --- !u!114 &8150635538205168312
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2329,8 +2329,19 @@ MonoBehaviour:
   trollHeavyAttack: {fileID: 0}
   spiderLightAttack: {fileID: 8300000, guid: af9883c5bdfbdaa43842501296631407, type: 3}
   spiderHeavyAttack: {fileID: 8300000, guid: 69710e34a0d7da74ca651a1a85a6eb87, type: 3}
+  orcLightSpawn: {fileID: 0}
+  orcHeavyAttack: {fileID: 0}
+  orcLightImpact: {fileID: 0}
+  tortLightAttack: {fileID: 0}
+  tortHeavyAttack: {fileID: 0}
+  tortHeavyImpact: {fileID: 0}
   skeletonLightArrow: {fileID: 0}
   skeletonBomb: {fileID: 0}
+  orcLightMagic: {fileID: 0}
+  spiderSummon: {fileID: 0}
+  skeletonSummon: {fileID: 0}
+  orcSummonVfx: {fileID: 0}
+  tortHeavyObject: {fileID: 0}
 --- !u!1 &7780956498192117430
 GameObject:
   m_ObjectHideFlags: 0
