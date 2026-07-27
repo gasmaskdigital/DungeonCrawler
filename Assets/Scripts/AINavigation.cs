@@ -225,7 +225,7 @@ public class AINavigation : MonoBehaviour, IKnockbackable
     {
         if (alive)
         {
-            Debug.Log($"{name}: CanMoveOn called");
+            
 
 
             canMove = true;

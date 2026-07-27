@@ -401,6 +401,7 @@ public class PlayerHandler : MonoBehaviour
                 if(attackHandler.attackType == AttackType.LightAttack)
                 {
                     playerAnimator.SetTrigger("IceLightAttack");
+                    Debug.Log("ice light attack");
                 }
                 else
                 {

@@ -704,10 +704,10 @@ AnimatorStateMachine:
     m_Position: {x: -60, y: -370, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -4232322047018447009}
-    m_Position: {x: 600, y: -240, z: 0}
+    m_Position: {x: 470, y: -430, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 4713846056926802282}
-    m_Position: {x: 590, y: -420, z: 0}
+    m_Position: {x: 560, y: -330, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions:
   - {fileID: 271269488081776464}
@@ -980,7 +980,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: IceHeavyAttack
+    m_ConditionEvent: IceLightAttack
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -4232322047018447009}
