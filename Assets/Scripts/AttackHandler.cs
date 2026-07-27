@@ -463,9 +463,9 @@ public class AttackHandler : MonoBehaviour
 
     public void IceLightAttackSpawn()
     {
-        Vector3 spawnPoint = transform.position;
-        spawnPoint.y += 0.25f;
-        spawnPoint.z += 0.4f;
+        Vector3 spawnPoint = transform.forward * 1f;
+        
+        
 
         quaternion spawnRotation = transform.rotation;
         Instantiate(iceLight, spawnPoint, spawnRotation);
@@ -491,9 +491,9 @@ public class AttackHandler : MonoBehaviour
 
     public void IceHeavyAttackSpawn()
     {
-        Vector3 spawnPoint = transform.position;
-        spawnPoint.y += 0.1f;
-        spawnPoint.z += 4.5f;
+        Vector3 spawnPoint = transform.forward * 2f;
+        
+        
 
         quaternion spawnRotation = transform.rotation;
         Instantiate(iceHeavy, spawnPoint, spawnRotation);
