@@ -325,13 +325,13 @@ public class EnemyAttackHandler : MonoBehaviour
     public void TortHeavyAttack()
     {
         Vector3 spawnPoint = transform.position;
-        spawnPoint.y += 2.25f;
+        spawnPoint.y +=3.5f;
 
         quaternion spawnRotation = transform.rotation;
 
 
         GameObject tortHeavy = Instantiate(tortHeavyObject, spawnPoint, spawnRotation);
-        OrcLightScript tortHeavyScript = tortHeavy.GetComponent<OrcLightScript>();
+        TortHeavyScript tortHeavyScript = tortHeavy.GetComponent<TortHeavyScript>();
         tortHeavyScript.owner = gameObject;
 
         SoundManager.Instance.PlaySound(tortHeavyAttack, transform);
