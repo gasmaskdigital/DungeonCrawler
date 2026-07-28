@@ -40,6 +40,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 3236720986300101758, guid: 8abc3f423e42ec942a1e029a470f481b, type: 3}
+    - target: {fileID: 5248775445468226552, guid: 4528d740d646b43438166107f7f960c8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.43
+      objectReference: {fileID: 0}
     - target: {fileID: 5971284336736266383, guid: 4528d740d646b43438166107f7f960c8, type: 3}
       propertyPath: m_Radius
       value: 0.5
@@ -50,6 +54,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5971284336736266383, guid: 4528d740d646b43438166107f7f960c8, type: 3}
       propertyPath: m_Center.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7525147833548761749, guid: 4528d740d646b43438166107f7f960c8, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7983447744634579074, guid: 4528d740d646b43438166107f7f960c8, type: 3}

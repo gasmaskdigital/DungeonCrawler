@@ -28,6 +28,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: -5239376909909558937, guid: 3d03772cb9468fa4085e94eb6aaf27d7, type: 3}
+    - target: {fileID: 7525147833548761749, guid: 4528d740d646b43438166107f7f960c8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7983447744634579074, guid: 4528d740d646b43438166107f7f960c8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
