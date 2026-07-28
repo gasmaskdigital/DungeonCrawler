@@ -26,7 +26,7 @@ public class gameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        txtHealth.text = "Health: " + PlayerStats.currentHealth;
+        txtHealth.text = " " + PlayerStats.currentHealth;
         updateStatDisplay();
     }
 
