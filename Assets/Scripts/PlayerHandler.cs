@@ -48,7 +48,7 @@ public class PlayerHandler : MonoBehaviour
     public bool canBeDamaged = true;
     public bool canAttack = true;
     public float knockbackForce = 10000f;
-    private float knockbackDelay = 0.3f;
+    //private float knockbackDelay = 0.3f;
 
     [Header("Current Equipment")]
     [SerializeField] string curWeapon;

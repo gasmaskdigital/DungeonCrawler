@@ -7,7 +7,7 @@ public class FireLIghtAttackScript : MonoBehaviour
     private GameObject player;
     private AttackHandler playerAttackHandler;
     private Vector3 tartgetScale = new Vector3(1.5f, 1.5f, 1.5f);
-    private float scaleSpeed = 10f;
+    //private float scaleSpeed = 10f;
     private float explosionRadius = 0.75f;
     private bool triggered = false;
     public LayerMask enemyMask;

@@ -9,7 +9,7 @@ public class AINavigation : MonoBehaviour, IKnockbackable
     private Animator enemyAnimator;
     private EnemyStats enemyStats;
     [SerializeField] PlayerHandler playerHandler;    
-    private bool playerInAttackRange = false;
+    //private bool playerInAttackRange = false;
     public bool playerSpotted = false;
     private float roamRange = 40f;
     private float currentspeed;
@@ -17,7 +17,7 @@ public class AINavigation : MonoBehaviour, IKnockbackable
     public string enemyName;
     public LayerMask playerMask;
     public bool isAttacking = false;
-    private float knockDelay = 0.5f;
+    //private float knockDelay = 0.5f;
     private EnemyAttackHandler enemyAttackHandler;
     public static bool playerAlive = true;
     public bool alive = true;

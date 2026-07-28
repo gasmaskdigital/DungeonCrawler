@@ -43,8 +43,8 @@ public class levelManager: MonoBehaviour
     public int levelWidth;
     public int levelHeight;
     public float gridSize;
-    [SerializeField] float spawnerPercentage;
-    [SerializeField] float lootPercentage;
+    [SerializeField, Range(0.0f, 1f)] float spawnerPercentage;
+    [SerializeField, Range(0.0f, 1f)] float lootPercentage;
     [SerializeField] public static int currentLevel;
 
     [Header("Tiles")]
@@ -126,7 +126,7 @@ public class levelManager: MonoBehaviour
         spawnStaircase();
         startingTileGenerator.GetComponent<NavMeshSurface>().BuildNavMesh();
         int enemySpawnerCount = Mathf.FloorToInt(levelMap.tileCount * spawnerPercentage);
-        int chestCount = Mathf.FloorToInt(levelMap.tileCount * lootPercentage);
+        int chestCount = Mathf.CeilToInt(levelMap.tileCount * lootPercentage);
         for( int i = 0; i < enemySpawnerCount; i++) createEnemySpawner();
         for( int i = 0; i < chestCount; i++) createChest();
 
