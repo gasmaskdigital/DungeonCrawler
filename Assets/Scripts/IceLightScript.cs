@@ -13,14 +13,23 @@ public class IceLightScript : MonoBehaviour
         Destroy(gameObject, 1.75f);
     }
 
-    private void OnTriggerExit(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Enemy"))
         {
-            EnemyStats cEnemyStats = other.GetComponent<EnemyStats>();
-            AINavigation cAINav = other.GetComponent<AINavigation>();
-            playerAttackHandler.IceLightImpact(cEnemyStats, cAINav);
-            
+            if (other.CompareTag("Enemy"))
+            {
+                EnemyStats cEnemyStats = other.GetComponent<EnemyStats>();
+                AINavigation cAINav = other.GetComponent<AINavigation>();
+
+                if (cEnemyStats == null || cAINav == null)
+                {
+                    Debug.LogWarning($"Missing EnemyStats or AINavigation on {other.name}");
+                    return;
+                }
+
+                playerAttackHandler.IceLightImpact(cEnemyStats, cAINav);
+
+            }
         }
     }
 

@@ -19,14 +19,17 @@ public class IceHeavyScript : MonoBehaviour
         
     }
 
-    private void OnTriggerExit(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Enemy"))
         {
-            EnemyStats cEnemyStats = other.GetComponent<EnemyStats>();
-            AINavigation cAINav = other.GetComponent<AINavigation>();
-            playerAttackHandler.IceHeavyImpact(cEnemyStats, cAINav);
+            if (other.CompareTag("Enemy"))
+            {
+                EnemyStats cEnemyStats = other.GetComponent<EnemyStats>();
+                AINavigation cAINav = other.GetComponent<AINavigation>();
+                playerAttackHandler.IceHeavyImpact(cEnemyStats, cAINav);
 
+            }
         }
     }
+
 }

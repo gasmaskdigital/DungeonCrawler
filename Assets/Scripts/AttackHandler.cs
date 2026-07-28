@@ -463,9 +463,9 @@ public class AttackHandler : MonoBehaviour
 
     public void IceLightAttackSpawn()
     {
-        Vector3 spawnPoint = transform.position;
-        spawnPoint.y += 0.25f;
-        spawnPoint.z += 0.4f;
+        Vector3 spawnPoint = transform.position + transform.forward * 1f;
+        
+        
 
         quaternion spawnRotation = transform.rotation;
         Instantiate(iceLight, spawnPoint, spawnRotation);
@@ -476,14 +476,14 @@ public class AttackHandler : MonoBehaviour
     {
         if (cAiNav.alive)
         {
-            int damageDealt = LightAttackDamage(PlayerStats.currentWeapon.attackValue, PlayerStats.boostedMagic, enemyStats.defence);
+            int damageDealt = LightAttackDamage(PlayerStats.currentWeapon.attackValue, PlayerStats.boostedMagic, enemystats.defence);
             damageDealt = CheckForEffect(damageDealt, "Mana");
             if (CheckForCrit())
             {
                 damageDealt *= 2;
-                enemyStats.wasCrit = true;
+                enemystats.wasCrit = true;
             }
-            enemyStats.TakeDamage(damageDealt);
+            enemystats.TakeDamage(damageDealt);
             cAiNav.GetKnockBack(knockbackForce, transform.position);
             
         }
@@ -491,9 +491,9 @@ public class AttackHandler : MonoBehaviour
 
     public void IceHeavyAttackSpawn()
     {
-        Vector3 spawnPoint = transform.position;
-        spawnPoint.y += 0.1f;
-        spawnPoint.z += 4.5f;
+        Vector3 spawnPoint =transform.position + transform.forward * 2f;
+        
+        
 
         quaternion spawnRotation = transform.rotation;
         Instantiate(iceHeavy, spawnPoint, spawnRotation);
@@ -504,14 +504,14 @@ public class AttackHandler : MonoBehaviour
     {
         if (cAiNav.alive)
         {
-            int damageDealt = HeavyAttackDamage(PlayerStats.currentWeapon.attackValue, PlayerStats.boostedDexterity, enemyStats.defence);
+            int damageDealt = HeavyAttackDamage(PlayerStats.currentWeapon.attackValue, PlayerStats.boostedDexterity, enemystats.defence);
             damageDealt = CheckForEffect(damageDealt, "Mana");
             if (CheckForCrit())
             {
                 damageDealt *= 2;
-                enemyStats.wasCrit = true;
+                enemystats.wasCrit = true;
             }
-            enemyStats.TakeDamage(damageDealt);
+            enemystats.TakeDamage(damageDealt);
             cAiNav.GetKnockBack(knockbackForce, transform.position);
         }
     }

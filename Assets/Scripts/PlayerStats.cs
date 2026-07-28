@@ -142,6 +142,12 @@ public class PlayerStats : MonoBehaviour
 
     }
 
+    public void HealthLevelUp()
+    {
+        maxHealth += 8;
+        currentHealth += 8;
+    }
+
     public void UpdateMaxHealth()
     {
         maxHealth = maxHealth + (healthStat * 5);

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8678577972461398336}
   - component: {fileID: 7836811981017485196}
   - component: {fileID: 4619309315594467699}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: IceHeavyParent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,7 +45,7 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 192
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 8
@@ -72,17 +72,17 @@ Rigidbody:
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 192
+    m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 0
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 2
+  m_CollisionDetection: 0
 --- !u!114 &4619309315594467699
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -104,7 +104,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8967714323752776950}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: VFX Parent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -139,6 +139,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crystals crossfade
       objectReference: {fileID: 0}
+    - target: {fileID: 176822597162087251, guid: 46009f57772e5e743bec9df57a49ed66, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 851939861782742427, guid: 46009f57772e5e743bec9df57a49ed66, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1050493830772447075, guid: 46009f57772e5e743bec9df57a49ed66, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2022328993829292886, guid: 46009f57772e5e743bec9df57a49ed66, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3103622091392389050, guid: 46009f57772e5e743bec9df57a49ed66, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4736318331478346741, guid: 46009f57772e5e743bec9df57a49ed66, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5570310291354507532, guid: 46009f57772e5e743bec9df57a49ed66, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5895539383380427461, guid: 46009f57772e5e743bec9df57a49ed66, type: 3}
       propertyPath: m_BoundingSphereOverride.x
       value: 0
@@ -146,6 +174,22 @@ PrefabInstance:
     - target: {fileID: 5895539383380427461, guid: 46009f57772e5e743bec9df57a49ed66, type: 3}
       propertyPath: m_BoundingSphereOverride.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7027463057630174188, guid: 46009f57772e5e743bec9df57a49ed66, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7400627041377629831, guid: 46009f57772e5e743bec9df57a49ed66, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8415446990068764118, guid: 46009f57772e5e743bec9df57a49ed66, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8443669331325262472, guid: 46009f57772e5e743bec9df57a49ed66, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8729863298076563650, guid: 46009f57772e5e743bec9df57a49ed66, type: 3}
       propertyPath: m_LocalPosition.x

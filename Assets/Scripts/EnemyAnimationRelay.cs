@@ -72,4 +72,24 @@ public class EnemyAnimationRelay : MonoBehaviour
         enemyAttackHandler.SpiderHeavyAttack();
     }
 
+    public void OrcHeavyAttack()
+    {
+        enemyAttackHandler.OrcHeavyAttack();
+    }
+
+    public void OrcLightAttack()
+    {
+        enemyAttackHandler.OrcLightAttack();
+    }
+
+    public void TortHeavyAttack()
+    {
+        enemyAttackHandler.TortHeavyAttack();
+    }
+
+    public void TortLightAttack()
+    {
+       enemyAttackHandler.TortLightAttack();
+    }
+
 }
