@@ -10,14 +10,19 @@ public class PauseMenu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.P))
         {
-            if (Time.timeScale == 1f)
-            {
-                Pause();
-            }
-            else
-            {
-                Resume();
-            }
+            togglePause();
+        }
+    }
+
+    public void togglePause() 
+    {
+        if (Time.timeScale == 1f)
+        {
+            Pause();
+        }
+        else
+        {
+            Resume();
         }
     }
 
@@ -30,7 +35,7 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 0f;
 
         Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
+        //Cursor.visible = true;
     }
 
     public void Home()
@@ -47,8 +52,8 @@ public class PauseMenu : MonoBehaviour
 
         Time.timeScale = 1f;
 
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Confined;
+        //Cursor.visible = false;
     }
 
     public void Restart()

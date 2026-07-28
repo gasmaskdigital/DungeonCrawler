@@ -92,7 +92,7 @@ public class lootScript : MonoBehaviour
 
                 //Debug.Log("Equipping: " + lootName);
                 playerStats.UpdateEquipment();
-                GameObject.FindGameObjectWithTag("GameController").GetComponent<gameManager>().updateEquipment();
+                //GameObject.FindGameObjectWithTag("GameController").GetComponent<gameManager>().updateEquipment();
                 
                 Destroy(gameObject);
             }
