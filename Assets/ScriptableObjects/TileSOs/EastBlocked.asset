@@ -57,3 +57,15 @@ MonoBehaviour:
     tile: {fileID: 5641898359342310611, guid: 0f5964fe9faeda541811c165eeb52dbc, type: 3}
     xPos: 0
     yPos: 0
+  - name: roomDamagedEndE
+    tile: {fileID: 5641898359342310611, guid: 41c0cd5c2e1e0014e9cc9a91c8aeb2da, type: 3}
+    xPos: 0
+    yPos: 0
+  - name: roomDamagedEndN
+    tile: {fileID: 5641898359342310611, guid: e2f4d546303be2c42afdba5f11e76e42, type: 3}
+    xPos: 0
+    yPos: 0
+  - name: roomDamagedEndS
+    tile: {fileID: 5641898359342310611, guid: d0d2b043b2d985a4caa3c1dff8c3bcf9, type: 3}
+    xPos: 0
+    yPos: 0

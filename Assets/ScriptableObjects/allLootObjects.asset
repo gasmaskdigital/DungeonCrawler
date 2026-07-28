@@ -48,4 +48,4 @@ MonoBehaviour:
     prefab: {fileID: 1064078589619500094, guid: d42d7772a15b23b4690decde3b6e0f3e, type: 3}
   - name: IceStaff
     type: 0
-    prefab: {fileID: 2459961511337339887, guid: cd6a370c96bcba3448ad23c5be49c0d5, type: 3}
+    prefab: {fileID: 5834647568074990458, guid: a44fb00cfaa86b046bd96e2f50e3d596, type: 3}
