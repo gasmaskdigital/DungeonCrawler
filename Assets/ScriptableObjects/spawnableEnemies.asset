@@ -35,5 +35,5 @@ MonoBehaviour:
     spawnCap: -1
   - name: Tortoise
     prefab: {fileID: 5829874256580209190, guid: af7dae6488d32b24785a3e8d340fb57a, type: 3}
-    minFloor: 8
+    minFloor: 0
     spawnCap: 1

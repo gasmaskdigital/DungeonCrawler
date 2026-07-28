@@ -11,7 +11,7 @@ PrefabInstance:
     - target: {fileID: -4978104183705362587, guid: 4528d740d646b43438166107f7f960c8, type: 3}
       propertyPath: canvas
       value: 
-      objectReference: {fileID: 7525147833548761749, guid: cd6a370c96bcba3448ad23c5be49c0d5, type: 3}
+      objectReference: {fileID: 1924707127715734016}
     - target: {fileID: -4978104183705362587, guid: 4528d740d646b43438166107f7f960c8, type: 3}
       propertyPath: lootName
       value: Ice Staff
@@ -89,3 +89,8 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4528d740d646b43438166107f7f960c8, type: 3}
+--- !u!1 &1924707127715734016 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7525147833548761749, guid: 4528d740d646b43438166107f7f960c8, type: 3}
+  m_PrefabInstance: {fileID: 8276310972404189333}
+  m_PrefabAsset: {fileID: 0}

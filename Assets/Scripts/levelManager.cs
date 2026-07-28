@@ -75,8 +75,8 @@ public class levelManager: MonoBehaviour
         northBlocked = Resources.LoadAll("Room Tiles/NorthBlocked");
         southBlocked = Resources.LoadAll("Room Tiles/SouthBlocked");*/
 
-        levelHeight = Mathf.Min(30, 5 + (currentLevel - 1) * 2);
-        levelWidth = Mathf.Min(30, 5 + (currentLevel - 1) * 2);
+        levelHeight = Mathf.Min(30, 20 + (currentLevel - 1) * 2);
+        levelWidth = Mathf.Min(30, 20 + (currentLevel - 1) * 2);
 
         tileGenerators = new();
         levelMap.tileGrid = new levelTile[levelHeight, levelWidth];
@@ -107,7 +107,7 @@ public class levelManager: MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Return)) 
+        /*if (Input.GetKeyDown(KeyCode.Return)) 
         {
             for (int i = 0; i < levelWidth; i++) 
             {
@@ -117,7 +117,7 @@ public class levelManager: MonoBehaviour
                     else Debug.Log("(" + i + ", " + j + " ):" + "Empty");
                 }
             }
-        }
+        }*/
     }
 
     public void finaliseLevelGeneration() 
@@ -226,7 +226,7 @@ public class levelManager: MonoBehaviour
     public levelTile findRandomValidTile() 
     {
         List<levelTile> validTiles = findValidTiles();
-        return validTiles[UnityEngine.Random.Range(0, validTiles.Count)];
+        return validTiles[Random.Range(0, validTiles.Count)];
     }
 
     public List<levelTile> findValidTiles()

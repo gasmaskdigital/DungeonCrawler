@@ -111,10 +111,12 @@ public class tileGenerator : MonoBehaviour
     {
         List<levelTile> validTiles = new();
 
-        switch (dir)
+        // Select tiles that have an entrance to the current tile
+        switch (dir) 
         {
             case Direction.NORTH:
                 validTiles.AddRange(controller.southEntrance.tiles);
+               
                 break;
             case Direction.EAST:
                 validTiles.AddRange(controller.westEntrance.tiles);
@@ -127,22 +129,84 @@ public class tileGenerator : MonoBehaviour
                 break;
         }
 
+        // Remove tiles if new tile is on the border of the map
         if (x == 0) 
         {
-            validTiles = Intersection<levelTile>(validTiles, controller.westBlocked.tiles);        
+            validTiles = Intersection(validTiles, controller.westBlocked.tiles);        
         }
         else if (x == levelWidth - 1)
         {
-            validTiles = Intersection<levelTile>(validTiles, controller.eastBlocked.tiles);        
+            validTiles = Intersection(validTiles, controller.eastBlocked.tiles);        
         }
 
         if (y == 0)
         {
-            validTiles = Intersection<levelTile>(validTiles, controller.southBlocked.tiles);
+            validTiles = Intersection(validTiles, controller.southBlocked.tiles);
         }
         else if (y == levelHeight - 1)
         {
-            validTiles = Intersection<levelTile>(validTiles, controller.northBlocked.tiles);        
+            validTiles = Intersection(validTiles, controller.northBlocked.tiles);        
+        }
+
+
+        // Remove tiles if new tile already has walls on it's edges and ensure we have matching entrances
+        if (y < levelHeight - 1) 
+        {
+            if (levelManager.levelMap.tileGrid[y + 1, x].tile != null)
+            {
+                if (controller.southBlocked.tiles.Contains(levelManager.levelMap.tileGrid[y + 1, x]))
+                {
+                    validTiles = Intersection(validTiles, controller.northBlocked.tiles);
+                }
+                else if (controller.southEntrance.tiles.Contains(levelManager.levelMap.tileGrid[y + 1, x]))
+                {
+                    validTiles = Intersection(validTiles, controller.northEntrance.tiles);
+                }
+            }
+        }
+        if (y > 0) 
+        {
+            if (levelManager.levelMap.tileGrid[y - 1, x].tile != null)
+            {
+                if (controller.northBlocked.tiles.Contains(levelManager.levelMap.tileGrid[y - 1, x]))
+                {
+                    validTiles = Intersection(validTiles, controller.southBlocked.tiles);
+                }
+                else if (controller.northEntrance.tiles.Contains(levelManager.levelMap.tileGrid[y - 1, x]))
+                {
+                    validTiles = Intersection(validTiles, controller.southEntrance.tiles);
+                }
+            }
+        }
+        if (x < levelWidth - 1)
+        {
+            if (levelManager.levelMap.tileGrid[y, x + 1].tile != null)
+            {
+                if (controller.westBlocked.tiles.Contains(levelManager.levelMap.tileGrid[y, x + 1]))
+                {
+                    validTiles = Intersection(validTiles, controller.eastBlocked.tiles);
+                }
+                else if (controller.westEntrance.tiles.Contains(levelManager.levelMap.tileGrid[y, x + 1]))
+                {
+                    validTiles = Intersection(validTiles, controller.eastEntrance.tiles);
+                };
+            }
+        }
+        if (x > 0)
+        {
+            if (levelManager.levelMap.tileGrid[y, x - 1].tile != null)
+            {
+                {
+                    if (controller.eastBlocked.tiles.Contains(levelManager.levelMap.tileGrid[y, x - 1]))
+                    {
+                        validTiles = Intersection(validTiles, controller.westBlocked.tiles);
+                    };
+                    if (controller.eastEntrance.tiles.Contains(levelManager.levelMap.tileGrid[y, x - 1]))
+                    {
+                        validTiles = Intersection(validTiles, controller.westEntrance.tiles);
+                    };
+                }
+            }
         }
 
         return validTiles;
