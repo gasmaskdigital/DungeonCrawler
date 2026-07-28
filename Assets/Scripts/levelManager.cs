@@ -75,8 +75,8 @@ public class levelManager: MonoBehaviour
         northBlocked = Resources.LoadAll("Room Tiles/NorthBlocked");
         southBlocked = Resources.LoadAll("Room Tiles/SouthBlocked");*/
 
-        levelHeight = Mathf.Min(30, 20 + (currentLevel - 1) * 2);
-        levelWidth = Mathf.Min(30, 20 + (currentLevel - 1) * 2);
+        levelHeight = Mathf.Min(30, 5 + (currentLevel - 1) * 2);
+        levelWidth = Mathf.Min(30, 5 + (currentLevel - 1) * 2);
 
         tileGenerators = new();
         levelMap.tileGrid = new levelTile[levelHeight, levelWidth];
