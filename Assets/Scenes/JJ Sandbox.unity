@@ -1049,7 +1049,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 340316306}
         m_TargetAssemblyTypeName: PHUIManager, Assembly-CSharp
         m_MethodName: EnduranceUpgrade
         m_Mode: 1
@@ -1548,7 +1548,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e389df902284e6b449a6ff77fa33832f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PHUIManager
-  levelUpScreen: {fileID: 0}
+  levelUpScreen: {fileID: 1685323764}
   playerStats: {fileID: 798607770}
 --- !u!4 &340316307
 Transform:
@@ -2746,7 +2746,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 340316306}
         m_TargetAssemblyTypeName: PHUIManager, Assembly-CSharp
         m_MethodName: StrengthUpgrade
         m_Mode: 1
@@ -3187,7 +3187,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 340316306}
         m_TargetAssemblyTypeName: PHUIManager, Assembly-CSharp
         m_MethodName: DexterityUpgrade
         m_Mode: 1
@@ -5030,7 +5030,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 340316306}
         m_TargetAssemblyTypeName: PHUIManager, Assembly-CSharp
         m_MethodName: MagicUpgrade
         m_Mode: 1
@@ -7356,7 +7356,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 340316306}
         m_TargetAssemblyTypeName: PHUIManager, Assembly-CSharp
         m_MethodName: HealthUpgrade
         m_Mode: 1
