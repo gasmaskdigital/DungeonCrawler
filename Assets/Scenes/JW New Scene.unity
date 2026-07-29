@@ -559,7 +559,7 @@ MonoBehaviour:
   levelHeight: 15
   gridSize: 9
   spawnerPercentage: 0.05
-  lootPercentage: 0.1
+  lootPercentage: 0.15
   eastEntrance: {fileID: 11400000, guid: c49a63d6d223b024dbb6c22010dd0efb, type: 2}
   westEntrance: {fileID: 11400000, guid: b867b7b15e6e9344a82e0cfa0972b7d8, type: 2}
   northEntrance: {fileID: 11400000, guid: 874398ff6f6d7b043997627e07fa8119, type: 2}
@@ -2149,7 +2149,7 @@ MonoBehaviour:
     CustomLookAtTarget: 0
   Lens:
     FieldOfView: 90
-    OrthographicSize: 15
+    OrthographicSize: 20
     NearClipPlane: -50
     FarClipPlane: 5000
     Dutch: 0
@@ -2436,7 +2436,7 @@ Camera:
   far clip plane: 5000
   field of view: 90
   orthographic: 1
-  orthographic size: 15
+  orthographic size: 20
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
