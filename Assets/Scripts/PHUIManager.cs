@@ -16,6 +16,7 @@ public class PHUIManager : MonoBehaviour
     public void EnableLevelUpScreen()
     {
         levelUpScreen.SetActive(true);
+        Time.timeScale = 0f;
     }
 
     public void HealthUpgrade()
@@ -23,30 +24,35 @@ public class PHUIManager : MonoBehaviour
         PlayerStats.healthStat++;
         playerStats.HealthLevelUp();
         levelUpScreen.SetActive(false);
+        Time.timeScale = 1f;
     }
 
     public void StrengthUpgrade()
     {
         PlayerStats.strengthStat++;
         levelUpScreen.SetActive(false);
+        Time.timeScale = 1f;
     }
 
     public void DexterityUpgrade()
     {
         PlayerStats.dexterityStat++;
         levelUpScreen.SetActive(false);
+        Time.timeScale = 1f;
     }
 
     public void MagicUpgrade()
     {
         PlayerStats.magicStat++;
         levelUpScreen.SetActive(false);
+        Time.timeScale = 1f;
     }
 
     public void EnduranceUpgrade()
     {
         PlayerStats.enduranceStat++;
         levelUpScreen.SetActive(false);
+        Time.timeScale = 1f;
     }
 
 }
