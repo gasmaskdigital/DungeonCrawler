@@ -50,7 +50,15 @@ public class EnemyAttackHandler : MonoBehaviour
         enemyAnimator = GetComponentInChildren<Animator>();
     }
 
-    
+    /*
+    private void Update() // Jamie Remove This
+    {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            enemyAnimator.SetTrigger("LightAttack");
+        }
+    }
+    */
 
     public void CheckEnemyAttack()
     {

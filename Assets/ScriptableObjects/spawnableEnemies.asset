@@ -24,7 +24,7 @@ MonoBehaviour:
   - name: Troll
     prefab: {fileID: 976476470913879337, guid: e8b179edc57f0d9478bc75a65b583c26, type: 3}
     minFloor: 5
-    spawnCap: 1
+    spawnCap: 3
   - name: Spider
     prefab: {fileID: 7982462605936013607, guid: 6bd1627fedb8c044e89f12c4d31972b0, type: 3}
     minFloor: 0
@@ -32,8 +32,8 @@ MonoBehaviour:
   - name: Shaman
     prefab: {fileID: 6581982275169933887, guid: 83ecab1acd9e9ba4198754e5a0102339, type: 3}
     minFloor: 3
-    spawnCap: -1
+    spawnCap: 4
   - name: Tortoise
     prefab: {fileID: 5829874256580209190, guid: af7dae6488d32b24785a3e8d340fb57a, type: 3}
-    minFloor: 0
-    spawnCap: 1
+    minFloor: 8
+    spawnCap: 2
