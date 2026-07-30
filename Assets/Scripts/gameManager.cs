@@ -16,6 +16,8 @@ public class gameManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI txtStats;
     [SerializeField] PlayerStats playerStats;
 
+    [SerializeField] InventorySpriteSO inventorySpriteSO;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

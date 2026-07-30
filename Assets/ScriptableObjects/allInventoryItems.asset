@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e426509e00f4334439fdcd5d6792b2da, type: 3}
+  m_Name: allInventoryItems
+  m_EditorClassIdentifier: Assembly-CSharp::InventorySpriteSO
+  inventoryItems:
+  - name: Helmet
+    sprite: {fileID: 21300000, guid: 0dda775d59092de47a43fadb67ce4394, type: 3}
+  - name: Chestplate
+    sprite: {fileID: 21300000, guid: a7f9c4e8f02a4054db81cbd0ee72cf25, type: 3}
+  - name: Sword
+    sprite: {fileID: 21300000, guid: c1cfb12673d2cf6469e5131af5f430a2, type: 3}
+  Helmet:
+    name: 
+    sprite: {fileID: 0}
+  Chestplate:
+    name: 
+    sprite: {fileID: 0}
