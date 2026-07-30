@@ -629,6 +629,7 @@ MonoBehaviour:
   staircase: {fileID: 1075293540915351914, guid: c3bd5e7dd11540a4a91cbfdf06292140, type: 3}
   enemySpawner: {fileID: 1237843681088241054, guid: 1ef20a163b000e74fba1cae4ffccc57d, type: 3}
   chest: {fileID: 3733415787367257747, guid: ad9c6f1136e48e749b9617527bdf4d32, type: 3}
+  allEnemies: {fileID: 0}
   levelWidth: 15
   levelHeight: 15
   gridSize: 7.5
@@ -699,8 +700,8 @@ MonoBehaviour:
   pnlGameOver: {fileID: 1205225271}
   txtFloor: {fileID: 772946626}
   txtLevel: {fileID: 762018955}
+  txtMoney: {fileID: 0}
   txtHealth: {fileID: 492846903}
-  txtEquipment: {fileID: 332261872}
   txtStats: {fileID: 1525183259}
   playerStats: {fileID: 0}
 --- !u!1 &166075719
