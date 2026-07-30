@@ -757,6 +757,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Terrain
       objectReference: {fileID: 0}
+    - target: {fileID: 3451118302482216456, guid: 3218cd08744eb2a4c896f4eb34858750, type: 3}
+      propertyPath: m_CookingOptions
+      value: 18
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
