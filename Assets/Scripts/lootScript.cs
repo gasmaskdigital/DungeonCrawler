@@ -25,6 +25,7 @@ public class lootScript : MonoBehaviour
     [SerializeField] GameObject canvas;
     [SerializeField] bool isPlayerClose;
     [SerializeField] public bool isNewLoot;
+    
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -89,6 +90,8 @@ public class lootScript : MonoBehaviour
                         gameManager.playerMoney += statValue;
                         break;
                 }
+
+               
 
                 //Debug.Log("Equipping: " + lootName);
                 playerStats.UpdateEquipment();
