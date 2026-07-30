@@ -57,3 +57,15 @@ MonoBehaviour:
     tile: {fileID: 5641898359342310611, guid: 41c0cd5c2e1e0014e9cc9a91c8aeb2da, type: 3}
     xPos: 0
     yPos: 0
+  - name: EWCorridorDamaged
+    tile: {fileID: 5641898359342310611, guid: e11b35b657924cf4f8f224d597b05912, type: 3}
+    xPos: 0
+    yPos: 0
+  - name: EWRoomBrazier
+    tile: {fileID: 5641898359342310611, guid: c946d0b8513875c4ea355b1558cc0721, type: 3}
+    xPos: 0
+    yPos: 0
+  - name: roomEndShelfE
+    tile: {fileID: 5641898359342310611, guid: 9fcd572987e717d448bfe3c49e699037, type: 3}
+    xPos: 0
+    yPos: 0

@@ -164,6 +164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef2c84af8c4c2044d92754733c9be2a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  playerDist: 0
   playerDistThreshold: 0.1
 --- !u!65 &8372357028401808081
 BoxCollider:
