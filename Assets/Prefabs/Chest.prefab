@@ -237,8 +237,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   allLoot: {fileID: 11400000, guid: d89651a283efd544aa15080ea67a529a, type: 2}
   loot:
-    name: 
-    type: 3
+  - name: 
+    type: 0
+    prefab: {fileID: 0}
+  - name: 
+    type: 0
+    prefab: {fileID: 0}
+  - name: 
+    type: 0
     prefab: {fileID: 0}
   player: {fileID: 0}
   canvas: {fileID: 598789044008904339}

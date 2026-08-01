@@ -149,7 +149,7 @@ public class tileGenerator : MonoBehaviour
         }
 
 
-        // Remove tiles if new tile already has walls on it's edges and ensure we have matching entrances
+        // Remove tiles if new tile already has walls on its edges and ensure we have matching entrances
         if (y < levelHeight - 1) 
         {
             if (levelManager.levelMap.tileGrid[y + 1, x].tile != null)
