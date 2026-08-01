@@ -24,6 +24,8 @@ public class gameManager : MonoBehaviour
         updateFloorNumber();
         updatePlayerLevel();
         updateEquipment();
+
+        if (levelManager.currentLevel == 10 && SceneManager.GetActiveScene().name != "Boss Level") SceneManager.LoadScene("Boss Level");
     }
 
     // Update is called once per frame
