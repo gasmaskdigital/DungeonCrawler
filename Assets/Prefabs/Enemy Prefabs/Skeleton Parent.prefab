@@ -1559,10 +1559,12 @@ MonoBehaviour:
   enemyName: Skeleton
   enemyAttackRadius: 1
   canBeDamaged: 1
+  wasCrit: 0
   floatingText: {fileID: 6946133675485113259, guid: fa7675d0934c8ee4ea02ec6d42a44af4, type: 3}
   blood: {fileID: 8300000, guid: c9e3ac85dea8f0243b97207e08b63378, type: 3}
   Death: {fileID: 8300000, guid: 45493226b930c4649961ad32ad989446, type: 3}
   Pain: {fileID: 8300000, guid: f182933fa4a814848a70b7a0445e40da, type: 3}
+  critSound: {fileID: 8300000, guid: 8ed31bdd07fb4f64a9bbb511f79ede95, type: 3}
 --- !u!114 &4588786511237098194
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1608,8 +1610,23 @@ MonoBehaviour:
   vampHeavyImpact: {fileID: 8300000, guid: c2a9fb8a9f2d7824f8fc722cf685a0ae, type: 3}
   skeletonBowShoot: {fileID: 8300000, guid: 8f18022f7b122b34da1500edd0303fb6, type: 3}
   skeletonThrow: {fileID: 8300000, guid: aa659c2bc7d726445922b01e05de0801, type: 3}
+  trollLightAttack: {fileID: 0}
+  trollHeavyAttack: {fileID: 0}
+  spiderLightAttack: {fileID: 0}
+  spiderHeavyAttack: {fileID: 0}
+  orcLightSpawn: {fileID: 0}
+  orcHeavyAttack: {fileID: 0}
+  orcLightImpact: {fileID: 0}
+  tortLightAttack: {fileID: 0}
+  tortHeavyAttack: {fileID: 0}
+  tortHeavyImpact: {fileID: 0}
   skeletonLightArrow: {fileID: 889499174634663218, guid: 27ebabb496742d848bcdba06ac6f3403, type: 3}
   skeletonBomb: {fileID: 2566973206107512778, guid: 1a7bbf63218f0b8479ccf90b664427ae, type: 3}
+  orcLightMagic: {fileID: 0}
+  spiderSummon: {fileID: 0}
+  skeletonSummon: {fileID: 0}
+  orcSummonVfx: {fileID: 0}
+  tortHeavyObject: {fileID: 0}
 --- !u!195 &6399923869382906051
 NavMeshAgent:
   m_ObjectHideFlags: 0

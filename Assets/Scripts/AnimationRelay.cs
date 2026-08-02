@@ -6,6 +6,7 @@ public class AnimationRelay : MonoBehaviour
     //Refence
     private PlayerHandler playerHandler;
     private AttackHandler attackHandler;
+    private PlayerStats playerStats;
 
     [Header("Sounds")]
     [SerializeField] AudioClip footstep;
@@ -14,6 +15,7 @@ public class AnimationRelay : MonoBehaviour
     {
         playerHandler = GetComponentInParent<PlayerHandler>();
         attackHandler = GetComponentInParent<AttackHandler>();
+        playerStats = GetComponentInParent<PlayerStats>();
     }
 
    public void THSHeavyAttack()
@@ -113,7 +115,7 @@ public class AnimationRelay : MonoBehaviour
 
     public void Footstep()
     {
-        SoundManager.Instance.PlaySound(footstep, transform);
+        SoundManager.Instance.PlaySound(footstep, transform, 0.4f);
     }
 
     public void AxeLightAttack()
@@ -169,5 +171,20 @@ public class AnimationRelay : MonoBehaviour
     public void AllTrailsOff()
     {
         playerHandler.AllTrailsOff();
+    }
+
+    public void PotionBoolsOff()
+    {
+        playerHandler.PotionsBoolsOff();
+    }
+
+    public void PotionBoolsOn()
+    {
+        playerHandler.PotionBoolsOn();
+    }
+
+    public void UsePotion()
+    {
+        playerStats.UsePotion();        
     }
 }

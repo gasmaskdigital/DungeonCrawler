@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Diagnostics.CodeAnalysis;
 using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -22,6 +23,7 @@ public class PlayerHandler : MonoBehaviour
     public UnityEngine.Camera mainCamera;
     public LayerMask terrainLayer;
     private VFXManager vfxManager;
+    public GameObject[] potionsObjects; // 0-Health 1-Stregth 2-Dex 3-Magic
 
     [Header("Weapon Trails")]
     [SerializeField] GameObject swordTrail;
@@ -49,6 +51,7 @@ public class PlayerHandler : MonoBehaviour
     public bool canAttack = true;
     public float knockbackForce = 10000f;
     //private float knockbackDelay = 0.3f;
+    public potionUsed currentPotion;
 
     [Header("Current Equipment")]
     [SerializeField] string curWeapon;
@@ -59,6 +62,7 @@ public class PlayerHandler : MonoBehaviour
     [Header("Audio Clips")]
     [SerializeField] AudioClip swordLightSwoosh;
     [SerializeField] AudioClip dodge;
+    [SerializeField] AudioClip drinkPotion;
 
 
 
@@ -153,7 +157,7 @@ public class PlayerHandler : MonoBehaviour
                 {
                     playerAnimator.SetTrigger("Dodge");
                     Dodge();
-                SoundManager.Instance.PlaySound(dodge, transform);
+                SoundManager.Instance.PlaySound(dodge, transform, 0.9f);
                 
                 }
             }
@@ -161,26 +165,46 @@ public class PlayerHandler : MonoBehaviour
             // health potion
             if (Input.GetKeyDown(KeyCode.Alpha1))
             {
-
+            if (canMove)
+            {
+                currentPotion = potionUsed.Health;
+                playerAnimator.SetTrigger("Drink");
+                SoundManager.Instance.PlaySound(drinkPotion, transform, 0.8f);
+            }
             }
 
-            // speed potion
+            // Strength potion
             if (Input.GetKeyDown(KeyCode.Alpha2))
             {
-
+            if (canMove)
+            {
+                currentPotion = potionUsed.Strength;
+                playerAnimator.SetTrigger("Drink");
+                SoundManager.Instance.PlaySound(drinkPotion, transform, 0.8f);
             }
+        }
 
-            // damage potion
+            // Dex potion
             if (Input.GetKeyDown(KeyCode.Alpha3))
             {
-
+            if (canMove)
+            {
+                currentPotion = potionUsed.Dexterity;
+                playerAnimator.SetTrigger("Drink");
+                SoundManager.Instance.PlaySound(drinkPotion, transform, 0.8f);
             }
+        }
 
-            // defence potion
+            // Magic potion
             if (Input.GetKeyDown(KeyCode.Alpha4))
             {
-
+            if (canMove)
+            {
+                currentPotion = potionUsed.Magic;
+                playerAnimator.SetTrigger("Drink");
+                SoundManager.Instance.PlaySound(drinkPotion, transform, 0.8f);
             }
+        }
 
         if (bowAiming)
         {
@@ -349,12 +373,12 @@ public class PlayerHandler : MonoBehaviour
                 if(attackHandler.attackType == AttackType.LightAttack)
                 {
                     playerAnimator.SetTrigger("THSLightAttack");
-                    SoundManager.Instance.PlaySound(swordLightSwoosh, transform);
+                    SoundManager.Instance.PlaySound(swordLightSwoosh, transform, 0.85f);
                 }
                 else
                 {
                     playerAnimator.SetTrigger("THSHeavyAttack");
-                    SoundManager.Instance.PlaySound(swordLightSwoosh, transform);
+                    SoundManager.Instance.PlaySound(swordLightSwoosh, transform, 0.95f);
                 }
                 break;
             case WeaponType.Bow:
@@ -544,4 +568,71 @@ public class PlayerHandler : MonoBehaviour
         axeTrail.gameObject.SetActive(false);
         swordTrail.gameObject.SetActive(false);
     }
+
+    public void PotionsBoolsOff()
+    {
+        canAttack = false;
+        canBeDamaged = false;
+        canDodge = false;
+        canMove = false;
+        bowAiming = false;
+        PotionModelOn();
+        playerStats.TurnOffWeaponModels();
+    }
+
+    public void PotionBoolsOn()
+    {
+        canAttack = true;
+        canBeDamaged = true;
+        canDodge = true;
+        canMove = true;
+        PotionModelOff();
+        playerStats.UpdateWeaponSocket();
+    }
+
+    private void PotionModelOn()
+    {
+        switch (currentPotion)
+        {
+            case potionUsed.Health:
+                potionsObjects[0].gameObject.SetActive(true);
+                break;
+            case potionUsed.Strength:
+                potionsObjects[1].gameObject.SetActive(true);
+                break;
+            case potionUsed.Dexterity:
+                potionsObjects[2].gameObject.SetActive(true);
+                break;
+            case potionUsed.Magic:
+                potionsObjects[3].gameObject.SetActive(true);
+                break;
+        }            
+    }
+
+    private void PotionModelOff()
+    {
+        switch (currentPotion)
+        {
+            case potionUsed.Health:
+                potionsObjects[0].gameObject.SetActive(false);
+                break;
+            case potionUsed.Strength:
+                potionsObjects[1].gameObject.SetActive(false);
+                break;
+            case potionUsed.Dexterity:
+                potionsObjects[2].gameObject.SetActive(false);
+                break;
+            case potionUsed.Magic:
+                potionsObjects[3].gameObject.SetActive(false);
+                break;
+        }
+    }
+
+    
+
+}
+
+public enum potionUsed
+{
+    Health, Strength, Dexterity, Magic
 }

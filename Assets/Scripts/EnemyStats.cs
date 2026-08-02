@@ -29,6 +29,7 @@ public class EnemyStats : MonoBehaviour
     [SerializeField] AudioClip blood;
     [SerializeField] AudioClip Death;
     [SerializeField] AudioClip Pain;
+    [SerializeField] AudioClip critSound;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -73,14 +74,14 @@ public class EnemyStats : MonoBehaviour
                 aINavigation.alive = false;
                 aINavigation.DisableNavAndCollider();
                 vfxManager.DeathEffect(transform.position);
-                SoundManager.Instance.PlaySound(Death, transform);
+                SoundManager.Instance.PlaySound(Death, transform, 1f);
             }
             else
             {
                 enemyAnimator.SetTrigger("DamageReact");
                 vfxManager.BlodEffect(transform.position);
-                SoundManager.Instance.PlaySound(blood, transform);
-                SoundManager.Instance.PlaySound(Pain, transform);
+                SoundManager.Instance.PlaySound(blood, transform, 0.75f);
+                SoundManager.Instance.PlaySound(Pain, transform, 0.85f);
                 
             }
 
@@ -103,6 +104,7 @@ public class EnemyStats : MonoBehaviour
         if (wasCrit)
         {
             ft.GetComponent<TextMesh>().color = Color.yellow;
+            SoundManager.Instance.PlaySound(critSound, transform, 1.1f);
         }
         else
         {

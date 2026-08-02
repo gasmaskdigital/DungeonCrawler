@@ -1663,11 +1663,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 560402334}
   m_CullTransparentMesh: 1
---- !u!1 &624618339 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3786836327095971973, guid: 35a62140321f4064da5d2693afb1944e, type: 3}
-  m_PrefabInstance: {fileID: 798607769}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &636942354
 GameObject:
   m_ObjectHideFlags: 0
@@ -2019,21 +2014,9 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 7266534710127501, guid: 35a62140321f4064da5d2693afb1944e, type: 3}
-      propertyPath: axeHeavyImpact
+      propertyPath: critSound
       value: 
-      objectReference: {fileID: 8300000, guid: a4580ff02d3ba754d95a6c6ce8272c1d, type: 3}
-    - target: {fileID: 7266534710127501, guid: 35a62140321f4064da5d2693afb1944e, type: 3}
-      propertyPath: axeLightImpact
-      value: 
-      objectReference: {fileID: 8300000, guid: 6237bada91dd96e4795b739429e4f0c2, type: 3}
-    - target: {fileID: 1087447258442381983, guid: 35a62140321f4064da5d2693afb1944e, type: 3}
-      propertyPath: clawTrailL
-      value: 
-      objectReference: {fileID: 624618339}
-    - target: {fileID: 1087447258442381983, guid: 35a62140321f4064da5d2693afb1944e, type: 3}
-      propertyPath: clawTrailR
-      value: 
-      objectReference: {fileID: 1417588444}
+      objectReference: {fileID: 8300000, guid: 8ed31bdd07fb4f64a9bbb511f79ede95, type: 3}
     - target: {fileID: 1087447258442381983, guid: 35a62140321f4064da5d2693afb1944e, type: 3}
       propertyPath: mainCamera
       value: 
@@ -2050,6 +2033,10 @@ PrefabInstance:
       propertyPath: pHUIManager
       value: 
       objectReference: {fileID: 340316306}
+    - target: {fileID: 3978373986141358953, guid: 35a62140321f4064da5d2693afb1944e, type: 3}
+      propertyPath: levelUpSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 7ee47aaa090bad94cb7cd6640665f4f5, type: 3}
     - target: {fileID: 4051598479090421858, guid: 35a62140321f4064da5d2693afb1944e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -3392,11 +3379,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1408671944}
   m_CullTransparentMesh: 1
---- !u!1 &1417588444 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1713643243307808297, guid: 35a62140321f4064da5d2693afb1944e, type: 3}
-  m_PrefabInstance: {fileID: 798607769}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1453472732
 GameObject:
   m_ObjectHideFlags: 0
