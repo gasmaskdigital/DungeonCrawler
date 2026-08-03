@@ -303,9 +303,6 @@ public class PlayerHandler : MonoBehaviour
         }
     }
 
-    
-
-   
 
     public void CanMoveToggle()
     {
@@ -643,18 +640,22 @@ public class PlayerHandler : MonoBehaviour
     public void addEffectToPlayer(StatusEffect effect) 
     {
         bool hasEffect = false;
-        StatusEffect _ = new();
+        int index = 0;
 
         foreach (StatusEffect e in effectHandler.activeEffects)
         {
             if (e.name == effect.name)
             {
                 hasEffect = true;
-                _ = e;
                 break;
             }
+            else index++;
         }
-        if (hasEffect) _ = effect;
+
+        if (hasEffect)
+        {
+            effectHandler.activeEffects[index] = effect;
+        }
         else effectHandler.addEffect(effect);
     }
 
