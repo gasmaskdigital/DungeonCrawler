@@ -57,3 +57,15 @@ MonoBehaviour:
     tile: {fileID: 5641898359342310611, guid: d0d2b043b2d985a4caa3c1dff8c3bcf9, type: 3}
     xPos: 0
     yPos: 0
+  - name: NSCorridorDamaged
+    tile: {fileID: 5641898359342310611, guid: e6fcd90feaeabe64a81318d984928893, type: 3}
+    xPos: 0
+    yPos: 0
+  - name: NSRoomBrazier
+    tile: {fileID: 5641898359342310611, guid: b5b09f88682e0a045af71fb62c64b61b, type: 3}
+    xPos: 0
+    yPos: 0
+  - name: roomEndShelfS
+    tile: {fileID: 5641898359342310611, guid: 7bcb532d9170e574880f58a79248e423, type: 3}
+    xPos: 0
+    yPos: 0

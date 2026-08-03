@@ -536,4 +536,12 @@ public class PlayerHandler : MonoBehaviour
         clawTrailL.gameObject.SetActive(false);
         clawTrailR.gameObject.SetActive(false);
     }
+
+    public void AllTrailsOff()
+    {
+        clawTrailL.gameObject.SetActive(false);
+        clawTrailR.gameObject.SetActive(false);
+        axeTrail.gameObject.SetActive(false);
+        swordTrail.gameObject.SetActive(false);
+    }
 }

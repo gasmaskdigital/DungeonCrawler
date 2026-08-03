@@ -165,4 +165,9 @@ public class AnimationRelay : MonoBehaviour
     {
         attackHandler.IceHeavyAttackSpawn();
     }
+
+    public void AllTrailsOff()
+    {
+        playerHandler.AllTrailsOff();
+    }
 }
