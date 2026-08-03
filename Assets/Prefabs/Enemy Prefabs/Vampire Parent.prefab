@@ -1836,6 +1836,10 @@ MonoBehaviour:
   canBeDamaged: 1
   wasCrit: 0
   floatingText: {fileID: 6946133675485113259, guid: fa7675d0934c8ee4ea02ec6d42a44af4, type: 3}
+  lootDrops:
+  - {fileID: 1064078589619500094, guid: d42d7772a15b23b4690decde3b6e0f3e, type: 3}
+  - {fileID: 6093041139753806892, guid: 06a1a924f2572274097f0a903a1afb82, type: 3}
+  - {fileID: 6093041139753806892, guid: 347371dc57dfa4446bbaf9524203de10, type: 3}
   blood: {fileID: 8300000, guid: c9e3ac85dea8f0243b97207e08b63378, type: 3}
   Death: {fileID: 8300000, guid: 131d3f3d9b50c4f4a9f143deef904712, type: 3}
   Pain: {fileID: 8300000, guid: 1982834d89f2ed24d81aa107618723f1, type: 3}
