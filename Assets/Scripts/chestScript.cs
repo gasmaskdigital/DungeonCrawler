@@ -34,7 +34,7 @@ public class chestScript : MonoBehaviour
             {
                 canvas.gameObject.SetActive(false);
                 spawnLootObjects();
-                SoundManager.Instance.PlaySound(openChest, transform);
+                SoundManager.Instance.PlaySound(openChest, transform, 0.8f);
             }
         }
     }

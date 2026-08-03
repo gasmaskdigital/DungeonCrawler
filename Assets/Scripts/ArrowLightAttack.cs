@@ -54,7 +54,7 @@ public class ArrowLightAttack : MonoBehaviour
 
         if (other.CompareTag("Terrain"))
         {
-            SoundManager.Instance.PlaySound(arrowBreak, transform);
+            SoundManager.Instance.PlaySound(arrowBreak, transform, 0.8f);
             Destroy(gameObject);
         }
 

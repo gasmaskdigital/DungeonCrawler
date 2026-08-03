@@ -37,13 +37,13 @@ public class HeavyArrow : MonoBehaviour
             EnemyStats cEnemyStats = other.GetComponent<EnemyStats>();
             AINavigation cAiNav = other.GetComponent<AINavigation>();
             playerAttackHandler.BowHeavyAttackImpact(cEnemyStats, cAiNav);
-            SoundManager.Instance.PlaySound(heavyArrowImpact, transform);
+            SoundManager.Instance.PlaySound(heavyArrowImpact, transform, 0.8f);
         }
 
         if (other.CompareTag("Terrain"))
         {
             Destroy(gameObject);
-            SoundManager.Instance.PlaySound(arrowBreak, transform);
+            SoundManager.Instance.PlaySound(arrowBreak, transform, 0.8f);
         }
     }
 }

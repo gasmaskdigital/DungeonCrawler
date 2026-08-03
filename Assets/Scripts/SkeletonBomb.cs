@@ -37,13 +37,13 @@ public class SkeletonBomb : MonoBehaviour
 
     private IEnumerator Fuse()
     {
-        SoundManager.Instance.PlaySound(skeletonFuse, transform);
+        SoundManager.Instance.PlaySound(skeletonFuse, transform, 0.8f);
 
         yield return new WaitForSeconds(3f);
         rb.isKinematic = true; // test
         bombObject.gameObject.SetActive(false);
         explosionObject.gameObject.SetActive(true);
-        SoundManager.Instance.PlaySound(explosion, transform);
+        SoundManager.Instance.PlaySound(explosion, transform, 0.8f);
         Explode();
         Destroy(gameObject, 1f);
 
