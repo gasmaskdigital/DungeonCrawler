@@ -17,4 +17,5 @@ public class InventorySpriteSO : ScriptableObject
 
     public inventoryItem Helmet;
     public inventoryItem Chestplate;
+    public inventoryItem Leggins;
 }
