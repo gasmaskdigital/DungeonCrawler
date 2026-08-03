@@ -94,6 +94,7 @@ public class EnemyAttackHandler : MonoBehaviour
         {
             attackType = AttackType.HeavyAttack;
             enemyAnimator.SetTrigger("HeavyAttack");
+            
         }
         else
         {
@@ -266,7 +267,7 @@ public class EnemyAttackHandler : MonoBehaviour
     public void OrcLightAttack()
     {
         Vector3 spawnPoint = transform.position;
-        spawnPoint.y += 1.5f;
+        spawnPoint.y += 1.75f;
 
         quaternion spawnRotation = transform.rotation;
 
@@ -287,7 +288,7 @@ public class EnemyAttackHandler : MonoBehaviour
 
     public void OrcHeavyAttack()
     {
-        Vector3 spawnPoint = transform.forward * 3f;
+        Vector3 spawnPoint = transform.position + transform.forward * 3.5f;
 
         quaternion spawnRotation = transform.rotation;
 

@@ -41,15 +41,26 @@ public class FireLIghtAttackScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Enemy"))
+        if (!other.isTrigger)
         {
-            triggered = true;
-            Explode();
-        }
+            if (other.CompareTag("Enemy"))
+            {
+                if (!triggered)
+                {
+                    Explode();
+                }
+                triggered = true;
+            }
+            else if (other.CompareTag("Terrain"))
+            {
+                if (!triggered)
+                {
+                    Explode();
+                }
 
-        if (other.CompareTag("Terrain"))
-        {
-            Destroy(gameObject);
+                triggered = true;
+
+            }
         }
     }
 
@@ -62,11 +73,13 @@ public class FireLIghtAttackScript : MonoBehaviour
 
         foreach(Collider c in colliders)
         {
-            EnemyStats enemyStats = c.GetComponent<EnemyStats>();
-            AINavigation cAINav = c.GetComponent<AINavigation>();
+            if (c.gameObject.CompareTag("Enemy"))
+            {
+                EnemyStats enemyStats = c.GetComponent<EnemyStats>();
+                AINavigation cAINav = c.GetComponent<AINavigation>();
 
-            playerAttackHandler.FireLightAttackImpact(enemyStats, cAINav);
-            
+                playerAttackHandler.FireLightAttackImpact(enemyStats, cAINav);
+            }
         }
         Destroy(gameObject,1.5f);
 

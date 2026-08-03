@@ -143,6 +143,8 @@ public class PlayerStats : MonoBehaviour
 
         SoundManager.Instance.PlaySound(levelUpSound, transform, 0.75f);
 
+        playerHandler.bowAiming = false;
+
     }
 
     public void HealthLevelUp()

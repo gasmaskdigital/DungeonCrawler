@@ -117,5 +117,6 @@ public class EnemyStats : MonoBehaviour
     public void EnemyDeath()
     {
         Destroy(gameObject);
+        Debug.Log("Death");
     }
 }
