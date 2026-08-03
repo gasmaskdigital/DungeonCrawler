@@ -18,13 +18,14 @@ public class SoundManager : MonoBehaviour
         }
     }
 
-    public void PlaySound(AudioClip clip, Transform playPos)
+    public void PlaySound(AudioClip clip, Transform playPos, float volume)
     {
         GameObject soundObject = Instantiate(soundObjectPrefab, playPos.position, Quaternion.identity);
         AudioSource soundSource = soundObject.GetComponent<AudioSource>();
 
         soundSource.clip = clip;
         soundSource.pitch = Random.Range(0.75f, 1.5f);
+        soundSource.volume = volume;
         soundSource.Play();
 
         Destroy(soundObject, clip.length);

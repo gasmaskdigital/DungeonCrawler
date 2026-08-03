@@ -42,6 +42,7 @@ public class AttackHandler : MonoBehaviour
     [SerializeField] AudioClip clawHeavyImpact;
     [SerializeField] AudioClip iceLightSpawn;
     [SerializeField] AudioClip iceHeavySpawn;
+    [SerializeField] AudioClip critSound;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -132,7 +133,7 @@ public class AttackHandler : MonoBehaviour
 
                     cAINav.GetKnockBack(knockbackForce, transform.position);
 
-                    SoundManager.Instance.PlaySound(swordClash, transform);
+                    SoundManager.Instance.PlaySound(swordClash, transform, 0.75f);
                 }
             }
         }
@@ -164,7 +165,7 @@ public class AttackHandler : MonoBehaviour
 
                     cAINav.GetKnockBack(knockbackForce, transform.position);
                     
-                    SoundManager.Instance.PlaySound(swordClash, transform);
+                    SoundManager.Instance.PlaySound(swordClash, transform, 0.75f);
                 }
                 else
                 {
@@ -199,7 +200,7 @@ public class AttackHandler : MonoBehaviour
 
 
         Instantiate(lightArrow, spawnPoint, spawnRotation);
-        SoundManager.Instance.PlaySound(lightArrowSpawn, transform);
+        SoundManager.Instance.PlaySound(lightArrowSpawn, transform, 0.8f);
     }
 
     public void BowLightAttackImpact(EnemyStats enemystats, AINavigation cAiNav)
@@ -218,7 +219,7 @@ public class AttackHandler : MonoBehaviour
             enemystats.TakeDamage(damageDealt);
 
             cAiNav.GetKnockBack(knockbackForce, transform.position);
-            SoundManager.Instance.PlaySound(lightArrowImpact, transform);
+            SoundManager.Instance.PlaySound(lightArrowImpact, transform, 1f);
         }
 
     }
@@ -231,7 +232,7 @@ public class AttackHandler : MonoBehaviour
         quaternion spawnRotation = transform.rotation;
 
         Instantiate(heavyArrow, spawnPoint, spawnRotation);
-        SoundManager.Instance.PlaySound(heavyArrowSpawn, transform);
+        SoundManager.Instance.PlaySound(heavyArrowSpawn, transform, 0.6f);
     }
 
     public void BowHeavyAttackImpact(EnemyStats enemyStats, AINavigation cAINav)
@@ -259,7 +260,7 @@ public class AttackHandler : MonoBehaviour
 
         quaternion spawnRotation = transform.rotation;
         Instantiate(lightFire, spawnPoint, spawnRotation);
-        SoundManager.Instance.PlaySound(fireLightSpawn, transform);
+        SoundManager.Instance.PlaySound(fireLightSpawn, transform, 0.65f);
     }
 
     public void SpawnHeavyFireWave()
@@ -270,7 +271,7 @@ public class AttackHandler : MonoBehaviour
         quaternion spawnRotation = transform.rotation;
 
         Instantiate(heavyFire, spawnPoint, spawnRotation);
-        SoundManager.Instance.PlaySound(fireWall, transform);
+        SoundManager.Instance.PlaySound(fireWall, transform,0.55f);
     }
 
     public void FireHeavyImpact(EnemyStats enemyStats, AINavigation cAINav)
@@ -305,7 +306,7 @@ public class AttackHandler : MonoBehaviour
             }
             enemyStats.TakeDamage(damageDealt);
             cAINav.GetKnockBack(knockbackForce, transform.position);
-            SoundManager.Instance.PlaySound(fireLightImpact, transform);
+            SoundManager.Instance.PlaySound(fireLightImpact, transform, 0.9f);
         }
     }
 
@@ -339,7 +340,7 @@ public class AttackHandler : MonoBehaviour
 
                     cAINav.GetKnockBack(knockbackForce, transform.position);
 
-                    SoundManager.Instance.PlaySound(axeLightImpact, transform);
+                    SoundManager.Instance.PlaySound(axeLightImpact, transform, 1.2f);
                 }
 
 
@@ -377,7 +378,7 @@ public class AttackHandler : MonoBehaviour
 
                     cAINav.GetKnockBack(knockbackForce, transform.position);
 
-                    SoundManager.Instance.PlaySound(axeHeavyImpact, transform);
+                    SoundManager.Instance.PlaySound(axeHeavyImpact, transform, 0.8f);
                 }
 
 
@@ -415,7 +416,7 @@ public class AttackHandler : MonoBehaviour
 
                     cAINav.GetKnockBack(knockbackForce, transform.position);
 
-                    SoundManager.Instance.PlaySound(axeLightImpact, transform);
+                    SoundManager.Instance.PlaySound(axeLightImpact, transform, 1.1f);
                 }
 
 
@@ -453,7 +454,7 @@ public class AttackHandler : MonoBehaviour
 
                     cAINav.GetKnockBack(knockbackForce, transform.position);
 
-                    SoundManager.Instance.PlaySound(clawHeavyImpact, transform);
+                    SoundManager.Instance.PlaySound(clawHeavyImpact, transform, 0.6f);
                 }
 
 
@@ -469,7 +470,7 @@ public class AttackHandler : MonoBehaviour
 
         quaternion spawnRotation = transform.rotation;
         Instantiate(iceLight, spawnPoint, spawnRotation);
-        SoundManager.Instance.PlaySound(iceLightSpawn, transform);
+        SoundManager.Instance.PlaySound(iceLightSpawn, transform, 1f);
     }
 
     public void IceLightImpact(EnemyStats enemystats, AINavigation cAiNav)
@@ -497,7 +498,7 @@ public class AttackHandler : MonoBehaviour
 
         quaternion spawnRotation = transform.rotation;
         Instantiate(iceHeavy, spawnPoint, spawnRotation);
-        SoundManager.Instance.PlaySound(iceHeavySpawn, transform);
+        SoundManager.Instance.PlaySound(iceHeavySpawn, transform, 0.9f);
     }
 
     public void IceHeavyImpact(EnemyStats enemystats, AINavigation cAiNav)

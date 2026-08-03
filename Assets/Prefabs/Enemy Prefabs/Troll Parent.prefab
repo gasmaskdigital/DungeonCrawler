@@ -396,6 +396,7 @@ MonoBehaviour:
   blood: {fileID: 8300000, guid: c9e3ac85dea8f0243b97207e08b63378, type: 3}
   Death: {fileID: 8300000, guid: a9e922cf7e3e7d34da69efc18f32449d, type: 3}
   Pain: {fileID: 8300000, guid: be46ea584e75bbd459519811564fc83b, type: 3}
+  critSound: {fileID: 8300000, guid: 8ed31bdd07fb4f64a9bbb511f79ede95, type: 3}
 --- !u!114 &5785487001553830338
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -515,8 +516,21 @@ MonoBehaviour:
   skeletonThrow: {fileID: 0}
   trollLightAttack: {fileID: 8300000, guid: 96d8381b78607fc43a82a4089acc36f1, type: 3}
   trollHeavyAttack: {fileID: 8300000, guid: 8d0554dbfebc77c45ada1681a2bfc1a5, type: 3}
+  spiderLightAttack: {fileID: 0}
+  spiderHeavyAttack: {fileID: 0}
+  orcLightSpawn: {fileID: 0}
+  orcHeavyAttack: {fileID: 0}
+  orcLightImpact: {fileID: 0}
+  tortLightAttack: {fileID: 0}
+  tortHeavyAttack: {fileID: 0}
+  tortHeavyImpact: {fileID: 0}
   skeletonLightArrow: {fileID: 0}
   skeletonBomb: {fileID: 0}
+  orcLightMagic: {fileID: 0}
+  spiderSummon: {fileID: 0}
+  skeletonSummon: {fileID: 0}
+  orcSummonVfx: {fileID: 0}
+  tortHeavyObject: {fileID: 0}
 --- !u!1 &1011526999449153130
 GameObject:
   m_ObjectHideFlags: 0

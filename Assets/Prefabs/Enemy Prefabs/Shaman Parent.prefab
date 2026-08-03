@@ -2343,6 +2343,7 @@ MonoBehaviour:
   blood: {fileID: 8300000, guid: c9e3ac85dea8f0243b97207e08b63378, type: 3}
   Death: {fileID: 8300000, guid: fd9409c5f54daf3459150bd895ee2566, type: 3}
   Pain: {fileID: 8300000, guid: fda2fec61c1f2df439514208c469c153, type: 3}
+  critSound: {fileID: 8300000, guid: 8ed31bdd07fb4f64a9bbb511f79ede95, type: 3}
 --- !u!114 &8260925199281940680
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2467,12 +2468,16 @@ MonoBehaviour:
   orcLightSpawn: {fileID: 8300000, guid: f7d84f17459db5247a74812c5315f8c9, type: 3}
   orcHeavyAttack: {fileID: 8300000, guid: 48c18fed6fc79464d8461275fd414eb3, type: 3}
   orcLightImpact: {fileID: 8300000, guid: 0c500eb3968b1284a9521cba0bd7a326, type: 3}
+  tortLightAttack: {fileID: 0}
+  tortHeavyAttack: {fileID: 0}
+  tortHeavyImpact: {fileID: 0}
   skeletonLightArrow: {fileID: 0}
   skeletonBomb: {fileID: 0}
   orcLightMagic: {fileID: 8120815093733244383, guid: 2bf5bd13e9dc5084dbb9ee3a6076b6d9, type: 3}
   spiderSummon: {fileID: 7764565238821835011, guid: ecf7e2f7f25947741bb213db1578697c, type: 3}
   skeletonSummon: {fileID: 4378454936511400984, guid: b8e64003f094e874e9a2e0789198a541, type: 3}
   orcSummonVfx: {fileID: 3377181292992421420, guid: 48c5715f9603c3842a353516a8baefbb, type: 3}
+  tortHeavyObject: {fileID: 0}
 --- !u!1 &6655974338946657108
 GameObject:
   m_ObjectHideFlags: 0

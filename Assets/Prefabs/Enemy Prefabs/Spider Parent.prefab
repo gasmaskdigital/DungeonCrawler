@@ -2208,6 +2208,7 @@ MonoBehaviour:
   blood: {fileID: 8300000, guid: c9e3ac85dea8f0243b97207e08b63378, type: 3}
   Death: {fileID: 8300000, guid: 90dc65f7a72eaad4fa36866a8c158971, type: 3}
   Pain: {fileID: 8300000, guid: 539a0f9b3da43db4398da0d7cc28a131, type: 3}
+  critSound: {fileID: 8300000, guid: 8ed31bdd07fb4f64a9bbb511f79ede95, type: 3}
 --- !u!114 &2746562665324698871
 MonoBehaviour:
   m_ObjectHideFlags: 0

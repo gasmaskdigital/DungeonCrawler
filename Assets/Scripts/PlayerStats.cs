@@ -48,6 +48,7 @@ public class PlayerStats : MonoBehaviour
     [SerializeField] AudioClip blood;
     [SerializeField] AudioClip playerPain;
     [SerializeField] AudioClip playerDeath;
+    [SerializeField] AudioClip levelUpSound;
 
 
 
@@ -139,6 +140,8 @@ public class PlayerStats : MonoBehaviour
         currentXP -= requiredXP;
 
         requiredXP = playerLevel * 24;
+
+        SoundManager.Instance.PlaySound(levelUpSound, transform, 0.75f);
 
     }
 
@@ -238,7 +241,7 @@ public class PlayerStats : MonoBehaviour
         boostedHealth += healthStat;
     }
 
-    private void UpdateWeaponSocket()
+    public void UpdateWeaponSocket()
     {
         foreach (GameObject c in weaponSockets)
         {
@@ -269,6 +272,14 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
+    public void TurnOffWeaponModels()
+    {
+        foreach (GameObject c in weaponSockets)
+        {
+            c.gameObject.SetActive(false);
+        }
+    }
+
     public void UpdateEquipment()
     {
         currentDefenceTotal = CalculateTotalDefence();
@@ -286,14 +297,14 @@ public class PlayerStats : MonoBehaviour
                 PlayerDeath();
                 playerHandler.DeathTrigger();
                 vfxManager.DeathEffect(transform.position);
-                SoundManager.Instance.PlaySound(playerDeath, transform);
+                SoundManager.Instance.PlaySound(playerDeath, transform, 1.05f);
             }
             else
             {
                 playerHandler.DamagedTrigger();
                 vfxManager.BlodEffect(transform.position);
-                SoundManager.Instance.PlaySound(blood, transform);
-                SoundManager.Instance.PlaySound(playerPain, transform);
+                SoundManager.Instance.PlaySound(blood, transform, 0.9f);
+                SoundManager.Instance.PlaySound(playerPain, transform, 1.1f);
 
             }
 
@@ -320,6 +331,24 @@ public class PlayerStats : MonoBehaviour
         ft.GetComponent<TextMesh>().color = Color.red;
     }
 
+    public void UsePotion()
+    {
+        switch (playerHandler.currentPotion)
+        {
+            case potionUsed.Health:
+                // health potion logic
+                break;
+            case potionUsed.Strength:
+                // strength potion logic
+                break;
+            case potionUsed.Dexterity:
+                // dex potion logic
+                break;
+            case potionUsed.Magic:
+                // magic potion logic
+                break;
+        }
+    }
 
 }
     

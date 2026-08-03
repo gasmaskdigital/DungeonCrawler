@@ -106,7 +106,7 @@ public class EnemyAttackHandler : MonoBehaviour
     private void VampireLightAttack()
     {
 
-        SoundManager.Instance.PlaySound(vampLightSwoosh, transform);
+        SoundManager.Instance.PlaySound(vampLightSwoosh, transform, 0.85f);
         Vector3 origin = transform.position + Vector3.up * 1f + transform.forward * 0.75f;
 
         Collider[] colliders = Physics.OverlapSphere(origin, lightAttackRadius, playerMask, QueryTriggerInteraction.Ignore);
@@ -120,7 +120,7 @@ public class EnemyAttackHandler : MonoBehaviour
 
                 int damageDealt = LightAttackDamage(enemystats.attack, PlayerStats.currentDefenceTotal, PlayerStats.enduranceStat);
                 playerStats.TakeDamage(damageDealt);
-                SoundManager.Instance.PlaySound(vampLightImpact, transform);
+                SoundManager.Instance.PlaySound(vampLightImpact, transform, 0.7f);
             }
         }
     }
@@ -137,7 +137,7 @@ public class EnemyAttackHandler : MonoBehaviour
             int damageDealt = HeavyAttackDamage(enemystats.attack, PlayerStats.currentDefenceTotal, PlayerStats.enduranceStat);
 
             playerStats.TakeDamage(damageDealt);
-            SoundManager.Instance.PlaySound(vampHeavyImpact, transform);
+            SoundManager.Instance.PlaySound(vampHeavyImpact, transform, 1.25f);
         }
     }
 
@@ -154,7 +154,7 @@ public class EnemyAttackHandler : MonoBehaviour
         SkeletonArrow arrowScript = arrow.GetComponent<SkeletonArrow>();
         arrowScript.owner = gameObject;
 
-        SoundManager.Instance.PlaySound(skeletonBowShoot, transform);
+        SoundManager.Instance.PlaySound(skeletonBowShoot, transform.transform, 0.9f);
     }
 
     public void SkeletonLightImpact(PlayerStats playerStats)
@@ -174,7 +174,7 @@ public class EnemyAttackHandler : MonoBehaviour
         SkeletonBomb bombScript = bomb.GetComponent<SkeletonBomb>();
         bombScript.owner = gameObject;
 
-        SoundManager.Instance.PlaySound(skeletonThrow, transform);
+        SoundManager.Instance.PlaySound(skeletonThrow, transform, 0.85f);
 
     }
 
@@ -186,7 +186,7 @@ public class EnemyAttackHandler : MonoBehaviour
 
     public void TrollLightAttack()
     {
-        SoundManager.Instance.PlaySound(trollLightAttack, transform);
+        SoundManager.Instance.PlaySound(trollLightAttack, transform, 0.85f);
         Vector3 origin = transform.position + Vector3.up * 1f + transform.forward * 0.75f;
 
         Collider[] colliders = Physics.OverlapSphere(origin, lightAttackRadius, playerMask, QueryTriggerInteraction.Ignore);
@@ -206,7 +206,7 @@ public class EnemyAttackHandler : MonoBehaviour
 
     public void TrollHeavyAttack()
     {
-        SoundManager.Instance.PlaySound(trollHeavyAttack, transform);
+        SoundManager.Instance.PlaySound(trollHeavyAttack, transform, 1f);
         Vector3 origin = transform.position + Vector3.up * 1f;
 
         Collider[] colliders = Physics.OverlapSphere(origin, heavyAttackRadius, playerMask, QueryTriggerInteraction.Ignore);
@@ -223,7 +223,7 @@ public class EnemyAttackHandler : MonoBehaviour
 
     public void SpiderHeavyAttack()
     {
-        SoundManager.Instance.PlaySound(spiderHeavyAttack, transform);
+        SoundManager.Instance.PlaySound(spiderHeavyAttack, transform, 0.65f);
         Vector3 origin = transform.position + Vector3.up * 0.40f + transform.forward * 1.3f;
 
         Collider[] colliders = Physics.OverlapSphere(origin, lightAttackRadius, playerMask, QueryTriggerInteraction.Ignore);
@@ -245,7 +245,7 @@ public class EnemyAttackHandler : MonoBehaviour
 
     public void SpiderLightAttack()
     {
-        SoundManager.Instance.PlaySound(spiderLightAttack, transform);
+        SoundManager.Instance.PlaySound(spiderLightAttack, transform, 0.8f);
         Vector3 origin = transform.position + Vector3.up * 0.40f + transform.forward * 1.1f;
 
         Collider[] colliders = Physics.OverlapSphere(origin, lightAttackRadius, playerMask, QueryTriggerInteraction.Ignore);
@@ -275,14 +275,14 @@ public class EnemyAttackHandler : MonoBehaviour
         OrcLightScript magicScript = orcMagic.GetComponent<OrcLightScript>();
         magicScript.owner = gameObject;
 
-        SoundManager.Instance.PlaySound(orcLightSpawn, transform);
+        SoundManager.Instance.PlaySound(orcLightSpawn, transform, 1.15f);
     }
 
     public void OrcLightImpact(PlayerStats playerStats)
     {
         int damageDealt = LightAttackDamage(enemystats.attack, PlayerStats.currentDefenceTotal, PlayerStats.enduranceStat);
         playerStats.TakeDamage(damageDealt);
-        SoundManager.Instance.PlaySound(orcLightImpact, transform);
+        SoundManager.Instance.PlaySound(orcLightImpact, transform, 1.1f);
     }
 
     public void OrcHeavyAttack()
@@ -305,14 +305,14 @@ public class EnemyAttackHandler : MonoBehaviour
             GameObject summonVFX = Instantiate(orcSummonVfx, spawnPoint, spawnRotation);
             Destroy(summonVFX, 1.5f);
         }
-        SoundManager.Instance.PlaySound(orcHeavyAttack, transform);
+        SoundManager.Instance.PlaySound(orcHeavyAttack, transform, 0.85f);
 
     }
 
     public void TortLightAttack()
     {
 
-        SoundManager.Instance.PlaySound(tortLightAttack, transform);
+        SoundManager.Instance.PlaySound(tortLightAttack, transform, 0.8f);
         Vector3 origin = transform.position + Vector3.up * 0.40f + transform.forward * 1.1f;
 
         Collider[] colliders = Physics.OverlapSphere(origin, lightAttackRadius, playerMask, QueryTriggerInteraction.Ignore);
@@ -342,14 +342,14 @@ public class EnemyAttackHandler : MonoBehaviour
         TortHeavyScript tortHeavyScript = tortHeavy.GetComponent<TortHeavyScript>();
         tortHeavyScript.owner = gameObject;
 
-        SoundManager.Instance.PlaySound(tortHeavyAttack, transform);
+        SoundManager.Instance.PlaySound(tortHeavyAttack, transform, 1.1f);
     }
 
     public void TortHeavyImpact(PlayerStats playerStats)
     {
         int damageDealt = HeavyAttackDamage(enemystats.attack, PlayerStats.currentDefenceTotal, PlayerStats.enduranceStat);
         playerStats.TakeDamage(damageDealt);
-        SoundManager.Instance.PlaySound(tortHeavyImpact, transform);
+        SoundManager.Instance.PlaySound(tortHeavyImpact, transform, 0.95f);
     }
 
     private int LightAttackDamage(int enemyAttack, int playerDefence, int playerEndurance)
