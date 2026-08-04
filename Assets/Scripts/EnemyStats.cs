@@ -98,7 +98,7 @@ public class EnemyStats : MonoBehaviour
 
     private void CheckForLoot()
     {
-
+       // lootIndex = UnityEngine.Random.Range(0, lootDrop.length);
     }
 
     void ShowFloatingText(int damageTaken)
