@@ -515,6 +515,7 @@ public class PlayerHandler : MonoBehaviour
         bowAiming = false;
         canDodge = false;
         canMove = false;
+        canBeDamaged = false;
     }
 
     public void DodgeBoolOn()
@@ -522,6 +523,7 @@ public class PlayerHandler : MonoBehaviour
         canAttack = true;
         canDodge = true;
         canMove = true;
+        canBeDamaged = true;
     }
 
     public void DamagedTrigger()

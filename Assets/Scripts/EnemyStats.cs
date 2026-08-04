@@ -24,6 +24,8 @@ public class EnemyStats : MonoBehaviour
     private Animator enemyAnimator;
 
     public GameObject floatingText;
+    public GameObject[] lootDrops;
+    private int lootIndex;
 
     [Header("Sounds")]
     [SerializeField] AudioClip blood;
@@ -94,7 +96,10 @@ public class EnemyStats : MonoBehaviour
         }
     }
 
-    
+    private void CheckForLoot()
+    {
+
+    }
 
     void ShowFloatingText(int damageTaken)
     {
@@ -117,5 +122,8 @@ public class EnemyStats : MonoBehaviour
     public void EnemyDeath()
     {
         Destroy(gameObject);
+        Debug.Log("Death");
     }
+
+
 }

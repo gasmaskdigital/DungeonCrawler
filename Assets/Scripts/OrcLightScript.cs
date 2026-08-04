@@ -28,11 +28,11 @@ public class OrcLightScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        trigggered = true;
+        
 
         if (other.CompareTag("Player"))
         {
-
+            trigggered = true;
             Impact();
             PlayerStats playerStats = other.GetComponent<PlayerStats>();
 
@@ -42,6 +42,7 @@ public class OrcLightScript : MonoBehaviour
         }
         else if (other.CompareTag("Terrain"))
         {
+            trigggered = true;
             Impact();
             Destroy(gameObject, 1f);
         }
