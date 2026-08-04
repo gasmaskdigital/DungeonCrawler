@@ -14,6 +14,7 @@ public class EnemyAttackHandler : MonoBehaviour
     public float lightAttackRadius;
     public float heavyAttackRadius;
     private Animator enemyAnimator;
+    private VFXManager vfxManager;
 
     [Header("Sounds")]
     [SerializeField] AudioClip vampLightImpact;
@@ -48,6 +49,7 @@ public class EnemyAttackHandler : MonoBehaviour
         AINavigation = GetComponent<AINavigation>();
         enemystats = GetComponent<EnemyStats>();
         enemyAnimator = GetComponentInChildren<Animator>();
+        vfxManager = FindAnyObjectByType<VFXManager>();
     }
 
     /*
@@ -209,6 +211,8 @@ public class EnemyAttackHandler : MonoBehaviour
     {
         SoundManager.Instance.PlaySound(trollHeavyAttack, transform, 1f);
         Vector3 origin = transform.position + Vector3.up * 1f;
+
+        vfxManager.TrollHeavyEffect(transform.position);
 
         Collider[] colliders = Physics.OverlapSphere(origin, heavyAttackRadius, playerMask, QueryTriggerInteraction.Ignore);
         foreach (Collider c in colliders)

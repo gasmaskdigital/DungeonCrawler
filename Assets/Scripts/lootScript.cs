@@ -159,6 +159,24 @@ public class lootScript : MonoBehaviour
 
     private void pickupPotion() 
     {
+        switch (lootName)
+        {
+            case "HealthPotion":
+                PlayerStats.healthPotionStack ++;
+
+                break;
+            case "StrengthPotion":
+                PlayerStats.stregnthPotionStack++;
+                break;
+            case "AgilityPotion":
+                PlayerStats.dexterityPotionStack++;
+                Debug.Log("dex potions " + PlayerStats.dexterityPotionStack);
+                break;
+            case "ManaPotion":
+                PlayerStats.magicPotionStack++;
+                Debug.Log("magic potions " + PlayerStats.magicPotionStack);
+                break;
+        }
         /*if (effect.duration > 0)
         {
             bool hasEffect = false;

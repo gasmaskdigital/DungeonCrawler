@@ -32,6 +32,7 @@ public class PlayerHandler : MonoBehaviour
     [SerializeField] GameObject axeTrail;
     [SerializeField] GameObject clawTrailL;
     [SerializeField] GameObject clawTrailR;
+    [SerializeField] GameObject[] potionVFXs;
 
     [Header("Movement Settings")]
     private float walkSpeed = 7f;
@@ -65,6 +66,7 @@ public class PlayerHandler : MonoBehaviour
     [SerializeField] AudioClip swordLightSwoosh;
     [SerializeField] AudioClip dodge;
     [SerializeField] AudioClip drinkPotion;
+    [SerializeField] AudioClip outOfPotions;
 
 
 
@@ -168,53 +170,89 @@ public class PlayerHandler : MonoBehaviour
             // Health potion
             if (Input.GetKeyDown(KeyCode.Alpha1))
             {
-            if (canMove)
+            if (PlayerStats.healthPotionStack > 0)
             {
-                currentPotion = potionUsed.Health;
-                playerAnimator.SetTrigger("Drink");
-                SoundManager.Instance.PlaySound(drinkPotion, transform, 0.8f);
+                if (canMove)
+                {
+                    currentPotion = potionUsed.Health;
+                    playerAnimator.SetTrigger("Drink");
+                    SoundManager.Instance.PlaySound(drinkPotion, transform, 0.8f);
 
-                int newHealth = PlayerStats.currentHealth + Mathf.CeilToInt(levelManager.currentLevel / 4f) * 10;
-                PlayerStats.currentHealth = Mathf.Min(PlayerStats.maxHealth, newHealth);
+                    int newHealth = PlayerStats.currentHealth + Mathf.CeilToInt(levelManager.currentLevel / 4f) * 10;
+                    PlayerStats.currentHealth = Mathf.Min(PlayerStats.maxHealth, newHealth);
+                    PlayerStats.healthPotionStack--;
+                    potionVFXs[0].gameObject.SetActive(true);
+                }
+            }
+            else
+            {
+                SoundManager.Instance.PlaySound(outOfPotions, transform, 0.75f);
             }
             }
 
             // Strength potion
             if (Input.GetKeyDown(KeyCode.Alpha2))
             {
-            if (canMove)
+            if (PlayerStats.stregnthPotionStack > 0)
             {
-                currentPotion = potionUsed.Strength;
-                playerAnimator.SetTrigger("Drink");
-                SoundManager.Instance.PlaySound(drinkPotion, transform, 0.8f);
-                StatusEffect strength = new("Strength", Mathf.CeilToInt(levelManager.currentLevel / 4f), 30);
-                addEffectToPlayer(strength);
+                if (canMove)
+                {
+                    currentPotion = potionUsed.Strength;
+                    playerAnimator.SetTrigger("Drink");
+                    SoundManager.Instance.PlaySound(drinkPotion, transform, 0.8f);
+                    StatusEffect strength = new("Strength", Mathf.CeilToInt(levelManager.currentLevel / 4f), 30);
+                    addEffectToPlayer(strength);
+                    PlayerStats.stregnthPotionStack--;
+                    potionVFXs[1].gameObject.SetActive(true);
+                }
+            }
+            else
+            {
+                SoundManager.Instance.PlaySound(outOfPotions, transform, 0.75f);
             }
         }
 
             // Dex potion
             if (Input.GetKeyDown(KeyCode.Alpha3))
             {
-            if (canMove)
+            if (PlayerStats.dexterityPotionStack > 0)
             {
-                currentPotion = potionUsed.Dexterity;
-                playerAnimator.SetTrigger("Drink");
-                SoundManager.Instance.PlaySound(drinkPotion, transform, 0.8f);
-                StatusEffect agility = new("Agility", Mathf.CeilToInt(levelManager.currentLevel / 4f), 30);
-                addEffectToPlayer(agility);
+                if (canMove)
+                {
+                    currentPotion = potionUsed.Dexterity;
+                    playerAnimator.SetTrigger("Drink");
+                    SoundManager.Instance.PlaySound(drinkPotion, transform, 0.8f);
+                    StatusEffect agility = new("Agility", Mathf.CeilToInt(levelManager.currentLevel / 4f), 30);
+                    addEffectToPlayer(agility);
+                    PlayerStats.dexterityPotionStack--;
+                    potionVFXs[2].gameObject.SetActive(true);
+                }
+            }
+            else
+            {
+                SoundManager.Instance.PlaySound(outOfPotions, transform, 0.75f);
             }
         }
 
             // Magic potion
             if (Input.GetKeyDown(KeyCode.Alpha4))
             {
-            if (canMove)
+            if (PlayerStats.magicPotionStack > 0)
             {
-                currentPotion = potionUsed.Magic;
-                playerAnimator.SetTrigger("Drink");
-                SoundManager.Instance.PlaySound(drinkPotion, transform, 0.8f);
-                StatusEffect mana = new("Mana", Mathf.CeilToInt(levelManager.currentLevel / 4f), 30);
-                addEffectToPlayer(mana);
+                if (canMove)
+                {
+                    currentPotion = potionUsed.Magic;
+                    playerAnimator.SetTrigger("Drink");
+                    SoundManager.Instance.PlaySound(drinkPotion, transform, 0.8f);
+                    StatusEffect mana = new("Mana", Mathf.CeilToInt(levelManager.currentLevel / 4f), 30);
+                    addEffectToPlayer(mana);
+                    PlayerStats.magicPotionStack--;
+                    potionVFXs[3].gameObject.SetActive(true);
+                }
+            }
+            else
+            {
+                SoundManager.Instance.PlaySound(outOfPotions, transform, 0.75f);
             }
         }
 
@@ -599,6 +637,7 @@ public class PlayerHandler : MonoBehaviour
         canMove = true;
         PotionModelOff();
         playerStats.UpdateWeaponSocket();
+        TurnOffPotionVFX();
     }
 
     private void PotionModelOn()
@@ -659,6 +698,14 @@ public class PlayerHandler : MonoBehaviour
             effectHandler.activeEffects[index] = effect;
         }
         else effectHandler.addEffect(effect);
+    }
+
+    private void TurnOffPotionVFX()
+    {
+        foreach(GameObject g in potionVFXs)
+        {
+            g.gameObject.SetActive(false);
+        }
     }
 
 }

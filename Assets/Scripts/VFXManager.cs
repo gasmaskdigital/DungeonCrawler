@@ -11,6 +11,7 @@ public class VFXManager : MonoBehaviour
     [SerializeField] GameObject SwordSwish;
     [SerializeField] GameObject heavySwordSwish;
     [SerializeField] GameObject arrowBreak;
+    [SerializeField] GameObject trollHeavyImpact;
 
     public void DeathEffect(Vector3 spawnPos)
     {
@@ -32,4 +33,9 @@ public class VFXManager : MonoBehaviour
         Destroy(vfxInstance, 0.6f);
     }
 
+    public void TrollHeavyEffect(Vector3 spawnPos)
+    {
+        GameObject vfxInstance = Instantiate(trollHeavyImpact, spawnPos, Quaternion.identity);
+        Destroy(vfxInstance, 2f);
+    }
 }
