@@ -100,7 +100,7 @@ public class EnemyStats : MonoBehaviour
     private void CheckForLoot()
     {
         int dropChance = Random.Range(0, 10);
-        if(dropChance < 8)
+        if(dropChance > 8)
         {
             Vector3 spawnPos = transform.position;
             Instantiate(lootDrops[Random.Range(0, lootDrops.Length)], spawnPos, Quaternion.identity).GetComponent<lootScript>().isNewLoot = true;

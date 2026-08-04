@@ -215,7 +215,7 @@ public class PlayerHandler : MonoBehaviour
             // Dex potion
             if (Input.GetKeyDown(KeyCode.Alpha3))
             {
-            if (PlayerStats.dexterityPotionStack < 0)
+            if (PlayerStats.dexterityPotionStack > 0)
             {
                 if (canMove)
                 {
@@ -237,7 +237,7 @@ public class PlayerHandler : MonoBehaviour
             // Magic potion
             if (Input.GetKeyDown(KeyCode.Alpha4))
             {
-            if (PlayerStats.magicPotionStack < 0)
+            if (PlayerStats.magicPotionStack > 0)
             {
                 if (canMove)
                 {
