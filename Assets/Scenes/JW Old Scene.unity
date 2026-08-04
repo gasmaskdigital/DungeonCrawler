@@ -627,9 +627,9 @@ MonoBehaviour:
   txtLevel: {fileID: 1078749454}
   txtMoney: {fileID: 200414744}
   txtHealth: {fileID: 1578140017}
-  txtEquipment: {fileID: 332261872}
   txtStats: {fileID: 637002859}
-  playerStats: {fileID: 0}
+  playerStats: {fileID: 798607770}
+  inventorySpriteSO: {fileID: 0}
 --- !u!1 &200414742
 GameObject:
   m_ObjectHideFlags: 0
