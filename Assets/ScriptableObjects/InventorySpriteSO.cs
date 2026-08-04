@@ -12,10 +12,10 @@ public struct inventoryItem
 [CreateAssetMenu(fileName = "InventorySpriteSO", menuName = "Scriptable Objects/InventorySpriteSO")]
 public class InventorySpriteSO : ScriptableObject
 {
-    [SerializeField] public List<inventoryItem> inventoryItems;
-
-
-    public inventoryItem Helmet;
-    public inventoryItem Chestplate;
-    public inventoryItem Leggins;
+    [SerializeField] public Sprite sword;
+    [SerializeField] public Sprite bow;
+    [SerializeField] public Sprite book;
+    [SerializeField] public Sprite axe;
+    [SerializeField] public Sprite claws;
+    [SerializeField] public Sprite staff;
 }

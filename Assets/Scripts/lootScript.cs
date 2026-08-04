@@ -91,11 +91,7 @@ public class lootScript : MonoBehaviour
                         break;
                 }
 
-               
-
-                //Debug.Log("Equipping: " + lootName);
                 playerStats.UpdateEquipment();
-                //GameObject.FindGameObjectWithTag("GameController").GetComponent<gameManager>().updateEquipment();
                 
                 Destroy(gameObject);
             }
@@ -163,27 +159,32 @@ public class lootScript : MonoBehaviour
 
     private void pickupPotion() 
     {
-        if (effect.duration > 0)
+        /*if (effect.duration > 0)
         {
-            EffectHandler playerEffectHandler = playerStats.gameObject.GetComponent<EffectHandler>();
             bool hasEffect = false;
-            StatusEffect _ = new();
-            
-            foreach (StatusEffect e in playerEffectHandler.activeEffects) 
+            int index = 0;
+
+            foreach (StatusEffect e in playerEffectHandler.activeEffects)
             {
-                if (e.name == effect.name) { 
+                if (e.name == effect.name)
+                {
                     hasEffect = true;
-                    _ = e;
-                    break; }
+                    break;
+                }
+                else index++;
             }
-            if (hasEffect) _ = effect;
-            else playerStats.gameObject.GetComponent<EffectHandler>().addEffect(effect);
+
+            if (hasEffect)
+            {
+                effectHandler.activeEffects[index] = effect;
+            }
+            else effectHandler.addEffect(effect);
         }
 
-        else instantPotionEffect();
+        else instantPotionEffect();*/
     }
 
-    private void instantPotionEffect() 
+   /* private void instantPotionEffect() 
     {
         switch (effect.name) 
         {
@@ -194,7 +195,7 @@ public class lootScript : MonoBehaviour
                     break;
                 }
         }
-    }
+    }*/
 
     private void OnTriggerEnter(Collider other)
     {

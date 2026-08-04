@@ -54,7 +54,7 @@ public class chestScript : MonoBehaviour
         List<Vector3> lootSpawnPos = new();
         Vector3 defaultPos = transform.position + Vector3.up * lootOffset;
         lootOffset *= 2;
-        Debug.Log("lootAmount: " + lootAmount);
+        //Debug.Log("lootAmount: " + lootAmount);
         switch (lootAmount) 
         {
             case (1):
@@ -73,14 +73,13 @@ public class chestScript : MonoBehaviour
                     lootSpawnPos.Add(defaultPos + Vector3.forward * lootOffset);
                     lootSpawnPos.Add(defaultPos + (-0.5f*Vector3.forward + (Mathf.Sqrt(3)/2f)*Vector3.left) * lootOffset);
                     lootSpawnPos.Add(defaultPos + (-0.5f*Vector3.forward - (Mathf.Sqrt(3)/2f)*Vector3.left) * lootOffset);
-
                     break;
                 }
         }
 
         for (int i = 0; i < lootAmount; i++) 
         {
-            Debug.Log(i);
+            //Debug.Log(i);
             Instantiate(loot[i].prefab, lootSpawnPos[i], Quaternion.identity).GetComponent<lootScript>().isNewLoot = true;
         }
 

@@ -1,3 +1,4 @@
+using NUnit.Framework.Internal;
 using System.Collections;
 using System.Diagnostics.CodeAnalysis;
 using Unity.Mathematics;
@@ -24,6 +25,7 @@ public class PlayerHandler : MonoBehaviour
     public LayerMask terrainLayer;
     private VFXManager vfxManager;
     public GameObject[] potionsObjects; // 0-Health 1-Stregth 2-Dex 3-Magic
+    public EffectHandler effectHandler;
 
     [Header("Weapon Trails")]
     [SerializeField] GameObject swordTrail;
@@ -73,6 +75,7 @@ public class PlayerHandler : MonoBehaviour
         detectionSphere = GetComponent<SphereCollider>();
         attackHandler = GetComponent<AttackHandler>();
         playerStats = GetComponent<PlayerStats>();
+        effectHandler = GetComponent<EffectHandler>();
         vfxManager = FindAnyObjectByType<VFXManager>();
 
         Cursor.lockState = CursorLockMode.Confined;
@@ -162,7 +165,7 @@ public class PlayerHandler : MonoBehaviour
                 }
             }
 
-            // health potion
+            // Health potion
             if (Input.GetKeyDown(KeyCode.Alpha1))
             {
             if (canMove)
@@ -170,6 +173,9 @@ public class PlayerHandler : MonoBehaviour
                 currentPotion = potionUsed.Health;
                 playerAnimator.SetTrigger("Drink");
                 SoundManager.Instance.PlaySound(drinkPotion, transform, 0.8f);
+
+                int newHealth = PlayerStats.currentHealth + Mathf.CeilToInt(levelManager.currentLevel / 4f) * 10;
+                PlayerStats.currentHealth = Mathf.Min(PlayerStats.maxHealth, newHealth);
             }
             }
 
@@ -181,6 +187,8 @@ public class PlayerHandler : MonoBehaviour
                 currentPotion = potionUsed.Strength;
                 playerAnimator.SetTrigger("Drink");
                 SoundManager.Instance.PlaySound(drinkPotion, transform, 0.8f);
+                StatusEffect strength = new("Strength", Mathf.CeilToInt(levelManager.currentLevel / 4f), 30);
+                addEffectToPlayer(strength);
             }
         }
 
@@ -192,6 +200,8 @@ public class PlayerHandler : MonoBehaviour
                 currentPotion = potionUsed.Dexterity;
                 playerAnimator.SetTrigger("Drink");
                 SoundManager.Instance.PlaySound(drinkPotion, transform, 0.8f);
+                StatusEffect agility = new("Agility", Mathf.CeilToInt(levelManager.currentLevel / 4f), 30);
+                addEffectToPlayer(agility);
             }
         }
 
@@ -203,6 +213,8 @@ public class PlayerHandler : MonoBehaviour
                 currentPotion = potionUsed.Magic;
                 playerAnimator.SetTrigger("Drink");
                 SoundManager.Instance.PlaySound(drinkPotion, transform, 0.8f);
+                StatusEffect mana = new("Mana", Mathf.CeilToInt(levelManager.currentLevel / 4f), 30);
+                addEffectToPlayer(mana);
             }
         }
 
@@ -291,9 +303,6 @@ public class PlayerHandler : MonoBehaviour
         }
     }
 
-    
-
-   
 
     public void CanMoveToggle()
     {
@@ -630,7 +639,27 @@ public class PlayerHandler : MonoBehaviour
         }
     }
 
-    
+    public void addEffectToPlayer(StatusEffect effect) 
+    {
+        bool hasEffect = false;
+        int index = 0;
+
+        foreach (StatusEffect e in effectHandler.activeEffects)
+        {
+            if (e.name == effect.name)
+            {
+                hasEffect = true;
+                break;
+            }
+            else index++;
+        }
+
+        if (hasEffect)
+        {
+            effectHandler.activeEffects[index] = effect;
+        }
+        else effectHandler.addEffect(effect);
+    }
 
 }
 
