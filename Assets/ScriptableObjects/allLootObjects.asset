@@ -16,18 +16,21 @@ MonoBehaviour:
   - name: Sword
     type: 0
     prefab: {fileID: 6094470551727074466, guid: b234d8158eccc4944ba01d55ca9a6bea, type: 3}
-  - name: Spellbook
-    type: 0
-    prefab: {fileID: 6094470551727074466, guid: d9f16b5dfc158bc41a8e517923adf555, type: 3}
   - name: Bow
     type: 0
     prefab: {fileID: 6094470551727074466, guid: 1169f9ee9732b4848ba77c8ae496f9e2, type: 3}
+  - name: Spellbook
+    type: 0
+    prefab: {fileID: 6094470551727074466, guid: d9f16b5dfc158bc41a8e517923adf555, type: 3}
   - name: Axe
     type: 0
     prefab: {fileID: 6094470551727074466, guid: a3d75a8017b1d694ba84e20000e595c9, type: 3}
   - name: Claws
     type: 0
     prefab: {fileID: 8888310674192828966, guid: 1f9f0012cf8254544b34dfbe2ac8f0c5, type: 3}
+  - name: IceStaff
+    type: 0
+    prefab: {fileID: 5834647568074990458, guid: a44fb00cfaa86b046bd96e2f50e3d596, type: 3}
   - name: Helmet
     type: 1
     prefab: {fileID: 7933952920136172553, guid: 9a5da05df6a3a7e488f14c72be48a395, type: 3}
@@ -43,9 +46,12 @@ MonoBehaviour:
   - name: StrengthPotion
     type: 2
     prefab: {fileID: 6093041139753806892, guid: 347371dc57dfa4446bbaf9524203de10, type: 3}
+  - name: AgilityPotion
+    type: 2
+    prefab: {fileID: 6093041139753806892, guid: ff4a646f34a249b43a86482fdac1a5ae, type: 3}
+  - name: AgilityPotion
+    type: 2
+    prefab: {fileID: 6093041139753806892, guid: 347371dc57dfa4446bbaf9524203de10, type: 3}
   - name: Money
     type: 3
     prefab: {fileID: 1064078589619500094, guid: d42d7772a15b23b4690decde3b6e0f3e, type: 3}
-  - name: IceStaff
-    type: 0
-    prefab: {fileID: 5834647568074990458, guid: a44fb00cfaa86b046bd96e2f50e3d596, type: 3}
