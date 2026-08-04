@@ -11,6 +11,7 @@ public class chestScript : MonoBehaviour
     [SerializeField] bool isPlayerClose;
     [SerializeField] bool isEmpty;
     [SerializeField] float lootOffset; // how far above the chest the loot spawns
+    private Animator chestAnimator;
 
     [Header("Sounds")]
     [SerializeField] AudioClip openChest;
@@ -21,6 +22,7 @@ public class chestScript : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         isEmpty = false;
         loot = getLoot();
+        chestAnimator = GetComponentInChildren<Animator>();
     }
 
     // Update is called once per frame
@@ -35,6 +37,7 @@ public class chestScript : MonoBehaviour
                 canvas.gameObject.SetActive(false);
                 spawnLootObjects();
                 SoundManager.Instance.PlaySound(openChest, transform, 0.8f);
+                chestAnimator.SetTrigger("Opened");
             }
         }
     }
