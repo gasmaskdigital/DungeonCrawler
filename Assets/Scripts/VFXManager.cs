@@ -11,6 +11,7 @@ public class VFXManager : MonoBehaviour
     [SerializeField] GameObject SwordSwish;
     [SerializeField] GameObject heavySwordSwish;
     [SerializeField] GameObject arrowBreak;
+   // [SerializeField] Game
 
     public void DeathEffect(Vector3 spawnPos)
     {
