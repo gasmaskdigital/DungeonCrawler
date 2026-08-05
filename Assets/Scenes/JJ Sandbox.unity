@@ -1553,8 +1553,8 @@ MonoBehaviour:
   Lens:
     FieldOfView: 90
     OrthographicSize: 7.5
-    NearClipPlane: -50
-    FarClipPlane: 5000
+    NearClipPlane: -8000
+    FarClipPlane: 8000
     Dutch: 0
     ModeOverride: 1
     PhysicalProperties:
@@ -1598,7 +1598,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62d54399b04b4fa48a73e121d4937dd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachinePanTilt
-  ReferenceFrame: 1
+  ReferenceFrame: 0
   RecenterTarget: 0
   PanAxis:
     Value: 45
@@ -6388,6 +6388,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2795984712240456662, guid: 41c99b03ce000cb48b4806dffad593db, type: 3}
+      propertyPath: trollHeavyImpact
+      value: 
+      objectReference: {fileID: 8230022441722461589, guid: 41494896fc96c9748b81d3356632794e, type: 3}
     - target: {fileID: 8046668705236488367, guid: 41c99b03ce000cb48b4806dffad593db, type: 3}
       propertyPath: m_Name
       value: PH VFX Manager
@@ -8127,7 +8131,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!108 &1747454226
 Light:
   m_ObjectHideFlags: 0
@@ -8642,8 +8646,8 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: -50
-  far clip plane: 5000
+  near clip plane: -8000
+  far clip plane: 8000
   field of view: 90
   orthographic: 1
   orthographic size: 7.5
@@ -8700,8 +8704,8 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
-  m_Antialiasing: 0
+  m_RenderPostProcessing: 1
+  m_Antialiasing: 1
   m_AntialiasingQuality: 2
   m_StopNaN: 0
   m_Dithering: 0
