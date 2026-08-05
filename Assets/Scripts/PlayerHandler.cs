@@ -711,8 +711,16 @@ public class PlayerHandler : MonoBehaviour
             g.gameObject.SetActive(false);
         }
     }
-
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        if (hit.gameObject.CompareTag("Trap"))
+        {
+            playerStats.TakeDamage(2);
+        }
+    }
 }
+
+
 
 public enum potionUsed
 {

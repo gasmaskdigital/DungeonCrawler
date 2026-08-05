@@ -363,7 +363,7 @@ SphereCollider:
     m_Bits: 192
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 3072
   m_LayerOverridePriority: 10
   m_IsTrigger: 1
   m_ProvidesContacts: 0

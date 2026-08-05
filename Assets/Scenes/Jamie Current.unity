@@ -2855,11 +2855,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 599767914}
   m_CullTransparentMesh: 1
---- !u!1 &624618339 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3786836327095971973, guid: 35a62140321f4064da5d2693afb1944e, type: 3}
-  m_PrefabInstance: {fileID: 798607769}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &636942354
 GameObject:
   m_ObjectHideFlags: 0
@@ -3292,22 +3287,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 7266534710127501, guid: 35a62140321f4064da5d2693afb1944e, type: 3}
-      propertyPath: axeHeavyImpact
-      value: 
-      objectReference: {fileID: 8300000, guid: a4580ff02d3ba754d95a6c6ce8272c1d, type: 3}
-    - target: {fileID: 7266534710127501, guid: 35a62140321f4064da5d2693afb1944e, type: 3}
-      propertyPath: axeLightImpact
-      value: 
-      objectReference: {fileID: 8300000, guid: 6237bada91dd96e4795b739429e4f0c2, type: 3}
-    - target: {fileID: 1087447258442381983, guid: 35a62140321f4064da5d2693afb1944e, type: 3}
-      propertyPath: clawTrailL
-      value: 
-      objectReference: {fileID: 624618339}
-    - target: {fileID: 1087447258442381983, guid: 35a62140321f4064da5d2693afb1944e, type: 3}
-      propertyPath: clawTrailR
-      value: 
-      objectReference: {fileID: 1417588444}
+    - target: {fileID: 667795102598984419, guid: 35a62140321f4064da5d2693afb1944e, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 1024
+      objectReference: {fileID: 0}
     - target: {fileID: 1087447258442381983, guid: 35a62140321f4064da5d2693afb1944e, type: 3}
       propertyPath: mainCamera
       value: 
@@ -3316,10 +3299,6 @@ PrefabInstance:
       propertyPath: cameraTransform
       value: 
       objectReference: {fileID: 1773633959}
-    - target: {fileID: 1087447258442381983, guid: 35a62140321f4064da5d2693afb1944e, type: 3}
-      propertyPath: terrainLayer.m_Bits
-      value: 128
-      objectReference: {fileID: 0}
     - target: {fileID: 1389836861790355665, guid: 35a62140321f4064da5d2693afb1944e, type: 3}
       propertyPath: m_Name
       value: Player Object
@@ -3328,10 +3307,6 @@ PrefabInstance:
       propertyPath: pHUIManager
       value: 
       objectReference: {fileID: 340316306}
-    - target: {fileID: 3978373986141358953, guid: 35a62140321f4064da5d2693afb1944e, type: 3}
-      propertyPath: levelUpSound
-      value: 
-      objectReference: {fileID: 8300000, guid: 7ee47aaa090bad94cb7cd6640665f4f5, type: 3}
     - target: {fileID: 4051598479090421858, guid: 35a62140321f4064da5d2693afb1944e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -3370,6 +3345,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4051598479090421858, guid: 35a62140321f4064da5d2693afb1944e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5283045016210622965, guid: 35a62140321f4064da5d2693afb1944e, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5283045016210622965, guid: 35a62140321f4064da5d2693afb1944e, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5283045016210622965, guid: 35a62140321f4064da5d2693afb1944e, type: 3}
+      propertyPath: m_IncludeLayers.m_Bits
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -6445,11 +6432,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 41c99b03ce000cb48b4806dffad593db, type: 3}
---- !u!1 &1417588444 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1713643243307808297, guid: 35a62140321f4064da5d2693afb1944e, type: 3}
-  m_PrefabInstance: {fileID: 798607769}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1442402770
 GameObject:
   m_ObjectHideFlags: 0
