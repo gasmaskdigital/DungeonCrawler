@@ -193,7 +193,7 @@ public class PlayerHandler : MonoBehaviour
             // Strength potion
             if (Input.GetKeyDown(KeyCode.Alpha2))
             {
-            if (PlayerStats.stregnthPotionStack > 0)
+            if (PlayerStats.strengthPotionStack > 0)
             {
                 if (canMove)
                 {
@@ -202,7 +202,7 @@ public class PlayerHandler : MonoBehaviour
                     SoundManager.Instance.PlaySound(drinkPotion, transform, 0.8f);
                     StatusEffect strength = new("Strength", Mathf.CeilToInt(levelManager.currentLevel / 4f), 30);
                     addEffectToPlayer(strength);
-                    PlayerStats.stregnthPotionStack--;
+                    PlayerStats.strengthPotionStack--;
                     potionVFXs[1].gameObject.SetActive(true);
                 }
             }

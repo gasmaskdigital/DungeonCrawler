@@ -18,6 +18,7 @@ public class lootScript : MonoBehaviour
     public StatBoostType statBoost;
     [SerializeField] public WeaponType weaponType;
     [SerializeField] public ArmourSlot armourSlot;
+    [SerializeField] bool pickedUp;
 
     [Header("References")]
     [SerializeField] PlayerStats playerStats;
@@ -31,6 +32,7 @@ public class lootScript : MonoBehaviour
     void Start()
     {
         playerStats = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
+        pickedUp = false;
 
         if (isNewLoot && lootType != LootType.Potion)
         {
@@ -91,9 +93,11 @@ public class lootScript : MonoBehaviour
                         break;
                 }
 
-                playerStats.UpdateEquipment();
-                
-                Destroy(gameObject);
+                if (pickedUp)
+                {
+                    playerStats.UpdateEquipment();
+                    Destroy(gameObject);
+                }
             }
         }
     }
@@ -110,6 +114,7 @@ public class lootScript : MonoBehaviour
             }
         }
         PlayerStats.currentWeapon = weapon;
+        pickedUp = true;
     }
 
     private void pickupArmour()
@@ -155,65 +160,46 @@ public class lootScript : MonoBehaviour
                 PlayerStats.currentLowerBody = armour;
                 break;
         }
+        pickedUp = true;
     }
 
     private void pickupPotion() 
     {
+        int potionStackLimit = 3;
         switch (lootName)
         {
             case "HealthPotion":
-                PlayerStats.healthPotionStack ++;
-
+                if (PlayerStats.healthPotionStack < potionStackLimit)
+                {
+                    PlayerStats.healthPotionStack++;
+                    pickedUp = true;
+                }
                 break;
             case "StrengthPotion":
-                PlayerStats.stregnthPotionStack++;
+                if (PlayerStats.strengthPotionStack < potionStackLimit)
+                {
+                    PlayerStats.strengthPotionStack++;
+                    pickedUp = true;
+                }
                 break;
             case "AgilityPotion":
-                PlayerStats.dexterityPotionStack++;
-                Debug.Log("dex potions " + PlayerStats.dexterityPotionStack);
+                if (PlayerStats.dexterityPotionStack < potionStackLimit)
+                {
+                    PlayerStats.dexterityPotionStack++;
+                    pickedUp = true;
+                }
+                //Debug.Log("dex potions " + PlayerStats.dexterityPotionStack);
                 break;
             case "ManaPotion":
-                PlayerStats.magicPotionStack++;
-                Debug.Log("magic potions " + PlayerStats.magicPotionStack);
+                if (PlayerStats.magicPotionStack < potionStackLimit)
+                {
+                    PlayerStats.magicPotionStack++;
+                    pickedUp = true;
+                }
+                //Debug.Log("magic potions " + PlayerStats.magicPotionStack);
                 break;
         }
-        /*if (effect.duration > 0)
-        {
-            bool hasEffect = false;
-            int index = 0;
-
-            foreach (StatusEffect e in playerEffectHandler.activeEffects)
-            {
-                if (e.name == effect.name)
-                {
-                    hasEffect = true;
-                    break;
-                }
-                else index++;
-            }
-
-            if (hasEffect)
-            {
-                effectHandler.activeEffects[index] = effect;
-            }
-            else effectHandler.addEffect(effect);
-        }
-
-        else instantPotionEffect();*/
     }
-
-   /* private void instantPotionEffect() 
-    {
-        switch (effect.name) 
-        {
-            case ("Health"):
-                {
-                    int newHealth = PlayerStats.currentHealth + effect.intensity; 
-                    PlayerStats.currentHealth = Mathf.Min(PlayerStats.maxHealth, newHealth);
-                    break;
-                }
-        }
-    }*/
 
     private void OnTriggerEnter(Collider other)
     {

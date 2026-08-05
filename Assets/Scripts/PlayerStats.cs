@@ -42,7 +42,7 @@ public class PlayerStats : MonoBehaviour
     public Weapon testWeapon; // this is just used to testing 
 
     public static int healthPotionStack;
-    public static int stregnthPotionStack;
+    public static int strengthPotionStack;
     public static int dexterityPotionStack;
     public static int magicPotionStack;
 
@@ -360,7 +360,7 @@ public class PlayerStats : MonoBehaviour
     private void ResetPotionStacks()
     {
         healthPotionStack = 0;
-        stregnthPotionStack = 0;
+        strengthPotionStack = 0;
         dexterityPotionStack = 0;
         magicPotionStack = 0;
     }
