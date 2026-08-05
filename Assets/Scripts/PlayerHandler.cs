@@ -715,6 +715,7 @@ public class PlayerHandler : MonoBehaviour
     {
         if (hit.gameObject.CompareTag("Trap"))
         {
+            Debug.Log(hit.gameObject.name);
             playerStats.TakeDamage(2);
         }
     }

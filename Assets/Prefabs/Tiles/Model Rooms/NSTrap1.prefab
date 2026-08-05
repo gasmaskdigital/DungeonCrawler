@@ -8,6 +8,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4995665646077376745}
     m_Modifications:
+    - target: {fileID: 5066224415163340899, guid: 8243121bfe8391e44b108a8a9d0b31b5, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 5722877113381842412, guid: 8243121bfe8391e44b108a8a9d0b31b5, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 8077109538769087574, guid: 8243121bfe8391e44b108a8a9d0b31b5, type: 3}
       propertyPath: m_Name
       value: TrapRoom1_1

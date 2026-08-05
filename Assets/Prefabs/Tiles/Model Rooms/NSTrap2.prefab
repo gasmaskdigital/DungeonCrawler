@@ -48,6 +48,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 970642886930805002, guid: d1ddcb4cebc23f348a03bbea964a7ab8, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 1172003532196413275, guid: d1ddcb4cebc23f348a03bbea964a7ab8, type: 3}
       propertyPath: m_Name
       value: TrapRoom2

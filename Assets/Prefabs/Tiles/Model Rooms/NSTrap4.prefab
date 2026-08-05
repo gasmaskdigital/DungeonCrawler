@@ -9,6 +9,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 4995665646077376745}
     m_Modifications:
     - target: {fileID: 5736909751882468927, guid: 0b3cc0935342d3b43ac7b5c77aff40ad, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 5736909751882468927, guid: 0b3cc0935342d3b43ac7b5c77aff40ad, type: 3}
       propertyPath: m_TagString
       value: Trap
       objectReference: {fileID: 0}
