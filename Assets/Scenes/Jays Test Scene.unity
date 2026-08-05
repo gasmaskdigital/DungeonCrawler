@@ -850,10 +850,14 @@ MonoBehaviour:
   txtLevel: {fileID: 2023256184}
   txtMoney: {fileID: 4189542}
   txtHealth: {fileID: 1408266644}
-  txtEquipment: {fileID: 1480160930}
   txtStats: {fileID: 100413298}
   playerStats: {fileID: 798607770}
   inventorySpriteSO: {fileID: 11400000, guid: db52289fb06840842af486c58499bee2, type: 2}
+  txtEquipment: {fileID: 1480160930}
+  currentWeaponSprite: {fileID: 0}
+  currentHelmetSprite: {fileID: 0}
+  currentUpperBodySprite: {fileID: 0}
+  currentLowerBodySprite: {fileID: 0}
 --- !u!114 &136469606
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1020,7 +1024,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &177271277
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1843,7 +1847,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &335929956
 RectTransform:
   m_ObjectHideFlags: 0
