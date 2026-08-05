@@ -829,7 +829,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75e69e8eaf4f6c24990553ff5e8cb95c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingMapTile: {fileID: 5641898359342310611, guid: 4083801c511a0e641963edfaf23e4c58, type: 3}
+  startingMapTile:
+    name: 4wayIntersection
+    tile: {fileID: 5641898359342310611, guid: 4083801c511a0e641963edfaf23e4c58, type: 3}
   startingTileGenerator: {fileID: 636942354}
   staircase: {fileID: 1075293540915351914, guid: c3bd5e7dd11540a4a91cbfdf06292140, type: 3}
   enemySpawner: {fileID: 1237843681088241054, guid: 1ef20a163b000e74fba1cae4ffccc57d, type: 3}
@@ -1551,8 +1553,8 @@ MonoBehaviour:
   Lens:
     FieldOfView: 90
     OrthographicSize: 7.5
-    NearClipPlane: -50
-    FarClipPlane: 5000
+    NearClipPlane: -8000
+    FarClipPlane: 8000
     Dutch: 0
     ModeOverride: 1
     PhysicalProperties:
@@ -1596,7 +1598,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62d54399b04b4fa48a73e121d4937dd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachinePanTilt
-  ReferenceFrame: 1
+  ReferenceFrame: 0
   RecenterTarget: 0
   PanAxis:
     Value: 45
@@ -4530,7 +4532,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -19.4497, y: -50.8731}
+  m_AnchoredPosition: {x: -19.449707, y: -50.873047}
   m_SizeDelta: {x: 1057.6597, y: 459.8704}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1031277623
@@ -5008,7 +5010,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 26.850464, y: 55}
+  m_AnchoredPosition: {x: 26.850342, y: 55}
   m_SizeDelta: {x: -1020.2409, y: -435.047}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1127480947
@@ -6386,6 +6388,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2795984712240456662, guid: 41c99b03ce000cb48b4806dffad593db, type: 3}
+      propertyPath: trollHeavyImpact
+      value: 
+      objectReference: {fileID: 8230022441722461589, guid: 41494896fc96c9748b81d3356632794e, type: 3}
     - target: {fileID: 8046668705236488367, guid: 41c99b03ce000cb48b4806dffad593db, type: 3}
       propertyPath: m_Name
       value: PH VFX Manager
@@ -8640,8 +8646,8 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: -50
-  far clip plane: 5000
+  near clip plane: -8000
+  far clip plane: 8000
   field of view: 90
   orthographic: 1
   orthographic size: 7.5
@@ -8698,8 +8704,8 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
-  m_Antialiasing: 0
+  m_RenderPostProcessing: 1
+  m_Antialiasing: 1
   m_AntialiasingQuality: 2
   m_StopNaN: 0
   m_Dithering: 0
