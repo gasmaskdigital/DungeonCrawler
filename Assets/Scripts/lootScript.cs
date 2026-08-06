@@ -1,6 +1,5 @@
 using System;
 using UnityEngine;
-using UnityEngine.InputSystem.Android.LowLevel;
 
 [Serializable]
 public enum LootType { Weapon, Armour, Potion, Money} // Weapon = 0, Armour = 1, Potion = 2, Money = 3

@@ -16,6 +16,7 @@ public class PlayerHandler : MonoBehaviour
 
     [Header("References")]
     private CharacterController controller;
+    private gameManager gameManager;
     [SerializeField] Transform cameraTransform;
     public Animator playerAnimator;
     private AttackHandler attackHandler;
@@ -79,6 +80,7 @@ public class PlayerHandler : MonoBehaviour
         playerStats = GetComponent<PlayerStats>();
         effectHandler = GetComponent<EffectHandler>();
         vfxManager = FindAnyObjectByType<VFXManager>();
+        gameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<gameManager>();
 
         Cursor.lockState = CursorLockMode.Confined;
 
@@ -181,6 +183,7 @@ public class PlayerHandler : MonoBehaviour
                     int newHealth = PlayerStats.currentHealth + Mathf.CeilToInt(levelManager.currentLevel / 4f) * 10;
                     PlayerStats.currentHealth = Mathf.Min(PlayerStats.maxHealth, newHealth);
                     PlayerStats.healthPotionStack--;
+                    gameManager.updateEquipment();
                     potionVFXs[0].gameObject.SetActive(true);
                 }
             }
@@ -203,6 +206,7 @@ public class PlayerHandler : MonoBehaviour
                     StatusEffect strength = new("Strength", Mathf.CeilToInt(levelManager.currentLevel / 4f), 30);
                     addEffectToPlayer(strength);
                     PlayerStats.strengthPotionStack--;
+                    gameManager.updateEquipment();
                     potionVFXs[1].gameObject.SetActive(true);
                 }
             }
@@ -225,6 +229,7 @@ public class PlayerHandler : MonoBehaviour
                     StatusEffect agility = new("Agility", Mathf.CeilToInt(levelManager.currentLevel / 4f), 30);
                     addEffectToPlayer(agility);
                     PlayerStats.dexterityPotionStack--;
+                    gameManager.updateEquipment();
                     potionVFXs[2].gameObject.SetActive(true);
                 }
             }
@@ -247,6 +252,7 @@ public class PlayerHandler : MonoBehaviour
                     StatusEffect mana = new("Mana", Mathf.CeilToInt(levelManager.currentLevel / 4f), 30);
                     addEffectToPlayer(mana);
                     PlayerStats.magicPotionStack--;
+                    gameManager.updateEquipment();
                     potionVFXs[3].gameObject.SetActive(true);
                 }
             }
