@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 85492083290708088}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: TrapRoom2
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -91,6 +91,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: sm_trap_room_02
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 349bdcd8e00b0f64fa52af8761bce7d6, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -112,6 +116,22 @@ PrefabInstance:
     - target: {fileID: 5461234271608461031, guid: c2c41adb86a83a644ba6cb39f6a7be46, type: 3}
       propertyPath: m_Name
       value: CFXR Fire (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5461234271608461031, guid: c2c41adb86a83a644ba6cb39f6a7be46, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6072129442786882530, guid: c2c41adb86a83a644ba6cb39f6a7be46, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6568080837204431493, guid: c2c41adb86a83a644ba6cb39f6a7be46, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6601427116968704798, guid: c2c41adb86a83a644ba6cb39f6a7be46, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6943825842930723273, guid: c2c41adb86a83a644ba6cb39f6a7be46, type: 3}
       propertyPath: m_LocalPosition.x
@@ -183,6 +203,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: CFXR Fire (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 5461234271608461031, guid: c2c41adb86a83a644ba6cb39f6a7be46, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6072129442786882530, guid: c2c41adb86a83a644ba6cb39f6a7be46, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6568080837204431493, guid: c2c41adb86a83a644ba6cb39f6a7be46, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6601427116968704798, guid: c2c41adb86a83a644ba6cb39f6a7be46, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 6943825842930723273, guid: c2c41adb86a83a644ba6cb39f6a7be46, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.706
@@ -253,6 +289,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Prefab_sm_trap_01
       objectReference: {fileID: 0}
+    - target: {fileID: 1962064126879603453, guid: 118d7f9345f217740a2701c7a6cef0d0, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 2124439409258815852, guid: 118d7f9345f217740a2701c7a6cef0d0, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.24
@@ -314,6 +354,22 @@ PrefabInstance:
     - target: {fileID: 5461234271608461031, guid: c2c41adb86a83a644ba6cb39f6a7be46, type: 3}
       propertyPath: m_Name
       value: CFXR Fire (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5461234271608461031, guid: c2c41adb86a83a644ba6cb39f6a7be46, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6072129442786882530, guid: c2c41adb86a83a644ba6cb39f6a7be46, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6568080837204431493, guid: c2c41adb86a83a644ba6cb39f6a7be46, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6601427116968704798, guid: c2c41adb86a83a644ba6cb39f6a7be46, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6943825842930723273, guid: c2c41adb86a83a644ba6cb39f6a7be46, type: 3}
       propertyPath: m_LocalPosition.x
@@ -433,6 +489,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Torch Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 3725786365524530489, guid: db11aec7e8281454e80ff4acf763be3c, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3725786366042030066, guid: db11aec7e8281454e80ff4acf763be3c, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5226445409594849733, guid: db11aec7e8281454e80ff4acf763be3c, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -503,6 +571,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Torch Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 3725786365524530489, guid: db11aec7e8281454e80ff4acf763be3c, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3725786366042030066, guid: db11aec7e8281454e80ff4acf763be3c, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5226445409594849733, guid: db11aec7e8281454e80ff4acf763be3c, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -524,6 +604,22 @@ PrefabInstance:
     - target: {fileID: 5461234271608461031, guid: c2c41adb86a83a644ba6cb39f6a7be46, type: 3}
       propertyPath: m_Name
       value: CFXR Fire (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5461234271608461031, guid: c2c41adb86a83a644ba6cb39f6a7be46, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6072129442786882530, guid: c2c41adb86a83a644ba6cb39f6a7be46, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6568080837204431493, guid: c2c41adb86a83a644ba6cb39f6a7be46, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6601427116968704798, guid: c2c41adb86a83a644ba6cb39f6a7be46, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6943825842930723273, guid: c2c41adb86a83a644ba6cb39f6a7be46, type: 3}
       propertyPath: m_LocalPosition.x

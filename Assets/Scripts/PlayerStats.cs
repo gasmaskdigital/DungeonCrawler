@@ -182,7 +182,13 @@ public class PlayerStats : MonoBehaviour
     }
 
     public void UpdateBoostedStats()
-    { 
+    {
+        boostedHealth = 0;
+        boostedStrength = 0;
+        boostedDexterity = 0;
+        boostedMagic = 0;
+        boostedEndurance = 0;
+
         switch (currentWeapon.statBoost)
         {
             case StatBoostType.Strength:
@@ -304,6 +310,7 @@ public class PlayerStats : MonoBehaviour
         currentDefenceTotal = CalculateTotalDefence();
         UpdateBoostedStats();
         UpdateWeaponSocket();
+        RecalculateMaxHealth();
     }
 
     public void TakeDamage(int damageDealt)
@@ -376,6 +383,23 @@ public class PlayerStats : MonoBehaviour
         strengthPotionStack = 0;
         dexterityPotionStack = 0;
         magicPotionStack = 0;
+    }
+
+    private void RecalculateMaxHealth()
+    {
+        maxHealth = 50;
+        if(boostedHealth > 1)
+        {
+            maxHealth += (boostedHealth * 8);
+
+        }
+
+        if(playerLevel > 1)
+        {
+            maxHealth += (playerLevel * 4);
+        }
+
+            //+ (boostedHealth * 8) + (playerLevel * 4);
     }
 
 }

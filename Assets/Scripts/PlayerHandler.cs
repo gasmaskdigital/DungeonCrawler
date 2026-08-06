@@ -258,7 +258,7 @@ public class PlayerHandler : MonoBehaviour
 
         if (bowAiming)
         {
-            //Debug.Log(bowAiming);
+            // Debug.Log("bow aiming " + bowAiming);
             BowAiming();
         }
 
@@ -491,10 +491,14 @@ public class PlayerHandler : MonoBehaviour
 
     private void BowAiming()
     {
+
+        // Debug.Log("Bow aiming method");
+
         Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
 
-        if(Physics.Raycast(ray, out RaycastHit hit, 100f, terrainLayer))
+        if(Physics.Raycast(ray, out RaycastHit hit, 10000f, terrainLayer))
         {
+            
             Vector3 targetPos = hit.point;
 
             Vector3 direction = targetPos - transform.position;
@@ -707,8 +711,17 @@ public class PlayerHandler : MonoBehaviour
             g.gameObject.SetActive(false);
         }
     }
-
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        if (hit.gameObject.CompareTag("Trap"))
+        {
+            Debug.Log(hit.gameObject.name);
+            playerStats.TakeDamage(2);
+        }
+    }
 }
+
+
 
 public enum potionUsed
 {
