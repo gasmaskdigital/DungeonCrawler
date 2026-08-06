@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class gameManager : MonoBehaviour
 {
     public static int playerMoney;
+    
 
     [Header("UI References")]
      
@@ -56,8 +57,10 @@ public class gameManager : MonoBehaviour
     public void updatePlayerLevel() 
     {
         txtLevel.text = "Level: " + PlayerStats.playerLevel;
+        
     }
 
+  
     
     public void updateEquipment()
     {
