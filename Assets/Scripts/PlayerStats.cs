@@ -1,6 +1,7 @@
 
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerStats : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class PlayerStats : MonoBehaviour
     public static int playerLevel = 1;
     public static int currentXP = 0;
     public static int requiredXP = 10;
+    public Slider expSlider;
 
     public static int boostedStrength;
     public static int boostedDexterity;
@@ -114,7 +116,9 @@ public class PlayerStats : MonoBehaviour
             currentHealth = maxHealth;
         }
 
-       
+        {
+            UpdateUI();
+        }
 
     }
 
@@ -130,6 +134,7 @@ public class PlayerStats : MonoBehaviour
         {
             LevelUp();
         }
+        UpdateUI();
     }
 
     public void LevelUp()
@@ -149,6 +154,14 @@ public class PlayerStats : MonoBehaviour
 
         playerHandler.bowAiming = false;
 
+        UpdateUI();
+
+    }
+
+    public void UpdateUI()
+    {
+        expSlider.maxValue = requiredXP;
+        expSlider.value = currentXP;
     }
 
     public void HealthLevelUp()
