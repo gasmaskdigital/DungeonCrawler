@@ -22,6 +22,7 @@ public class lootScript : MonoBehaviour
 
     [Header("References")]
     [SerializeField] PlayerStats playerStats;
+    [SerializeField] gameManager controller;
     [SerializeField] LootSO allLoot;
     [SerializeField] GameObject canvas;
     [SerializeField] bool isPlayerClose;
@@ -32,6 +33,7 @@ public class lootScript : MonoBehaviour
     void Start()
     {
         playerStats = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
+        controller = GameObject.FindGameObjectWithTag("GameController").GetComponent<gameManager>();
         pickedUp = false;
 
         if (isNewLoot && lootType != LootType.Potion)
@@ -92,10 +94,12 @@ public class lootScript : MonoBehaviour
                         gameManager.playerMoney += statValue;
                         break;
                 }
+                
+                playerStats.UpdateEquipment();
+                controller.updateEquipment();
 
                 if (pickedUp)
                 {
-                    playerStats.UpdateEquipment();
                     Destroy(gameObject);
                 }
             }
