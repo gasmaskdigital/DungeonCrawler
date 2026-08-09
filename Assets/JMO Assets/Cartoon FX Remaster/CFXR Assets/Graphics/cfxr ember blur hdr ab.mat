@@ -131,8 +131,8 @@ Material:
     - _ShadowStrength: 0.5
     - _SingleChannel: 1
     - _SmoothnessTextureChannel: 0
-    - _SoftParticlesFadeDistanceFar: 8000
-    - _SoftParticlesFadeDistanceNear: -8000
+    - _SoftParticlesFadeDistanceFar: 1
+    - _SoftParticlesFadeDistanceNear: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 5
     - _UVDistortionAdd: 0

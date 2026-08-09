@@ -51,3 +51,7 @@ MonoBehaviour:
     tile: {fileID: 5641898359342310611, guid: 8aaab41c8e45bd4468314995e32ea7a3, type: 3}
   - name: NSTrap4
     tile: {fileID: 5641898359342310611, guid: aa9a830c41901444f91852fddfa4d6b5, type: 3}
+  - name: roomBlockedEndE
+    tile: {fileID: 5641898359342310611, guid: 07949bf6ed8de964681d8ae65ea2d362, type: 3}
+  - name: NSRoomPillars
+    tile: {fileID: 5641898359342310611, guid: 5786ca221b398fb4e84aa2b0ae0c07f8, type: 3}

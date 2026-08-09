@@ -47,3 +47,11 @@ MonoBehaviour:
     tile: {fileID: 5641898359342310611, guid: 8aaab41c8e45bd4468314995e32ea7a3, type: 3}
   - name: NSTrap4
     tile: {fileID: 5641898359342310611, guid: aa9a830c41901444f91852fddfa4d6b5, type: 3}
+  - name: roomBlockedEndS
+    tile: {fileID: 5641898359342310611, guid: 476fca995e7cd9b49b10df0961f31c61, type: 3}
+  - name: roomCornerShelfEndS
+    tile: {fileID: 5641898359342310611, guid: a5f5e2c5d14cb914b91fd6c607d95848, type: 3}
+  - name: roomDamagedCornerEndS
+    tile: {fileID: 5641898359342310611, guid: cd68cc4ea6421be439591bcc9348e464, type: 3}
+  - name: NSRoomPillars
+    tile: {fileID: 5641898359342310611, guid: 5786ca221b398fb4e84aa2b0ae0c07f8, type: 3}
