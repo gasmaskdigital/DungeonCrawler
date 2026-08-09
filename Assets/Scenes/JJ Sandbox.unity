@@ -3319,6 +3319,10 @@ PrefabInstance:
       value: Player Object
       objectReference: {fileID: 0}
     - target: {fileID: 3978373986141358953, guid: 35a62140321f4064da5d2693afb1944e, type: 3}
+      propertyPath: expSlider
+      value: 
+      objectReference: {fileID: 1323006271}
+    - target: {fileID: 3978373986141358953, guid: 35a62140321f4064da5d2693afb1944e, type: 3}
       propertyPath: pHUIManager
       value: 
       objectReference: {fileID: 340316306}
