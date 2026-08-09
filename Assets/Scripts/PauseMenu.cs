@@ -1,11 +1,14 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
     [SerializeField] GameObject pauseMenu;
     [SerializeField] GameObject container;
     [SerializeField] GameObject inventory;
+    [SerializeField] PlayerStats playerStats;
+    [SerializeField] GameObject panel;
 
     void Update()
     {
@@ -67,10 +70,15 @@ public class PauseMenu : MonoBehaviour
         //Cursor.visible = true;
     }
 
+    public void Quit()
+    {
+        Application.Quit();
+    }
+
     public void Home()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("Main Menu");
+        SceneManager.LoadScene("Mainmenu");
     }
 
     public void Resume()
@@ -89,7 +97,13 @@ public class PauseMenu : MonoBehaviour
     public void Restart()
     {
         Time.timeScale = 1f;
+        playerStats.ResetStats();
+        levelManager.currentLevel = 0;
+
+        
+
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        
     }
 }
 
