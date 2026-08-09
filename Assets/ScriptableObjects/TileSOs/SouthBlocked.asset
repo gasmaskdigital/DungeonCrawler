@@ -15,65 +15,41 @@ MonoBehaviour:
   tiles:
   - name: deadEndE
     tile: {fileID: 5641898359342310611, guid: ddc0059e13a88e74986e12fb4bce95c3, type: 3}
-    xPos: 0
-    yPos: 0
   - name: deadEndS
     tile: {fileID: 5641898359342310611, guid: 15810b1438ec6a642aefc8967a3cc875, type: 3}
-    xPos: 0
-    yPos: 0
   - name: deadEndW
     tile: {fileID: 5641898359342310611, guid: d5ff20f5292ab8144847b217f76ef994, type: 3}
-    xPos: 0
-    yPos: 0
   - name: EWCorridor
     tile: {fileID: 5641898359342310611, guid: 3c3dfdc9ad9620c49ae2dde5aed8dbe4, type: 3}
-    xPos: 0
-    yPos: 0
   - name: NECorner
     tile: {fileID: 5641898359342310611, guid: f054a8195ea795e42bc9dcf688e1e56c, type: 3}
-    xPos: 0
-    yPos: 0
   - name: NWCorner
     tile: {fileID: 5641898359342310611, guid: 5495c96ec3f75814fa1bc11aea0bf02d, type: 3}
-    xPos: 0
-    yPos: 0
   - name: SJunction
     tile: {fileID: 5641898359342310611, guid: 117e3afa1f29c6d43b1ce43a3b5ce4a4, type: 3}
-    xPos: 0
-    yPos: 0
   - name: EWRoom
     tile: {fileID: 5641898359342310611, guid: 4442980f9f9ba324f90120c7693883ea, type: 3}
-    xPos: 0
-    yPos: 0
   - name: roomEndE
     tile: {fileID: 5641898359342310611, guid: a3aa419e1f1f82e4981c37177b3d76c5, type: 3}
-    xPos: 0
-    yPos: 0
   - name: roomEndS
     tile: {fileID: 5641898359342310611, guid: 117bfdc382ef97a4a91a512f83b9816a, type: 3}
-    xPos: 0
-    yPos: 0
   - name: roomEndW
     tile: {fileID: 5641898359342310611, guid: 7296b1c05193e5c498938821204796bc, type: 3}
-    xPos: 0
-    yPos: 0
   - name: EWCorridorDamaged
     tile: {fileID: 5641898359342310611, guid: e11b35b657924cf4f8f224d597b05912, type: 3}
-    xPos: 0
-    yPos: 0
   - name: EWRoomBrazier
     tile: {fileID: 5641898359342310611, guid: c946d0b8513875c4ea355b1558cc0721, type: 3}
-    xPos: 0
-    yPos: 0
   - name: roomEndShelfE
     tile: {fileID: 5641898359342310611, guid: 9fcd572987e717d448bfe3c49e699037, type: 3}
-    xPos: 0
-    yPos: 0
-  - name: roomEndShelfS
-    tile: {fileID: 5641898359342310611, guid: 7bcb532d9170e574880f58a79248e423, type: 3}
-    xPos: 0
-    yPos: 0
-  - name: roomEndShelfW
-    tile: {fileID: 5641898359342310611, guid: 804db200d4426b94fb3946971933c47e, type: 3}
-    xPos: 0
-    yPos: 0
+  - name: EWTrap1
+    tile: {fileID: 5641898359342310611, guid: 897c486f1e1aaf5438fc3b6eefb49d65, type: 3}
+  - name: EWTrap3
+    tile: {fileID: 5641898359342310611, guid: 2ba2a02143f1a254190b0ca91f916e84, type: 3}
+  - name: EWTrap4
+    tile: {fileID: 5641898359342310611, guid: 3e907172316c0954cb8da2e4fff3889f, type: 3}
+  - name: roomDamagedEndE
+    tile: {fileID: 5641898359342310611, guid: 41c0cd5c2e1e0014e9cc9a91c8aeb2da, type: 3}
+  - name: roomDamagedEndS
+    tile: {fileID: 5641898359342310611, guid: d0d2b043b2d985a4caa3c1dff8c3bcf9, type: 3}
+  - name: roomDamagedEndW
+    tile: {fileID: 5641898359342310611, guid: 1c75f3d601b12d54fae54911293b5f42, type: 3}

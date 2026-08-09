@@ -851,7 +851,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75e69e8eaf4f6c24990553ff5e8cb95c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingMapTile: {fileID: 5641898359342310611, guid: 4083801c511a0e641963edfaf23e4c58, type: 3}
+  startingMapTile:
+    name: 
+    tile: {fileID: 0}
   startingTileGenerator: {fileID: 636942354}
   staircase: {fileID: 1075293540915351914, guid: c3bd5e7dd11540a4a91cbfdf06292140, type: 3}
   enemySpawner: {fileID: 1237843681088241054, guid: 1ef20a163b000e74fba1cae4ffccc57d, type: 3}

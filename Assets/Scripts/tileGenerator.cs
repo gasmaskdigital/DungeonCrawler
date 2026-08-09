@@ -116,7 +116,6 @@ public class tileGenerator : MonoBehaviour
         {
             case Direction.NORTH:
                 validTiles.AddRange(controller.southEntrance.tiles);
-               
                 break;
             case Direction.EAST:
                 validTiles.AddRange(controller.westEntrance.tiles);
@@ -154,58 +153,61 @@ public class tileGenerator : MonoBehaviour
         {
             if (levelManager.levelMap.tileGrid[y + 1, x].tile != null)
             {
-                if (controller.southBlocked.tiles.Contains(levelManager.levelMap.tileGrid[y + 1, x]))
+                if (listContains(controller.southBlocked.tiles, levelManager.levelMap.tileGrid[y + 1, x]))
                 {
                     validTiles = Intersection(validTiles, controller.northBlocked.tiles);
                 }
-                else if (controller.southEntrance.tiles.Contains(levelManager.levelMap.tileGrid[y + 1, x]))
+                else if (listContains(controller.southEntrance.tiles,levelManager.levelMap.tileGrid[y + 1, x]))
                 {
                     validTiles = Intersection(validTiles, controller.northEntrance.tiles);
                 }
+                else Debug.Log(levelManager.levelMap.tileGrid[y + 1, x].name + " not found");
             }
         }
         if (y > 0) 
         {
             if (levelManager.levelMap.tileGrid[y - 1, x].tile != null)
             {
-                if (controller.northBlocked.tiles.Contains(levelManager.levelMap.tileGrid[y - 1, x]))
+                if (listContains(controller.northBlocked.tiles,levelManager.levelMap.tileGrid[y - 1, x]))
                 {
                     validTiles = Intersection(validTiles, controller.southBlocked.tiles);
                 }
-                else if (controller.northEntrance.tiles.Contains(levelManager.levelMap.tileGrid[y - 1, x]))
+                else if (listContains(controller.northEntrance.tiles, levelManager.levelMap.tileGrid[y - 1, x]))
                 {
                     validTiles = Intersection(validTiles, controller.southEntrance.tiles);
                 }
+                else Debug.Log(levelManager.levelMap.tileGrid[y - 1, x].name + " not found");
             }
         }
         if (x < levelWidth - 1)
         {
             if (levelManager.levelMap.tileGrid[y, x + 1].tile != null)
             {
-                if (controller.westBlocked.tiles.Contains(levelManager.levelMap.tileGrid[y, x + 1]))
+                if (listContains(controller.westBlocked.tiles,levelManager.levelMap.tileGrid[y, x + 1]))
                 {
                     validTiles = Intersection(validTiles, controller.eastBlocked.tiles);
                 }
-                else if (controller.westEntrance.tiles.Contains(levelManager.levelMap.tileGrid[y, x + 1]))
+                else if (listContains(controller.westEntrance.tiles, levelManager.levelMap.tileGrid[y, x + 1]))
                 {
                     validTiles = Intersection(validTiles, controller.eastEntrance.tiles);
-                };
+                }
+                else Debug.Log(levelManager.levelMap.tileGrid[y, x + 1].name + " not found");
             }
         }
         if (x > 0)
         {
             if (levelManager.levelMap.tileGrid[y, x - 1].tile != null)
             {
+
+                if (listContains(controller.eastBlocked.tiles, levelManager.levelMap.tileGrid[y, x - 1]))
                 {
-                    if (controller.eastBlocked.tiles.Contains(levelManager.levelMap.tileGrid[y, x - 1]))
-                    {
-                        validTiles = Intersection(validTiles, controller.westBlocked.tiles);
-                    };
-                    if (controller.eastEntrance.tiles.Contains(levelManager.levelMap.tileGrid[y, x - 1]))
-                    {
-                        validTiles = Intersection(validTiles, controller.westEntrance.tiles);
-                    };
+                    validTiles = Intersection(validTiles, controller.westBlocked.tiles);
                 }
+                else if (listContains(controller.eastEntrance.tiles, levelManager.levelMap.tileGrid[y, x - 1]))
+                {
+                    validTiles = Intersection(validTiles, controller.westEntrance.tiles);
+                }
+                else Debug.Log(levelManager.levelMap.tileGrid[y, x - 1].name + " not found");
             }
         }
 
@@ -229,6 +231,15 @@ public class tileGenerator : MonoBehaviour
         }
 
         return output;
+    }
+
+    public bool listContains(List<levelTile> list, levelTile item) 
+    {
+        foreach (levelTile tile in list) 
+        {
+            if (tile.name == item.name) return true;
+        }
+        return false;
     }
 
     // Update is called once per frame

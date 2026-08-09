@@ -15,57 +15,35 @@ MonoBehaviour:
   tiles:
   - name: deadEndN
     tile: {fileID: 5641898359342310611, guid: c43ffd63f44dac44aafff28ee1ea032e, type: 3}
-    xPos: 0
-    yPos: 0
   - name: EJunction
     tile: {fileID: 5641898359342310611, guid: f0005edd812b60749bfda739c79b3f08, type: 3}
-    xPos: 0
-    yPos: 0
   - name: NJunction
     tile: {fileID: 5641898359342310611, guid: c926f58ec5a753d44a192d46e229c27a, type: 3}
-    xPos: 0
-    yPos: 0
   - name: SECorner
     tile: {fileID: 5641898359342310611, guid: 47558d8cf7c19fb4eb74a22a9dec6a8d, type: 3}
-    xPos: 0
-    yPos: 0
   - name: SWCorner
     tile: {fileID: 5641898359342310611, guid: 809be114fda8e31439a57aee12183b96, type: 3}
-    xPos: 0
-    yPos: 0
   - name: WJunction
     tile: {fileID: 5641898359342310611, guid: f80f9fa1d5ca9cb42987461409a19d7d, type: 3}
-    xPos: 0
-    yPos: 0
-  - name: noWalls
+  - name: 4wayIntersection
     tile: {fileID: 5641898359342310611, guid: 4083801c511a0e641963edfaf23e4c58, type: 3}
-    xPos: 0
-    yPos: 0
   - name: NSRoom
     tile: {fileID: 5641898359342310611, guid: 0f5964fe9faeda541811c165eeb52dbc, type: 3}
-    xPos: 0
-    yPos: 0
   - name: NSCorridor
     tile: {fileID: 5641898359342310611, guid: fd09d132ab614294e9b9cc618897d29f, type: 3}
-    xPos: 0
-    yPos: 0
   - name: roomEndN
     tile: {fileID: 5641898359342310611, guid: 94fa9b970f6b5eb41a53ab0a60fad1a8, type: 3}
-    xPos: 0
-    yPos: 0
   - name: roomDamagedEndN
     tile: {fileID: 5641898359342310611, guid: e2f4d546303be2c42afdba5f11e76e42, type: 3}
-    xPos: 0
-    yPos: 0
   - name: NSCorridorDamaged
     tile: {fileID: 5641898359342310611, guid: e6fcd90feaeabe64a81318d984928893, type: 3}
-    xPos: 0
-    yPos: 0
   - name: NSRoomBrazier
     tile: {fileID: 5641898359342310611, guid: b5b09f88682e0a045af71fb62c64b61b, type: 3}
-    xPos: 0
-    yPos: 0
   - name: roomEndShelfN
     tile: {fileID: 5641898359342310611, guid: 4cc5d80884ec2c24a81b05c10406b903, type: 3}
-    xPos: 0
-    yPos: 0
+  - name: NSTrap1
+    tile: {fileID: 5641898359342310611, guid: 608d815f745de3b44ac00cb091876767, type: 3}
+  - name: NSTrap3
+    tile: {fileID: 5641898359342310611, guid: 8aaab41c8e45bd4468314995e32ea7a3, type: 3}
+  - name: NSTrap4
+    tile: {fileID: 5641898359342310611, guid: aa9a830c41901444f91852fddfa4d6b5, type: 3}

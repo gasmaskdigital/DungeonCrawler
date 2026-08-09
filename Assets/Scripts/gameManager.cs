@@ -18,21 +18,29 @@ public class gameManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI txtHealth;
     [SerializeField] TextMeshProUGUI txtStats;
     [SerializeField] PlayerStats playerStats;
+    [SerializeField] EffectHandler playerEffects;
+    [SerializeField] TextMeshProUGUI txtActiveEffects;
 
     [Header("Inventory")]
 
     [SerializeField] InventorySpriteSO inventorySpriteSO;
     [SerializeField] TextMeshProUGUI txtEquipment;
+    [SerializeField] TextMeshProUGUI healthCount;
+    [SerializeField] TextMeshProUGUI strengthCount;
+    [SerializeField] TextMeshProUGUI agilityCount;
+    [SerializeField] TextMeshProUGUI manaCount;
     [SerializeField] GameObject currentWeaponSprite;
     [SerializeField] GameObject currentHelmetSprite;
     [SerializeField] GameObject currentUpperBodySprite;
     [SerializeField] GameObject currentLowerBodySprite;
 
 
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         playerStats = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
+        playerEffects = GameObject.FindGameObjectWithTag("Player").GetComponent<EffectHandler>();
 
         updateFloorNumber();
         updatePlayerLevel();
@@ -47,6 +55,24 @@ public class gameManager : MonoBehaviour
         updateStatDisplay();
 
         if (Input.GetKeyDown(KeyCode.Tab)) updateEquipment();
+
+        if (playerEffects.activeEffects.Count > 0) 
+        {
+            string activeEffects = "";
+            foreach (StatusEffect effect in playerEffects.activeEffects) 
+            {
+                activeEffects += effect.name + " - " + Mathf.FloorToInt(effect.timeRemaining) + "\r\n";
+            }
+            
+            txtActiveEffects.text = activeEffects;
+        }
+        else if(txtActiveEffects.text != "") txtActiveEffects.text = "";
+
+        if (GameObject.FindGameObjectWithTag("Player") == null)
+        {
+            pnlGameOver.SetActive(true);
+            inGameUI.SetActive(false);
+        }
     }
 
     public void updateFloorNumber() 
@@ -132,6 +158,20 @@ public class gameManager : MonoBehaviour
                     break;
                 }
         }
+
+        healthCount.text = PlayerStats.healthPotionStack.ToString();
+        strengthCount.text = PlayerStats.strengthPotionStack.ToString();
+        agilityCount.text = PlayerStats.dexterityPotionStack.ToString();
+        manaCount.text = PlayerStats.magicPotionStack.ToString();
+
+        if(PlayerStats.healthPotionStack == 3) healthCount.color = Color.red;
+        else healthCount.color = Color.white;
+        if (PlayerStats.strengthPotionStack == 3) strengthCount.color = Color.red;
+        else strengthCount.color = Color.white;
+        if (PlayerStats.dexterityPotionStack == 3) agilityCount.color = Color.red;
+        else agilityCount.color = Color.white;
+        if (PlayerStats.magicPotionStack == 3) manaCount.color = Color.red;
+        else manaCount.color = Color.white;
     }
 
     public void updateStatDisplay() 
@@ -150,5 +190,15 @@ public class gameManager : MonoBehaviour
         playerStats.ResetStats();
         levelManager.currentLevel = 0;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void loadScene(string scene) 
+    {
+        SceneManager.LoadScene(scene);
+    }
+
+    public void ExitGame() 
+    {
+        Application.Quit();
     }
 }

@@ -15,57 +15,35 @@ MonoBehaviour:
   tiles:
   - name: deadEndW
     tile: {fileID: 5641898359342310611, guid: d5ff20f5292ab8144847b217f76ef994, type: 3}
-    xPos: 0
-    yPos: 0
   - name: NECorner
     tile: {fileID: 5641898359342310611, guid: f054a8195ea795e42bc9dcf688e1e56c, type: 3}
-    xPos: 0
-    yPos: 0
   - name: SECorner
     tile: {fileID: 5641898359342310611, guid: 47558d8cf7c19fb4eb74a22a9dec6a8d, type: 3}
-    xPos: 0
-    yPos: 0
   - name: NJunction
     tile: {fileID: 5641898359342310611, guid: c926f58ec5a753d44a192d46e229c27a, type: 3}
-    xPos: 0
-    yPos: 0
   - name: SJunction
     tile: {fileID: 5641898359342310611, guid: 117e3afa1f29c6d43b1ce43a3b5ce4a4, type: 3}
-    xPos: 0
-    yPos: 0
   - name: WJunction
     tile: {fileID: 5641898359342310611, guid: f80f9fa1d5ca9cb42987461409a19d7d, type: 3}
-    xPos: 0
-    yPos: 0
   - name: EWCorridor
     tile: {fileID: 5641898359342310611, guid: 3c3dfdc9ad9620c49ae2dde5aed8dbe4, type: 3}
-    xPos: 0
-    yPos: 0
-  - name: noWalls
+  - name: 4wayIntersection
     tile: {fileID: 5641898359342310611, guid: 4083801c511a0e641963edfaf23e4c58, type: 3}
-    xPos: 0
-    yPos: 0
   - name: EWRoom
     tile: {fileID: 5641898359342310611, guid: 4442980f9f9ba324f90120c7693883ea, type: 3}
-    xPos: 0
-    yPos: 0
   - name: roomEndW
     tile: {fileID: 5641898359342310611, guid: 7296b1c05193e5c498938821204796bc, type: 3}
-    xPos: 0
-    yPos: 0
   - name: roomDamagedEndW
     tile: {fileID: 5641898359342310611, guid: 1c75f3d601b12d54fae54911293b5f42, type: 3}
-    xPos: 0
-    yPos: 0
   - name: EWCorridorDamaged
     tile: {fileID: 5641898359342310611, guid: e11b35b657924cf4f8f224d597b05912, type: 3}
-    xPos: 0
-    yPos: 0
   - name: EWRoomBrazier
     tile: {fileID: 5641898359342310611, guid: c946d0b8513875c4ea355b1558cc0721, type: 3}
-    xPos: 0
-    yPos: 0
   - name: roomEndShelfW
     tile: {fileID: 5641898359342310611, guid: 804db200d4426b94fb3946971933c47e, type: 3}
-    xPos: 0
-    yPos: 0
+  - name: EWTrap1
+    tile: {fileID: 5641898359342310611, guid: 897c486f1e1aaf5438fc3b6eefb49d65, type: 3}
+  - name: EWTrap3
+    tile: {fileID: 5641898359342310611, guid: 2ba2a02143f1a254190b0ca91f916e84, type: 3}
+  - name: EWTrap4
+    tile: {fileID: 5641898359342310611, guid: 3e907172316c0954cb8da2e4fff3889f, type: 3}

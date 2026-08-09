@@ -16,6 +16,7 @@ public class PlayerHandler : MonoBehaviour
 
     [Header("References")]
     private CharacterController controller;
+    private gameManager gameManager;
     [SerializeField] Transform cameraTransform;
     public Animator playerAnimator;
     private AttackHandler attackHandler;
@@ -79,6 +80,7 @@ public class PlayerHandler : MonoBehaviour
         playerStats = GetComponent<PlayerStats>();
         effectHandler = GetComponent<EffectHandler>();
         vfxManager = FindAnyObjectByType<VFXManager>();
+        gameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<gameManager>();
 
         Cursor.lockState = CursorLockMode.Confined;
 
@@ -181,6 +183,7 @@ public class PlayerHandler : MonoBehaviour
                     int newHealth = PlayerStats.currentHealth + Mathf.CeilToInt(levelManager.currentLevel / 4f) * 10;
                     PlayerStats.currentHealth = Mathf.Min(PlayerStats.maxHealth, newHealth);
                     PlayerStats.healthPotionStack--;
+                    gameManager.updateEquipment();
                     potionVFXs[0].gameObject.SetActive(true);
                 }
             }
@@ -193,7 +196,7 @@ public class PlayerHandler : MonoBehaviour
             // Strength potion
             if (Input.GetKeyDown(KeyCode.Alpha2))
             {
-            if (PlayerStats.stregnthPotionStack > 0)
+            if (PlayerStats.strengthPotionStack > 0)
             {
                 if (canMove)
                 {
@@ -202,7 +205,8 @@ public class PlayerHandler : MonoBehaviour
                     SoundManager.Instance.PlaySound(drinkPotion, transform, 0.8f);
                     StatusEffect strength = new("Strength", Mathf.CeilToInt(levelManager.currentLevel / 4f), 30);
                     addEffectToPlayer(strength);
-                    PlayerStats.stregnthPotionStack--;
+                    PlayerStats.strengthPotionStack--;
+                    gameManager.updateEquipment();
                     potionVFXs[1].gameObject.SetActive(true);
                 }
             }
@@ -225,6 +229,7 @@ public class PlayerHandler : MonoBehaviour
                     StatusEffect agility = new("Agility", Mathf.CeilToInt(levelManager.currentLevel / 4f), 30);
                     addEffectToPlayer(agility);
                     PlayerStats.dexterityPotionStack--;
+                    gameManager.updateEquipment();
                     potionVFXs[2].gameObject.SetActive(true);
                 }
             }
@@ -247,6 +252,7 @@ public class PlayerHandler : MonoBehaviour
                     StatusEffect mana = new("Mana", Mathf.CeilToInt(levelManager.currentLevel / 4f), 30);
                     addEffectToPlayer(mana);
                     PlayerStats.magicPotionStack--;
+                    gameManager.updateEquipment();
                     potionVFXs[3].gameObject.SetActive(true);
                 }
             }
@@ -258,7 +264,7 @@ public class PlayerHandler : MonoBehaviour
 
         if (bowAiming)
         {
-            //Debug.Log(bowAiming);
+            // Debug.Log("bow aiming " + bowAiming);
             BowAiming();
         }
 
@@ -491,10 +497,14 @@ public class PlayerHandler : MonoBehaviour
 
     private void BowAiming()
     {
+
+        // Debug.Log("Bow aiming method");
+
         Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
 
-        if(Physics.Raycast(ray, out RaycastHit hit, 100f, terrainLayer))
+        if(Physics.Raycast(ray, out RaycastHit hit, 10000f, terrainLayer))
         {
+            
             Vector3 targetPos = hit.point;
 
             Vector3 direction = targetPos - transform.position;
@@ -707,8 +717,17 @@ public class PlayerHandler : MonoBehaviour
             g.gameObject.SetActive(false);
         }
     }
-
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        if (hit.gameObject.CompareTag("Trap"))
+        {
+            Debug.Log(hit.gameObject.name);
+            playerStats.TakeDamage(2);
+        }
+    }
 }
+
+
 
 public enum potionUsed
 {

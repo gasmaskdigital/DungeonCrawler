@@ -13,8 +13,8 @@ public struct levelTile
 {
     public string name;
     public GameObject tile;
-    public int xPos;
-    public int yPos;
+    //public int xPos;
+    //public int yPos;
 }
 
 public struct LevelMap
@@ -31,7 +31,7 @@ public class levelManager: MonoBehaviour
 {
     [Header("References")]
     public static LevelMap levelMap;
-    [SerializeField] GameObject startingMapTile;
+    [SerializeField] levelTile startingMapTile;
     [SerializeField] GameObject startingTileGenerator;
     [SerializeField] public static List<tileGenerator> tileGenerators;
     [SerializeField] GameObject staircase;
@@ -85,7 +85,7 @@ public class levelManager: MonoBehaviour
         levelMap.chestTiles = new();
         Vector2Int centre = new Vector2Int(Mathf.CeilToInt(levelWidth / 2f) - 1, Mathf.CeilToInt(levelHeight / 2f) - 1);
 
-        assignTileToLevelGrid(Instantiate(startingMapTile, startingTileGenerator.transform), centre.x, centre.y);
+        assignTileToLevelGrid(Instantiate(startingMapTile.tile, startingTileGenerator.transform), centre.x, centre.y);
         levelMap.centreTile = levelMap.tileGrid[centre.y, centre.x];
 
         tileGenerator[] children = levelMap.centreTile.tile.GetComponentsInChildren<tileGenerator>();
@@ -107,17 +107,18 @@ public class levelManager: MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*if (Input.GetKeyDown(KeyCode.Return)) 
+        if (Input.GetKeyDown(KeyCode.Return)) 
         {
+            Debug.Log("Printing level layout...");
             for (int i = 0; i < levelWidth; i++) 
             {
                 for (int j = 0; j < levelHeight; j++)
                 {
-                    if (levelMap.tileGrid[j, i].tile != null) Debug.Log("( " + i + ", " + j + "):" + levelMap.tileGrid[j, i].tile.name);
-                    else Debug.Log("(" + i + ", " + j + " ):" + "Empty");
+                    if (levelMap.tileGrid[j, i].tile != null) Debug.Log("(" + i + ", " + j + "): " + levelMap.tileGrid[j, i].name);
+                    else Debug.Log("(" + i + ", " + j + " ): " + "Empty");
                 }
             }
-        }*/
+        }
     }
 
     public void finaliseLevelGeneration() 
@@ -218,9 +219,10 @@ public class levelManager: MonoBehaviour
 
     public void assignTileToLevelGrid(GameObject tile, int x, int y) 
     {
+        levelMap.tileGrid[y, x].name = tile.name.Replace("(Clone)", "");
         levelMap.tileGrid[y, x].tile = tile;
-        levelMap.tileGrid[y, x].xPos = x;
-        levelMap.tileGrid[y, x].yPos = y;
+        //levelMap.tileGrid[y, x].xPos = x;
+        //levelMap.tileGrid[y, x].yPos = y;
     }
 
     public levelTile findRandomValidTile() 
