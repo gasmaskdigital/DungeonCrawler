@@ -4902,8 +4902,8 @@ MonoBehaviour:
   - light: {fileID: 4792640429935215158}
     loop: 1
     animateIntensity: 1
-    intensityStart: 7.507028
-    intensityEnd: 21.112127
+    intensityStart: 10
+    intensityEnd: 15
     intensityDuration: 1
     intensityCurve:
       serializedVersion: 2
@@ -4918,8 +4918,8 @@ MonoBehaviour:
     fadeOut: 1
     fadeOutDuration: 1
     animateRange: 1
-    rangeStart: 7
-    rangeEnd: 10
+    rangeStart: 11
+    rangeEnd: 16
     rangeDuration: 0
     rangeCurve:
       serializedVersion: 2

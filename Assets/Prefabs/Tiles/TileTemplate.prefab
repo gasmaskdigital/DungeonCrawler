@@ -559,6 +559,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3300108408296064167}
     m_Modifications:
+    - target: {fileID: 2495934453000676489, guid: d197b9bf2e52232418d7fb605783ea8a, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 3101415205328984977, guid: d197b9bf2e52232418d7fb605783ea8a, type: 3}
       propertyPath: m_Color.b
       value: 0
@@ -590,6 +594,10 @@ PrefabInstance:
     - target: {fileID: 6037450319199505960, guid: d197b9bf2e52232418d7fb605783ea8a, type: 3}
       propertyPath: m_Name
       value: mapCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 6037450319199505960, guid: d197b9bf2e52232418d7fb605783ea8a, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6037450319199505960, guid: d197b9bf2e52232418d7fb605783ea8a, type: 3}
       propertyPath: m_IsActive

@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4212130102071077565}
     m_Modifications:
+    - target: {fileID: 900664352479044773, guid: 86eb0c70f40212b4daced54b11052bbf, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 5240223456160117752, guid: 86eb0c70f40212b4daced54b11052bbf, type: 3}
       propertyPath: m_Intensity
       value: 0
@@ -68,6 +72,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: TorchPrefabs_New (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 8593848757858371673, guid: 86eb0c70f40212b4daced54b11052bbf, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8593848758426165906, guid: 86eb0c70f40212b4daced54b11052bbf, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -86,6 +98,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4212130102071077565}
     m_Modifications:
+    - target: {fileID: 900664352479044773, guid: 86eb0c70f40212b4daced54b11052bbf, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 5240223456160117752, guid: 86eb0c70f40212b4daced54b11052bbf, type: 3}
       propertyPath: m_Intensity
       value: 0
@@ -146,6 +162,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: TorchPrefabs_New (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 8593848757858371673, guid: 86eb0c70f40212b4daced54b11052bbf, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8593848758426165906, guid: 86eb0c70f40212b4daced54b11052bbf, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -164,6 +188,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4212130102071077565}
     m_Modifications:
+    - target: {fileID: 900664352479044773, guid: 86eb0c70f40212b4daced54b11052bbf, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 5240223456160117752, guid: 86eb0c70f40212b4daced54b11052bbf, type: 3}
       propertyPath: m_Intensity
       value: 0
@@ -224,6 +252,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: TorchPrefabs_New (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 8593848757858371673, guid: 86eb0c70f40212b4daced54b11052bbf, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8593848758426165906, guid: 86eb0c70f40212b4daced54b11052bbf, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -242,6 +278,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4212130102071077565}
     m_Modifications:
+    - target: {fileID: 900664352479044773, guid: 86eb0c70f40212b4daced54b11052bbf, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 5240223456160117752, guid: 86eb0c70f40212b4daced54b11052bbf, type: 3}
       propertyPath: m_Intensity
       value: 0
@@ -301,6 +341,14 @@ PrefabInstance:
     - target: {fileID: 8593848757858371673, guid: 86eb0c70f40212b4daced54b11052bbf, type: 3}
       propertyPath: m_Name
       value: TorchPrefabs_New (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8593848757858371673, guid: 86eb0c70f40212b4daced54b11052bbf, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8593848758426165906, guid: 86eb0c70f40212b4daced54b11052bbf, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -420,6 +468,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4212130102071077565}
     m_Modifications:
+    - target: {fileID: 900664352479044773, guid: 86eb0c70f40212b4daced54b11052bbf, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 5240223456160117752, guid: 86eb0c70f40212b4daced54b11052bbf, type: 3}
       propertyPath: m_Intensity
       value: 0
@@ -480,6 +532,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: TorchPrefabs_New
       objectReference: {fileID: 0}
+    - target: {fileID: 8593848757858371673, guid: 86eb0c70f40212b4daced54b11052bbf, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8593848758426165906, guid: 86eb0c70f40212b4daced54b11052bbf, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -498,6 +558,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4212130102071077565}
     m_Modifications:
+    - target: {fileID: 900664352479044773, guid: 86eb0c70f40212b4daced54b11052bbf, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 5240223456160117752, guid: 86eb0c70f40212b4daced54b11052bbf, type: 3}
       propertyPath: m_Intensity
       value: 0
@@ -558,6 +622,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: TorchPrefabs_New (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8593848757858371673, guid: 86eb0c70f40212b4daced54b11052bbf, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8593848758426165906, guid: 86eb0c70f40212b4daced54b11052bbf, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -576,6 +648,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4212130102071077565}
     m_Modifications:
+    - target: {fileID: 900664352479044773, guid: 86eb0c70f40212b4daced54b11052bbf, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 5240223456160117752, guid: 86eb0c70f40212b4daced54b11052bbf, type: 3}
       propertyPath: m_Intensity
       value: 0
@@ -636,6 +712,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: TorchPrefabs_New (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8593848757858371673, guid: 86eb0c70f40212b4daced54b11052bbf, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8593848758426165906, guid: 86eb0c70f40212b4daced54b11052bbf, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -654,6 +738,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4212130102071077565}
     m_Modifications:
+    - target: {fileID: 900664352479044773, guid: 86eb0c70f40212b4daced54b11052bbf, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 5240223456160117752, guid: 86eb0c70f40212b4daced54b11052bbf, type: 3}
       propertyPath: m_Intensity
       value: 0
@@ -714,6 +802,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: TorchPrefabs_New (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 8593848757858371673, guid: 86eb0c70f40212b4daced54b11052bbf, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8593848758426165906, guid: 86eb0c70f40212b4daced54b11052bbf, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -732,6 +828,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4212130102071077565}
     m_Modifications:
+    - target: {fileID: 900664352479044773, guid: 86eb0c70f40212b4daced54b11052bbf, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 5240223456160117752, guid: 86eb0c70f40212b4daced54b11052bbf, type: 3}
       propertyPath: m_Intensity
       value: 0
@@ -792,6 +892,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: TorchPrefabs_New (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 8593848757858371673, guid: 86eb0c70f40212b4daced54b11052bbf, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8593848758426165906, guid: 86eb0c70f40212b4daced54b11052bbf, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -810,6 +918,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4212130102071077565}
     m_Modifications:
+    - target: {fileID: 900664352479044773, guid: 86eb0c70f40212b4daced54b11052bbf, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 5240223456160117752, guid: 86eb0c70f40212b4daced54b11052bbf, type: 3}
       propertyPath: m_Intensity
       value: 0
@@ -869,6 +981,14 @@ PrefabInstance:
     - target: {fileID: 8593848757858371673, guid: 86eb0c70f40212b4daced54b11052bbf, type: 3}
       propertyPath: m_Name
       value: TorchPrefabs_New (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8593848757858371673, guid: 86eb0c70f40212b4daced54b11052bbf, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8593848758426165906, guid: 86eb0c70f40212b4daced54b11052bbf, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

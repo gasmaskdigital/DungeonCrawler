@@ -74,7 +74,7 @@ Material:
     - _CFXR_DITHERED_SHADOWS: 0
     - _CFXR_OVERLAYBLEND: 0
     - _CFXR_OVERLAYTEX: 0
-    - _Cutoff: 0.27
+    - _Cutoff: 0.1
     - _DirLightScreenAtten: 1
     - _DirectLightingMix: 0.5
     - _DirectLightingRamp: 1

@@ -1799,6 +1799,7 @@ GameObject:
   - component: {fileID: 314340726}
   - component: {fileID: 314340734}
   - component: {fileID: 314340730}
+  - component: {fileID: 314340735}
   - component: {fileID: 314340733}
   m_Layer: 0
   m_Name: CinemachineMainCamera
@@ -1833,8 +1834,8 @@ MonoBehaviour:
   Lens:
     FieldOfView: 90
     OrthographicSize: 7.5
-    NearClipPlane: -8000
-    FarClipPlane: 8000
+    NearClipPlane: -100
+    FarClipPlane: 100
     Dutch: 0
     ModeOverride: 1
     PhysicalProperties:
@@ -1878,7 +1879,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62d54399b04b4fa48a73e121d4937dd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachinePanTilt
-  ReferenceFrame: 0
+  ReferenceFrame: 1
   RecenterTarget: 0
   PanAxis:
     Value: 45
@@ -1958,6 +1959,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineHardLockToTarget
   Damping: 0
+--- !u!114 &314340735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 314340725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44d70cc20219cd84593f67d248eafe36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineCameraOffset
+  Offset: {x: 0, y: 0, z: -10}
+  ApplyAfter: 1
+  PreserveComposition: 0
 --- !u!1 &329554943
 GameObject:
   m_ObjectHideFlags: 0
@@ -8709,13 +8725,13 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 1
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
-    m_Bias: 0.05
-    m_NormalBias: 0.4
-    m_NearPlane: 0.2
+    m_Bias: 2.7
+    m_NormalBias: 1.43
+    m_NearPlane: 0.5
     m_CullingMatrixOverride:
       e00: 1
       e01: 0
@@ -8784,7 +8800,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.UniversalAdditionalLightData
-  m_UsePipelineSettings: 1
+  m_UsePipelineSettings: 0
   m_AdditionalLightsShadowResolutionTier: 2
   m_CustomShadowLayers: 0
   m_LightCookieSize: {x: 1, y: 1}
@@ -9207,8 +9223,8 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: -8000
-  far clip plane: 8000
+  near clip plane: -100
+  far clip plane: 100
   field of view: 90
   orthographic: 1
   orthographic size: 7.5
@@ -9236,7 +9252,7 @@ Transform:
   m_GameObject: {fileID: 1773633956}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.00000023841858, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

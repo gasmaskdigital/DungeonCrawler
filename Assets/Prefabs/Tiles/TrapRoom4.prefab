@@ -382,6 +382,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: CFXR Fire (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 5461234271608461031, guid: c2c41adb86a83a644ba6cb39f6a7be46, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6072129442786882530, guid: c2c41adb86a83a644ba6cb39f6a7be46, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6568080837204431493, guid: c2c41adb86a83a644ba6cb39f6a7be46, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6601427116968704798, guid: c2c41adb86a83a644ba6cb39f6a7be46, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 6943825842930723273, guid: c2c41adb86a83a644ba6cb39f6a7be46, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.701
@@ -548,6 +564,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: CFXR Fire (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 5461234271608461031, guid: c2c41adb86a83a644ba6cb39f6a7be46, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6072129442786882530, guid: c2c41adb86a83a644ba6cb39f6a7be46, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6568080837204431493, guid: c2c41adb86a83a644ba6cb39f6a7be46, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6601427116968704798, guid: c2c41adb86a83a644ba6cb39f6a7be46, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 6943825842930723273, guid: c2c41adb86a83a644ba6cb39f6a7be46, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.7
@@ -618,6 +650,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: CFXR Fire (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 5461234271608461031, guid: c2c41adb86a83a644ba6cb39f6a7be46, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6072129442786882530, guid: c2c41adb86a83a644ba6cb39f6a7be46, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6568080837204431493, guid: c2c41adb86a83a644ba6cb39f6a7be46, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6601427116968704798, guid: c2c41adb86a83a644ba6cb39f6a7be46, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 6943825842930723273, guid: c2c41adb86a83a644ba6cb39f6a7be46, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.7
@@ -687,6 +735,22 @@ PrefabInstance:
     - target: {fileID: 5461234271608461031, guid: c2c41adb86a83a644ba6cb39f6a7be46, type: 3}
       propertyPath: m_Name
       value: CFXR Fire (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5461234271608461031, guid: c2c41adb86a83a644ba6cb39f6a7be46, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6072129442786882530, guid: c2c41adb86a83a644ba6cb39f6a7be46, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6568080837204431493, guid: c2c41adb86a83a644ba6cb39f6a7be46, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6601427116968704798, guid: c2c41adb86a83a644ba6cb39f6a7be46, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6943825842930723273, guid: c2c41adb86a83a644ba6cb39f6a7be46, type: 3}
       propertyPath: m_LocalPosition.x
