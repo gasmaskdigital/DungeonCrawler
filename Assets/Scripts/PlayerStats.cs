@@ -125,6 +125,24 @@ public class PlayerStats : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+       /* if (Input.GetKeyDown(KeyCode.Alpha7))
+        {
+            currentWeapon.weaponType = WeaponType.Bow;
+            UpdateWeaponSocket();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha8))
+        {
+            currentWeapon.weaponType = WeaponType.FireSpellBook;
+            UpdateWeaponSocket();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha9))
+        {
+            currentWeapon.weaponType = WeaponType.Axe;
+            UpdateWeaponSocket();
+        }
+       Done for trailer Footage */
     }
 
     public void AddToXP(int xpReward)
