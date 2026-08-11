@@ -2963,6 +2963,7 @@ GameObject:
   - component: {fileID: 749143113}
   - component: {fileID: 749143112}
   - component: {fileID: 749143111}
+  - component: {fileID: 749143115}
   m_Layer: 5
   m_Name: Upgrade Menu
   m_TagString: Untagged
@@ -3061,6 +3062,29 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &749143115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 749143110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31ee1fdda1fa4844c8d79b70e4942d77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  healthCost: 100
+  strengthCost: 150
+  dexterityCost: 125
+  magicCost: 200
+  enduranceCost: 175
+  healthCostIncrease: 50
+  strengthCostIncrease: 50
+  dexterityCostIncrease: 50
+  magicCostIncrease: 50
+  enduranceCostIncrease: 50
+  currencyText: {fileID: 420107059}
 --- !u!1 &762900384
 GameObject:
   m_ObjectHideFlags: 0
