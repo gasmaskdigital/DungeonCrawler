@@ -129,7 +129,7 @@ public class EnemyStats : MonoBehaviour
     public void EnemyDeath()
     {
         Destroy(gameObject);
-        Debug.Log("Death");
+        //Debug.Log("Death");
     }
 
 

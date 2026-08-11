@@ -264,7 +264,7 @@ public class PlayerHandler : MonoBehaviour
 
         if (bowAiming)
         {
-            // Debug.Log("bow aiming " + bowAiming);
+            //  Debug.Log("bow aiming " + bowAiming);
             BowAiming();
         }
 
@@ -478,7 +478,7 @@ public class PlayerHandler : MonoBehaviour
                 if(attackHandler.attackType == AttackType.LightAttack)
                 {
                     playerAnimator.SetTrigger("IceLightAttack");
-                    Debug.Log("ice light attack");
+                    // Debug.Log("ice light attack");
                 }
                 else
                 {
@@ -498,7 +498,7 @@ public class PlayerHandler : MonoBehaviour
     private void BowAiming()
     {
 
-        // Debug.Log("Bow aiming method");
+        //  Debug.Log("Bow aiming method");
 
         Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
 
@@ -721,7 +721,7 @@ public class PlayerHandler : MonoBehaviour
     {
         if (hit.gameObject.CompareTag("Trap"))
         {
-            Debug.Log(hit.gameObject.name);
+            // Debug.Log(hit.gameObject.name);
             playerStats.TakeDamage(2);
         }
     }

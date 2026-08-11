@@ -83,13 +83,13 @@ public class AINavigation : MonoBehaviour, IKnockbackable
                     else if (navMeshAgent.remainingDistance < navMeshAgent.stoppingDistance)
                     {
                         Roaming();
-                       // Debug.Log("Roaming");
+                       //Debug.Log("Roaming");
                     }
 
                 }
             }
 
-           // Debug.Log(enemyName + "isAttacking " + isAttacking);
+           //Debug.Log(enemyName + "isAttacking " + isAttacking);
         }
         
         
@@ -124,7 +124,7 @@ public class AINavigation : MonoBehaviour, IKnockbackable
 
         enemyAttackHandler.AttackTypeCheck();
         isAttacking = true;
-        Debug.Log("attack player isattacking = " + isAttacking);
+        //Debug.Log("attack player isattacking = " + isAttacking);
     }
 
     public void CheckEnemyNameForAttack()
@@ -216,7 +216,7 @@ public class AINavigation : MonoBehaviour, IKnockbackable
         }
         navMeshAgent.Warp(transform.position);
 
-        Debug.Log("can move off");
+        //Debug.Log("can move off");
 
 
     }
@@ -238,7 +238,7 @@ public class AINavigation : MonoBehaviour, IKnockbackable
             }
             navMeshAgent.Warp(transform.position);
         }
-        Debug.Log("CanMove on is attacking = " + isAttacking);
+        //Debug.Log("CanMove on is attacking = " + isAttacking);
     }
 
     public void DestroyObject()

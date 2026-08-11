@@ -41,7 +41,7 @@ public class ArrowLightAttack : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Arrow hit " + other.gameObject.name);
+        //Debug.Log("Arrow hit " + other.gameObject.name);
 
         if (other.CompareTag("Enemy"))
         {

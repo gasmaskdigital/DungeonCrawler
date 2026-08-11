@@ -112,7 +112,7 @@ public class AttackHandler : MonoBehaviour
             if (c.gameObject.CompareTag("Enemy"))
             {
                 EnemyStats cEnemyStats = c.GetComponent<EnemyStats>();
-                Debug.Log(cEnemyStats);
+                //Debug.Log(cEnemyStats);
 
                 AINavigation cAINav = c.GetComponent<AINavigation>();
 
@@ -319,7 +319,7 @@ public class AttackHandler : MonoBehaviour
             if (c.gameObject.CompareTag("Enemy"))
             {
                 EnemyStats cEnemyStats = c.GetComponent<EnemyStats>();
-                Debug.Log(cEnemyStats);
+                //Debug.Log(cEnemyStats);
 
                 AINavigation cAINav = c.GetComponent<AINavigation>();
 
@@ -357,7 +357,7 @@ public class AttackHandler : MonoBehaviour
             if (c.gameObject.CompareTag("Enemy"))
             {
                 EnemyStats cEnemyStats = c.GetComponent<EnemyStats>();
-                Debug.Log(cEnemyStats);
+                //Debug.Log(cEnemyStats);
 
                 AINavigation cAINav = c.GetComponent<AINavigation>();
 
@@ -395,7 +395,7 @@ public class AttackHandler : MonoBehaviour
             if (c.gameObject.CompareTag("Enemy"))
             {
                 EnemyStats cEnemyStats = c.GetComponent<EnemyStats>();
-                Debug.Log(cEnemyStats);
+                //Debug.Log(cEnemyStats);
 
                 AINavigation cAINav = c.GetComponent<AINavigation>();
 
@@ -433,7 +433,7 @@ public class AttackHandler : MonoBehaviour
             if (c.gameObject.CompareTag("Enemy"))
             {
                 EnemyStats cEnemyStats = c.GetComponent<EnemyStats>();
-                Debug.Log(cEnemyStats);
+                //Debug.Log(cEnemyStats);
 
                 AINavigation cAINav = c.GetComponent<AINavigation>();
 

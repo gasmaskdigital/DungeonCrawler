@@ -91,6 +91,7 @@ public class lootScript : MonoBehaviour
                         break;
                     case (LootType.Money):
                         gameManager.playerMoney += statValue;
+                        pickedUp = true;
                         break;
                 }
                 

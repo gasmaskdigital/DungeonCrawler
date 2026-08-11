@@ -115,7 +115,7 @@ public class EnemyAttackHandler : MonoBehaviour
         Collider[] colliders = Physics.OverlapSphere(origin, lightAttackRadius, playerMask, QueryTriggerInteraction.Ignore);
         foreach(Collider c in colliders)
         {
-            Debug.Log(c.gameObject.name);
+            //Debug.Log(c.gameObject.name);
             if (c.CompareTag("Player"))
             {
                 PlayerStats playerStats = c.GetComponent<PlayerStats>();
@@ -245,7 +245,7 @@ public class EnemyAttackHandler : MonoBehaviour
             }
         }
 
-        Debug.Log("spider heavy attack");
+        //Debug.Log("spider heavy attack");
     }
 
     public void SpiderLightAttack()
