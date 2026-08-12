@@ -4,17 +4,23 @@ using TMPro;
 
 public class Upgradecost : MonoBehaviour
 {
-    [SerializeField] int healthCost = 100;
-    [SerializeField] int strengthCost = 150;
-    [SerializeField] int dexterityCost = 125;
-    [SerializeField] int magicCost = 200;
-    [SerializeField] int enduranceCost = 175;
+    static int healthCost = 100;
+    static int strengthCost = 150;
+    static int dexterityCost = 125;
+    static int magicCost = 200;
+    static int enduranceCost = 175;
 
     [SerializeField] int healthCostIncrease = 50;
     [SerializeField] int strengthCostIncrease = 50;
     [SerializeField] int dexterityCostIncrease = 50;
     [SerializeField] int magicCostIncrease = 50;
     [SerializeField] int enduranceCostIncrease = 50;
+
+    public static int startingHealth = 1;
+    public static int startingStrength = 1;
+    public static int startingDexterity = 1;
+    public static int startingMagic = 1;
+    public static int startingEndurance = 1;
 
     [SerializeField] private TMP_Text currencyText;
 
@@ -32,7 +38,7 @@ public class Upgradecost : MonoBehaviour
             return;
 
         PlayerStats.currency -= healthCost;
-        PlayerStats.healthStat++;
+        startingHealth++;
 
         healthCost += healthCostIncrease;
     }
@@ -43,7 +49,7 @@ public class Upgradecost : MonoBehaviour
             return;
 
         PlayerStats.currency -= strengthCost;
-        PlayerStats.strengthStat++;
+        startingStrength++;
 
         strengthCost += strengthCostIncrease;
     }
@@ -54,7 +60,7 @@ public class Upgradecost : MonoBehaviour
             return;
 
         PlayerStats.currency -= dexterityCost;
-        PlayerStats.dexterityStat++;
+        startingDexterity++;
 
         dexterityCost += dexterityCostIncrease;
     }
@@ -65,7 +71,7 @@ public class Upgradecost : MonoBehaviour
             return;
 
         PlayerStats.currency -= magicCost;
-        PlayerStats.magicStat++;
+        startingMagic++;
 
         magicCost += magicCostIncrease;
     }
@@ -76,7 +82,7 @@ public class Upgradecost : MonoBehaviour
             return;
 
         PlayerStats.currency -= enduranceCost;
-        PlayerStats.enduranceStat++;
+        startingEndurance++;
 
         enduranceCost += enduranceCostIncrease;
     }

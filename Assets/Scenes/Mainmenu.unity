@@ -828,7 +828,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &243576095
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2970,7 +2970,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &749143111
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3074,11 +3074,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31ee1fdda1fa4844c8d79b70e4942d77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  healthCost: 100
-  strengthCost: 150
-  dexterityCost: 125
-  magicCost: 200
-  enduranceCost: 175
   healthCostIncrease: 50
   strengthCostIncrease: 50
   dexterityCostIncrease: 50
