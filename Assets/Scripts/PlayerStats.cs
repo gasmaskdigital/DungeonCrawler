@@ -16,6 +16,8 @@ public class PlayerStats : MonoBehaviour
     public static int playerLevel = 1;
     public static int currentXP = 0;
     public static int requiredXP = 10;
+   
+
     public Slider expSlider;
 
     public static int boostedStrength;
@@ -24,10 +26,12 @@ public class PlayerStats : MonoBehaviour
     public static int boostedEndurance;
     public static int boostedHealth;
 
+    public static int currency = 0;
     public static int maxHealth = 50;
     public static int currentHealth;
 
     public int earntXP;
+    
    
 
     public levelManager levelManager;

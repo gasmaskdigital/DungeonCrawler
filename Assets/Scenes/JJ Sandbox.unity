@@ -6442,6 +6442,8 @@ MonoBehaviour:
   pauseMenu: {fileID: 2031388513}
   container: {fileID: 1586281644}
   inventory: {fileID: 1321412100}
+  playerStats: {fileID: 0}
+  panel: {fileID: 0}
 --- !u!4 &1288702564
 Transform:
   m_ObjectHideFlags: 0

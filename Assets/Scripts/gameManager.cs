@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class gameManager : MonoBehaviour
 {
-    public static int playerMoney;
+   
     
 
     [Header("UI References")]
@@ -51,7 +51,7 @@ public class gameManager : MonoBehaviour
     void Update()
     {
         txtHealth.text = PlayerStats.currentHealth + " / " + PlayerStats.maxHealth;
-        txtMoney.text = "Money: " + playerMoney;
+        txtMoney.text = "Money: " + PlayerStats.currency;
         updateStatDisplay();
 
         if (Input.GetKeyDown(KeyCode.Tab)) updateEquipment();
