@@ -5,9 +5,7 @@ using UnityEngine.UI;
 
 public class gameManager : MonoBehaviour
 {
-   
-    
-
+ 
     [Header("UI References")]
      
     [SerializeField] GameObject inGameUI;
@@ -185,11 +183,11 @@ public class gameManager : MonoBehaviour
         pnlGameOver.SetActive(!pnlGameOver.activeSelf);
     }
 
-    public void resetGame() 
+    public void resetGame(string scene) 
     {
         playerStats.ResetStats();
         levelManager.currentLevel = 0;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene(scene);
     }
 
     public void loadScene(string scene) 

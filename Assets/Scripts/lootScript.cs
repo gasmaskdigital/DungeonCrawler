@@ -90,7 +90,7 @@ public class lootScript : MonoBehaviour
                         pickupPotion();
                         break;
                     case (LootType.Money):
-                        gameManager.playerMoney += statValue;
+                        PlayerStats.currency += statValue;
                         pickedUp = true;
                         break;
                 }

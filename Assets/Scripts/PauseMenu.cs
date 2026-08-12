@@ -99,11 +99,7 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
         playerStats.ResetStats();
         levelManager.currentLevel = 0;
-
-        
-
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        
     }
 }
 

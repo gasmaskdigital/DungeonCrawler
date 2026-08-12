@@ -22,6 +22,6 @@ public class MainMenuManager : MonoBehaviour
 
     private void Update()
     {
-        Money.text = gameManager.playerMoney.ToString();
+        Money.text = PlayerStats.currency.ToString();
     }
 }
