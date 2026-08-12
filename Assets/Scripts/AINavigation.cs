@@ -70,7 +70,7 @@ public class AINavigation : MonoBehaviour, IKnockbackable
                 if (canMove)
                 {
 
-                    if (playerSpotted && playerAlive)
+                    if (playerSpotted && playerAlive && playerHandler != null)
                     {
                         navMeshAgent.destination = playerHandler.transform.position;
                         if (!navMeshAgent.pathPending && navMeshAgent.remainingDistance < navMeshAgent.stoppingDistance && !isAttacking)

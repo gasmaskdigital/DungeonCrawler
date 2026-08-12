@@ -49,9 +49,9 @@ MonoBehaviour:
     tile: {fileID: 5641898359342310611, guid: 3e907172316c0954cb8da2e4fff3889f, type: 3}
   - name: roomBlockedEndE
     tile: {fileID: 5641898359342310611, guid: 07949bf6ed8de964681d8ae65ea2d362, type: 3}
-  - name: roomCornerShelfEndN
+  - name: roomCornerShelfEndE
     tile: {fileID: 5641898359342310611, guid: 5c367fd347f980943afd647420c91132, type: 3}
-  - name: roomDamagedCornerEndN
-    tile: {fileID: 5641898359342310611, guid: 193b091e58efeee4292dddb8f1ad37b7, type: 3}
+  - name: roomDamagedCornerEndE
+    tile: {fileID: 5641898359342310611, guid: a0dbfa3d5562bb84c9882a3a89e96e0c, type: 3}
   - name: EWRoomPillars
     tile: {fileID: 5641898359342310611, guid: 8bf463e6de549f14c9d14b2eafadaa34, type: 3}

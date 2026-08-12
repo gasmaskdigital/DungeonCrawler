@@ -186,6 +186,7 @@ public class gameManager : MonoBehaviour
     public void resetGame(string scene) 
     {
         playerStats.ResetStats();
+        PlayerStats.healthPotionStack = 0;
         levelManager.currentLevel = 0;
         SceneManager.LoadScene(scene);
     }

@@ -49,9 +49,9 @@ MonoBehaviour:
   - name: AgilityPotion
     type: 2
     prefab: {fileID: 6093041139753806892, guid: ff4a646f34a249b43a86482fdac1a5ae, type: 3}
-  - name: AgilityPotion
+  - name: ManaPotion
     type: 2
-    prefab: {fileID: 6093041139753806892, guid: 347371dc57dfa4446bbaf9524203de10, type: 3}
+    prefab: {fileID: 6093041139753806892, guid: 5e3cb6e96d4a9784d8bde23f01cb9961, type: 3}
   - name: Money
     type: 3
     prefab: {fileID: 1064078589619500094, guid: d42d7772a15b23b4690decde3b6e0f3e, type: 3}

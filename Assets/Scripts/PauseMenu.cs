@@ -78,6 +78,12 @@ public class PauseMenu : MonoBehaviour
     public void Home()
     {
         Time.timeScale = 1f;
+        playerStats.ResetStats();
+        levelManager.currentLevel = 0;
+        PlayerStats.healthPotionStack = 0;
+        PlayerStats.strengthPotionStack = 0;
+        PlayerStats.dexterityPotionStack = 0;
+        PlayerStats.magicPotionStack = 0;
         SceneManager.LoadScene("Mainmenu");
     }
 
@@ -99,6 +105,10 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
         playerStats.ResetStats();
         levelManager.currentLevel = 0;
+        PlayerStats.healthPotionStack = 0;
+        PlayerStats.strengthPotionStack = 0;
+        PlayerStats.dexterityPotionStack = 0;
+        PlayerStats.magicPotionStack = 0;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
