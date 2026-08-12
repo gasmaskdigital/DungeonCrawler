@@ -87,7 +87,8 @@ public class PlayerStats : MonoBehaviour
 
         currentDefenceTotal = 0;
 
-
+        UpdateMaxHealth();
+        AINavigation.playerAlive = true;
     }
 
     private void Awake()

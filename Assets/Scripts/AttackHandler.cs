@@ -278,7 +278,7 @@ public class AttackHandler : MonoBehaviour
 
         if (cAINav.alive)
         {
-            int damageDealt = HeavyAttackDamage(PlayerStats.currentWeapon.attackValue, PlayerStats.boostedDexterity, enemyStats.defence);
+            int damageDealt = HeavyAttackDamage(PlayerStats.currentWeapon.attackValue, PlayerStats.boostedMagic, enemyStats.defence);
             damageDealt = CheckForEffect(damageDealt, "Mana");
             if (CheckForCrit())
             {
@@ -439,7 +439,7 @@ public class AttackHandler : MonoBehaviour
 
                 if (cAINav.alive)
                 {
-                    int damageDealt = HeavyAttackDamage(PlayerStats.currentWeapon.attackValue, PlayerStats.boostedStrength, cEnemyStats.defence);
+                    int damageDealt = HeavyAttackDamage(PlayerStats.currentWeapon.attackValue, PlayerStats.boostedDexterity, cEnemyStats.defence);
 
                     damageDealt = CheckForEffect(damageDealt, "Agility");
                     if (CheckForCrit())
@@ -503,7 +503,7 @@ public class AttackHandler : MonoBehaviour
     {
         if (cAiNav.alive)
         {
-            int damageDealt = HeavyAttackDamage(PlayerStats.currentWeapon.attackValue, PlayerStats.boostedDexterity, enemystats.defence);
+            int damageDealt = HeavyAttackDamage(PlayerStats.currentWeapon.attackValue, PlayerStats.boostedMagic, enemystats.defence);
             damageDealt = CheckForEffect(damageDealt, "Mana");
             if (CheckForCrit())
             {
