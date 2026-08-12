@@ -64,11 +64,11 @@ public class PlayerStats : MonoBehaviour
 
     public void ResetStats()
     {
-        healthStat = 1;
-        strengthStat = 1;
-        dexterityStat = 1;
-        magicStat = 1;
-        enduranceStat = 1;
+        healthStat = Upgradecost.startingHealth;
+        strengthStat = Upgradecost.startingStrength;
+        dexterityStat = Upgradecost.startingDexterity;
+        magicStat = Upgradecost.startingMagic;
+        enduranceStat = Upgradecost.startingEndurance;
         playerLevel = 1;
         currentXP = 0;
         requiredXP = 10;

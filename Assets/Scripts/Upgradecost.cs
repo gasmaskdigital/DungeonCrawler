@@ -10,11 +10,21 @@ public class Upgradecost : MonoBehaviour
     static int magicCost = 100;
     static int enduranceCost = 100;
 
+    //cost increase
+
     [SerializeField] int healthCostIncrease = 50;
     [SerializeField] int strengthCostIncrease = 50;
     [SerializeField] int dexterityCostIncrease = 50;
     [SerializeField] int magicCostIncrease = 50;
     [SerializeField] int enduranceCostIncrease = 50;
+
+    //prices
+
+    [SerializeField] private TMP_Text Health;
+    [SerializeField] private TMP_Text Strength;
+    [SerializeField] private TMP_Text Dexterity;
+    [SerializeField] private TMP_Text Magic;
+    [SerializeField] private TMP_Text Endurance;
 
     public static int startingHealth = 1;
     public static int startingStrength = 1;
@@ -29,8 +39,20 @@ public class Upgradecost : MonoBehaviour
 
     void Start()
     {
-        //playerStats = PlayerStats.Instance;
+        UpdatePrice();
+
     }
+
+    public void UpdatePrice()
+    {
+        Health.text = healthCost.ToString();
+        Strength.text = strengthCost.ToString();
+        Dexterity.text = dexterityCost.ToString();
+        Magic.text = magicCost.ToString();
+        Endurance.text = enduranceCost.ToString();
+    }
+
+
 
     public void HealthUpgrade()
     {
@@ -52,6 +74,8 @@ public class Upgradecost : MonoBehaviour
         startingStrength++;
 
         strengthCost += strengthCostIncrease;
+
+        UpdatePrice();
     }
 
     public void DexterityUpgrade()
@@ -63,6 +87,8 @@ public class Upgradecost : MonoBehaviour
         startingDexterity++;
 
         dexterityCost += dexterityCostIncrease;
+
+        UpdatePrice();
     }
 
     public void MagicUpgrade()
@@ -74,6 +100,8 @@ public class Upgradecost : MonoBehaviour
         startingMagic++;
 
         magicCost += magicCostIncrease;
+
+        UpdatePrice();
     }
 
     public void EnduranceUpgrade()
@@ -85,5 +113,7 @@ public class Upgradecost : MonoBehaviour
         startingEndurance++;
 
         enduranceCost += enduranceCostIncrease;
+
+        UpdatePrice();
     }
 }
