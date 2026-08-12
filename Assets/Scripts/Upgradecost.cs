@@ -5,10 +5,10 @@ using TMPro;
 public class Upgradecost : MonoBehaviour
 {
     static int healthCost = 100;
-    static int strengthCost = 150;
-    static int dexterityCost = 125;
-    static int magicCost = 200;
-    static int enduranceCost = 175;
+    static int strengthCost = 100;
+    static int dexterityCost = 100;
+    static int magicCost = 100;
+    static int enduranceCost = 100;
 
     [SerializeField] int healthCostIncrease = 50;
     [SerializeField] int strengthCostIncrease = 50;

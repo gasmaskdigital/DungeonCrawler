@@ -4986,7 +4986,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1127480946
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6002,6 +6002,8 @@ MonoBehaviour:
   pauseMenu: {fileID: 2031388513}
   container: {fileID: 1586281644}
   inventory: {fileID: 1321412100}
+  playerStats: {fileID: 0}
+  panel: {fileID: 0}
 --- !u!4 &1288702564
 Transform:
   m_ObjectHideFlags: 0

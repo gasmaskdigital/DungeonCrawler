@@ -26,7 +26,7 @@ public class PlayerStats : MonoBehaviour
     public static int boostedEndurance;
     public static int boostedHealth;
 
-    public static int currency = 1000;
+    public static int currency = 0;
     public static int maxHealth = 50;
     public static int currentHealth;
 
