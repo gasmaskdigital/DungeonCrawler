@@ -1778,7 +1778,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 448419066}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 749143115}
+        m_TargetAssemblyTypeName: Upgradecost, Assembly-CSharp
+        m_MethodName: MagicUpgrade
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &448419066
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4202,7 +4214,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1363172964}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 749143115}
+        m_TargetAssemblyTypeName: Upgradecost, Assembly-CSharp
+        m_MethodName: HealthUpgrade
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1363172964
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4534,7 +4558,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1460240081}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 749143115}
+        m_TargetAssemblyTypeName: Upgradecost, Assembly-CSharp
+        m_MethodName: EnduranceUpgrade
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1460240081
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4927,7 +4963,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1549847218}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 749143115}
+        m_TargetAssemblyTypeName: Upgradecost, Assembly-CSharp
+        m_MethodName: DexterityUpgrade
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1549847218
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5851,7 +5899,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1922649064}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 749143115}
+        m_TargetAssemblyTypeName: Upgradecost, Assembly-CSharp
+        m_MethodName: StrengthUpgrade
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1922649064
 MonoBehaviour:
   m_ObjectHideFlags: 0
